@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>milkfolio</title>
+  <meta name="description" content="A personal portfolio space — Actor, Data Engineer, Designer."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Space+Grotesk:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black:    #080808;
+      --white:    #f5f3ef;
+      --muted:    #555;
+      --actor:    #b8a98a;
+      --dev:      #38d9ff;
+      --designer: #d4b8cc;
+    }
+
+    html, body { height: 100%; overflow: hidden; }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    /* LOGO */
+    .logo {
+      position: fixed;
+      top: 1.75rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 20;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.55em;
+      text-transform: uppercase;
+      color: rgba(245,243,239,0.3);
+      pointer-events: none;
+      white-space: nowrap;
+    }
+
+    /* PANELS */
+    .panels {
+      display: flex;
+      height: 100vh;
+    }
+
+    .panel {
+      flex: 1;
+      position: relative;
+      overflow: hidden;
+      border-right: 1px solid rgba(255,255,255,0.04);
+      transition: flex 0.75s cubic-bezier(0.4, 0, 0.2, 1);
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    .panel:last-child { border-right: none; }
+
+    .panels:has(.panel:hover) .panel { flex: 0.55; }
+    .panels:has(.panel:hover) .panel:hover { flex: 1.9; }
+
+    /* fallback for no :has support */
+    @supports not selector(:has(*)) {
+      .panel:hover { flex: 1.9; }
+    }
+
+    /* glow bg */
+    .panel-glow {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 0.75s;
+    }
+
+    .panel--actor  .panel-glow { background: radial-gradient(ellipse 60% 50% at 30% 80%, rgba(184,169,138,0.13) 0%, transparent 70%); }
+    .panel--dev    .panel-glow { background: radial-gradient(ellipse 60% 50% at 30% 80%, rgba(56,217,255,0.09)  0%, transparent 70%); }
+    .panel--designer .panel-glow { background: radial-gradient(ellipse 60% 50% at 30% 80%, rgba(212,184,204,0.08) 0%, transparent 70%); }
+
+    .panel:hover .panel-glow { opacity: 1; }
+
+    /* bottom line */
+    .panel::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 3rem;
+      width: 0;
+      height: 1px;
+      transition: width 0.55s ease;
+    }
+    .panel--actor::after    { background: var(--actor); }
+    .panel--dev::after      { background: var(--dev); }
+    .panel--designer::after { background: var(--designer); }
+    .panel:hover::after { width: calc(100% - 6rem); }
+
+    /* content */
+    .panel-content {
+      position: absolute;
+      bottom: 4rem;
+      left: 3rem;
+      right: 2rem;
+    }
+
+    .panel-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.3em;
+      color: var(--muted);
+      display: block;
+      margin-bottom: 2rem;
+    }
+
+    .panel-role {
+      font-size: 0.65rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      margin-bottom: 0.8rem;
+      white-space: nowrap;
+    }
+
+    .panel--actor    .panel-role { color: var(--actor); }
+    .panel--dev      .panel-role { color: var(--dev); }
+    .panel--designer .panel-role { color: var(--designer); opacity: 0.5; }
+
+    .panel-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(2rem, 3.2vw, 3.8rem);
+      letter-spacing: 0.04em;
+      line-height: 1.05;
+      color: var(--white);
+      margin-bottom: 1.25rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .panel-desc {
+      font-size: 0.78rem;
+      color: #444;
+      line-height: 1.7;
+      max-width: 22rem;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.45s 0.05s, transform 0.45s 0.05s, color 0.45s;
+    }
+
+    .panel:hover .panel-desc {
+      opacity: 1;
+      transform: translateY(0);
+      color: #777;
+    }
+
+    .panel-cta {
+      display: inline-block;
+      margin-top: 1.5rem;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      opacity: 0;
+      transform: translateX(-6px);
+      transition: opacity 0.4s 0.1s, transform 0.4s 0.1s;
+    }
+
+    .panel--actor .panel-cta    { color: var(--actor); }
+    .panel--dev   .panel-cta    { color: var(--dev); }
+
+    .panel:hover .panel-cta { opacity: 1; transform: translateX(0); }
+
+    /* badge */
+    .badge {
+      display: inline-block;
+      font-size: 0.58rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      border: 1px solid rgba(212,184,204,0.2);
+      color: rgba(212,184,204,0.35);
+      padding: 0.18rem 0.55rem;
+      border-radius: 2px;
+      margin-bottom: 0.8rem;
+    }
+
+    /* disabled panel */
+    .panel--designer { cursor: default; }
+
+    /* MOBILE */
+    @media (max-width: 700px) {
+      html, body { overflow-y: auto; }
+      .panels { flex-direction: column; height: auto; min-height: 100vh; }
+      .panel {
+        flex: none !important;
+        height: 34vh;
+        min-height: 220px;
+        border-right: none;
+        border-bottom: 1px solid rgba(255,255,255,0.04);
+      }
+      .panel-content { bottom: 2rem; left: 2rem; right: 1.5rem; }
+      .panel-desc  { opacity: 1; transform: none; color: #555; }
+      .panel-cta   { opacity: 1; transform: none; }
+      .panel-name  { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <span class="logo">Milkfolio</span>
+
+  <main class="panels">
+
+    <!-- 01 ACTOR -->
+    <a class="panel panel--actor" href="actor/">
+      <div class="panel-glow"></div>
+      <div class="panel-content">
+        <span class="panel-num">01</span>
+        <p class="panel-role">Actor</p>
+        <h2 class="panel-name">서해우</h2>
+        <p class="panel-desc">Korean drama · short film · musical. Available for casting.</p>
+        <span class="panel-cta">View Profile →</span>
+      </div>
+    </a>
+
+    <!-- 02 DEVELOPER -->
+    <a class="panel panel--dev" href="dev/">
+      <div class="panel-glow"></div>
+      <div class="panel-content">
+        <span class="panel-num">02</span>
+        <p class="panel-role">Data Engineer</p>
+        <h2 class="panel-name">Hyunwoo Jee</h2>
+        <p class="panel-desc">Pipelines at scale. Airflow · Databricks · Snowflake · Cognite.</p>
+        <span class="panel-cta">View Profile →</span>
+      </div>
+    </a>
+
+    <!-- 03 DESIGNER -->
+    <div class="panel panel--designer">
+      <div class="panel-glow"></div>
+      <div class="panel-content">
+        <span class="panel-num">03</span>
+        <span class="badge">Coming Soon</span>
+        <p class="panel-role">UI/UX &amp; Product Design</p>
+        <h2 class="panel-name">Designer</h2>
+        <p class="panel-desc">Portfolio in preparation.</p>
+      </div>
+    </div>
+
+  </main>
+
+</body>
+</html>
