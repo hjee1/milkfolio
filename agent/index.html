@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>agent</title>
+<style>
+  :root {
+    --bg: #080808;
+    --card: #111318;
+    --border: #1e2028;
+    --text: #e1e4ed;
+    --dim: #666;
+    --accent: #b8a98a;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Space Grotesk', -apple-system, sans-serif;
+    background: var(--bg); color: var(--text);
+    min-height: 100vh; display: flex; align-items: center; justify-content: center;
+  }
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500&display=swap');
+
+  /* ── Login Gate ── */
+  #gate {
+    text-align: center; padding: 48px;
+  }
+  #gate h1 {
+    font-size: 0.9rem; font-weight: 300; letter-spacing: 4px;
+    text-transform: uppercase; color: var(--dim); margin-bottom: 32px;
+  }
+  #gate input {
+    background: transparent; border: 1px solid var(--border);
+    color: var(--text); padding: 12px 20px; font-size: 0.9rem;
+    border-radius: 0; width: 240px; text-align: center;
+    font-family: inherit; letter-spacing: 2px;
+    outline: none; transition: border-color 0.3s;
+  }
+  #gate input:focus { border-color: var(--accent); }
+  #gate input::placeholder { color: #333; }
+  #gate .error {
+    color: #8b4040; font-size: 0.75rem; margin-top: 12px;
+    opacity: 0; transition: opacity 0.3s;
+  }
+  #gate .error.show { opacity: 1; }
+
+  /* ── Dashboard ── */
+  #dashboard {
+    display: none; width: 100%; min-height: 100vh;
+    padding: 0; align-items: stretch; justify-content: stretch;
+  }
+  #dashboard.visible {
+    display: block;
+  }
+  #dashboard-frame {
+    width: 100%; min-height: 100vh; padding: 24px; max-width: 1200px; margin: 0 auto;
+  }
+  #no-data {
+    text-align: center; padding: 80px 24px; color: var(--dim);
+    font-size: 0.85rem;
+  }
+</style>
+</head>
+<body>
+
+<div id="gate">
+  <h1>casting agent</h1>
+  <input type="password" id="pw" placeholder="password" autofocus>
+  <div class="error" id="err">incorrect</div>
+</div>
+
+<div id="dashboard">
+  <div id="dashboard-frame">
+    <div id="no-data">waiting for first pipeline run...</div>
+  </div>
+</div>
+
+<script>
+// Password hash (SHA-256 of the actual password)
+// To change password: update this hash
+const HASH = '069d0813302db114158752bdf1eb0e75f6dea6cd18a697013b66014066749032';
+
+const gate = document.getElementById('gate');
+const dashboard = document.getElementById('dashboard');
+const pw = document.getElementById('pw');
+const err = document.getElementById('err');
+
+async function sha256(msg) {
+  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(msg));
+  return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
+}
+
+// Check if already authenticated this session
+if (sessionStorage.getItem('agent_auth') === 'true') {
+  gate.style.display = 'none';
+  dashboard.classList.add('visible');
+  loadDashboard();
+}
+
+pw.addEventListener('keydown', async (e) => {
+  if (e.key !== 'Enter') return;
+  err.classList.remove('show');
+  const hash = await sha256(pw.value);
+  if (hash === HASH) {
+    sessionStorage.setItem('agent_auth', 'true');
+    gate.style.display = 'none';
+    dashboard.classList.add('visible');
+    loadDashboard();
+  } else {
+    err.classList.add('show');
+    pw.value = '';
+  }
+});
+
+function loadDashboard() {
+  fetch('data.html')
+    .then(r => {
+      if (!r.ok) throw new Error('no data');
+      return r.text();
+    })
+    .then(html => {
+      document.getElementById('dashboard-frame').innerHTML = html;
+    })
+    .catch(() => {
+      // data.html not yet pushed — show placeholder
+    });
+}
+</script>
+
+</body>
+</html>
