@@ -3,95 +3,791 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title>Designer — Coming Soon</title>
+  <title>Yuna Jee — Designer</title>
+  <meta name="description" content="Design portfolio of Yuna Jee — UX/UI, Product Design, 3D Modeling, Brand Strategy."/>
+  <meta property="og:title" content="Yuna Jee — Designer"/>
+  <meta property="og:description" content="A designer who builds experiences that bridge technology and human understanding."/>
+  <meta property="og:url" content="https://milkfolio.space/designer/"/>
+  <meta property="og:type" content="website"/>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>M</text></svg>"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;1,300&family=Space+Grotesk:wght@300;400&display=swap" rel="stylesheet"/>
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      background: #0a080c;
-      color: #e8d8e4;
-      font-family: 'Space Grotesk', sans-serif;
-      font-weight: 300;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      overflow: hidden;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(212,184,204,0.06) 0%, transparent 70%);
-      pointer-events: none;
-    }
-
-    .badge {
-      font-size: 0.65rem;
-      letter-spacing: 0.35em;
-      text-transform: uppercase;
-      color: rgba(212,184,204,0.4);
-      border: 1px solid rgba(212,184,204,0.15);
-      padding: 0.25rem 0.8rem;
-      border-radius: 2px;
-      margin-bottom: 2.5rem;
-      display: inline-block;
-    }
-
-    h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 300;
-      font-size: clamp(3rem, 8vw, 6rem);
-      letter-spacing: 0.04em;
-      line-height: 1.05;
-      color: #f0e8ec;
-      margin-bottom: 0.5rem;
-    }
-
-    .role {
-      font-size: 0.78rem;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: rgba(212,184,204,0.4);
-      margin-bottom: 2rem;
-    }
-
-    p {
-      font-size: 0.9rem;
-      color: rgba(232,216,228,0.35);
-      letter-spacing: 0.04em;
-      margin-bottom: 3.5rem;
-    }
-
-    .home-link {
-      font-size: 0.72rem;
-      letter-spacing: 0.2em;
-      color: rgba(212,184,204,0.35);
-      border-bottom: 1px solid rgba(212,184,204,0.1);
-      padding-bottom: 2px;
-      text-decoration: none;
-      transition: color 0.3s, border-color 0.3s;
-    }
-
-    .home-link:hover {
-      color: rgba(212,184,204,0.7);
-      border-color: rgba(212,184,204,0.35);
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400&family=Space+Grotesk:wght@300;400&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <span class="badge">Coming Soon</span>
-  <h1>Designer</h1>
-  <p class="role">UI/UX · Product Design</p>
-  <p>Portfolio in preparation.<br/>Check back soon.</p>
-  <a href="../" class="home-link">← milkfolio</a>
+
+  <!-- ====== Nav ====== -->
+  <nav>
+    <a href="../" class="home-link">&larr; milkfolio</a>
+    <div class="logo">Yuna Jee</div>
+    <ul class="nav-links">
+      <li><a href="#projects">Work</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#archive">Archive</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ====== Hero ====== -->
+  <section class="hero">
+    <div class="container">
+      <span class="tagline">Design Portfolio 2026</span>
+      <h1>A designer who sees<br/>the <em>same question</em><br/>from every angle.</h1>
+      <p class="subtitle">
+        Clarity, empathy, and the ability to turn abstract ideas
+        into tangible outcomes &mdash; from surgical robots to sound culture platforms.
+      </p>
+
+      <!-- Featured Projects -->
+      <div class="featured-grid">
+        <a href="#prism" class="featured-card">
+          <img src="assets/prism_robot.jpg" alt="PRISM — Microsurgery Robot" loading="lazy"/>
+          <div class="card-overlay">
+            <div class="card-num">01</div>
+            <div class="card-title">PRISM</div>
+            <div class="card-desc">Super Microsurgery Robot Exterior &amp; Branding</div>
+          </div>
+        </a>
+        <a href="#unmute" class="featured-card">
+          <img src="assets/unmute_device.jpg" alt="Unmute — Sound Culture Device" loading="lazy"/>
+          <div class="card-overlay">
+            <div class="card-num">02</div>
+            <div class="card-title">Unmute</div>
+            <div class="card-desc">Prosumer Sound Culture Platform</div>
+          </div>
+        </a>
+        <a href="#pathguard" class="featured-card">
+          <img src="assets/pathguard_proto.jpg" alt="PathGuard — Emergency Evacuation" loading="lazy"/>
+          <div class="card-overlay">
+            <div class="card-num">04</div>
+            <div class="card-title">PathGuard</div>
+            <div class="card-desc">Smart Floor Evacuation Guide System</div>
+          </div>
+        </a>
+        <a href="#linkids" class="featured-card">
+          <img src="assets/linkids_poster.jpg" alt="Linkids — Children Education Brand" loading="lazy"/>
+          <div class="card-overlay">
+            <div class="card-num">09</div>
+            <div class="card-title">Linkids</div>
+            <div class="card-desc">Experience-Based Children&rsquo;s Education Brand</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="scroll-cue">Scroll to explore</div>
+    </div>
+  </section>
+
+  <!-- ====== Projects ====== -->
+  <section id="projects">
+    <div class="container">
+      <span class="label">Selected Work</span>
+      <h2>Case Studies</h2>
+
+      <!-- Project 1: PRISM -->
+      <article class="project" id="prism">
+        <div class="project-header">
+          <div class="project-num">01</div>
+          <div>
+            <h3>PRISM</h3>
+            <p>Precision Robot for Interactive Super Microsurgery</p>
+            <div class="project-meta">
+              <div class="project-meta-item">
+                <div class="meta-label">Role</div>
+                <div class="meta-value">Industrial Design Intern</div>
+              </div>
+              <div class="project-meta-item">
+                <div class="meta-label">Organization</div>
+                <div class="meta-value">KIST Robogram Lab</div>
+              </div>
+              <div class="project-meta-item">
+                <div class="meta-label">Scope</div>
+                <div class="meta-value">Exterior Mockup, Branding, Video</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="project-body">
+          <div class="project-text">
+            <h3>The Problem</h3>
+            <p>
+              Post-surgery challenges for cancer, diabetes, and accident patients
+              demand precision beyond human capability. The PRISM robot, with
+              4 independently moving arms in compact spaces, needed an exterior
+              design that communicated both medical trust and cutting-edge technology.
+            </p>
+            <h3>The Process</h3>
+            <p>
+              As an intern at KIST's AI &amp; Robotics Research Division, I led
+              the exterior mockup design through multiple iterations &mdash; from
+              early 3D modeling in Rhino to pre-production prototypes. The design
+              evolved through close collaboration with engineers to balance
+              aesthetic refinement with functional requirements like cable routing,
+              arm clearance, and thermal management.
+            </p>
+            <h3>The Outcome</h3>
+            <p>
+              The completed prototype was exhibited at RoboWorld 2023 (KINTEX),
+              demonstrating live surgical precision. The branding system I designed
+              &mdash; including logo, video production, and exhibition materials &mdash;
+              established PRISM's visual identity for the national research project.
+            </p>
+            <div class="project-tags">
+              <span class="tag">3D Modeling</span>
+              <span class="tag">Rhino</span>
+              <span class="tag">Branding</span>
+              <span class="tag">Prototyping</span>
+              <span class="tag">Exhibition</span>
+            </div>
+          </div>
+          <div>
+            <div class="project-visual">
+              <img src="assets/prism_arms.jpg" alt="PRISM robot arm detail" loading="lazy"/>
+            </div>
+            <div class="project-visual" style="margin-top:1rem;">
+              <img src="assets/prism_exhibit.jpg" alt="PRISM at RoboWorld exhibition" loading="lazy"/>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 2: Unmute -->
+      <article class="project" id="unmute">
+        <div class="project-header">
+          <div class="project-num">02</div>
+          <div>
+            <h3>Unmute</h3>
+            <p>Prosumer Sound Culture Platform</p>
+            <div class="project-meta">
+              <div class="project-meta-item">
+                <div class="meta-label">Type</div>
+                <div class="meta-value">Service &amp; Product Design</div>
+              </div>
+              <div class="project-meta-item">
+                <div class="meta-label">Focus</div>
+                <div class="meta-value">AI + Sound + Consumer Experience</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="project-body">
+          <div class="project-text">
+            <h3>The Problem</h3>
+            <p>
+              Everyone listens to music, but no one turns it into "their own sound."
+              Existing AI music tools exclude user involvement, delivering only
+              finished outputs. The everyday sounds that surround us &mdash; unrecorded,
+              uncaptured &mdash; simply vanish.
+            </p>
+            <h3>The Concept</h3>
+            <p>
+              Unmute proposes a new "Prosumer Culture" where consumers become
+              creators. A portable device records ambient sounds, transforms them
+              into beats with intuitive shake gestures, and an AI engine composes
+              personalized tracks based on mood, context, and taste.
+            </p>
+            <h3>The System</h3>
+            <p>
+              The ecosystem spans three touchpoints: a pocket-sized recording device
+              (Recording Mode, Beat Mode, Listening Mode), a Sound Library app
+              for managing all audio assets, and Sound Snap &mdash; a social feature
+              for sharing daily sound-based short-form content with friends.
+              Product prototypes were created using generative AI mockups,
+              alongside exhibition leaflets and virtual artist album graphics.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Product Design</span>
+              <span class="tag">Service Design</span>
+              <span class="tag">Generative AI</span>
+              <span class="tag">UX/UI</span>
+              <span class="tag">Branding</span>
+            </div>
+          </div>
+          <div>
+            <div class="project-visual">
+              <img src="assets/unmute_concept.jpg" alt="Unmute consumer to producer concept" loading="lazy"/>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 3: XPense -->
+      <article class="project" id="xpense">
+        <div class="project-header">
+          <div class="project-num">03</div>
+          <div>
+            <h3>XPense</h3>
+            <p>Game Spending Management Solution</p>
+            <div class="project-meta">
+              <div class="project-meta-item">
+                <div class="meta-label">Type</div>
+                <div class="meta-value">App + Web + Device</div>
+              </div>
+              <div class="project-meta-item">
+                <div class="meta-label">Focus</div>
+                <div class="meta-value">Behavioral Design for Responsible Gaming</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="project-body">
+          <div class="project-text">
+            <h3>The Problem</h3>
+            <p>
+              In-game microtransaction systems are designed to encourage spending,
+              but eliminating them isn't realistic. Gamers need tools to manage
+              &mdash; not restrict &mdash; their spending habits.
+            </p>
+            <h3>The Solution</h3>
+            <p>
+              XPense is a three-part ecosystem: a mobile app for external spending
+              tracking, a dual-screen desktop device for real-time control during
+              gameplay, and a web dashboard for data analysis and visualization.
+              The dual-screen design preserves gaming immersion while showing
+              spending alerts on a secondary display.
+            </p>
+            <p>
+              Key features include actual vs. stated probability comparison for
+              gacha items, AI-powered alternative item recommendations, customizable
+              spending limits with haptic feedback through a detachable phone-mounted
+              device, and a 360-degree joystick input for intuitive UI navigation.
+            </p>
+            <div class="project-tags">
+              <span class="tag">UX/UI</span>
+              <span class="tag">Product Design</span>
+              <span class="tag">Data Visualization</span>
+              <span class="tag">Behavioral Design</span>
+            </div>
+          </div>
+          <div class="project-visual" style="background:var(--bg-card);display:flex;align-items:center;justify-content:center;padding:3rem;aspect-ratio:4/3;">
+            <div style="text-align:center;">
+              <div style="font-family:'Cormorant Garamond',serif;font-size:3.5rem;font-weight:300;color:var(--accent);opacity:0.3;line-height:1;">XP</div>
+              <div style="font-size:0.65rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--muted);margin-top:0.5rem;">Game Spending<br/>Management</div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 4: PathGuard -->
+      <article class="project" id="pathguard">
+        <div class="project-header">
+          <div class="project-num">04</div>
+          <div>
+            <h3>PathGuard</h3>
+            <p>Smart Floor Emergency Evacuation Guide</p>
+            <div class="project-meta">
+              <div class="project-meta-item">
+                <div class="meta-label">Award</div>
+                <div class="meta-value">Easy Lab Makerthon Excellence Award</div>
+              </div>
+              <div class="project-meta-item">
+                <div class="meta-label">Focus</div>
+                <div class="meta-value">Public Safety &amp; IoT</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="project-body">
+          <div class="project-text">
+            <h3>The Problem</h3>
+            <p>
+              Building fires occur persistently year after year. Current emergency
+              exit signs suffer from low visibility in smoke, and occupants often
+              don't know evacuation routes. Time is critical &mdash; delayed evacuation
+              exponentially increases risk.
+            </p>
+            <h3>The Research</h3>
+            <p>
+              Case studies of Korea's colored road guide lines (which significantly
+              reduced accidents) and pedestrian LED floor signals in school zones
+              validated that ground-level visual guidance is more effective than
+              overhead signage, especially for people looking at their phones or
+              children at lower eye levels.
+            </p>
+            <h3>The Solution</h3>
+            <p>
+              PathGuard is a smart floor-embedded LED guide system with temperature
+              sensors. During normal operation, it provides wayfinding. When fire is
+              detected, it automatically activates evacuation mode, dynamically
+              routing occupants away from danger zones. The prototype was modeled
+              using Hyundai Department Store ("The Hyundai") floor plans.
+            </p>
+            <div class="project-tags">
+              <span class="tag">IoT</span>
+              <span class="tag">Arduino</span>
+              <span class="tag">3D Modeling</span>
+              <span class="tag">Social Design</span>
+            </div>
+          </div>
+          <div>
+            <div class="project-visual">
+              <img src="assets/pathguard_proto.jpg" alt="PathGuard LED prototype" loading="lazy"/>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 5: INSTIP -->
+      <article class="project" id="instip">
+        <div class="project-header">
+          <div class="project-num">05</div>
+          <div>
+            <h3>INSTIP</h3>
+            <p>Universal Wearable Design for Deaf Taxi Drivers</p>
+            <div class="project-meta">
+              <div class="project-meta-item">
+                <div class="meta-label">Award</div>
+                <div class="meta-value">Daejeon Design Award</div>
+              </div>
+              <div class="project-meta-item">
+                <div class="meta-label">Focus</div>
+                <div class="meta-value">Inclusive Design &amp; NUI</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="project-body">
+          <div class="project-text">
+            <h3>The Problem</h3>
+            <p>
+              Despite no legal barriers, deaf taxi drivers face social prejudice
+              and communication difficulties. "Silent Taxi" services use back-seat
+              tablets, but passengers report frustration with ambiguous text
+              requests, slow message delivery, and unfamiliarity with digital
+              interfaces.
+            </p>
+            <h3>The Solution</h3>
+            <p>
+              INSTIP is a finger-worn wearable device using Natural User Interface
+              (NUI) principles. It sits between the thumb and middle finger,
+              detects motion to convert handwriting gestures into text messages
+              in real-time, and provides multi-feedback (LED alerts, vibration)
+              for incoming passenger messages. The curved ergonomic body allows
+              comfortable grip on the steering wheel while maintaining
+              communication capability.
+            </p>
+            <p>
+              Features include a sliding cover for power/size adjustment,
+              magnetic 360-degree angle control, a micro-motion sensor for
+              handwriting recognition on any surface, and Bluetooth auto-connect.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Universal Design</span>
+              <span class="tag">Wearable</span>
+              <span class="tag">NUI</span>
+              <span class="tag">Product Design</span>
+            </div>
+          </div>
+          <div class="project-visual" style="background:var(--bg-card);display:flex;align-items:center;justify-content:center;padding:3rem;aspect-ratio:4/3;">
+            <div style="text-align:center;">
+              <div style="font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:300;color:var(--accent);opacity:0.3;line-height:1;">INSTIP</div>
+              <div style="font-size:0.65rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--muted);margin-top:0.5rem;">Universal Wearable<br/>Communication</div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 6: -ENG -->
+      <article class="project" id="eng">
+        <div class="project-header">
+          <div class="project-num">06</div>
+          <div>
+            <h3>-ENG</h3>
+            <p>English Pronunciation Rhythm Acquisition Device</p>
+            <div class="project-meta">
+              <div class="project-meta-item">
+                <div class="meta-label">Type</div>
+                <div class="meta-value">Product + Service Design</div>
+              </div>
+              <div class="project-meta-item">
+                <div class="meta-label">Focus</div>
+                <div class="meta-value">EdTech &amp; Multi-Sensory Learning</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="project-body">
+          <div class="project-text">
+            <h3>The Problem</h3>
+            <p>
+              Current pronunciation correction services fix "results" but miss
+              the "cause." They evaluate word accuracy, but learners actually
+              struggle with stress, length, pitch, and intonation &mdash; the continuous
+              speech patterns that make someone sound native.
+            </p>
+            <h3>The Approach</h3>
+            <p>
+              -ENG takes a three-stage multi-sensory approach: (1) Auditory &mdash;
+              a portable 40mm device captures ambient sounds and analyzes them
+              into rhythm patterns; (2) Tactile &mdash; the app converts detected
+              rhythms into vibration patterns mapped to English syllable stress;
+              (3) Visual &mdash; scan mode identifies previously collected words
+              in text and reactivates them through vibration and pronunciation
+              simultaneously.
+            </p>
+            <p>
+              The device features a nano-suction attachment mechanism for mounting
+              on any surface, and a built-in camera for text scanning. The brand
+              identity captures the concept of "sound to body to new perspective."
+            </p>
+            <div class="project-tags">
+              <span class="tag">Product Design</span>
+              <span class="tag">Service Design</span>
+              <span class="tag">EdTech</span>
+              <span class="tag">UX/UI</span>
+            </div>
+          </div>
+          <div class="project-visual" style="background:var(--bg-card);display:flex;align-items:center;justify-content:center;padding:3rem;aspect-ratio:4/3;">
+            <div style="text-align:center;">
+              <div style="font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:300;color:var(--accent);opacity:0.3;line-height:1;">-ENG</div>
+              <div style="font-size:0.65rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--muted);margin-top:0.5rem;">Rhythm-Based<br/>Language Learning</div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 7: KUPID -->
+      <article class="project" id="kupid">
+        <div class="project-header">
+          <div class="project-num">07</div>
+          <div>
+            <h3>KUPID</h3>
+            <p>Korea University Portal Redesign &amp; Mobile App</p>
+            <div class="project-meta">
+              <div class="project-meta-item">
+                <div class="meta-label">Type</div>
+                <div class="meta-value">UX/UI Redesign</div>
+              </div>
+              <div class="project-meta-item">
+                <div class="meta-label">Platform</div>
+                <div class="meta-value">Web + Mobile App</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="project-body">
+          <div class="project-text">
+            <h3>The Problem</h3>
+            <p>
+              The university portal is essential for student life &mdash; grades,
+              scholarships, room reservations, attendance &mdash; yet students
+              found it unusable. Excessive information density, inconsistent
+              navigation, and no mobile experience left users frustrated.
+            </p>
+            <h3>The Research</h3>
+            <p>
+              User surveys revealed that most students use the portal primarily
+              for information retrieval, yet finding specific services required
+              navigating through deeply nested menus. A persona-driven journey
+              map of a freshman trying to apply for scholarships uncovered
+              critical pain points: too many steps, buried features, and poor
+              visual hierarchy.
+            </p>
+            <h3>The Solution</h3>
+            <p>
+              The redesign centered on four pillars: primary functions separated
+              into icon shortcuts, enhanced search, custom menus letting students
+              build their own portal experience, and a native mobile app mirroring
+              all web functionality. The new design features pre-login notice
+              previews, visual grade tracking graphs, streamlined scholarship
+              applications, and a community hub for campus dining, facilities,
+              and announcements.
+            </p>
+            <div class="project-tags">
+              <span class="tag">UX Research</span>
+              <span class="tag">UI Design</span>
+              <span class="tag">Persona</span>
+              <span class="tag">Mobile App</span>
+              <span class="tag">Figma</span>
+            </div>
+          </div>
+          <div class="project-visual" style="background:var(--bg-card);display:flex;align-items:center;justify-content:center;padding:3rem;aspect-ratio:4/3;">
+            <div style="text-align:center;">
+              <div style="font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:300;color:var(--accent);opacity:0.3;line-height:1;">KUPID</div>
+              <div style="font-size:0.65rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--muted);margin-top:0.5rem;">University Portal<br/>Redesign</div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 8: memmo -->
+      <article class="project" id="memmo">
+        <div class="project-header">
+          <div class="project-num">08</div>
+          <div>
+            <h3>m&ecirc;m mo</h3>
+            <p>Community Screening Crowdfunding Platform</p>
+            <div class="project-meta">
+              <div class="project-meta-item">
+                <div class="meta-label">Type</div>
+                <div class="meta-value">Service Design &amp; UX/UI</div>
+              </div>
+              <div class="project-meta-item">
+                <div class="meta-label">Focus</div>
+                <div class="meta-value">Cultural Platform &amp; Crowdfunding</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="project-body">
+          <div class="project-text">
+            <h3>The Problem</h3>
+            <p>
+              Post-pandemic audiences crave diverse, participatory film experiences
+              beyond multiplexes. Community screenings exist but remain inaccessible
+              &mdash; hard to find, difficult to organize, and financially risky
+              for hosts. Meanwhile, short films and festival rejects have no viable
+              screening route.
+            </p>
+            <h3>The Concept</h3>
+            <p>
+              "m&ecirc;m mo" (from French "m&ecirc;me moment" &mdash; same moment)
+              is a crowdfunding-based community screening platform. It connects
+              audiences seeking niche content with hosts who want to screen films
+              in unconventional spaces. The name embodies the shared time-and-space
+              experience of community cinema.
+            </p>
+            <h3>The System</h3>
+            <p>
+              Five tabs serve distinct user journeys: Home (personalized
+              recommendations), Explore (tag-based search), Community (discussion
+              &amp; promotion), Host (guided screening setup with library, venue
+              matching, and scheduling), and My (tickets, QR entry, location maps).
+              The platform lowers barriers for both participation and hosting.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Service Design</span>
+              <span class="tag">UX/UI</span>
+              <span class="tag">Branding</span>
+              <span class="tag">Cultural Design</span>
+            </div>
+          </div>
+          <div class="project-visual" style="background:var(--bg-card);display:flex;align-items:center;justify-content:center;padding:3rem;aspect-ratio:4/3;">
+            <div style="text-align:center;">
+              <div style="font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:300;font-style:italic;color:var(--accent);opacity:0.3;line-height:1;">m&ecirc;m mo</div>
+              <div style="font-size:0.65rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--muted);margin-top:0.5rem;">Community Screening<br/>Platform</div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 9: Linkids -->
+      <article class="project" id="linkids">
+        <div class="project-header">
+          <div class="project-num">09</div>
+          <div>
+            <h3>Linkids</h3>
+            <p>Experience-Based Children&rsquo;s Education Brand</p>
+            <div class="project-meta">
+              <div class="project-meta-item">
+                <div class="meta-label">Type</div>
+                <div class="meta-value">Brand &amp; Service Design</div>
+              </div>
+              <div class="project-meta-item">
+                <div class="meta-label">Scope</div>
+                <div class="meta-value">App, Branding, Print Collateral</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="project-body">
+          <div class="project-text">
+            <h3>The Concept</h3>
+            <p>
+              Linkids is a children's education brand built around the idea that
+              learning happens best through experience and self-expression. The
+              dual-mode app &mdash; Parent Mode and Child Mode &mdash; reflects this:
+              parents see an emotion-based dashboard of their child's day, while
+              children interact through an interface designed around seeing,
+              feeling, and expressing.
+            </p>
+            <h3>The Brand System</h3>
+            <p>
+              The brand extends far beyond the app: kids' business cards let
+              children express imaginary careers and identities, on-site ID cards
+              create a sense of belonging at workshops, and branded notebooks
+              capture "memory, imagination, and expression." Posters combine the
+              brand's signature ring motif with playful icons representing
+              children's boundless imagination.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Brand Design</span>
+              <span class="tag">UX/UI</span>
+              <span class="tag">Print Design</span>
+              <span class="tag">Children&rsquo;s Design</span>
+            </div>
+          </div>
+          <div>
+            <div class="project-visual">
+              <img src="assets/linkids_card.jpg" alt="Linkids business card mockup" loading="lazy"/>
+            </div>
+            <div class="project-visual" style="margin-top:1rem;">
+              <img src="assets/linkids_notebook.jpg" alt="Linkids branded notebook" loading="lazy"/>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ====== About ====== -->
+  <section id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-bio">
+          <span class="label">About</span>
+          <h2>Yuna Jee</h2>
+          <p>
+            A designer with a global perspective shaped by living across
+            Korea, the United States, and China. I believe design is
+            <strong>wordless persuasion</strong> &mdash; the art of bridging
+            technology and human understanding without requiring explanation.
+          </p>
+          <div class="philosophy">
+            "Same question, different perspectives &mdash;
+            that's where design begins."
+          </div>
+          <p>
+            My work spans from surgical robotics at KIST to social design
+            for public safety, from prosumer sound platforms to inclusive
+            wearables for deaf communities. Each project starts with deep
+            research and user empathy, moves through rigorous iteration,
+            and arrives at solutions that feel inevitable.
+          </p>
+
+          <div class="skills-section">
+            <span class="label">Skills &amp; Tools</span>
+            <div class="skills-grid">
+              <div class="skill-card">
+                <div class="skill-name">UX/UI Design</div>
+                <div class="skill-detail">Research, Wireframing, Prototyping</div>
+              </div>
+              <div class="skill-card">
+                <div class="skill-name">3D Modeling</div>
+                <div class="skill-detail">Rhino, Rendering, Mockup Fabrication</div>
+              </div>
+              <div class="skill-card">
+                <div class="skill-name">Brand Strategy</div>
+                <div class="skill-detail">Identity Systems, Print, Exhibition</div>
+              </div>
+              <div class="skill-card">
+                <div class="skill-name">Service Design</div>
+                <div class="skill-detail">Journey Mapping, System Architecture</div>
+              </div>
+              <div class="skill-card">
+                <div class="skill-name">Figma</div>
+                <div class="skill-detail">UI Design, Prototyping, Components</div>
+              </div>
+              <div class="skill-card">
+                <div class="skill-name">Generative AI</div>
+                <div class="skill-detail">Midjourney, AI-Assisted Workflows</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <span class="label">Education</span>
+          <p style="margin-bottom:0.5rem;color:var(--text);font-size:0.85rem;">Korea University</p>
+          <p style="margin-bottom:2.5rem;">Industrial Design</p>
+
+          <span class="label">Recognition</span>
+          <ul class="awards-list">
+            <li>
+              <span class="award-name">Daejeon Design Award</span>
+              <span class="award-project">INSTIP</span>
+            </li>
+            <li>
+              <span class="award-name">Easy Lab Makerthon Excellence Award</span>
+              <span class="award-project">PathGuard</span>
+            </li>
+            <li>
+              <span class="award-name">KIST AI &amp; Robotics Internship</span>
+              <span class="award-project">PRISM</span>
+            </li>
+            <li>
+              <span class="award-name">RoboWorld 2023 Exhibition</span>
+              <span class="award-project">PRISM</span>
+            </li>
+          </ul>
+
+          <div style="margin-top:2.5rem;">
+            <span class="label">Interests</span>
+            <p>
+              Synthesizer player in a band. Dance club organizer.
+              Curious about the edges where music, movement,
+              and visual systems overlap.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== Archive ====== -->
+  <section id="archive">
+    <div class="container">
+      <span class="label">Exploration</span>
+      <h2>Archive</h2>
+      <p style="margin-bottom:2rem;">Creative experiments, visual explorations, and cross-disciplinary work.</p>
+
+      <div class="archive-grid">
+        <div class="archive-item">
+          <img src="assets/unmute_texture.jpg" alt="Liquid chrome texture exploration" loading="lazy"/>
+          <span class="archive-label">Material Study</span>
+        </div>
+        <div class="archive-item">
+          <img src="assets/archive_flowers.jpg" alt="Generative AI floral composition" loading="lazy"/>
+          <span class="archive-label">AI Experiment</span>
+        </div>
+        <div class="archive-item">
+          <img src="assets/archive_field.jpg" alt="Generative AI landscape" loading="lazy"/>
+          <span class="archive-label">AI Artwork</span>
+        </div>
+        <div class="archive-item">
+          <img src="assets/unmute_device.jpg" alt="Product rendering exploration" loading="lazy"/>
+          <span class="archive-label">Product Render</span>
+        </div>
+        <div class="archive-item">
+          <img src="assets/prism_robot.jpg" alt="Robot 3D modeling" loading="lazy"/>
+          <span class="archive-label">3D Modeling</span>
+        </div>
+        <div class="archive-item">
+          <img src="assets/linkids_poster.jpg" alt="Brand poster design" loading="lazy"/>
+          <span class="archive-label">Print Design</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== Contact ====== -->
+  <section id="contact">
+    <div class="container">
+      <div class="contact-inner">
+        <span class="label">Get in Touch</span>
+        <h2>Let&rsquo;s Connect</h2>
+        <p class="contact-desc">
+          Open to collaboration, freelance projects, and new opportunities.
+        </p>
+        <div class="contact-links">
+          <a href="mailto:yunajee.design@gmail.com" class="contact-btn">
+            Email &rarr;
+          </a>
+          <a href="assets/for online portfolio_Yuna Jee.pdf" target="_blank" class="contact-btn">
+            Portfolio PDF &rarr;
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== Footer ====== -->
+  <footer>
+    <a href="../" class="footer-home">&larr; milkfolio</a>
+    <p class="footer-copy">&copy; 2026 Yuna Jee. All rights reserved.</p>
+  </footer>
+
 </body>
 </html>
