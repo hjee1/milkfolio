@@ -16,7 +16,17 @@
       "Bash(git checkout:*)",
       "Bash(git stash:*)",
       "Bash(FILTER_BRANCH_SQUELCH_WARNING=1 git filter-branch --force --tree-filter 'rm -f \"designer/for online portfolio_Yuna Jee.pdf\"' -- origin/main..HEAD)",
-      "Bash(git push:*)"
+      "Bash(git push:*)",
+      "Bash(open:*)",
+      "Bash(git add:*)",
+      "Bash(git commit -m ':*)",
+      "Bash(git rebase:*)",
+      "Bash(git reset:*)",
+      "Bash(git pull:*)",
+      "Bash(rm -f *.png .DS_Store)",
+      "Bash(ls *.jpg)",
+      "Bash(find . -name \"*.png\" -delete)",
+      "Bash(find /Users/hyunwoojee/milkfolio/designer/assets -type f -delete)"
     ]
   }
 }
