@@ -132,7 +132,7 @@
 
     .panel--actor    .panel-role { color: var(--actor); }
     .panel--dev      .panel-role { color: var(--dev); }
-    .panel--designer .panel-role { color: var(--designer); opacity: 0.5; }
+    .panel--designer .panel-role { color: var(--designer); }
 
     .panel-name {
       font-family: 'Cormorant Garamond', serif;
@@ -178,21 +178,8 @@
 
     .panel:hover .panel-cta { opacity: 1; transform: translateX(0); }
 
-    /* badge */
-    .badge {
-      display: inline-block;
-      font-size: 0.58rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      border: 1px solid rgba(212,184,204,0.2);
-      color: rgba(212,184,204,0.35);
-      padding: 0.18rem 0.55rem;
-      border-radius: 2px;
-      margin-bottom: 0.8rem;
-    }
 
-    /* disabled panel */
-    .panel--designer { cursor: default; }
+    .panel--designer .panel-cta { color: var(--designer); }
 
     /* MOBILE */
     @media (max-width: 700px) {
@@ -243,16 +230,16 @@
     </a>
 
     <!-- 03 DESIGNER -->
-    <div class="panel panel--designer">
+    <a class="panel panel--designer" href="designer/">
       <div class="panel-glow"></div>
       <div class="panel-content">
         <span class="panel-num">03</span>
-        <span class="badge">Coming Soon</span>
-        <p class="panel-role">UI/UX &amp; Product Design</p>
-        <h2 class="panel-name">Designer</h2>
-        <p class="panel-desc">Portfolio in preparation.</p>
+        <p class="panel-role">Designer</p>
+        <h2 class="panel-name">Yuna Jee</h2>
+        <p class="panel-desc">UX/UI · Product Design · 3D Modeling · Brand Strategy.</p>
+        <span class="panel-cta" style="color:var(--designer);">View Portfolio →</span>
       </div>
-    </div>
+    </a>
 
   </main>
 

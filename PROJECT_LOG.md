@@ -85,7 +85,21 @@ The root `milkfolio.space` is a **3-panel landing page** where visitors choose w
 │   └── style.css
 │
 └── designer/
-    └── index.html             # Coming soon placeholder (sister)
+    ├── index.html             # Yuna Jee designer portfolio (English)
+    ├── style.css              # Designer-specific styles
+    └── assets/
+        ├── prism_robot.jpg    # PRISM surgical robot 3D render
+        ├── prism_arms.jpg     # PRISM robot arm close-up
+        ├── prism_exhibit.jpg  # PRISM at RoboWorld exhibition
+        ├── unmute_device.jpg  # Unmute sound device render
+        ├── unmute_concept.jpg # Unmute consumer/producer concept
+        ├── unmute_texture.jpg # Chrome liquid texture study
+        ├── pathguard_proto.jpg# PathGuard LED prototype
+        ├── linkids_poster.jpg # Linkids brand poster
+        ├── linkids_card.jpg   # Linkids business card mockup
+        ├── linkids_notebook.jpg # Linkids branded notebook
+        ├── archive_flowers.jpg# AI-generated floral composition
+        └── archive_field.jpg  # AI-generated landscape
 ```
 
 Asset source: originally extracted from `/Users/hyunwoojee/acting_profile.pptx` (5 photos).
@@ -130,10 +144,18 @@ Asset source: originally extracted from `/Users/hyunwoojee/acting_profile.pptx` 
 - **Nav:** Has `← milkfolio` home link
 
 ### Designer Site (`designer/`)
-- **Status:** Placeholder only — "Coming Soon"
-- **Style:** Dark purple-tinted, minimal centered layout
-- **Accent:** `#d4b8cc` (soft pink/lavender)
-- **Content:** Badge, title "Designer", role "UI/UX · Product Design", back link
+- **Owner:** Yuna Jee (지유나), Hyunwoo's sister
+- **Language:** English
+- **Style:** Dark editorial, thoughtful, modern — soft pink/lavender palette
+- **Fonts:** Cormorant Garamond (headings) + Inter (body) + Space Grotesk (UI)
+- **Accent:** `#d4b8cc` (soft pink/lavender), secondary `#b8a0c8`
+- **Background:** `#0a080c` (near-black with purple tint)
+- **Sections:** Nav → Hero (tagline + 4 featured cards) → 9 Case Studies → About (bio, skills, awards) → Archive (6 visual explorations) → Contact → Footer
+- **Content source:** 84-page PDF portfolio ("for online portfolio_Yuna Jee.pdf")
+- **Projects:** PRISM (surgery robot), Unmute (sound platform), XPense (game spending), PathGuard (evacuation), INSTIP (deaf wearable), -ENG (English rhythm), KUPID (portal redesign), memmo (film screening), Linkids (children's brand)
+- **Awards:** Daejeon Design Award (INSTIP), Easy Lab Makerthon Excellence Award (PathGuard)
+- **School:** Korea University, Industrial Design
+- **Nav:** Has `← milkfolio` home link
 
 ---
 
@@ -161,10 +183,12 @@ Asset source: originally extracted from `/Users/hyunwoojee/acting_profile.pptx` 
 ## 8. Pending / TODO
 
 ### Designer profile (03)
-- [ ] User will share sister's portfolio PDF
-- [ ] Build full UI/UX designer profile from the PDF content
-- [ ] Sister's info: unknown yet — to be filled in during next session
-- [ ] Design direction: soft pink/lavender palette already established in landing; match that
+- [x] User shared sister's portfolio PDF (84 pages, 110MB)
+- [x] Built full designer portfolio from PDF content (9 case studies)
+- [x] Updated landing page panel from "Coming Soon" to live link
+- [ ] Contact info: email placeholder (yunajee.design@gmail.com) — confirm with Yuna
+- [ ] Consider hosting portfolio PDF externally (110MB too large for GitHub Pages)
+- [ ] Yuna may want to add LinkedIn or other social links
 
 ### Actor site additions (discussed but not done)
 - [ ] Showreel video embed (when available)
@@ -199,6 +223,20 @@ Asset source: originally extracted from `/Users/hyunwoojee/acting_profile.pptx` 
   - Designer placeholder (coming soon)
 - Created GitHub repo `hjee1/milkfolio` and pushed everything
 - Next step: user needs to (1) remove domain from old repo, (2) enable Pages + set domain on new repo
+
+### Session 3 — 2026.04.26 (designer portfolio build)
+- User provided sister Yuna Jee's portfolio PDF (84 pages, 110MB)
+- Extracted text content via `pdftotext` and images via `pdfimages`
+- Identified 9 projects with detailed case study content
+- Converted and compressed key images (PPM → JPEG, resized for web)
+- Built full designer portfolio site:
+  - Hero with tagline and 4 featured project cards
+  - 9 detailed case studies (PRISM, Unmute, XPense, PathGuard, INSTIP, -ENG, KUPID, memmo, Linkids)
+  - About section with bio, skills, tools, awards, education
+  - Archive section with visual explorations
+  - Contact section
+- Updated landing page: designer panel from "Coming Soon" placeholder to live link with Yuna Jee's name
+- Pure HTML/CSS, no JS, matching the project's design rules
 
 ---
 
