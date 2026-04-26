@@ -11,7 +11,12 @@
       "Bash(pdfimages -j -f 11 -l 84 \"../for online portfolio_Yuna Jee.pdf\" proj_)",
       "Bash(ls -lhS proj_*.jpg)",
       "Bash(rm -f hero_-*.ppm proj_-*.ppm hero_-*.jpg proj_-*.jpg)",
-      "Bash(ls -lh *.jpg)"
+      "Bash(ls -lh *.jpg)",
+      "Bash(git filter-branch:*)",
+      "Bash(git checkout:*)",
+      "Bash(git stash:*)",
+      "Bash(FILTER_BRANCH_SQUELCH_WARNING=1 git filter-branch --force --tree-filter 'rm -f \"designer/for online portfolio_Yuna Jee.pdf\"' -- origin/main..HEAD)",
+      "Bash(git push:*)"
     ]
   }
 }
