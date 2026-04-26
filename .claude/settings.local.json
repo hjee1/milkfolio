@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pdftotext \"/Users/hyunwoojee/milkfolio/designer/for online portfolio_Yuna Jee.pdf\" -)",
+      "Bash(mdls \"/Users/hyunwoojee/milkfolio/designer/for online portfolio_Yuna Jee.pdf\")",
+      "Bash(python3:*)",
+      "Bash(pdfimages -j -f 1 -l 10 \"../for online portfolio_Yuna Jee.pdf\" hero_)",
+      "Bash(ls -lhS hero_*)",
+      "Bash(ls hero_*.jpg hero_*.jpeg)",
+      "Bash(ls hero_*)",
+      "Bash(pdfimages -j -f 11 -l 84 \"../for online portfolio_Yuna Jee.pdf\" proj_)",
+      "Bash(ls -lhS proj_*.jpg)",
+      "Bash(rm -f hero_-*.ppm proj_-*.ppm hero_-*.jpg proj_-*.jpg)",
+      "Bash(ls -lh *.jpg)"
+    ]
+  }
+}
