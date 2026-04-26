@@ -17,26 +17,22 @@
 </head>
 <body>
 
-<div class="page">
-
   <!-- ====== Nav ====== -->
   <nav>
     <div class="nav-left">
       <a href="../" class="home-link">&larr; milkfolio</a>
       <span class="logo">Yuna Jee</span>
     </div>
-    <ul class="nav-tabs">
-      <li><button class="active" data-tab="about">About</button></li>
-      <li><button data-tab="work">Work</button></li>
-      <li><button data-tab="contact">Contact</button></li>
+    <ul class="nav-tabs" id="navTabs">
+      <li><a href="#about" class="active">About</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
 
-  <!-- ====== Tab Content ====== -->
-  <div class="tab-content">
-
-    <!-- ── ABOUT ── -->
-    <div class="tab-panel active" id="tab-about">
+  <!-- ====== ABOUT ====== -->
+  <section id="about">
+    <div class="container">
       <div class="about-layout">
         <div class="about-left">
           <div class="about-tagline">Design Portfolio 2026</div>
@@ -48,12 +44,12 @@
             the art of bridging technology and human understanding.
           </p>
           <div class="philosophy">
-            "Same question, different perspectives &mdash;
-            that's where design begins."
+            &ldquo;Same question, different perspectives &mdash;
+            that&rsquo;s where design begins.&rdquo;
           </div>
           <p class="about-bio">
             My work spans surgical robotics, prosumer sound platforms,
-            inclusive wearables, and children's education brands. Each project
+            inclusive wearables, and children&rsquo;s education brands. Each project
             starts with empathy, moves through rigorous iteration, and arrives
             at solutions that feel inevitable.
           </p>
@@ -81,18 +77,9 @@
           <div class="info-section">
             <span class="info-label">Recognition</span>
             <ul class="awards-compact">
-              <li>
-                <span class="aw-name">Daejeon Design Award</span>
-                <span class="aw-proj">INSTIP</span>
-              </li>
-              <li>
-                <span class="aw-name">Easy Lab Makerthon Excellence</span>
-                <span class="aw-proj">PathGuard</span>
-              </li>
-              <li>
-                <span class="aw-name">RoboWorld 2023 Exhibition</span>
-                <span class="aw-proj">PRISM</span>
-              </li>
+              <li><span class="aw-name">Daejeon Design Award</span><span class="aw-proj">INSTIP</span></li>
+              <li><span class="aw-name">Easy Lab Makerthon Excellence</span><span class="aw-proj">PathGuard</span></li>
+              <li><span class="aw-name">RoboWorld 2023 Exhibition</span><span class="aw-proj">PRISM</span></li>
             </ul>
           </div>
           <div class="info-section">
@@ -105,80 +92,107 @@
         </div>
       </div>
     </div>
+  </section>
 
-    <!-- ── WORK ── -->
-    <div class="tab-panel" id="tab-work">
-      <div class="work-grid" id="projectGrid">
-        <!-- Cards are injected by JS from project data -->
-      </div>
+  <!-- ====== WORK ====== -->
+  <section id="work">
+    <div class="container">
+      <span class="section-label">Selected Work</span>
+      <h2 style="font-size:clamp(1.8rem,3.5vw,2.5rem);color:#f0e8ec;margin-bottom:0.5rem;">Projects</h2>
+      <div class="work-grid" id="projectGrid"></div>
     </div>
+  </section>
 
-    <!-- ── CONTACT ── -->
-    <div class="tab-panel" id="tab-contact">
-      <div class="contact-center">
-        <h2>Let&rsquo;s Connect</h2>
-        <p class="contact-desc">
-          Open to collaboration, freelance projects, and new opportunities.
-        </p>
-        <div class="contact-links">
-          <a href="mailto:yunajee.design@gmail.com" class="contact-btn">Email &rarr;</a>
+  <!-- ====== CONTACT ====== -->
+  <section id="contact">
+    <div class="container">
+      <div class="contact-layout">
+        <div class="contact-left">
+          <span class="section-label">Get in Touch</span>
+          <h2>Let&rsquo;s Connect</h2>
+          <p class="contact-desc">
+            Open to collaboration, freelance projects, and new opportunities.
+          </p>
         </div>
-        <div class="contact-footer">
-          <a href="../">&larr; milkfolio</a>
+        <div>
+          <ul class="contact-items">
+            <li>
+              <span class="ci-label">Name</span>
+              <span class="ci-val">Yuna Jee</span>
+            </li>
+            <li>
+              <span class="ci-label">Phone</span>
+              <span class="ci-val">(+82) 010-8013-5727</span>
+            </li>
+            <li>
+              <span class="ci-label">Email</span>
+              <a href="mailto:jeesally@gmail.com" class="ci-val">jeesally@gmail.com</a>
+            </li>
+            <li>
+              <span class="ci-label">Instagram</span>
+              <a href="https://instagram.com/yunajee_02" target="_blank" rel="noopener" class="ci-val">@yunajee_02</a>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
+  </section>
 
-  </div>
-</div>
+  <!-- ====== Footer ====== -->
+  <footer>
+    <a href="../">&larr; milkfolio</a>
+    <p class="footer-copy">&copy; 2026 Yuna Jee. All rights reserved.</p>
+  </footer>
 
-<!-- ====== Modal ====== -->
-<div class="modal-overlay" id="modalOverlay">
-  <div class="modal">
-    <div class="modal-header">
-      <div class="modal-header-left">
-        <div class="mh-num" id="modalNum"></div>
-        <div class="mh-title" id="modalTitle"></div>
-        <div class="mh-subtitle" id="modalSubtitle"></div>
-        <div class="mh-meta" id="modalMeta"></div>
+  <!-- ====== Modal ====== -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal">
+      <div class="modal-header">
+        <div class="modal-header-left">
+          <div class="mh-num" id="modalNum"></div>
+          <div class="mh-title" id="modalTitle"></div>
+          <div class="mh-subtitle" id="modalSubtitle"></div>
+          <div class="mh-meta" id="modalMeta"></div>
+        </div>
+        <div class="modal-nav">
+          <button id="prevProject" title="Previous project">&larr;</button>
+          <span class="proj-counter" id="projCounter"></span>
+          <button id="nextProject" title="Next project">&rarr;</button>
+        </div>
+        <button class="modal-close" id="modalClose">&times;</button>
       </div>
-      <div class="modal-nav">
-        <button id="prevProject" title="Previous project">&larr;</button>
-        <span class="proj-counter" id="projCounter"></span>
-        <button id="nextProject" title="Next project">&rarr;</button>
+      <div class="modal-body">
+        <!-- Tags + Links bar above images -->
+        <div class="modal-top-bar" id="modalTopBar"></div>
+        <!-- Carousel -->
+        <div class="carousel" id="carousel">
+          <div class="carousel-track" id="carouselTrack"></div>
+          <button class="carousel-arrow prev" id="carPrev">&lsaquo;</button>
+          <button class="carousel-arrow next" id="carNext">&rsaquo;</button>
+          <div class="carousel-dots" id="carDots"></div>
+        </div>
+        <!-- Description -->
+        <div class="modal-desc" id="modalDesc"></div>
       </div>
-      <button class="modal-close" id="modalClose">&times;</button>
-    </div>
-    <div class="modal-body">
-      <div class="carousel" id="carousel">
-        <div class="carousel-track" id="carouselTrack"></div>
-        <button class="carousel-arrow prev" id="carPrev">&lsaquo;</button>
-        <button class="carousel-arrow next" id="carNext">&rsaquo;</button>
-        <div class="carousel-dots" id="carDots"></div>
-      </div>
-      <div class="modal-desc" id="modalDesc"></div>
     </div>
   </div>
-</div>
 
 <script>
 /* ========== PROJECT DATA ========== */
 const projects = [
   {
-    id: 'prism',
-    num: '01',
-    title: 'PRISM',
+    id: 'prism', num: '01', title: 'PRISM',
     subtitle: 'Precision Robot for Interactive Super Microsurgery',
     meta: [
       { label: 'Role', value: 'Industrial Design Intern' },
       { label: 'Organization', value: 'KIST Robogram Lab' },
       { label: 'Scope', value: 'Exterior Mockup, Branding, Video' }
     ],
-    thumbnail: 'assets/prism_robot.jpg',
-    images: ['assets/prism_robot.jpg', 'assets/prism_arms.jpg', 'assets/prism_exhibit.jpg'],
+    thumbnail: 'images/Prism_Thumbnail.jpg',
+    images: ['images/Prism_Detail 1.jpg','images/Prism_Detail 2.jpg','images/Prism_Detail 3.jpg','images/Prism_Detail 4.jpg','images/Prism_Detail 5.jpg','images/Prism_Detail 6.jpg','images/Prism_Detail 7.jpg','images/Prism_Detail 8.jpg'],
     desc: [
-      { title: 'Problem & Process', text: 'Post-surgery challenges for cancer, diabetes, and accident patients demand precision beyond human capability. The PRISM robot, with 4 independently moving arms, needed an exterior that communicated medical trust and cutting-edge technology. As an intern at KIST, I led the exterior mockup through multiple iterations — from 3D modeling in Rhino to pre-production prototypes, collaborating with engineers to balance aesthetics with functional requirements.' },
-      { title: 'Outcome', text: 'The completed prototype was exhibited at RoboWorld 2023 (KINTEX), demonstrating live surgical precision. The branding system — logo, video, and exhibition materials — established PRISM\'s visual identity for the national research project.' }
+      { title: 'Problem & Process', text: 'Post-surgery challenges for cancer, diabetes, and accident patients demand precision beyond human capability. The PRISM robot, with 4 independently moving arms, needed an exterior that communicated medical trust and cutting-edge technology. As an intern at KIST, I led the exterior mockup through multiple iterations \u2014 from 3D modeling in Rhino to pre-production prototypes.' },
+      { title: 'Outcome', text: 'The completed prototype was exhibited at RoboWorld 2023 (KINTEX), demonstrating live surgical precision. The branding system \u2014 logo, video, and exhibition materials \u2014 established PRISM\u2019s visual identity for the national research project.' }
     ],
     tags: ['3D Modeling', 'Rhino', 'Branding', 'Prototyping', 'Exhibition'],
     links: [
@@ -187,19 +201,17 @@ const projects = [
     ]
   },
   {
-    id: 'unmute',
-    num: '02',
-    title: 'Unmute',
+    id: 'unmute', num: '02', title: 'Unmute',
     subtitle: 'Prosumer Sound Culture Platform',
     meta: [
       { label: 'Type', value: 'Service & Product Design' },
       { label: 'Focus', value: 'AI + Sound + Consumer Experience' }
     ],
-    thumbnail: 'assets/unmute_device.jpg',
-    images: ['assets/unmute_device.jpg', 'assets/unmute_concept.jpg', 'assets/unmute_texture.jpg'],
+    thumbnail: 'images/Unmute_Thumbnail.jpg',
+    images: ['images/Unmute_Detail 1.jpg','images/Unmute_Detail 2.jpg','images/Unmute_Detail 3.jpg','images/Unmute_Detail 4.jpg','images/Unmute_Detail 5.jpg','images/Unmute_Detail 6.jpg','images/Unmute_Detail 7.jpg','images/Unmute_Detail 8.jpg'],
     desc: [
-      { title: 'Concept', text: 'Everyone listens to music, but no one turns it into "their own sound." Unmute proposes a Prosumer Culture where consumers become creators. A portable device records ambient sounds, transforms them into beats with shake gestures, and an AI engine composes personalized tracks based on mood, context, and taste.' },
-      { title: 'System', text: 'The ecosystem spans three touchpoints: a pocket-sized recording device (Recording, Beat, Listening modes), a Sound Library app for managing audio assets, and Sound Snap — a social feature for sharing daily sound-based short-form content. Product prototypes created using generative AI, alongside exhibition materials and virtual artist album graphics.' }
+      { title: 'Concept', text: 'Unmute proposes a Prosumer Culture where consumers become creators. A portable device records ambient sounds, transforms them into beats with shake gestures, and an AI engine composes personalized tracks based on mood, context, and taste.' },
+      { title: 'System', text: 'The ecosystem spans three touchpoints: a pocket-sized recording device, a Sound Library app, and Sound Snap \u2014 a social feature for sharing daily sound-based short-form content. Product prototypes created using generative AI, alongside exhibition materials.' }
     ],
     tags: ['Product Design', 'Service Design', 'Generative AI', 'UX/UI', 'Branding'],
     links: [
@@ -208,19 +220,17 @@ const projects = [
     ]
   },
   {
-    id: 'xpense',
-    num: '03',
-    title: 'XPense',
+    id: 'xpense', num: '03', title: 'XPense',
     subtitle: 'Game Spending Management Solution',
     meta: [
       { label: 'Type', value: 'App + Web + Device' },
       { label: 'Focus', value: 'Behavioral Design for Responsible Gaming' }
     ],
-    thumbnail: null,
-    images: [],
+    thumbnail: 'images/XPense_Thumbnail.jpg',
+    images: ['images/XPense_Detail 1.jpg','images/XPense_Detail 2.jpg','images/XPense_Detail 3.jpg','images/XPense_Detail 4.jpg','images/XPense_Detail 5.jpg','images/XPense_Detail 6.jpg'],
     desc: [
-      { title: 'Problem', text: 'In-game microtransaction systems encourage spending, but eliminating them isn\'t realistic. Gamers need tools to manage — not restrict — their habits.' },
-      { title: 'Solution', text: 'XPense is a three-part ecosystem: a mobile app for spending tracking, a dual-screen desktop device for real-time control during gameplay, and a web dashboard for analysis. Features include actual vs. stated probability comparison for gacha items, AI-powered alternative recommendations, customizable limits with haptic feedback, and a 360° joystick for intuitive navigation.' }
+      { title: 'Problem', text: 'In-game microtransaction systems encourage spending, but eliminating them isn\u2019t realistic. Gamers need tools to manage \u2014 not restrict \u2014 their habits.' },
+      { title: 'Solution', text: 'XPense is a three-part ecosystem: a mobile app for spending tracking, a dual-screen desktop device for real-time control during gameplay, and a web dashboard for analysis. Features include actual vs. stated probability comparison, AI-powered recommendations, and haptic feedback.' }
     ],
     tags: ['UX/UI', 'Product Design', 'Data Visualization', 'Behavioral Design'],
     links: [
@@ -229,55 +239,49 @@ const projects = [
     ]
   },
   {
-    id: 'pathguard',
-    num: '04',
-    title: 'PathGuard',
+    id: 'pathguard', num: '04', title: 'PathGuard',
     subtitle: 'Smart Floor Emergency Evacuation Guide',
     meta: [
       { label: 'Award', value: 'Easy Lab Makerthon Excellence Award' },
       { label: 'Focus', value: 'Public Safety & IoT' }
     ],
-    thumbnail: 'assets/pathguard_proto.jpg',
-    images: ['assets/pathguard_proto.jpg'],
+    thumbnail: 'images/Pathguard_Thumbnail.jpg',
+    images: ['images/Pathguard_Detail 1.jpg','images/Pathguard_Detail 2.jpg','images/Pathguard_Detail 3.jpg','images/Pathguard_Detail 4.jpg'],
     desc: [
-      { title: 'Problem', text: 'Building fires occur persistently. Current exit signs suffer from low visibility in smoke, and occupants often don\'t know evacuation routes. Case studies of Korea\'s colored road guide lines and pedestrian LED floor signals validated that ground-level visual guidance is more effective than overhead signage.' },
-      { title: 'Solution', text: 'PathGuard is a smart floor-embedded LED guide system with temperature sensors. During normal operation, it provides wayfinding. When fire is detected, it automatically activates evacuation mode, dynamically routing occupants away from danger. The prototype was modeled using Hyundai Department Store floor plans.' }
+      { title: 'Problem', text: 'Building fires occur persistently. Current exit signs suffer from low visibility in smoke, and occupants often don\u2019t know evacuation routes. Ground-level visual guidance is more effective than overhead signage.' },
+      { title: 'Solution', text: 'PathGuard is a smart floor-embedded LED guide system with temperature sensors. During normal operation, it provides wayfinding. When fire is detected, it dynamically routes occupants away from danger. Prototyped using Hyundai Department Store floor plans.' }
     ],
     tags: ['IoT', 'Arduino', '3D Modeling', 'Social Design'],
     links: []
   },
   {
-    id: 'instip',
-    num: '05',
-    title: 'INSTIP',
+    id: 'instip', num: '05', title: 'INSTIP',
     subtitle: 'Universal Wearable for Deaf Taxi Drivers',
     meta: [
       { label: 'Award', value: 'Daejeon Design Award' },
       { label: 'Focus', value: 'Inclusive Design & NUI' }
     ],
-    thumbnail: null,
-    images: [],
+    thumbnail: 'images/Instip_Thumbnail.jpg',
+    images: ['images/Instip_Detail 1.jpg','images/Instip_Detail 2.jpg','images/Instip_Detail 3.jpg','images/Instip_Detail 4.jpg','images/Instip_Detail 5.jpg','images/Instip_Detail 6.jpg'],
     desc: [
-      { title: 'Problem', text: 'Despite no legal barriers, deaf taxi drivers face communication difficulties. "Silent Taxi" services use back-seat tablets, but passengers report frustration with ambiguous text requests, slow delivery, and unfamiliar interfaces.' },
-      { title: 'Solution', text: 'INSTIP is a finger-worn wearable using Natural User Interface (NUI) principles. It sits between thumb and middle finger, detects motion to convert handwriting to text in real-time, and provides multi-feedback (LED, vibration) for incoming messages. Features include sliding cover for size adjustment, magnetic 360° angle control, micro-motion sensor for handwriting on any surface, and Bluetooth auto-connect.' }
+      { title: 'Problem', text: 'Despite no legal barriers, deaf taxi drivers face communication difficulties. "Silent Taxi" services use tablets, but passengers report frustration with ambiguous text and slow delivery.' },
+      { title: 'Solution', text: 'INSTIP is a finger-worn wearable using Natural User Interface (NUI) principles. It detects motion to convert handwriting to text in real-time, with multi-feedback (LED, vibration). Features magnetic 360\u00b0 angle control and handwriting recognition on any surface.' }
     ],
     tags: ['Universal Design', 'Wearable', 'NUI', 'Product Design'],
     links: []
   },
   {
-    id: 'eng',
-    num: '06',
-    title: '-ENG',
+    id: 'eng', num: '06', title: '-ENG',
     subtitle: 'English Pronunciation Rhythm Acquisition Device',
     meta: [
       { label: 'Type', value: 'Product + Service Design' },
       { label: 'Focus', value: 'EdTech & Multi-Sensory Learning' }
     ],
-    thumbnail: null,
-    images: [],
+    thumbnail: 'images/-ENG_Thumbnail.jpg',
+    images: ['images/-ENG_Detail 1.jpg','images/-ENG_Detail 2.jpg','images/-ENG_Detail 3.jpg','images/-ENG_Detail 4.jpg'],
     desc: [
-      { title: 'Problem', text: 'Current pronunciation services fix "results" but miss the "cause." They evaluate accuracy, but learners struggle with stress, pitch, and intonation — the patterns that make someone sound native.' },
-      { title: 'Approach', text: '-ENG uses three-stage multi-sensory learning: (1) Auditory — a 40mm device captures ambient sounds as rhythm patterns; (2) Tactile — the app converts rhythms into vibration patterns mapped to English syllable stress; (3) Visual — scan mode identifies collected words in text, reactivating them through vibration and pronunciation simultaneously.' }
+      { title: 'Problem', text: 'Current pronunciation services fix "results" but miss the "cause." Learners struggle with stress, pitch, and intonation \u2014 the patterns that make someone sound native.' },
+      { title: 'Approach', text: '-ENG uses three-stage multi-sensory learning: (1) Auditory \u2014 a 40mm device captures ambient sounds as rhythm patterns; (2) Tactile \u2014 vibration patterns mapped to English syllable stress; (3) Visual \u2014 scan mode reactivates words through vibration and pronunciation simultaneously.' }
     ],
     tags: ['Product Design', 'Service Design', 'EdTech', 'UX/UI'],
     links: [
@@ -285,114 +289,90 @@ const projects = [
     ]
   },
   {
-    id: 'kupid',
-    num: '07',
-    title: 'KUPID',
+    id: 'kupid', num: '07', title: 'KUPID',
     subtitle: 'Korea University Portal Redesign & App',
     meta: [
       { label: 'Type', value: 'UX/UI Redesign' },
       { label: 'Platform', value: 'Web + Mobile App' }
     ],
-    thumbnail: null,
-    images: [],
+    thumbnail: 'images/KUPID_Thumbnail.jpg',
+    images: ['images/KUPID_Detail 1.jpg','images/KUPID_Detail 2.jpg','images/KUPID_Detail 3.jpg','images/KUPID_Detail 4.jpg'],
     desc: [
-      { title: 'Problem', text: 'The university portal is essential for student life — grades, scholarships, reservations — yet students found it unusable. Excessive information, inconsistent navigation, and no mobile experience.' },
-      { title: 'Solution', text: 'The redesign centered on four pillars: icon shortcuts for primary functions, enhanced search, custom menus for personalization, and a native mobile app. New features include pre-login notice previews, visual grade tracking, streamlined scholarship applications, and a community hub.' }
+      { title: 'Problem', text: 'The university portal is essential for student life yet students found it unusable. Excessive information, inconsistent navigation, and no mobile experience.' },
+      { title: 'Solution', text: 'The redesign centered on icon shortcuts, enhanced search, custom menus for personalization, and a native mobile app. New features include pre-login notice previews, visual grade tracking, and streamlined scholarship applications.' }
     ],
     tags: ['UX Research', 'UI Design', 'Persona', 'Mobile App', 'Figma'],
     links: []
   },
   {
-    id: 'memmo',
-    num: '08',
-    title: 'mêm mo',
+    id: 'memmo', num: '08', title: 'm\u00eam mo',
     subtitle: 'Community Screening Crowdfunding Platform',
     meta: [
       { label: 'Type', value: 'Service Design & UX/UI' },
       { label: 'Focus', value: 'Cultural Platform & Crowdfunding' }
     ],
-    thumbnail: null,
-    images: [],
+    thumbnail: 'images/memmo_Thumbnail.jpg',
+    images: ['images/memmo_Detail 1.jpg','images/memmo_Detail 2.jpg','images/memmo_Detail 3.jpg','images/memmo_Detail 4.jpg','images/memmo_Detail 5.jpg'],
     desc: [
-      { title: 'Problem', text: 'Post-pandemic audiences crave diverse film experiences beyond multiplexes. Community screenings remain inaccessible — hard to find, difficult to organize, financially risky. Short films and festival rejects have no viable screening route.' },
-      { title: 'Concept', text: '"mêm mo" (from French "même moment") is a crowdfunding-based community screening platform connecting audiences with hosts. Five tabs serve distinct journeys: Home (recommendations), Explore (search), Community (discussion), Host (screening setup), and My (tickets, QR entry).' }
+      { title: 'Problem', text: 'Post-pandemic audiences crave diverse film experiences. Community screenings remain inaccessible \u2014 hard to find, difficult to organize, financially risky.' },
+      { title: 'Concept', text: '"m\u00eam mo" (French "m\u00eame moment") is a crowdfunding-based community screening platform. Five tabs serve distinct journeys: Home, Explore, Community, Host, and My \u2014 lowering barriers for both participation and hosting.' }
     ],
     tags: ['Service Design', 'UX/UI', 'Branding', 'Cultural Design'],
     links: []
   },
   {
-    id: 'linkids',
-    num: '09',
-    title: 'Linkids',
-    subtitle: 'Experience-Based Children\'s Education Brand',
+    id: 'linkids', num: '09', title: 'Linkids',
+    subtitle: 'Experience-Based Children\u2019s Education Brand',
     meta: [
       { label: 'Type', value: 'Brand & Service Design' },
       { label: 'Scope', value: 'App, Branding, Print Collateral' }
     ],
-    thumbnail: 'assets/linkids_poster.jpg',
-    images: ['assets/linkids_poster.jpg', 'assets/linkids_card.jpg', 'assets/linkids_notebook.jpg'],
+    thumbnail: 'images/Linkids_Thumbnail.jpg',
+    images: ['images/Linkids_Detail 1.jpg','images/Linkids_Detail 2.jpg','images/Linkids_Detail 3.jpg','images/Linkids_Detail 4.jpg','images/Linkids_Detail 5.jpg','images/Linkids_Detail 6.jpg'],
     desc: [
-      { title: 'Concept', text: 'Linkids is a children\'s education brand built around learning through experience and self-expression. The dual-mode app — Parent Mode and Child Mode — lets parents see an emotion-based dashboard while children interact through an interface designed around seeing, feeling, and expressing.' },
-      { title: 'Brand System', text: 'The brand extends beyond the app: kids\' business cards for imaginary careers, on-site ID cards for workshop belonging, branded notebooks for "memory, imagination, and expression," and posters combining the signature ring motif with playful icons.' }
+      { title: 'Concept', text: 'Linkids is a children\u2019s education brand built around learning through experience and self-expression. The dual-mode app lets parents see an emotion-based dashboard while children interact through seeing, feeling, and expressing.' },
+      { title: 'Brand System', text: 'Kids\u2019 business cards for imaginary careers, on-site ID cards for workshop belonging, branded notebooks for "memory, imagination, and expression," and posters combining the signature ring motif with playful icons.' }
     ],
-    tags: ['Brand Design', 'UX/UI', 'Print Design', 'Children\'s Design'],
+    tags: ['Brand Design', 'UX/UI', 'Print Design', 'Children\u2019s Design'],
     links: [
       { label: 'Online Exhibition', url: 'https://designbranding.co.kr/1667432fe37337' }
     ]
   }
 ];
 
-/* ========== TAB SWITCHING ========== */
-const tabBtns = document.querySelectorAll('.nav-tabs button');
-const tabPanels = document.querySelectorAll('.tab-panel');
+/* ========== NAV SCROLL TRACKING ========== */
+const navLinks = document.querySelectorAll('.nav-tabs a');
+const sections = document.querySelectorAll('section');
 
-tabBtns.forEach(btn => {
-  btn.addEventListener('click', () => {
-    tabBtns.forEach(b => b.classList.remove('active'));
-    tabPanels.forEach(p => p.classList.remove('active'));
-    btn.classList.add('active');
-    document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => {
+    if (window.scrollY >= s.offsetTop - 120) current = s.id;
+  });
+  navLinks.forEach(a => {
+    a.classList.toggle('active', a.getAttribute('href') === '#' + current);
   });
 });
 
 /* ========== RENDER PROJECT GRID ========== */
 const grid = document.getElementById('projectGrid');
-
 projects.forEach((p, i) => {
   const card = document.createElement('div');
   card.className = 'work-card';
-  card.dataset.index = i;
-
-  if (p.thumbnail) {
-    card.innerHTML = `
-      <img src="${p.thumbnail}" alt="${p.title}" loading="lazy"/>
-      <div class="card-info">
-        <div class="ci-num">${p.num}</div>
-        <div class="ci-title">${p.title}</div>
-        <div class="ci-desc">${p.subtitle}</div>
-      </div>`;
-  } else {
-    card.innerHTML = `
-      <div class="placeholder">
-        <div class="ph-name">${p.title}</div>
-        <div class="ph-sub">${p.subtitle}</div>
-      </div>
-      <div class="card-info">
-        <div class="ci-num">${p.num}</div>
-        <div class="ci-title">${p.title}</div>
-        <div class="ci-desc">${p.subtitle}</div>
-      </div>`;
-  }
-
+  card.innerHTML = `
+    <img src="${p.thumbnail}" alt="${p.title}" loading="lazy"/>
+    <div class="card-info">
+      <div class="ci-num">${p.num}</div>
+      <div class="ci-title">${p.title}</div>
+      <div class="ci-desc">${p.subtitle}</div>
+    </div>`;
   card.addEventListener('click', () => openModal(i));
   grid.appendChild(card);
 });
 
 /* ========== MODAL ========== */
 const overlay = document.getElementById('modalOverlay');
-const modalClose = document.getElementById('modalClose');
-let currentProject = 0;
-let currentSlide = 0;
+let currentProject = 0, currentSlide = 0;
 
 function openModal(index) {
   currentProject = index;
@@ -406,7 +386,7 @@ function closeModal() {
   document.body.style.overflow = '';
 }
 
-modalClose.addEventListener('click', closeModal);
+document.getElementById('modalClose').addEventListener('click', closeModal);
 overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
 document.addEventListener('keydown', e => {
   if (!overlay.classList.contains('open')) return;
@@ -415,7 +395,6 @@ document.addEventListener('keydown', e => {
   if (e.key === 'ArrowRight') { e.preventDefault(); nextSlide(); }
 });
 
-/* Project nav */
 document.getElementById('prevProject').addEventListener('click', () => {
   currentProject = (currentProject - 1 + projects.length) % projects.length;
   renderModal();
@@ -432,77 +411,59 @@ function renderModal() {
   document.getElementById('modalNum').textContent = p.num;
   document.getElementById('modalTitle').textContent = p.title;
   document.getElementById('modalSubtitle').textContent = p.subtitle;
-  document.getElementById('projCounter').textContent = `${currentProject + 1} / ${projects.length}`;
+  document.getElementById('projCounter').textContent = (currentProject + 1) + ' / ' + projects.length;
 
-  // Meta
-  const metaEl = document.getElementById('modalMeta');
-  metaEl.innerHTML = p.meta.map(m =>
-    `<div class="mh-meta-item"><div class="mm-label">${m.label}</div><div class="mm-value">${m.value}</div></div>`
+  document.getElementById('modalMeta').innerHTML = p.meta.map(m =>
+    '<div class="mh-meta-item"><div class="mm-label">' + m.label + '</div><div class="mm-value">' + m.value + '</div></div>'
   ).join('');
+
+  // Top bar: tags + links
+  let topBar = p.tags.map(t => '<span class="tag">' + t + '</span>').join('');
+  if (p.links.length) {
+    topBar += p.links.map(l =>
+      '<a href="' + l.url + '" target="_blank" rel="noopener" class="link-btn">' + l.label + ' \u2192</a>'
+    ).join('');
+  }
+  document.getElementById('modalTopBar').innerHTML = topBar;
 
   // Carousel
   const track = document.getElementById('carouselTrack');
-  const slides = p.images.length > 0 ? p.images : [null];
-  track.innerHTML = slides.map(img => {
-    if (img) return `<div class="carousel-slide"><img src="${img}" alt="${p.title}"/></div>`;
-    return `<div class="carousel-slide"><div class="slide-placeholder"><div class="sp-icon">&#9634;</div><div class="sp-text">Images coming soon</div></div></div>`;
-  }).join('');
+  track.innerHTML = p.images.map(img =>
+    '<div class="carousel-slide"><img src="' + img + '" alt="' + p.title + '"/></div>'
+  ).join('');
   track.style.transform = 'translateX(0)';
 
-  // Dots
   const dots = document.getElementById('carDots');
-  dots.innerHTML = slides.map((_, i) =>
-    `<button class="carousel-dot${i === 0 ? ' active' : ''}" data-slide="${i}"></button>`
+  dots.innerHTML = p.images.map((_, i) =>
+    '<button class="carousel-dot' + (i === 0 ? ' active' : '') + '" data-slide="' + i + '"></button>'
   ).join('');
   dots.querySelectorAll('.carousel-dot').forEach(d => {
     d.addEventListener('click', () => goToSlide(parseInt(d.dataset.slide)));
   });
 
-  // Hide arrows if single slide
-  const showArrows = slides.length > 1;
+  var showArrows = p.images.length > 1;
   document.getElementById('carPrev').style.display = showArrows ? '' : 'none';
   document.getElementById('carNext').style.display = showArrows ? '' : 'none';
 
   // Description
-  const descEl = document.getElementById('modalDesc');
-  let descHTML = p.desc.map(d =>
-    `<div class="md-section"><h3>${d.title}</h3><p>${d.text}</p></div>`
+  document.getElementById('modalDesc').innerHTML = p.desc.map(d =>
+    '<div class="md-section"><h3>' + d.title + '</h3><p>' + d.text + '</p></div>'
   ).join('');
 
-  // Tags + Links row
-  let extras = '<div class="md-section">';
-  if (p.tags.length) {
-    extras += '<div class="md-tags">' + p.tags.map(t => `<span class="tag">${t}</span>`).join('') + '</div>';
-  }
-  if (p.links.length) {
-    extras += '<div class="md-links">' + p.links.map(l =>
-      `<a href="${l.url}" target="_blank" rel="noopener">${l.label} &rarr;</a>`
-    ).join('') + '</div>';
-  }
-  extras += '</div>';
-  descHTML += extras;
-  descEl.innerHTML = descHTML;
-
-  // Scroll body to top
   document.querySelector('.modal-body').scrollTop = 0;
 }
 
-/* Carousel controls */
 function goToSlide(n) {
-  const p = projects[currentProject];
-  const total = p.images.length > 0 ? p.images.length : 1;
+  var total = projects[currentProject].images.length;
   currentSlide = Math.max(0, Math.min(n, total - 1));
-  document.getElementById('carouselTrack').style.transform = `translateX(-${currentSlide * 100}%)`;
-  document.querySelectorAll('.carousel-dot').forEach((d, i) => {
+  document.getElementById('carouselTrack').style.transform = 'translateX(-' + (currentSlide * 100) + '%)';
+  document.querySelectorAll('.carousel-dot').forEach(function(d, i) {
     d.classList.toggle('active', i === currentSlide);
   });
 }
-
 function prevSlide() { goToSlide(currentSlide - 1); }
 function nextSlide() {
-  const p = projects[currentProject];
-  const total = p.images.length > 0 ? p.images.length : 1;
-  goToSlide((currentSlide + 1) % total);
+  goToSlide((currentSlide + 1) % projects[currentProject].images.length);
 }
 
 document.getElementById('carPrev').addEventListener('click', prevSlide);
