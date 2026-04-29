@@ -37,10 +37,22 @@ CNAME               — milkfolio.space
 
 ## agent/ Directory
 
-- `agent/index.html` — password gate (SHA-256 client-side, sessionStorage)
+- `agent/index.html` — password gate (SHA-256 client-side, sessionStorage). Fetches `data.html` and injects via `innerHTML` into `#dashboard-frame`.
 - `agent/data.html` — auto-pushed by `hjee1/casting-agent` GitHub Actions workflow
 - Password hash: `069d081...` (SHA-256 of actual password)
 - Do NOT manually edit `data.html` — it gets overwritten on every casting-agent pipeline run
+
+### Critical: script re-execution after innerHTML
+
+`innerHTML` does NOT execute `<script>` tags it injects (HTML spec). Without intervention, any JS shipped inside `data.html` (pagination, tab switching, etc.) silently dies — no error, just static markup.
+
+`loadDashboard` in `agent/index.html` walks the injected scripts, creates fresh `<script>` elements with `s.text = old.textContent`, and appends them to `<head>` — that triggers synchronous execution and registers function declarations on `window` (needed for inline `onclick` handlers).
+
+Two pitfalls observed:
+- `old.replaceWith(s)` does NOT reliably trigger execution in all browsers — use `document.head.appendChild(s)`.
+- Browsers/CDNs cache `data.html` aggressively. Fetch with `?v=' + Date.now()` and `cache: 'no-store'` to ensure fresh data after each pipeline run.
+
+If you redesign this loading path, preserve both behaviors. Symptoms of regression: clicks do nothing on the dashboard, pagination shows page numbers but doesn't actually hide rows.
 
 ## Pending / TODO
 
