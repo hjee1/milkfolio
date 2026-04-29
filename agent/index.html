@@ -114,13 +114,19 @@ pw.addEventListener('keydown', async (e) => {
 });
 
 function loadDashboard() {
-  fetch('data.html')
+  fetch('data.html?v=' + Date.now(), { cache: 'no-store' })
     .then(r => {
       if (!r.ok) throw new Error('no data');
       return r.text();
     })
     .then(html => {
       document.getElementById('dashboard-frame').innerHTML = html;
+      // Re-run inline scripts (innerHTML doesn't execute them)
+      document.getElementById('dashboard-frame').querySelectorAll('script').forEach(old => {
+        const s = document.createElement('script');
+        if (old.src) s.src = old.src; else s.textContent = old.textContent;
+        old.replaceWith(s);
+      });
     })
     .catch(() => {
       // data.html not yet pushed — show placeholder
