@@ -120,12 +120,16 @@ function loadDashboard() {
       return r.text();
     })
     .then(html => {
-      document.getElementById('dashboard-frame').innerHTML = html;
-      // Re-run inline scripts (innerHTML doesn't execute them)
-      document.getElementById('dashboard-frame').querySelectorAll('script').forEach(old => {
+      const frame = document.getElementById('dashboard-frame');
+      frame.innerHTML = html;
+      // innerHTML doesn't execute <script>. Append a fresh script element
+      // to <head> so its function declarations land on window — needed for
+      // inline onclick handlers (pagerStep / showTab).
+      frame.querySelectorAll('script').forEach(old => {
         const s = document.createElement('script');
-        if (old.src) s.src = old.src; else s.textContent = old.textContent;
-        old.replaceWith(s);
+        s.text = old.textContent;
+        document.head.appendChild(s);
+        old.remove();
       });
     })
     .catch(() => {
