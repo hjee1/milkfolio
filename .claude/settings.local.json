@@ -50,7 +50,9 @@
       "WebFetch(domain:www.filmmakers.co.kr)",
       "Bash(python -m pytest tests/test_regression_golden.py -q)",
       "Bash(git -C ~/casting-agent diff --stat)",
-      "Bash(git -C ~/casting-agent ls-files --others --exclude-standard)"
+      "Bash(git -C ~/casting-agent ls-files --others --exclude-standard)",
+      "Bash(sqlite3 ~/casting-agent/data/castings.db \"SELECT name FROM sqlite_master WHERE type='table';\")",
+      "Bash(sqlite3 ~/casting-agent/data/castings.db \".schema report_runs\")"
     ]
   }
 }
