@@ -47,7 +47,10 @@
       "Bash(sqlite3 ~/casting-agent/data/castings.db \"SELECT reasoning FROM filter_results WHERE reasoning LIKE '%감독%' OR reasoning LIKE '%제작사%' LIMIT 3;\")",
       "Bash(xargs ls -lh)",
       "Bash(git -C ~/casting-agent show --stat 4f65426)",
-      "WebFetch(domain:www.filmmakers.co.kr)"
+      "WebFetch(domain:www.filmmakers.co.kr)",
+      "Bash(python -m pytest tests/test_regression_golden.py -q)",
+      "Bash(git -C ~/casting-agent diff --stat)",
+      "Bash(git -C ~/casting-agent ls-files --others --exclude-standard)"
     ]
   }
 }
