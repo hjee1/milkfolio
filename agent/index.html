@@ -97,6 +97,55 @@
     #search-box { padding: 12px 16px 0 16px; }
     #search-input { font-size: 1rem; } /* prevent iOS auto-zoom on focus */
   }
+
+  /* ── Filter Bar (SPEC-AGENT-FILTER-001) ── */
+  #filter-bar {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px 24px 0 24px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+    box-sizing: border-box;
+  }
+  #filter-bar select {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 8px 12px;
+    font-size: 0.85rem;
+    font-family: inherit;
+    border-radius: 0;
+    outline: none;
+    min-height: 36px;
+    cursor: pointer;
+    transition: border-color 0.3s;
+  }
+  #filter-bar select:focus { border-color: var(--accent); }
+  #filter-bar button#filter-reset {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--dim);
+    padding: 8px 14px;
+    font-size: 0.8rem;
+    font-family: inherit;
+    border-radius: 0;
+    outline: none;
+    min-height: 36px;
+    cursor: pointer;
+    letter-spacing: 1px;
+    transition: border-color 0.3s, color 0.3s;
+  }
+  #filter-bar button#filter-reset:hover {
+    border-color: var(--accent);
+    color: var(--text);
+  }
+  @media (max-width: 600px) {
+    #filter-bar { padding: 8px 16px 0 16px; gap: 6px; }
+    #filter-bar select { font-size: 1rem; flex: 1 1 45%; min-width: 0; } /* prevent iOS auto-zoom */
+    #filter-bar button#filter-reset { font-size: 0.85rem; flex: 1 1 100%; }
+  }
 </style>
 </head>
 <body>
@@ -111,6 +160,26 @@
   <div id="search-box">
     <input type="text" id="search-input" placeholder="검색 (제목 · 감독 · 제작사 · 역할 · 수신 이메일)" autocomplete="off" spellcheck="false">
     <div id="search-empty">검색 결과 없음</div>
+  </div>
+  <div id="filter-bar">
+    <select id="filter-period" aria-label="기간">
+      <option value="all">전체 기간</option>
+      <option value="today">오늘</option>
+      <option value="week">이번 주</option>
+      <option value="month">이번 달</option>
+    </select>
+    <select id="filter-status" aria-label="상태">
+      <option value="all">전체 상태</option>
+      <option value="sent">발송</option>
+      <option value="failed">실패</option>
+      <option value="skipped">건너뜀</option>
+    </select>
+    <select id="filter-sort" aria-label="정렬">
+      <option value="recent">최신순</option>
+      <option value="oldest">오래된순</option>
+      <option value="title">제목 ABC</option>
+    </select>
+    <button type="button" id="filter-reset">초기화</button>
   </div>
   <div id="dashboard-frame">
     <div id="no-data">waiting for first pipeline run...</div>
@@ -218,25 +287,149 @@ window.__searchMatchRow = function (tr, q) {
   return hay.indexOf(q) !== -1;
 };
 
+// ── Filter helpers (SPEC-AGENT-FILTER-001) ──
+// All bound to window so __searchSelfTest and inline handlers can reach them.
+
+window.__getRowDate = function (tr) {
+  // First cell is YYYY-MM-DD. Returns parsed Date or null on malformed/missing.
+  const tds = tr.children;
+  if (!tds || tds.length < 1) return null;
+  const txt = (tds[0].textContent || '').trim();
+  if (!txt) return null;
+  const ms = Date.parse(txt);
+  if (isNaN(ms)) return null;
+  return new Date(ms);
+};
+
+window.__getRowStatus = function (tr) {
+  // The last cell holds a <span class="badge XXX">. The badge class is the
+  // FIRST className other than 'badge' (data.html emits e.g. "badge sent",
+  // "badge failed_smtp", "badge skipped_nokeyword"). Returns '' if missing.
+  const badge = tr.querySelector ? tr.querySelector('.badge') : null;
+  if (!badge) return '';
+  const cl = badge.classList;
+  for (let i = 0; i < cl.length; i++) {
+    if (cl[i] !== 'badge') return cl[i];
+  }
+  return '';
+};
+
+window.__matchStatus = function (cls, want) {
+  // 'all'      → any class passes
+  // 'sent'     → exact 'sent' only (sent_dbfail is a failure, not a success)
+  // 'failed'   → startsWith 'failed' OR exact 'sent_dbfail'
+  // 'skipped'  → startsWith 'skipped'
+  if (want === 'all' || !want) return true;
+  if (!cls) return false;
+  if (want === 'sent') return cls === 'sent';
+  if (want === 'failed') return cls.indexOf('failed') === 0 || cls === 'sent_dbfail';
+  if (want === 'skipped') return cls.indexOf('skipped') === 0;
+  return false;
+};
+
+window.__getPeriodWindow = function (now) {
+  // Returns { todayStart, tomorrow, weekStart, nextWeek, monthStart, nextMonth }
+  // anchored at the local-time `now` Date. Pure: no DOM, no clock access.
+  const n = now || new Date();
+  const todayStart = new Date(n.getFullYear(), n.getMonth(), n.getDate());
+  const tomorrow = new Date(todayStart);
+  tomorrow.setDate(todayStart.getDate() + 1);
+  // Mon-Sun week. getDay(): Sun=0, Mon=1, ..., Sat=6.
+  const dow = todayStart.getDay();
+  const monOffset = (dow === 0) ? -6 : (1 - dow);
+  const weekStart = new Date(todayStart);
+  weekStart.setDate(todayStart.getDate() + monOffset);
+  const nextWeek = new Date(weekStart);
+  nextWeek.setDate(weekStart.getDate() + 7);
+  const monthStart = new Date(todayStart.getFullYear(), todayStart.getMonth(), 1);
+  const nextMonth = new Date(todayStart.getFullYear(), todayStart.getMonth() + 1, 1);
+  return {
+    todayStart: todayStart, tomorrow: tomorrow,
+    weekStart: weekStart, nextWeek: nextWeek,
+    monthStart: monthStart, nextMonth: nextMonth
+  };
+};
+
+window.__inPeriod = function (date, period, win) {
+  // 'all' passes everything (even null dates). Otherwise null dates fail.
+  if (period === 'all' || !period) return true;
+  if (!date) return false;
+  const t = date.getTime();
+  if (period === 'today') return t >= win.todayStart.getTime() && t < win.tomorrow.getTime();
+  if (period === 'week') return t >= win.weekStart.getTime() && t < win.nextWeek.getTime();
+  if (period === 'month') return t >= win.monthStart.getTime() && t < win.nextMonth.getTime();
+  return true;
+};
+
+window.__filterRow = function (tr, q, period, status, win) {
+  // Pure predicate combining search + period + status (AND).
+  // Reused by applyAllFilters and __searchSelfTest. No DOM mutation.
+  if (!window.__searchMatchRow(tr, q)) return false;
+  if (!window.__matchStatus(window.__getRowStatus(tr), status)) return false;
+  if (!window.__inPeriod(window.__getRowDate(tr), period, win)) return false;
+  return true;
+};
+
 window.applySearch = function () {
+  // Backward-compatible entry point. SPEC-AGENT-SEARCH-001 called this from
+  // loadDashboard via window.applySearch; we now delegate to applyAllFilters
+  // so the post-reload re-apply runs the full filter+sort pipeline.
+  return window.applyAllFilters();
+};
+
+window.applyAllFilters = function () {
   const input = document.getElementById('search-input');
   const empty = document.getElementById('search-empty');
+  const periodSel = document.getElementById('filter-period');
+  const statusSel = document.getElementById('filter-status');
+  const sortSel = document.getElementById('filter-sort');
   if (!input) return;
   const q = (input.value || '').trim().toLowerCase();
+  const period = periodSel ? periodSel.value : 'all';
+  const status = statusSel ? statusSel.value : 'all';
+  const sortKey = sortSel ? sortSel.value : 'recent';
+  const win = window.__getPeriodWindow(new Date());
   const rows = window.__searchGetRows(document);
-  let shown = 0;
+  const visible = [];
   rows.forEach(tr => {
-    if (window.__searchMatchRow(tr, q)) {
+    if (window.__filterRow(tr, q, period, status, win)) {
       // Defensive empty-string assignment overrides pagerStep's inline
       // display:none, so pager-hidden rows reappear when they match.
       tr.style.display = '';
-      shown++;
+      visible.push(tr);
     } else {
       tr.style.display = 'none';
     }
   });
+
+  // Sort the visible rows in-place. Always applied (even for 'recent') so the
+  // user gets a stable, deterministic order after any filter change. Hidden
+  // rows stay where they are; we only re-append the visible ones, which
+  // pushes them to the bottom of tbody — acceptable since pagination is
+  // disabled while any filter is active.
+  if (visible.length > 0) {
+    const tbody = visible[0].parentNode;
+    if (tbody) {
+      visible.sort(function (a, b) {
+        const aDate = (a.children[0] && a.children[0].textContent) || '';
+        const bDate = (b.children[0] && b.children[0].textContent) || '';
+        if (sortKey === 'oldest') return aDate.localeCompare(bDate);
+        if (sortKey === 'title') {
+          const aTitle = (a.children[2] && (a.children[2].getAttribute('title') || a.children[2].textContent)) || '';
+          const bTitle = (b.children[2] && (b.children[2].getAttribute('title') || b.children[2].textContent)) || '';
+          return aTitle.localeCompare(bTitle, 'ko');
+        }
+        // 'recent' default: YYYY-MM-DD descending (lex sort works)
+        return bDate.localeCompare(aDate);
+      });
+      visible.forEach(function (tr) { tbody.appendChild(tr); });
+    }
+  }
+
+  // Empty state: show only when ANY filter is active AND no rows are visible.
+  const anyFilter = !!q || (period && period !== 'all') || (status && status !== 'all');
   if (empty) {
-    if (q && rows.length > 0 && shown === 0) empty.classList.add('show');
+    if (anyFilter && rows.length > 0 && visible.length === 0) empty.classList.add('show');
     else empty.classList.remove('show');
   }
 };
@@ -244,7 +437,24 @@ window.applySearch = function () {
 // Wire the input event (IME-friendly for Korean composition).
 const _searchInput = document.getElementById('search-input');
 if (_searchInput) {
-  _searchInput.addEventListener('input', window.applySearch);
+  _searchInput.addEventListener('input', window.applyAllFilters);
+}
+// Wire filter-bar controls. 'change' fires on select commit (keyboard or click).
+const _filterPeriod = document.getElementById('filter-period');
+const _filterStatus = document.getElementById('filter-status');
+const _filterSort = document.getElementById('filter-sort');
+const _filterReset = document.getElementById('filter-reset');
+if (_filterPeriod) _filterPeriod.addEventListener('change', window.applyAllFilters);
+if (_filterStatus) _filterStatus.addEventListener('change', window.applyAllFilters);
+if (_filterSort) _filterSort.addEventListener('change', window.applyAllFilters);
+if (_filterReset) {
+  _filterReset.addEventListener('click', function () {
+    if (_searchInput) _searchInput.value = '';
+    if (_filterPeriod) _filterPeriod.value = 'all';
+    if (_filterStatus) _filterStatus.value = 'all';
+    if (_filterSort) _filterSort.value = 'recent';
+    window.applyAllFilters();
+  });
 }
 
 // In-page self-test. Builds a fake #tbl-apps in a detached DocumentFragment,
@@ -290,6 +500,73 @@ window.__searchSelfTest = function () {
   check('NEW director non-match across rows', window.__searchMatchRow(tbody.children[1], '김도이') === false);
   check('NEW company match "카피줌바라"', window.__searchMatchRow(tbody.children[2], '카피줌바라') === true);
   check('NEW company non-match', window.__searchMatchRow(tbody.children[0], '카피줌바라') === false);
+
+  // ── SPEC-AGENT-FILTER-001 tests ──
+  // Status matching against the literal classList[1+] string emitted by data.html
+  check('FT status sent (exact) matches "sent"', window.__matchStatus('sent', 'sent') === true);
+  check('FT status sent rejects "sent_dbfail"', window.__matchStatus('sent_dbfail', 'sent') === false);
+  check('FT status failed matches "failed_smtp"', window.__matchStatus('failed_smtp', 'failed') === true);
+  check('FT status failed matches "sent_dbfail" (DB write failure counts as failed)', window.__matchStatus('sent_dbfail', 'failed') === true);
+  check('FT status failed rejects "sent"', window.__matchStatus('sent', 'failed') === false);
+  check('FT status skipped matches "skipped_nokeyword"', window.__matchStatus('skipped_nokeyword', 'skipped') === true);
+  check('FT status skipped rejects "sent"', window.__matchStatus('sent', 'skipped') === false);
+  check('FT status all passes everything', window.__matchStatus('anything', 'all') === true);
+  check('FT status all passes empty', window.__matchStatus('', 'all') === true);
+
+  // Build a fixture row with a real .badge span to exercise __getRowStatus
+  const statusFixtureTr = document.createElement('tr');
+  statusFixtureTr.innerHTML = '<td>2026-05-17</td><td>src</td><td>title</td><td>role</td><td>email</td><td><span class="badge failed_smtp">실패</span></td>';
+  check('FT __getRowStatus reads badge classList', window.__getRowStatus(statusFixtureTr) === 'failed_smtp');
+  const statusEmptyTr = document.createElement('tr');
+  statusEmptyTr.innerHTML = '<td>2026-05-17</td><td>src</td><td>title</td><td>role</td><td>email</td><td>nobadge</td>';
+  check('FT __getRowStatus handles missing badge', window.__getRowStatus(statusEmptyTr) === '');
+
+  // Period window math — anchor on a fixed Wednesday 2026-05-13.
+  const anchor = new Date(2026, 4, 13); // May 13 2026 (Wed)
+  const win = window.__getPeriodWindow(anchor);
+  // Today bounds
+  check('FT today bound: anchor in today', window.__inPeriod(new Date(2026, 4, 13, 12), 'today', win) === true);
+  check('FT today bound: yesterday not in today', window.__inPeriod(new Date(2026, 4, 12, 23, 59), 'today', win) === false);
+  check('FT today bound: tomorrow not in today', window.__inPeriod(new Date(2026, 4, 14, 0, 0), 'today', win) === false);
+  // Week bounds (Mon 5/11 .. Sun 5/17)
+  check('FT week bound: Monday 5/11 in week', window.__inPeriod(new Date(2026, 4, 11), 'week', win) === true);
+  check('FT week bound: Sunday 5/17 in week', window.__inPeriod(new Date(2026, 4, 17, 23, 59), 'week', win) === true);
+  check('FT week bound: Sunday 5/10 not in week', window.__inPeriod(new Date(2026, 4, 10, 23), 'week', win) === false);
+  check('FT week bound: Monday 5/18 not in week', window.__inPeriod(new Date(2026, 4, 18), 'week', win) === false);
+  // Month bounds (May 2026)
+  check('FT month bound: May 1 in month', window.__inPeriod(new Date(2026, 4, 1), 'month', win) === true);
+  check('FT month bound: May 31 in month', window.__inPeriod(new Date(2026, 4, 31, 23), 'month', win) === true);
+  check('FT month bound: Apr 30 not in month', window.__inPeriod(new Date(2026, 3, 30), 'month', win) === false);
+  check('FT month bound: Jun 1 not in month', window.__inPeriod(new Date(2026, 5, 1), 'month', win) === false);
+  // Sunday wrap (anchor on Sun 2026-05-17 → week starts Mon 5/11, ends Sun 5/17)
+  const sunWin = window.__getPeriodWindow(new Date(2026, 4, 17));
+  check('FT week Sunday-anchor: Mon 5/11 still in week', window.__inPeriod(new Date(2026, 4, 11), 'week', sunWin) === true);
+  check('FT week Sunday-anchor: Mon 5/18 not in week', window.__inPeriod(new Date(2026, 4, 18), 'week', sunWin) === false);
+  // 'all' period passes null dates (malformed date cell still visible when no period filter)
+  check('FT period all passes null date', window.__inPeriod(null, 'all', win) === true);
+  check('FT period today rejects null date', window.__inPeriod(null, 'today', win) === false);
+
+  // __getRowDate parsing
+  const dateTr = document.createElement('tr');
+  dateTr.innerHTML = '<td>2026-05-13</td><td>x</td>';
+  const parsed = window.__getRowDate(dateTr);
+  check('FT __getRowDate parses YYYY-MM-DD', parsed !== null && parsed.getFullYear() === 2026 && parsed.getMonth() === 4 && parsed.getDate() === 13);
+  const dateBadTr = document.createElement('tr');
+  dateBadTr.innerHTML = '<td>not-a-date</td><td>x</td>';
+  check('FT __getRowDate returns null on malformed', window.__getRowDate(dateBadTr) === null);
+
+  // Combined filter via __filterRow (full AND pipeline)
+  const fxTr = document.createElement('tr');
+  fxTr.innerHTML = '<td>2026-05-13</td><td>src</td><td title="단국대학교 영화">단국대학교</td><td>김도이</td><td>단국대</td><td>역할</td><td>e@x.com</td><td><span class="badge sent">발송</span></td>';
+  check('FT __filterRow all-pass (no filters)', window.__filterRow(fxTr, '', 'all', 'all', win) === true);
+  check('FT __filterRow search+status+period AND', window.__filterRow(fxTr, '단국', 'week', 'sent', win) === true);
+  check('FT __filterRow fails when search misses', window.__filterRow(fxTr, '없는단어', 'all', 'all', win) === false);
+  check('FT __filterRow fails when status mismatches', window.__filterRow(fxTr, '', 'all', 'failed', win) === false);
+  // Use a date clearly outside today/week/month to test period exclusion.
+  const fxOldTr = document.createElement('tr');
+  fxOldTr.innerHTML = '<td>2025-01-01</td><td>src</td><td title="old">old</td><td>d</td><td>c</td><td>r</td><td>e</td><td><span class="badge sent">발송</span></td>';
+  check('FT __filterRow period today excludes old row', window.__filterRow(fxOldTr, '', 'today', 'all', win) === false);
+  check('FT __filterRow period month excludes old row', window.__filterRow(fxOldTr, '', 'month', 'all', win) === false);
 
   const result = { passed: passed, failed: failed, errors: errors };
   if (failed === 0) console.info('[__searchSelfTest] PASS', result);
