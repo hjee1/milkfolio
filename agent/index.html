@@ -109,7 +109,7 @@
 
 <div id="dashboard">
   <div id="search-box">
-    <input type="text" id="search-input" placeholder="검색 (제목 · 역할 · 수신 이메일)" autocomplete="off" spellcheck="false">
+    <input type="text" id="search-input" placeholder="검색 (제목 · 감독 · 제작사 · 역할 · 수신 이메일)" autocomplete="off" spellcheck="false">
     <div id="search-empty">검색 결과 없음</div>
   </div>
   <div id="dashboard-frame">
@@ -195,16 +195,26 @@ window.__searchGetRows = function (root) {
 };
 
 window.__searchMatchRow = function (tr, q) {
-  // Pure matcher: returns true if any of (title attr of col 3, col 4 text,
-  // col 5 text) contains the lowercased query string. Empty query => true.
+  // Pure matcher: substring match across title attr + director + company + role + email.
+  // SPEC-EXTRACT-001 changed the casting-agent dashboard from 6 cols
+  //   [date, src, title, role, email, status]
+  // to 8 cols
+  //   [date, src, title, director, company, role, email, status].
+  // During the data.html sync gap (between the casting-agent commit and the
+  // next VM cron push) the live page still has 6 cols. We detect via
+  // tds.length and fall back to legacy indices so search stays usable —
+  // only director/company queries are degraded during the gap.
   if (!q) return true;
   const tds = tr.children;
   if (!tds || tds.length < 5) return false;
   const titleCell = tds[2];
   const titleAttr = (titleCell.getAttribute && titleCell.getAttribute('title')) || titleCell.textContent || '';
-  const role = tds[3].textContent || '';
-  const email = tds[4].textContent || '';
-  const hay = (titleAttr + ' ' + role + ' ' + email).toLowerCase();
+  const isNew = tds.length >= 7;
+  const director = isNew ? (tds[3].textContent || '') : '';
+  const company = isNew ? (tds[4].textContent || '') : '';
+  const role = (isNew ? tds[5] : tds[3]).textContent || '';
+  const email = (isNew ? tds[6] : tds[4]).textContent || '';
+  const hay = (titleAttr + ' ' + director + ' ' + company + ' ' + role + ' ' + email).toLowerCase();
   return hay.indexOf(q) !== -1;
 };
 
@@ -247,22 +257,22 @@ window.__searchSelfTest = function () {
     if (cond) { passed++; } else { failed++; errors.push(name); }
   }
 
-  // Build a fake table out-of-DOM. We can't use #tbl-apps because the real
-  // page state is what the user is testing; we want a deterministic fixture.
+  // Build a fake 8-column table out-of-DOM (post-SPEC-EXTRACT-001 layout):
+  //   date | src | title | director | company | role | email | status
   const tbl = document.createElement('table');
   tbl.id = 'tbl-apps-fixture';
   const tbody = document.createElement('tbody');
   tbl.appendChild(tbody);
   const rows = [
-    // title-attr, role, email
-    ['단국대학교 졸업영화 <나쁜말양파> 모집', '언희 (29세, 남)', '2meteronion2026@gmail.com'],
-    ['[극단미스터리] 연극 배우 모집', '30대 초반 회사원', '-'],
-    ['웹드라마 주연 모집', '주연 여자 역할', 'lyh@devilosproject.com'],
-    ['단편영화 졸업작품', '성민', 'cmssmfl0616@gmail.com'],
+    // [title-attr, director, company, role, email]
+    ['단국대학교 졸업영화 <나쁜말양파> 모집', '김도이', '단국대학교', '언희 (29세, 남)', '2meteronion2026@gmail.com'],
+    ['[극단미스터리] 연극 배우 모집', '', '극단미스터리', '30대 초반 회사원', '-'],
+    ['웹드라마 주연 모집', '강성우', '카피줌바라', '주연 여자 역할', 'lyh@devilosproject.com'],
+    ['단편영화 졸업작품', '', '', '성민', 'cmssmfl0616@gmail.com'],
   ];
-  rows.forEach(([t, r, e]) => {
+  rows.forEach(([t, d, c, r, e]) => {
     const tr = document.createElement('tr');
-    tr.innerHTML = '<td>date</td><td>src</td><td title="' + t + '">' + t.slice(0, 10) + '</td><td>' + r + '</td><td>' + e + '</td><td>status</td>';
+    tr.innerHTML = '<td>date</td><td>src</td><td title="' + t + '">' + t.slice(0, 10) + '</td><td>' + d + '</td><td>' + c + '</td><td>' + r + '</td><td>' + e + '</td><td>status</td>';
     tbody.appendChild(tr);
   });
 
@@ -276,6 +286,10 @@ window.__searchSelfTest = function () {
   check('AC-4 empty query matches all (row 1)', window.__searchMatchRow(tbody.children[1], '') === true);
   check('AC-5 no-match query', window.__searchMatchRow(tbody.children[0], 'zzzz없는단어') === false);
   check('case-insensitive "GMAIL" matches gmail row', window.__searchMatchRow(tbody.children[0], 'gmail') === true);
+  check('NEW director match "김도이"', window.__searchMatchRow(tbody.children[0], '김도이') === true);
+  check('NEW director non-match across rows', window.__searchMatchRow(tbody.children[1], '김도이') === false);
+  check('NEW company match "카피줌바라"', window.__searchMatchRow(tbody.children[2], '카피줌바라') === true);
+  check('NEW company non-match', window.__searchMatchRow(tbody.children[0], '카피줌바라') === false);
 
   const result = { passed: passed, failed: failed, errors: errors };
   if (failed === 0) console.info('[__searchSelfTest] PASS', result);
