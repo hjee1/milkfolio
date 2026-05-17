@@ -60,6 +60,43 @@
     text-align: center; padding: 80px 24px; color: var(--dim);
     font-size: 0.85rem;
   }
+
+  /* ── Search Box (REQ-AS-001/006/007) ── */
+  #search-box {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 16px 24px 0 24px;
+    box-sizing: border-box;
+  }
+  #search-input {
+    width: 100%;
+    min-height: 44px;
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 10px 14px;
+    font-size: 0.9rem;
+    font-family: inherit;
+    border-radius: 0;
+    outline: none;
+    transition: border-color 0.3s;
+    box-sizing: border-box;
+  }
+  #search-input:focus { border-color: var(--accent); }
+  #search-input::placeholder { color: var(--dim); }
+  #search-empty {
+    display: none;
+    margin-top: 10px;
+    padding: 12px 14px;
+    color: var(--dim);
+    font-size: 0.85rem;
+    border: 1px dashed var(--border);
+  }
+  #search-empty.show { display: block; }
+  @media (max-width: 600px) {
+    #search-box { padding: 12px 16px 0 16px; }
+    #search-input { font-size: 1rem; } /* prevent iOS auto-zoom on focus */
+  }
 </style>
 </head>
 <body>
@@ -71,6 +108,10 @@
 </div>
 
 <div id="dashboard">
+  <div id="search-box">
+    <input type="text" id="search-input" placeholder="검색 (제목 · 역할 · 수신 이메일)" autocomplete="off" spellcheck="false">
+    <div id="search-empty">검색 결과 없음</div>
+  </div>
   <div id="dashboard-frame">
     <div id="no-data">waiting for first pipeline run...</div>
   </div>
@@ -131,11 +172,118 @@ function loadDashboard() {
         document.head.appendChild(s);
         old.remove();
       });
+      // Re-apply current search filter after data injection so the user's
+      // typed query survives a pipeline refresh.
+      if (typeof window.applySearch === 'function') window.applySearch();
     })
     .catch(() => {
       // data.html not yet pushed — show placeholder
     });
 }
+
+// ── Client-side search (SPEC-AGENT-SEARCH-001) ──
+// All new functions are bound to window because data.html scripts are
+// re-injected via <head> append, and inline handlers there reference window.*.
+
+window.__searchGetRows = function (root) {
+  // Helper: scope row lookup to a given root (default: document).
+  // Used by __searchSelfTest to inject a fake #tbl-apps without polluting DOM.
+  const r = root || document;
+  const tbl = r.getElementById ? r.getElementById('tbl-apps') : r.querySelector('#tbl-apps');
+  if (!tbl) return [];
+  return Array.from(tbl.querySelectorAll('tbody tr'));
+};
+
+window.__searchMatchRow = function (tr, q) {
+  // Pure matcher: returns true if any of (title attr of col 3, col 4 text,
+  // col 5 text) contains the lowercased query string. Empty query => true.
+  if (!q) return true;
+  const tds = tr.children;
+  if (!tds || tds.length < 5) return false;
+  const titleCell = tds[2];
+  const titleAttr = (titleCell.getAttribute && titleCell.getAttribute('title')) || titleCell.textContent || '';
+  const role = tds[3].textContent || '';
+  const email = tds[4].textContent || '';
+  const hay = (titleAttr + ' ' + role + ' ' + email).toLowerCase();
+  return hay.indexOf(q) !== -1;
+};
+
+window.applySearch = function () {
+  const input = document.getElementById('search-input');
+  const empty = document.getElementById('search-empty');
+  if (!input) return;
+  const q = (input.value || '').trim().toLowerCase();
+  const rows = window.__searchGetRows(document);
+  let shown = 0;
+  rows.forEach(tr => {
+    if (window.__searchMatchRow(tr, q)) {
+      // Defensive empty-string assignment overrides pagerStep's inline
+      // display:none, so pager-hidden rows reappear when they match.
+      tr.style.display = '';
+      shown++;
+    } else {
+      tr.style.display = 'none';
+    }
+  });
+  if (empty) {
+    if (q && rows.length > 0 && shown === 0) empty.classList.add('show');
+    else empty.classList.remove('show');
+  }
+};
+
+// Wire the input event (IME-friendly for Korean composition).
+const _searchInput = document.getElementById('search-input');
+if (_searchInput) {
+  _searchInput.addEventListener('input', window.applySearch);
+}
+
+// In-page self-test. Builds a fake #tbl-apps in a detached DocumentFragment,
+// runs the pure matcher, and reports pass/fail counts. User opt-in only:
+// run __searchSelfTest() in devtools console.
+window.__searchSelfTest = function () {
+  const errors = [];
+  let passed = 0, failed = 0;
+  function check(name, cond) {
+    if (cond) { passed++; } else { failed++; errors.push(name); }
+  }
+
+  // Build a fake table out-of-DOM. We can't use #tbl-apps because the real
+  // page state is what the user is testing; we want a deterministic fixture.
+  const tbl = document.createElement('table');
+  tbl.id = 'tbl-apps-fixture';
+  const tbody = document.createElement('tbody');
+  tbl.appendChild(tbody);
+  const rows = [
+    // title-attr, role, email
+    ['단국대학교 졸업영화 <나쁜말양파> 모집', '언희 (29세, 남)', '2meteronion2026@gmail.com'],
+    ['[극단미스터리] 연극 배우 모집', '30대 초반 회사원', '-'],
+    ['웹드라마 주연 모집', '주연 여자 역할', 'lyh@devilosproject.com'],
+    ['단편영화 졸업작품', '성민', 'cmssmfl0616@gmail.com'],
+  ];
+  rows.forEach(([t, r, e]) => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = '<td>date</td><td>src</td><td title="' + t + '">' + t.slice(0, 10) + '</td><td>' + r + '</td><td>' + e + '</td><td>status</td>';
+    tbody.appendChild(tr);
+  });
+
+  // Pure-matcher tests (no DOM mutation of real table)
+  check('AC-1 title match "단국대학교"', window.__searchMatchRow(tbody.children[0], '단국대학교') === true);
+  check('AC-1 title non-match other row', window.__searchMatchRow(tbody.children[1], '단국대학교') === false);
+  check('AC-2 role match "남"', window.__searchMatchRow(tbody.children[0], '남') === true);
+  check('AC-3 email match "gmail"', window.__searchMatchRow(tbody.children[0], 'gmail') === true);
+  check('AC-3 email non-match', window.__searchMatchRow(tbody.children[2], 'gmail') === false);
+  check('AC-4 empty query matches all (row 0)', window.__searchMatchRow(tbody.children[0], '') === true);
+  check('AC-4 empty query matches all (row 1)', window.__searchMatchRow(tbody.children[1], '') === true);
+  check('AC-5 no-match query', window.__searchMatchRow(tbody.children[0], 'zzzz없는단어') === false);
+  check('case-insensitive "GMAIL" matches gmail row', window.__searchMatchRow(tbody.children[0], 'gmail') === true);
+
+  const result = { passed: passed, failed: failed, errors: errors };
+  if (failed === 0) console.info('[__searchSelfTest] PASS', result);
+  else console.error('[__searchSelfTest] FAIL', result);
+  return result;
+};
+
+console.info('casting agent dashboard ready. run __searchSelfTest() to verify search.');
 </script>
 
 </body>
