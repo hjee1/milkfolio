@@ -26,7 +26,28 @@
       "Bash(rm -f *.png .DS_Store)",
       "Bash(ls *.jpg)",
       "Bash(find . -name \"*.png\" -delete)",
-      "Bash(find /Users/hyunwoojee/milkfolio/designer/assets -type f -delete)"
+      "Bash(find /Users/hyunwoojee/milkfolio/designer/assets -type f -delete)",
+      "Bash(git commit -m ' *)",
+      "Bash(git fetch *)",
+      "Read(//Users/hyunwoojee/casting-agent/**)",
+      "Bash(git -C ~/casting-agent status --short)",
+      "Bash(git -C ~/casting-agent log --oneline -5)",
+      "Bash(sqlite3 ~/casting-agent/data/castings.db \".schema listings\")",
+      "Bash(sqlite3 ~/casting-agent/data/castings.db \".schema applications\")",
+      "Bash(sqlite3 ~/casting-agent/data/castings.db \"SELECT listing_id, title, director, company, role, url FROM listings WHERE director IS NOT NULL AND director != '' LIMIT 3;\")",
+      "Bash(sqlite3 ~/casting-agent/data/castings.db \"SELECT COUNT\\(*\\) total, SUM\\(CASE WHEN director IS NULL OR director='' THEN 1 ELSE 0 END\\) null_director, SUM\\(CASE WHEN company IS NULL OR company='' THEN 1 ELSE 0 END\\) null_company FROM listings;\")",
+      "Bash(sqlite3 ~/casting-agent/data/castings.db \".tables\")",
+      "Bash(sqlite3 ~/casting-agent/data/castings.db \".schema\")",
+      "Bash(sqlite3 ~/casting-agent/data/castings.db \"SELECT id, title, contact_name, substr\\(description, 1, 200\\) FROM listings ORDER BY scraped_at DESC LIMIT 2;\")",
+      "Bash(sqlite3 '~/casting-agent/data/castings.db' ' *)",
+      "Bash(sqlite3 ~/casting-agent/data/castings.db \"SELECT substr\\(description, 1, 400\\) FROM listings WHERE description LIKE '%감독%' LIMIT 3;\")",
+      "Bash(sqlite3 ~/casting-agent/data/castings.db \"SELECT COUNT\\(*\\) total, MIN\\(scraped_at\\), MAX\\(scraped_at\\) FROM listings;\")",
+      "Bash(sqlite3 ~/casting-agent/data/castings.db \"SELECT COUNT\\(*\\) total, SUM\\(CASE WHEN description IS NULL OR description = '' THEN 1 ELSE 0 END\\) empty FROM listings;\")",
+      "Bash(sqlite3 ~/casting-agent/data/castings.db \"SELECT id, title, length\\(description\\) AS desc_len, substr\\(description, 1, 500\\) FROM listings ORDER BY scraped_at DESC LIMIT 1;\")",
+      "Bash(sqlite3 ~/casting-agent/data/castings.db \"SELECT reasoning FROM filter_results WHERE reasoning LIKE '%감독%' OR reasoning LIKE '%제작사%' LIMIT 3;\")",
+      "Bash(xargs ls -lh)",
+      "Bash(git -C ~/casting-agent show --stat 4f65426)",
+      "WebFetch(domain:www.filmmakers.co.kr)"
     ]
   }
 }
