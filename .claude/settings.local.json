@@ -56,7 +56,10 @@
       "Read(//Users/hyunwoojee/**)",
       "Read(//Users/hyunwoojee/Documents/**)",
       "Bash(pnpm -v)",
-      "Bash(npm -v)"
+      "Bash(npm -v)",
+      "Bash(pnpm install *)",
+      "Bash(pnpm typecheck *)",
+      "Bash(pnpm build *)"
     ]
   }
 }
