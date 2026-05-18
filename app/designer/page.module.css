@@ -1,0 +1,314 @@
+/* ────────────────────────────────────────────────────────────
+   Designer profile — Yuna Jee
+   Soft pink accent, modal carousel.
+   ──────────────────────────────────────────────────────── */
+
+.body {
+  font-family: "Inter", var(--font-sans);
+  font-weight: 300;
+  line-height: 1.6;
+  background: #0a080c;
+  color: #e8e0e4;
+  --accent2: #b8a0c8;
+  --bg-card: #121015;
+  --bg-hover: #1a1620;
+  --border-local: rgba(212, 184, 204, 0.12);
+  --muted: rgba(232, 224, 228, 0.45);
+}
+.body h1,
+.body h2,
+.body h3 {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  line-height: 1.15;
+}
+.body a {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: opacity 0.3s;
+}
+.body a:hover { opacity: 0.75; }
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2.5rem;
+}
+
+/* ── NAV ── */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.9rem 2.5rem;
+  border-bottom: 1px solid var(--border-local);
+  background: rgba(10, 8, 12, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+.navLeft { display: flex; align-items: center; gap: 1.8rem; }
+.homeLink {
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  color: rgba(212, 184, 204, 0.35);
+  transition: color 0.3s;
+}
+.homeLink:hover { color: var(--color-accent); opacity: 1; }
+.logo {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: #e8e0e4;
+  letter-spacing: 0.06em;
+}
+.navTabs {
+  display: flex;
+  gap: 0;
+  list-style: none;
+}
+.navTabs a {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 0.5rem 1.4rem;
+  position: relative;
+  transition: color 0.3s;
+}
+.navTabs a::after {
+  content: "";
+  position: absolute;
+  bottom: -0.9rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 1px;
+  background: var(--color-accent);
+  transition: width 0.3s;
+}
+.navTabs a:hover { color: var(--color-accent); opacity: 1; }
+
+/* ── SECTIONS ── */
+.section { padding: 6rem 0 4rem; }
+.section.first { padding-top: 7rem; }
+.sectionLabel {
+  font-size: 0.6rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: rgba(212, 184, 204, 0.4);
+  margin-bottom: 0.8rem;
+  display: block;
+}
+
+/* ── ABOUT ── */
+.aboutLayout { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+.aboutLeft h1 {
+  font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+  color: #f0e8ec;
+  margin-bottom: 0.3rem;
+}
+.aboutLeft h1 em { font-style: italic; color: var(--color-accent); }
+.aboutTagline {
+  font-size: 0.65rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  opacity: 0.6;
+  margin-bottom: 1.2rem;
+}
+.aboutBio {
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.75;
+  margin-bottom: 1.2rem;
+  max-width: 480px;
+}
+.aboutBio strong { color: #e8e0e4; }
+.philosophy {
+  font-family: var(--font-serif);
+  font-size: 1.18rem;
+  font-style: italic;
+  color: var(--color-accent);
+  opacity: 0.75;
+  border-left: 2px solid rgba(212, 184, 204, 0.2);
+  padding-left: 1.2rem;
+  margin: 1.5rem 0;
+  line-height: 1.6;
+}
+.skillsRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 1rem;
+}
+.skillPill {
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.7rem;
+  border: 1px solid var(--border-local);
+  border-radius: 2px;
+  color: var(--muted);
+  transition: border-color 0.3s, color 0.3s;
+}
+.skillPill:hover {
+  border-color: rgba(212, 184, 204, 0.3);
+  color: #e8e0e4;
+}
+
+.aboutRight { padding-top: 0.5rem; }
+.infoSection { margin-bottom: 1.8rem; }
+.infoLabel {
+  font-size: 0.58rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: rgba(212, 184, 204, 0.4);
+  margin-bottom: 0.5rem;
+  display: block;
+}
+.infoValue { font-size: 0.88rem; color: #e8e0e4; margin-bottom: 0.1rem; }
+.infoSub { font-size: 0.78rem; color: var(--muted); }
+
+.awardsCompact { list-style: none; padding: 0; margin: 0; }
+.awardsCompact li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--border-local);
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.awName { font-size: 0.8rem; color: #e8e0e4; }
+.awProj { font-size: 0.68rem; color: var(--muted); }
+.interestsText { font-size: 0.82rem; color: var(--muted); line-height: 1.7; }
+
+/* ── WORK ── */
+.work { border-top: 1px solid var(--border-local); }
+.workTitle {
+  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+  color: #f0e8ec;
+  margin-bottom: 0.5rem;
+}
+.workGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.2rem;
+  margin-top: 1.5rem;
+}
+.workCard {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  border-radius: 6px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 1px solid var(--border-local);
+  background: var(--bg-card);
+  transition: border-color 0.4s, transform 0.35s;
+}
+.workCard:hover {
+  border-color: rgba(212, 184, 204, 0.3);
+  transform: translateY(-3px);
+}
+.workCard img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.7) saturate(0.85);
+  transition: filter 0.4s, transform 0.5s;
+  display: block;
+}
+.workCard:hover img {
+  filter: brightness(0.85) saturate(1);
+  transform: scale(1.04);
+}
+.cardInfo {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 1rem 1.2rem;
+  background: linear-gradient(transparent, rgba(10, 8, 12, 0.92));
+}
+.ciNum {
+  font-size: 0.55rem;
+  letter-spacing: 0.3em;
+  color: var(--color-accent);
+  opacity: 0.5;
+}
+.ciTitle {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #f0e8ec;
+}
+.ciDesc { font-size: 0.68rem; color: var(--muted); margin-top: 0.1rem; }
+
+/* ── CONTACT ── */
+.contact { border-top: 1px solid var(--border-local); }
+.contactLayout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+.contactLeft h2 {
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  color: #f0e8ec;
+  margin-bottom: 0.8rem;
+}
+.contactDesc {
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.75;
+  margin-bottom: 2rem;
+}
+.contactItems { list-style: none; padding: 0; margin: 0; }
+.contactItems li {
+  padding: 0.8rem 0;
+  border-bottom: 1px solid var(--border-local);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.ciLabel {
+  font-size: 0.58rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba(212, 184, 204, 0.4);
+}
+.ciVal { font-size: 0.88rem; color: #e8e0e4; }
+.ciValLink { color: var(--color-accent); }
+.ciValLink:hover { opacity: 0.7; }
+
+.footer {
+  padding: 2.5rem;
+  border-top: 1px solid var(--border-local);
+  text-align: center;
+}
+.footer a {
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  color: rgba(212, 184, 204, 0.3);
+}
+.footerCopy {
+  font-size: 0.66rem;
+  color: rgba(212, 184, 204, 0.25);
+  margin-top: 0.8rem;
+}
+
+@media (max-width: 900px) {
+  .aboutLayout,
+  .contactLayout { grid-template-columns: 1fr; gap: 2rem; }
+  .nav { padding: 0.8rem 1.2rem; }
+  .container { padding: 0 1.5rem; }
+}
+@media (max-width: 600px) {
+  .workGrid { grid-template-columns: 1fr; }
+  .navTabs a {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+  }
+}
