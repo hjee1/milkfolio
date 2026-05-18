@@ -1,3 +1,10 @@
+/* CSS spec: all @import rules must precede every other rule (except @charset
+   and @layer statements). Tailwind v4's @import "tailwindcss" expands to a
+   block that includes @theme/@layer/etc., so the font @import has to come
+   FIRST. Phase 1 fallback — next/font/google fails behind Somansa proxy at
+   build time, so we load fonts via runtime CSS import here. Phase 7 will
+   replace this with self-hosted woff2 in /public/fonts. */
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Noto+Serif+KR:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap");
 @import "tailwindcss";
 
 /* ════════════════════════════════════════════════════════════════
@@ -43,12 +50,11 @@
   --color-warning:    #d4b25a;
   --color-info:       #7b9bd6;
 
-  /* Fonts — loaded via next/font in app/layout.tsx so these names just
-     map to the CSS variables that next/font generates. */
-  --font-serif-ko:    var(--font-noto-serif-kr), Georgia, serif;
-  --font-serif:       var(--font-cormorant), Georgia, serif;
-  --font-sans:        var(--font-space-grotesk), -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-  --font-mono:        var(--font-jetbrains-mono), "SF Mono", Consolas, monospace;
+  /* Fonts — names match the CSS @import above (runtime fetch). */
+  --font-serif-ko:    "Noto Serif KR", Georgia, serif;
+  --font-serif:       "Cormorant Garamond", Georgia, serif;
+  --font-sans:        "Space Grotesk", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --font-mono:        "JetBrains Mono", "SF Mono", Consolas, monospace;
 
   /* Spacing scale — Tailwind v4 defaults are fine; we just add a couple
      content-width tokens that show up across the site. */

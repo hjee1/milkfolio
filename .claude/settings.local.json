@@ -59,7 +59,13 @@
       "Bash(npm -v)",
       "Bash(pnpm install *)",
       "Bash(pnpm typecheck *)",
-      "Bash(pnpm build *)"
+      "Bash(pnpm build *)",
+      "Bash(pnpm add *)",
+      "Bash(cp -r actor/assets public/actor-assets)",
+      "Bash(cp -r designer/images public/designer-images)",
+      "Bash(mkdir -p actor designer)",
+      "Bash(mv actor-assets *)",
+      "Bash(mv designer-images *)"
     ]
   }
 }

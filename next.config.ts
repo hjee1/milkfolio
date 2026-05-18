@@ -10,9 +10,8 @@ const config: NextConfig = {
   // The /agent/data.html file is pushed by the hjee1/casting-agent pipeline.
   // We serve it as a static asset via the public/agent path (see API route).
   // Until Phase 3 wires the API route, it stays in /agent/data.html (legacy).
-  experimental: {
-    typedRoutes: true,
-  },
+  // typedRoutes is stable in Next.js 16 (moved out of experimental).
+  typedRoutes: true,
 };
 
 export default config;
