@@ -1,0 +1,31 @@
+# Legacy GitHub Pages HTML files — superseded by the Next.js routes in app/.
+# Kept in the repo until Phase 7 removal, but excluded from Vercel deploys so
+# the new app fully owns each route on milkfolio.space.
+index.html
+404.html
+actor/index.html
+actor/style.css
+dev/index.html
+dev/style.css
+designer/index.html
+designer/style.css
+designer/images/
+agent/index.html
+
+# agent/data.html is NOT ignored — it's still pushed by hjee1/casting-agent
+# to /agent/data.html and Server Action reads it via fs.readFile at runtime.
+# Once Phase 7 moves the push target to public/agent/data.html, this entry
+# can be deleted entirely.
+
+# Build / dev artifacts
+.next
+node_modules
+.pytest_cache
+.ruff_cache
+.venv
+playwright-report
+test-results
+e2e
+PROJECT_LOG.md
+.moai
+.claude
