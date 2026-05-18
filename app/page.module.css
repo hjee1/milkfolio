@@ -1,0 +1,200 @@
+/* ────────────────────────────────────────────────────────────
+   Landing page · 3-panel hover-expand
+   ──────────────────────────────────────────────────────────
+   Visual parity goal with legacy index.html (REQ-003).
+   All color literals replaced with design tokens from
+   app/globals.css. Hover behaviour relies on :has() selector,
+   with a fallback for older browsers (chained :hover).
+   ──────────────────────────────────────────────────────── */
+
+/* The root div is position:fixed so we can keep the page full-bleed
+   without forcing overflow:hidden onto the global <body>. Mobile
+   breakpoint releases this back to natural document flow. */
+.root {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  background: var(--color-bg);
+}
+
+.logo {
+  position: fixed;
+  top: 1.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+  font-family: var(--font-serif);
+  font-size: 0.75rem;
+  letter-spacing: 0.55em;
+  text-transform: uppercase;
+  color: rgba(240, 236, 226, 0.3);
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.panels {
+  display: flex;
+  height: 100vh;
+}
+
+.panel {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  border-right: 1px solid rgba(255, 255, 255, 0.04);
+  transition: flex 0.75s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+.panel:last-child { border-right: none; }
+
+.panels:has(.panel:hover) .panel { flex: 0.55; }
+.panels:has(.panel:hover) .panel:hover { flex: 1.9; }
+
+@supports not selector(:has(*)) {
+  .panel:hover { flex: 1.9; }
+}
+
+.glow {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.75s;
+}
+.panel:hover .glow { opacity: 1; }
+
+.panel.actor .glow {
+  background: radial-gradient(ellipse 60% 50% at 30% 80%, rgba(184, 169, 138, 0.13) 0%, transparent 70%);
+}
+.panel.dev .glow {
+  background: radial-gradient(ellipse 60% 50% at 30% 80%, rgba(56, 217, 255, 0.09) 0%, transparent 70%);
+}
+.panel.designer .glow {
+  background: radial-gradient(ellipse 60% 50% at 30% 80%, rgba(212, 184, 204, 0.08) 0%, transparent 70%);
+}
+
+.panel::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 3rem;
+  width: 0;
+  height: 1px;
+  transition: width 0.55s ease;
+}
+.panel.actor::after    { background: var(--color-accent); }
+.panel.dev::after      { background: var(--color-accent-dev); }
+.panel.designer::after { background: var(--color-accent-designer); }
+.panel:hover::after { width: calc(100% - 6rem); }
+
+.content {
+  position: absolute;
+  bottom: 4rem;
+  left: 3rem;
+  right: 2rem;
+}
+
+.num {
+  font-family: var(--font-serif);
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  color: var(--color-text-dim);
+  display: block;
+  margin-bottom: 2rem;
+}
+
+.role {
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  margin-bottom: 0.8rem;
+  white-space: nowrap;
+}
+.panel.actor    .role { color: var(--color-accent); }
+.panel.dev      .role { color: var(--color-accent-dev); }
+.panel.designer .role { color: var(--color-accent-designer); }
+
+.name {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: clamp(2rem, 3.2vw, 3.8rem);
+  letter-spacing: 0.04em;
+  line-height: 1.05;
+  color: var(--color-text);
+  margin-bottom: 1.25rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.desc {
+  font-size: 0.82rem;
+  color: var(--color-text-faint);
+  line-height: 1.7;
+  max-width: 22rem;
+  opacity: 0;
+  transform: translateY(10px);
+  transition:
+    opacity 0.45s 0.05s,
+    transform 0.45s 0.05s,
+    color 0.45s;
+}
+.panel:hover .desc {
+  opacity: 1;
+  transform: translateY(0);
+  color: var(--color-text-soft);
+}
+
+.cta {
+  display: inline-block;
+  margin-top: 1.5rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  opacity: 0;
+  transform: translateX(-6px);
+  transition:
+    opacity 0.4s 0.1s,
+    transform 0.4s 0.1s;
+}
+.panel.actor    .cta { color: var(--color-accent); }
+.panel.dev      .cta { color: var(--color-accent-dev); }
+.panel.designer .cta { color: var(--color-accent-designer); }
+.panel:hover .cta {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+@media (max-width: 700px) {
+  .root {
+    position: static;
+    overflow: visible;
+  }
+  .panels {
+    flex-direction: column;
+    height: auto;
+    min-height: 100vh;
+  }
+  .panel {
+    flex: none !important;
+    height: 34vh;
+    min-height: 220px;
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  }
+  .content {
+    bottom: 2rem;
+    left: 2rem;
+    right: 1.5rem;
+  }
+  .desc {
+    opacity: 1;
+    transform: none;
+    color: var(--color-text-dim);
+  }
+  .cta {
+    opacity: 1;
+    transform: none;
+  }
+  .name { font-size: 2rem; }
+}
