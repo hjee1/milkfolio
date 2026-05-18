@@ -37,13 +37,13 @@ test.describe("/designer page", () => {
     await page.goto("/designer");
     await page.getByRole("button", { name: "Open PRISM project" }).click();
 
-    // The first dot should be active initially.
-    const dots = page.locator('[class*="dot"]');
-    await expect(dots.first()).toHaveClass(/dotActive/);
+    // Address dots by their aria-label — robust against CSS-module class hashing.
+    const dot1 = page.getByRole("button", { name: "Go to image 1" });
+    const dot2 = page.getByRole("button", { name: "Go to image 2" });
+    await expect(dot1).toHaveClass(/dotActive/);
 
-    // ArrowRight should advance to slide 2.
     await page.keyboard.press("ArrowRight");
-    await expect(dots.nth(1)).toHaveClass(/dotActive/);
+    await expect(dot2).toHaveClass(/dotActive/);
 
     // Escape closes the modal.
     await page.keyboard.press("Escape");
