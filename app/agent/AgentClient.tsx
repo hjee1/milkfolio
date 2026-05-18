@@ -149,16 +149,15 @@ function Dashboard({
 }) {
   const [activeTab, setActiveTab] = useState<Tab>("apps");
 
-  // Refs for IntersectionObserver-based active-tab detection.
-  const sectionRefs = {
-    period: useRef<HTMLElement>(null),
-    apps: useRef<HTMLElement>(null),
-    source: useRef<HTMLElement>(null),
-    anomaly: useRef<HTMLElement>(null),
-  };
-
+  // IntersectionObserver-based active-tab detection. We observe sections by
+  // their data-section attribute (set on each <section> element). No refs
+  // needed — querySelectorAll runs after the sections render via the data
+  // dependency below.
   useEffect(() => {
     if (typeof IntersectionObserver === "undefined") return;
+    if (!data) return;
+    const targets = document.querySelectorAll<HTMLElement>("[data-section]");
+    if (targets.length === 0) return;
     const obs = new IntersectionObserver(
       (entries) => {
         let best: IntersectionObserverEntry | null = null;
@@ -172,11 +171,8 @@ function Dashboard({
       },
       { rootMargin: "-80px 0px -50% 0px", threshold: [0.1, 0.3, 0.5] },
     );
-    Object.values(sectionRefs).forEach((r) => {
-      if (r.current) obs.observe(r.current);
-    });
+    targets.forEach((t) => obs.observe(t));
     return () => obs.disconnect();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
 
   const scrollTo = (id: string) => {
@@ -263,10 +259,10 @@ function Dashboard({
         </div>
       ) : (
         <>
-          <PeriodSection ref={sectionRefs.period} data={data} />
-          <ApplicationsSection ref={sectionRefs.apps} data={data} />
-          <ChannelsSection ref={sectionRefs.source} data={data} />
-          <AnomalySection ref={sectionRefs.anomaly} data={data} />
+          <PeriodSection data={data} />
+          <ApplicationsSection data={data} />
+          <ChannelsSection data={data} />
+          <AnomalySection data={data} />
           <CostColophon costs={data.costs} costsAreActual={data.costsAreActual} />
         </>
       )}
@@ -279,7 +275,7 @@ function Dashboard({
 // ─────────────────────────────────────────────────────────────
 type SectionProps = { data: AgentData };
 
-const PeriodSection = SectionWithRef(function PeriodSection({ data }: SectionProps) {
+function PeriodSection({ data }: SectionProps) {
   const available = (["daily", "weekly", "monthly"] as const).filter(
     (k) => data.periods[k]?.rows.length,
   );
@@ -372,7 +368,7 @@ const PeriodSection = SectionWithRef(function PeriodSection({ data }: SectionPro
       )}
     </section>
   );
-});
+}
 
 function numClass(header: string, value: string): string {
   const n = parseInt(value, 10);
@@ -387,9 +383,7 @@ function numClass(header: string, value: string): string {
 // ─────────────────────────────────────────────────────────────
 // SECTION 2 — 지원 내역 (MAIN)
 // ─────────────────────────────────────────────────────────────
-const ApplicationsSection = SectionWithRef(function ApplicationsSection({
-  data,
-}: SectionProps) {
+function ApplicationsSection({ data }: SectionProps) {
   const [query, setQuery] = useState("");
   const [periodFilter, setPeriodFilter] = useState<PeriodFilter>("all");
   const [statusFilter, setStatusFilter] = useState<StatusFilter>("all");
@@ -548,7 +542,7 @@ const ApplicationsSection = SectionWithRef(function ApplicationsSection({
       )}
     </section>
   );
-});
+}
 
 function ApplicationRow({ app }: { app: Application }) {
   const srcCls =
@@ -602,7 +596,7 @@ function mapBadgeClass(status: string): string {
 // ─────────────────────────────────────────────────────────────
 // SECTION 3 — 출처별 현황
 // ─────────────────────────────────────────────────────────────
-const ChannelsSection = SectionWithRef(function ChannelsSection({ data }: SectionProps) {
+function ChannelsSection({ data }: SectionProps) {
   return (
     <section
       id="sec-source"
@@ -624,7 +618,7 @@ const ChannelsSection = SectionWithRef(function ChannelsSection({ data }: Sectio
       )}
     </section>
   );
-});
+}
 
 function ChannelRow({ channel }: { channel: Channel }) {
   return (
@@ -644,7 +638,7 @@ function ChannelRow({ channel }: { channel: Channel }) {
 // ─────────────────────────────────────────────────────────────
 // SECTION 4 — 중복 감지 (bottom)
 // ─────────────────────────────────────────────────────────────
-const AnomalySection = SectionWithRef(function AnomalySection({ data }: SectionProps) {
+function AnomalySection({ data }: SectionProps) {
   if (!data.anomaly) return null;
   return (
     <section
@@ -672,7 +666,7 @@ const AnomalySection = SectionWithRef(function AnomalySection({ data }: SectionP
       </div>
     </section>
   );
-});
+}
 
 /** Strip everything except <strong> tags from the anomaly body. Defense-in-depth
  *  since the Producer is trusted but markup could drift in the future. */
@@ -821,16 +815,4 @@ function inPeriod(d: Date, p: Exclude<PeriodFilter, "all">, win: PeriodWindow): 
   if (p === "week")  return t >= win.weekStart.getTime() && t < win.nextWeek.getTime();
   if (p === "month") return t >= win.monthStart.getTime() && t < win.nextMonth.getTime();
   return true;
-}
-
-// ─────────────────────────────────────────────────────────────
-// Helper: HOC that forwards a ref to a section component.
-// React 19's automatic ref forwarding makes this trivial.
-// ─────────────────────────────────────────────────────────────
-function SectionWithRef<P extends SectionProps>(
-  Component: (props: P & { ref?: React.Ref<HTMLElement> }) => React.ReactElement | null,
-) {
-  return Component as unknown as React.ForwardRefExoticComponent<
-    P & React.RefAttributes<HTMLElement>
-  >;
 }

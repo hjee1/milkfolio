@@ -65,7 +65,9 @@
       "Bash(cp -r designer/images public/designer-images)",
       "Bash(mkdir -p actor designer)",
       "Bash(mv actor-assets *)",
-      "Bash(mv designer-images *)"
+      "Bash(mv designer-images *)",
+      "Bash(sed -i.bak '371s/}\\);/}/; 545s/}\\);/}/; 621s/}\\);/}/; 669s/}\\);/}/' app/agent/AgentClient.tsx)",
+      "Bash(rm app/agent/AgentClient.tsx.bak)"
     ]
   }
 }
