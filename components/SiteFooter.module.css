@@ -1,0 +1,29 @@
+.footer {
+  padding: 2rem 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.75rem;
+  color: var(--color-text-dim);
+  letter-spacing: 0.08em;
+  border-top: 1px solid var(--color-border);
+}
+
+.home {
+  color: var(--color-text-dim);
+  transition: color 0.25s ease;
+}
+.home:hover { color: var(--color-accent); }
+
+.extra {
+  font-size: 0.68rem;
+  opacity: 0.5;
+}
+
+@media (max-width: 768px) {
+  .footer {
+    flex-direction: column;
+    gap: 0.75rem;
+    text-align: center;
+  }
+}
