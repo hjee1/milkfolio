@@ -54,7 +54,9 @@
       "Bash(sqlite3 ~/casting-agent/data/castings.db \"SELECT name FROM sqlite_master WHERE type='table';\")",
       "Bash(sqlite3 ~/casting-agent/data/castings.db \".schema report_runs\")",
       "Read(//Users/hyunwoojee/**)",
-      "Read(//Users/hyunwoojee/Documents/**)"
+      "Read(//Users/hyunwoojee/Documents/**)",
+      "Bash(pnpm -v)",
+      "Bash(npm -v)"
     ]
   }
 }

@@ -426,6 +426,62 @@
     font-size: 0.85rem;
   }
 
+  /* ── Cost colophon (Option B from SPEC-USAGE-001 follow-up) ──────
+     A single tiny line at the very bottom of the page showing actual
+     monthly + cumulative OpenAI cost. Data extracted by JS from data.html's
+     "API 사용량 (실측)" or "API 비용 (추정)" section (whichever is present).
+     The full cost section itself is still dropped from the main flow per
+     the user's earlier preference — this is the minimal footprint version.
+  ── */
+  .page-footer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 28px 24px 40px;
+    text-align: center;
+    font-size: 0.74rem;
+    color: var(--dim);
+    letter-spacing: 0.04em;
+    border-top: 1px solid var(--border);
+    margin-top: 12px;
+  }
+  .page-footer .cost-line {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .page-footer .amt {
+    color: var(--soft);
+    font-variant-numeric: tabular-nums;
+  }
+  .page-footer .amt strong {
+    color: var(--text);
+    font-weight: 600;
+    margin-left: 4px;
+  }
+  .page-footer .sep {
+    color: var(--border);
+  }
+  .page-footer .tag {
+    display: inline-block;
+    padding: 1px 7px;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    font-size: 0.66rem;
+    color: var(--soft);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .page-footer .tag.actual {
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+  .page-footer[hidden] { display: none; }
+  @media (max-width: 600px) {
+    .page-footer { padding: 20px 16px 32px; font-size: 0.7rem; }
+  }
+
   /* MAIN section makes the table look like the page's centerpiece */
   .section.main #slot-apps table {
     font-size: 0.86rem;
@@ -538,6 +594,11 @@
 
   <!-- Hidden host: data.html innerHTML lands here for parsing -->
   <div id="dashboard-frame"></div>
+
+  <!-- Minimal cost colophon (SPEC-USAGE-001 follow-up, Option B) -->
+  <footer class="page-footer" id="cost-footer" hidden>
+    <span class="cost-line" id="cost-line"></span>
+  </footer>
 </div>
 
 <script>
@@ -688,6 +749,10 @@ function redistribute(host) {
   // Clear previous content before re-injecting (refresh case).
   Object.values(slots).forEach(s => { if (s) s.innerHTML = ''; });
 
+  // Collect the API cost/usage bucket separately for the footer colophon
+  // (we still drop it from the main flow per the user's preference — Option B).
+  let costBucket = null;
+
   buckets.forEach(b => {
     const txt = (b.heading.textContent || '').trim();
     let slot = null;
@@ -695,7 +760,8 @@ function redistribute(host) {
     else if (/지원 내역/.test(txt))      slot = slots.apps;
     else if (/출처별/.test(txt))         slot = slots.source;
     else if (/중복/.test(txt))           slot = slots.anomaly;
-    else return; // API 비용 등은 통째 드롭
+    else if (/API\s*(사용량|비용)/.test(txt)) { costBucket = b; return; }
+    else return; // anything else dropped silently
     if (!slot) return;
     // Re-insert the h2 too (CSS hides the first h2 inside each slot to avoid
     // duplicate headings — our own section-head h2 above takes precedence).
@@ -713,6 +779,58 @@ function redistribute(host) {
   const appsRows = slots.apps ? slots.apps.querySelectorAll('#tbl-apps tbody tr').length : 0;
   const meta = document.getElementById('apps-meta');
   if (meta) meta.textContent = appsRows ? '총 ' + appsRows + '건' : '대시보드 메인';
+
+  // Render the cost colophon (footer) from whatever cost section data.html emits.
+  renderCostFooter(costBucket);
+}
+
+// SPEC-USAGE-001 Option B — render a single tiny line at page bottom from
+// data.html's API cost/usage section. Looks for cost-items labelled with
+// "월 ..." (monthly projection) and "총 ..." (cumulative). Tags it [실측]
+// when the heading says "(실측)", otherwise [추정]. Hides the footer when no
+// cost section is present (older data.html or empty pipeline state).
+function renderCostFooter(bucket) {
+  const footer = document.getElementById('cost-footer');
+  const line = document.getElementById('cost-line');
+  if (!footer || !line) return;
+  if (!bucket) { footer.hidden = true; return; }
+
+  // Collect every .cost-item from the bucket's nodes.
+  const items = [];
+  bucket.nodes.forEach(n => {
+    if (!n || !n.querySelectorAll) return;
+    n.querySelectorAll('.cost-item').forEach(it => {
+      const label = (it.querySelector('.cost-label')?.textContent || '').trim();
+      const val   = (it.querySelector('.cost-val')?.textContent   || '').trim();
+      if (label && val) items.push({ label, val });
+    });
+  });
+  if (!items.length) { footer.hidden = true; return; }
+
+  // Heuristic label matching — data.html may say "월 예상 비용",
+  // "총 예상 비용", "총 누적 비용 (실측)" depending on actual vs estimate path.
+  const monthly = items.find(i => /월/.test(i.label));
+  const total   = items.find(i => /총\s*(누적|예상)/.test(i.label));
+  if (!monthly && !total) { footer.hidden = true; return; }
+
+  const isActual = /실측/.test(bucket.heading.textContent || '');
+  const tagText = isActual ? '실측' : '추정';
+  const parts = [];
+  if (monthly) parts.push('<span class="amt">이번 달 <strong>' + escapeHtml(monthly.val) + '</strong></span>');
+  if (total)   parts.push('<span class="amt">누적 <strong>' + escapeHtml(total.val) + '</strong></span>');
+  const sep = ' <span class="sep">·</span> ';
+  line.innerHTML = parts.join(sep) + sep +
+    '<span class="tag' + (isActual ? ' actual' : '') + '">' + tagText + '</span>';
+  footer.hidden = false;
+}
+
+// Tiny HTML-escape — values come from auto-generated data.html so they should
+// be safe, but defense in depth never hurts and prevents accidental markup
+// injection if a future pipeline change emits unsanitized text.
+function escapeHtml(s) {
+  return String(s == null ? '' : s)
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+    .replace(/"/g,'&quot;').replace(/'/g,'&#39;');
 }
 
 function setStat(id, value) {
