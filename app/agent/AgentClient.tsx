@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { fetchAgentData } from "./actions";
-import type { AgentData, Application, Channel, Cost } from "@/lib/types/agent";
+import type { AgentData, Application, Channel } from "@/lib/types/agent";
 import styles from "./page.module.css";
 
 // ─────────────────────────────────────────────────────────────
@@ -17,14 +17,15 @@ import styles from "./page.module.css";
 // ─────────────────────────────────────────────────────────────
 
 const HASH =
-  "069d0813302db114158752bdf1eb0e75f6dea6cd18a697013b66014066749032";
-const PAGE_SIZE = 10;
+  "3324dab86f4dcdf48ba8ed6d736dcf050f09a23bf617c7d3579224548269ba1f";
+const APPS_PAGE_SIZE = 9;                // 3×3 grid
+const PERIOD_DAILY_PAGE_SIZE = 7;        // a week per page
+const PERIOD_MONTHLY_PAGE_SIZE = 12;     // a year per page
 
-type Tab = "period" | "apps" | "source" | "anomaly";
+type Tab = "apps" | "period" | "source" | "costs" | "anomaly";
 type StatusFilter = "all" | "sent" | "failed" | "skipped";
 type PeriodFilter = "all" | "today" | "week" | "month";
 type SortKey = "recent" | "oldest" | "title" | "source";
-type PeriodKey = "daily" | "weekly" | "monthly";
 
 async function sha256(s: string): Promise<string> {
   const buf = await crypto.subtle.digest(
@@ -192,13 +193,6 @@ function Dashboard({
             <li>
               <button
                 type="button"
-                className={activeTab === "period" ? styles.active : ""}
-                onClick={() => scrollTo("sec-period")}
-              >기간별 리포트</button>
-            </li>
-            <li>
-              <button
-                type="button"
                 className={activeTab === "apps" ? styles.active : ""}
                 onClick={() => scrollTo("sec-apps")}
               >지원 내역</button>
@@ -206,9 +200,23 @@ function Dashboard({
             <li>
               <button
                 type="button"
+                className={activeTab === "period" ? styles.active : ""}
+                onClick={() => scrollTo("sec-period")}
+              >기간별 리포트</button>
+            </li>
+            <li>
+              <button
+                type="button"
                 className={activeTab === "source" ? styles.active : ""}
                 onClick={() => scrollTo("sec-source")}
               >출처별</button>
+            </li>
+            <li>
+              <button
+                type="button"
+                className={activeTab === "costs" ? styles.active : ""}
+                onClick={() => scrollTo("sec-costs")}
+              >API 사용량</button>
             </li>
             <li>
               <button
@@ -259,11 +267,11 @@ function Dashboard({
         </div>
       ) : (
         <>
-          <PeriodSection data={data} />
           <ApplicationsSection data={data} />
+          <PeriodSection data={data} />
           <ChannelsSection data={data} />
+          <CostsSection data={data} />
           <AnomalySection data={data} />
-          <CostColophon costs={data.costs} costsAreActual={data.costsAreActual} />
         </>
       )}
     </div>
@@ -276,23 +284,28 @@ function Dashboard({
 type SectionProps = { data: AgentData };
 
 function PeriodSection({ data }: SectionProps) {
-  const available = (["daily", "weekly", "monthly"] as const).filter(
+  // Per user feedback: daily + monthly tabs. Weekly removed (was redundant
+  // with daily). Paginate daily at 7-rows-per-page (one week per page),
+  // monthly at 12 rows (one year per page).
+  type PKey = "daily" | "monthly";
+  const available = (["daily", "monthly"] as const).filter(
     (k) => data.periods[k]?.rows.length,
   );
-  const [tab, setTab] = useState<PeriodKey>(available[0] ?? "daily");
+  const [tab, setTab] = useState<PKey>(available[0] ?? "daily");
   const [page, setPage] = useState(0);
-  const labels: Record<PeriodKey, string> = {
-    daily: "일간 (30일)",
-    weekly: "주간 (12주)",
-    monthly: "월간",
-  };
 
-  // Reset page when switching tabs
+  // Reset page index when switching tabs so we never land past the last page.
   useEffect(() => { setPage(0); }, [tab]);
 
   const active = data.periods[tab];
-  const totalPages = active ? Math.ceil(active.rows.length / PAGE_SIZE) : 0;
-  const visible = active?.rows.slice(page * PAGE_SIZE, (page + 1) * PAGE_SIZE) ?? [];
+  const pageSize = tab === "daily" ? PERIOD_DAILY_PAGE_SIZE : PERIOD_MONTHLY_PAGE_SIZE;
+  const totalPages = active ? Math.max(1, Math.ceil(active.rows.length / pageSize)) : 1;
+  const visible = active?.rows.slice(page * pageSize, (page + 1) * pageSize) ?? [];
+
+  const tabLabel: Record<PKey, string> = {
+    daily: "일간",
+    monthly: "월간",
+  };
 
   return (
     <section
@@ -302,7 +315,9 @@ function PeriodSection({ data }: SectionProps) {
     >
       <div className={styles.sectionHead}>
         <h2>기간별 리포트</h2>
-        <span className={styles.secMeta}>일 · 주 · 월</span>
+        <span className={styles.secMeta}>
+          {tab === "daily" ? "7일씩 페이지" : "12개월씩 페이지"}
+        </span>
       </div>
 
       {available.length === 0 ? (
@@ -316,8 +331,9 @@ function PeriodSection({ data }: SectionProps) {
                 type="button"
                 className={`${styles.periodTab} ${tab === k ? styles.active : ""}`}
                 onClick={() => setTab(k)}
+                aria-pressed={tab === k}
               >
-                {labels[k]}
+                {tabLabel[k]}
               </button>
             ))}
           </div>
@@ -352,7 +368,7 @@ function PeriodSection({ data }: SectionProps) {
                     onClick={() => setPage((p) => Math.max(0, p - 1))}
                   >이전</button>
                   <span className={styles.pagerInfo}>
-                    {page + 1} / {totalPages}
+                    {page + 1} / {totalPages} 페이지
                   </span>
                   <button
                     type="button"
@@ -406,8 +422,8 @@ function ApplicationsSection({ data }: SectionProps) {
     [data.applications, query, periodFilter, statusFilter, sourceFilter, sort],
   );
 
-  const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
-  const visible = filtered.slice(page * PAGE_SIZE, (page + 1) * PAGE_SIZE);
+  const totalPages = Math.max(1, Math.ceil(filtered.length / APPS_PAGE_SIZE));
+  const visible = filtered.slice(page * APPS_PAGE_SIZE, (page + 1) * APPS_PAGE_SIZE);
   const total = data.applications.length;
 
   const onReset = () => {
@@ -502,24 +518,16 @@ function ApplicationsSection({ data }: SectionProps) {
         <div className={styles.empty}>조건과 일치하는 지원 내역이 없습니다.</div>
       ) : (
         <>
-          <div className={styles.tableWrap}>
-            <table className={styles.appTable}>
-              <thead>
-                <tr>
-                  <th>날짜</th>
-                  <th>출처</th>
-                  <th>제목</th>
-                  <th>역할</th>
-                  <th>수신</th>
-                  <th>상태</th>
-                </tr>
-              </thead>
-              <tbody>
-                {visible.map((a, i) => (
-                  <ApplicationRow key={`${a.date}-${a.email}-${i}`} app={a} />
-                ))}
-              </tbody>
-            </table>
+          {filtered.every((a) => !a.url) && (
+            <div className={styles.urlNotice}>
+              현재 데이터에 공고 URL이 없어 카드 클릭이 비활성화되어 있습니다.
+              casting-agent 파이프라인에서 <code>listings.url</code> 백필 후 자동으로 클릭 가능해집니다.
+            </div>
+          )}
+          <div className={styles.cardGrid}>
+            {visible.map((a, i) => (
+              <ApplicationCard key={`${a.date}-${a.email}-${i}`} app={a} />
+            ))}
           </div>
           {totalPages > 1 && (
             <div className={styles.pager}>
@@ -544,44 +552,56 @@ function ApplicationsSection({ data }: SectionProps) {
   );
 }
 
-function ApplicationRow({ app }: { app: Application }) {
-  const srcCls =
+function ApplicationCard({ app }: { app: Application }) {
+  const srcCls: "actorCasting" | "volunteerActor" | "performerCasting" | "default" =
     app.source === "actorCasting" || app.source === "volunteerActor" || app.source === "performerCasting"
       ? app.source
       : "default";
   const badgeCls = mapBadgeClass(app.status);
-  return (
-    <tr>
-      <td className={styles.cellDate}>{app.date}</td>
-      <td>
-        <span className={`${styles.srcChip} ${styles[srcCls]}`}>{app.source}</span>
-      </td>
-      <td className={styles.cellTitle} title={app.title}>
-        <span>{app.title}</span>
-        {app.url && (
-          <a
-            className={styles.titleLink}
-            href={app.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            title="원본 공고 열기"
-            aria-label="원본 공고 열기"
-          >
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+  const credits = [app.director && `DIR. ${app.director}`, app.company].filter(Boolean).join(" · ");
+  const clickable = !!app.url;
+
+  // The entire card is a link when URL is present; otherwise an inert <article>.
+  // No nested <a> inside — the status icon and source chip render as plain spans.
+  const inner = (
+    <>
+      <div className={styles.cardHead}>
+        <span className={styles.cardDate}>{app.date}</span>
+        <span className={`${styles.cardStatus} ${styles[badgeCls]}`}>
+          {app.statusLabel || badgeCls}
+          {clickable && (
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
               <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
               <polyline points="15 3 21 3 21 9" />
               <line x1="10" y1="14" x2="21" y2="3" />
             </svg>
-          </a>
-        )}
-      </td>
-      <td className={styles.cellRole}>{app.role || "—"}</td>
-      <td className={styles.cellEmail}>{app.email}</td>
-      <td>
-        <span className={`${styles.badge} ${styles[badgeCls]}`}>{app.statusLabel || badgeCls}</span>
-      </td>
-    </tr>
+          )}
+        </span>
+      </div>
+      {credits && <div className={styles.cardCredits}>{credits}</div>}
+      <h3 className={styles.cardTitle} title={app.title}>{app.title}</h3>
+      <p className={styles.cardRole}>{app.role || "역할 미지정"}</p>
+      <div className={styles.cardFoot}>
+        <span className={`${styles.srcChip} ${styles[srcCls]}`}>{app.source}</span>
+        <span className={styles.cardEmail} title={app.email}>{app.email}</span>
+      </div>
+    </>
   );
+
+  if (clickable) {
+    return (
+      <a
+        className={`${styles.castCard} ${styles.clickable}`}
+        href={app.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={`원본 공고 열기: ${app.title}`}
+      >
+        {inner}
+      </a>
+    );
+  }
+  return <article className={styles.castCard}>{inner}</article>;
 }
 
 function mapBadgeClass(status: string): string {
@@ -691,38 +711,46 @@ function sanitizeBody(html: string): string {
 }
 
 // ─────────────────────────────────────────────────────────────
-// COST COLOPHON — single line at page bottom (Option B from earlier)
+// SECTION 5 — API 사용량 (4 cards)
+// Total/monthly cards get an accent rail on the left edge.
 // ─────────────────────────────────────────────────────────────
-function CostColophon({
-  costs,
-  costsAreActual,
-}: {
-  costs: Cost[];
-  costsAreActual: boolean;
-}) {
-  const monthly = costs.find((c) => /월/.test(c.label));
-  const total = costs.find((c) => /총\s*(누적|예상)/.test(c.label));
-  if (!monthly && !total) return null;
+function CostsSection({ data }: SectionProps) {
+  const { costs, costsAreActual } = data;
+  if (costs.length === 0) return null;
+
+  // Heuristic: cards whose label mentions "총" or "월" are the totals.
+  const isTotal = (label: string) => /총|월/.test(label);
+
   return (
-    <footer className={styles.colophon}>
-      <span className={styles.colophonLine}>
-        {monthly && (
-          <span className={styles.amt}>
-            이번 달<strong>{monthly.value}</strong>
+    <section
+      id="sec-costs"
+      data-section="costs"
+      className={styles.section}
+    >
+      <div className={styles.sectionHead}>
+        <h2>
+          API 사용량
+          <span className={`${styles.costMode} ${costsAreActual ? styles.actual : ""}`}>
+            {costsAreActual ? "실측" : "추정"}
           </span>
-        )}
-        {monthly && total && <span className={styles.sep}>·</span>}
-        {total && (
-          <span className={styles.amt}>
-            누적<strong>{total.value}</strong>
-          </span>
-        )}
-        <span className={styles.sep}>·</span>
-        <span className={`${styles.tag} ${costsAreActual ? styles.actual : ""}`}>
-          {costsAreActual ? "실측" : "추정"}
+        </h2>
+        <span className={styles.secMeta}>
+          {costsAreActual ? "response.usage 기반" : "호출 횟수 추정"}
         </span>
-      </span>
-    </footer>
+      </div>
+      <div className={styles.costsGrid}>
+        {costs.map((c, i) => (
+          <div
+            key={`${c.label}-${i}`}
+            className={`${styles.costItem} ${isTotal(c.label) ? styles.total : ""}`}
+          >
+            <div className={styles.costLabel}>{c.label}</div>
+            <div className={styles.costVal}>{c.value}</div>
+            <div className={styles.costDetail}>{c.detail}</div>
+          </div>
+        ))}
+      </div>
+    </section>
   );
 }
 

@@ -319,77 +319,133 @@
 }
 
 /* ────────────────────────────────────────────────────────────
-   APPLICATIONS TABLE (지원 내역, MAIN)
-   Bigger fonts, stronger contrast, generous padding.
+   APPLICATIONS CARD GRID (지원 내역, MAIN)
+   Larger, more legible, fully clickable cards (open original posting
+   in new tab when URL is present). Replaces the dense table layout.
    ──────────────────────────────────────────────────────────── */
-.tableWrap {
-  width: 100%;
-  overflow-x: auto;
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1px;
+  background: var(--color-border);
   border: 1px solid var(--color-border);
   border-radius: 8px;
-  background: var(--color-surface);
-}
-.appTable {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 0.94rem;        /* readability */
-}
-.appTable thead th {
-  background: var(--color-surface-hi);
-  text-align: left;
-  padding: 13px 16px;
-  color: var(--color-text-soft);
-  font-weight: 600;
-  font-size: 0.82rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  white-space: nowrap;
-  border-bottom: 1px solid var(--color-border);
-}
-.appTable thead th.right { text-align: right; }
-.appTable tbody td {
-  padding: 14px 16px;
-  border-top: 1px solid var(--color-border);
-  color: var(--color-text);
-  vertical-align: middle;
-}
-.appTable tbody tr:hover td {
-  background: var(--color-surface-hi);
-}
-.cellDate {
-  font-family: var(--font-mono);
-  font-size: 0.86rem;
-  color: var(--color-text-soft);
-  white-space: nowrap;
-}
-.cellTitle {
-  color: var(--color-text);
-  font-weight: 500;
-  max-width: 320px;
   overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+}
+.castCard {
+  background: var(--color-surface);
+  padding: 22px 22px 18px;
   display: flex;
-  align-items: center;
-  gap: 8px;
+  flex-direction: column;
+  position: relative;
+  min-height: 200px;
+  text-decoration: none;
+  color: inherit;
+  transition: background 0.2s ease, transform 0.2s ease;
+  cursor: default;
 }
-.cellTitle .titleLink {
-  color: var(--color-text-dim);
-  display: inline-flex;
-  transition: color 0.2s;
+.castCard.clickable {
+  cursor: pointer;
 }
-.cellTitle .titleLink:hover { color: var(--color-accent); }
-.cellTitle .titleLink svg {
-  width: 13px;
-  height: 13px;
+.castCard.clickable:hover {
+  background: var(--color-surface-hi);
+  transform: translateY(-2px);
+  z-index: 1;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.4);
 }
-.cellEmail {
+.cardHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+.cardDate {
   font-family: var(--font-mono);
   font-size: 0.84rem;
   color: var(--color-text-soft);
+  letter-spacing: 0.04em;
 }
-.cellRole {
+.cardStatus {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 4px 9px;
+  border: 1px solid currentColor;
+  border-radius: 3px;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.cardStatus.sent     { color: var(--color-success); }
+.cardStatus.failed   { color: var(--color-danger); }
+.cardStatus.skipped  { color: var(--color-warning); }
+.cardStatus.dup      { color: #e2a86e; }
+.cardStatus svg {
+  width: 11px;
+  height: 11px;
+  opacity: 0.7;
+}
+.cardCredits {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.06em;
+  color: var(--color-text-dim);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.cardCredits strong {
   color: var(--color-text-soft);
+  font-weight: 600;
+}
+.cardTitle {
+  font-family: var(--font-serif-ko);
+  font-size: 1.1rem;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--color-text);
+  margin-bottom: 12px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.castCard.clickable:hover .cardTitle { color: var(--color-accent); }
+.cardRole {
+  font-family: var(--font-serif-ko);
+  font-size: 0.92rem;
+  font-style: italic;
+  color: var(--color-text-soft);
+  margin-bottom: auto;
+  padding-bottom: 14px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.cardRole::before {
+  content: "— ";
+  font-style: normal;
+  color: var(--color-text-dim);
+}
+.cardFoot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 14px;
+  border-top: 1px solid var(--color-border);
+  gap: 10px;
+}
+.cardEmail {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--color-text-dim);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 60%;
 }
 
 /* Source chip — colored by source key */
@@ -484,6 +540,25 @@
   font-size: 0.95rem;
 }
 
+.urlNotice {
+  margin: 0 0 18px;
+  padding: 12px 16px;
+  border-left: 3px solid var(--color-warning);
+  background: color-mix(in srgb, var(--color-warning) 8%, transparent);
+  font-size: 0.86rem;
+  color: var(--color-text-soft);
+  line-height: 1.55;
+  border-radius: 0 4px 4px 0;
+}
+.urlNotice code {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  background: var(--color-surface-hi);
+  padding: 1px 6px;
+  border-radius: 3px;
+  color: var(--color-warning);
+}
+
 /* ────────────────────────────────────────────────────────────
    PERIOD REPORT TABS
    ──────────────────────────────────────────────────────────── */
@@ -493,20 +568,33 @@
   margin-bottom: 16px;
 }
 .periodTab {
-  padding: 8px 16px;
+  padding: 9px 20px;
   background: transparent;
   border: 1px solid var(--color-border);
   color: var(--color-text-soft);
-  font-size: 0.88rem;
+  font-size: 0.92rem;
+  font-weight: 500;
   cursor: pointer;
   font-family: inherit;
-  transition: all 0.2s ease;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
-.periodTab:hover { color: var(--color-text); }
+.periodTab:hover {
+  color: var(--color-text);
+  border-color: var(--color-border-hi);
+}
+/* Active state — explicit colors so the active tab is unmistakable.
+   #0a0a0a is the page bg (matches --color-bg). On gold accent it lands
+   at WCAG AAA contrast. */
 .periodTab.active {
   background: var(--color-accent);
-  color: #1a1410;
+  color: #0a0a0a;
   border-color: var(--color-accent);
+  font-weight: 700;
+}
+.periodTab.active:hover {
+  /* Keep the contrast lock even when the cursor is over the active tab. */
+  color: #0a0a0a;
+  background: var(--color-accent-hi);
 }
 
 .periodTable {
@@ -641,7 +729,77 @@
 }
 
 /* ────────────────────────────────────────────────────────────
-   COST COLOPHON (page bottom, single line)
+   COSTS GRID (API 사용량 — 4 cards)
+   ──────────────────────────────────────────────────────────── */
+.costsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+}
+.costItem {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 18px 20px;
+  position: relative;
+}
+.costItem.total {
+  background: linear-gradient(180deg, var(--color-surface-hi) 0%, var(--color-surface) 100%);
+}
+.costItem.total::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 2px;
+  background: var(--color-accent);
+  border-radius: 2px 0 0 2px;
+}
+.costLabel {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-text-dim);
+  margin-bottom: 10px;
+}
+.costVal {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-text);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  margin-bottom: 6px;
+  letter-spacing: -0.01em;
+}
+.costItem.total .costVal { color: var(--color-accent); }
+.costDetail {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  color: var(--color-text-dim);
+  letter-spacing: 0.02em;
+  line-height: 1.5;
+}
+.costMode {
+  display: inline-block;
+  margin-left: 10px;
+  padding: 2px 8px;
+  border: 1px solid var(--color-border);
+  border-radius: 3px;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text-soft);
+  vertical-align: 3px;
+}
+.costMode.actual {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+/* ────────────────────────────────────────────────────────────
+   COST COLOPHON (page bottom, single line) — currently unused
+   (kept for future single-line summary footer)
    ──────────────────────────────────────────────────────────── */
 .colophon {
   max-width: 1200px;

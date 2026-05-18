@@ -67,7 +67,16 @@
       "Bash(mv actor-assets *)",
       "Bash(mv designer-images *)",
       "Bash(sed -i.bak '371s/}\\);/}/; 545s/}\\);/}/; 621s/}\\);/}/; 669s/}\\);/}/' app/agent/AgentClient.tsx)",
-      "Bash(rm app/agent/AgentClient.tsx.bak)"
+      "Bash(rm app/agent/AgentClient.tsx.bak)",
+      "Bash(node --experimental-strip-types -e ' *)",
+      "Bash(shasum -a 256)",
+      "Bash(awk '{print $1}')",
+      "Bash(/usr/bin/grep -n \"PAGE\" /Users/hyunwoojee/milkfolio/app/agent/AgentClient.tsx)",
+      "Bash(/usr/bin/grep -an \"PAGE\" /Users/hyunwoojee/milkfolio/app/agent/AgentClient.tsx)",
+      "Bash(/usr/bin/grep *)",
+      "Bash(sqlite3 data/castings.db \"SELECT COUNT\\(*\\) AS total, SUM\\(CASE WHEN url IS NULL OR url='' THEN 1 ELSE 0 END\\) AS empty_url, SUM\\(CASE WHEN url LIKE 'http%' THEN 1 ELSE 0 END\\) AS has_url FROM listings;\")",
+      "Bash(sqlite3 data/castings.db \"SELECT COUNT\\(*\\) total, SUM\\(CASE WHEN l.url IS NULL OR l.url='' THEN 1 ELSE 0 END\\) empty FROM applications a JOIN listings l ON l.id = a.listing_id;\")",
+      "Bash(sqlite3 data/castings.db \"SELECT \\(CASE WHEN l.url IS NULL OR l.url='' THEN 'EMPTY' ELSE 'HAS' END\\) AS bucket, COUNT\\(*\\) FROM applications a JOIN listings l ON l.id = a.listing_id GROUP BY bucket;\")"
     ]
   }
 }

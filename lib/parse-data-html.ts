@@ -111,15 +111,16 @@ function parsePeriods($: cheerio.CheerioAPI): Periods {
       .find("thead th")
       .map((_, th) => $(th).text().trim())
       .get();
-    const rows = $tbl
-      .find("tbody tr")
-      .map((_, tr) =>
-        $(tr)
-          .find("td")
-          .map((__, td) => $(td).text().trim())
-          .get()
-      )
-      .get() as unknown as string[][];
+    // cheerio's .map().get() flattens, so nested string[][] becomes string[].
+    // Build the rows manually instead.
+    const rows: string[][] = [];
+    $tbl.find("tbody tr").each((_, tr) => {
+      const cells = $(tr)
+        .find("td")
+        .map((__, td) => $(td).text().trim())
+        .get();
+      rows.push(cells);
+    });
     if (headers.length && rows.length) {
       out[key] = { headers, rows } satisfies PeriodTable;
     }
