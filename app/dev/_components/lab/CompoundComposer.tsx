@@ -1,15 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import styles from "../Lab.module.css";
-
-/**
- * Compound Composer — three orthogonal choices that compose into a fourth
- * cell-by-cell description. Demonstrates the "small primitives compose into
- * big results" idea behind compound engineering, without showing real code.
- *
- * @MX:SPEC: SPEC-DEV-REDESIGN-001 REQ-DEV-E-003, REQ-DEV-S-003
- */
+import styles from "./CompoundComposer.module.css";
 
 type SignalChoice = "events" | "queries" | "batches";
 type DepthChoice = "thin" | "rich" | "graph";
@@ -36,8 +28,6 @@ function compose(
   depth: DepthChoice,
   speed: SpeedChoice,
 ): { archetype: string; latency: string; cost: string } {
-  // Each combination resolves to an archetypal "shape" you'd actually build.
-  // Hand-tuned so every triple reads as a real engineering decision.
   const map: Record<string, { archetype: string; latency: string; cost: string }> = {
     "events+thin+live": { archetype: "event log → topic stream", latency: "<100ms", cost: "$" },
     "events+thin+near-time": { archetype: "micro-batch sink", latency: "~5s", cost: "$" },
@@ -79,76 +69,65 @@ export function CompoundComposer() {
   const result = useMemo(() => compose(signal, depth, speed), [signal, depth, speed]);
 
   return (
-    <article className={styles.card}>
-      <div className={styles.cardHeader}>
-        <span className={styles.cardLabel}>Compound</span>
-        <span className={styles.cardIndex}>02 / 03</span>
-      </div>
-      <h3 className={styles.cardTitle}>Three knobs, twenty-seven systems.</h3>
-      <p className={styles.cardDesc}>
-        Pick a signal shape, a data depth, and a freshness budget. Every
-        combination resolves to a system you&apos;d actually have to build.
-      </p>
-      <div className={styles.cardCanvas}>
-        <div className={styles.composerControls}>
-          <div className={styles.composerRow}>
-            <span className={styles.composerLabel}>signal</span>
-            <div className={styles.composerOptions} role="radiogroup" aria-label="Signal shape">
-              {SIGNAL_OPTIONS.map((opt) => (
-                <button
-                  key={opt.value}
-                  type="button"
-                  role="radio"
-                  aria-checked={signal === opt.value}
-                  className={`${styles.composerOption} ${signal === opt.value ? styles.active : ""}`}
-                  onClick={() => setSignal(opt.value)}
-                >
-                  {opt.label}
-                </button>
-              ))}
-            </div>
+    <div className={styles.root}>
+      <div className={styles.controls}>
+        <div className={styles.row}>
+          <span className={styles.label}>signal</span>
+          <div className={styles.options} role="radiogroup" aria-label="Signal shape">
+            {SIGNAL_OPTIONS.map((opt) => (
+              <button
+                key={opt.value}
+                type="button"
+                role="radio"
+                aria-checked={signal === opt.value}
+                className={`${styles.option} ${signal === opt.value ? styles.active : ""}`}
+                onClick={() => setSignal(opt.value)}
+              >
+                {opt.label}
+              </button>
+            ))}
           </div>
-          <div className={styles.composerRow}>
-            <span className={styles.composerLabel}>depth</span>
-            <div className={styles.composerOptions} role="radiogroup" aria-label="Data depth">
-              {DEPTH_OPTIONS.map((opt) => (
-                <button
-                  key={opt.value}
-                  type="button"
-                  role="radio"
-                  aria-checked={depth === opt.value}
-                  className={`${styles.composerOption} ${depth === opt.value ? styles.active : ""}`}
-                  onClick={() => setDepth(opt.value)}
-                >
-                  {opt.label}
-                </button>
-              ))}
-            </div>
+        </div>
+        <div className={styles.row}>
+          <span className={styles.label}>depth</span>
+          <div className={styles.options} role="radiogroup" aria-label="Data depth">
+            {DEPTH_OPTIONS.map((opt) => (
+              <button
+                key={opt.value}
+                type="button"
+                role="radio"
+                aria-checked={depth === opt.value}
+                className={`${styles.option} ${depth === opt.value ? styles.active : ""}`}
+                onClick={() => setDepth(opt.value)}
+              >
+                {opt.label}
+              </button>
+            ))}
           </div>
-          <div className={styles.composerRow}>
-            <span className={styles.composerLabel}>freshness</span>
-            <div className={styles.composerOptions} role="radiogroup" aria-label="Freshness budget">
-              {SPEED_OPTIONS.map((opt) => (
-                <button
-                  key={opt.value}
-                  type="button"
-                  role="radio"
-                  aria-checked={speed === opt.value}
-                  className={`${styles.composerOption} ${speed === opt.value ? styles.active : ""}`}
-                  onClick={() => setSpeed(opt.value)}
-                >
-                  {opt.label}
-                </button>
-              ))}
-            </div>
+        </div>
+        <div className={styles.row}>
+          <span className={styles.label}>freshness</span>
+          <div className={styles.options} role="radiogroup" aria-label="Freshness budget">
+            {SPEED_OPTIONS.map((opt) => (
+              <button
+                key={opt.value}
+                type="button"
+                role="radio"
+                aria-checked={speed === opt.value}
+                className={`${styles.option} ${speed === opt.value ? styles.active : ""}`}
+                onClick={() => setSpeed(opt.value)}
+              >
+                {opt.label}
+              </button>
+            ))}
           </div>
         </div>
       </div>
-      <div className={styles.composerOutput} aria-live="polite">
+      <div className={styles.output} aria-live="polite">
         <em>{result.archetype}</em>
         <br />
         latency: {result.latency} · cost: {result.cost}
       </div>
-    </article>
+    </div>
   );
 }
