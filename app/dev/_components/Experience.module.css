@@ -1,0 +1,356 @@
+/* ────────────────────────────────────────────────────────────
+   Experience — SPEC-DEV-REDESIGN-001
+   Career timeline showing the data → AI transition.
+   ──────────────────────────────────────────────────────── */
+
+.root {
+  position: relative;
+  padding: clamp(7rem, 12vh, 10rem) 2.5rem;
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(56, 217, 255, 0.06), transparent 55%),
+    #05080f;
+  border-top: 1px solid rgba(56, 217, 255, 0.08);
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.8fr);
+  gap: clamp(2rem, 6vw, 5rem);
+  margin-bottom: 4rem;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #38d9ff;
+}
+
+.labelNum {
+  font-size: 0.6rem;
+  color: rgba(56, 217, 255, 0.5);
+}
+
+.title {
+  font-family: var(--font-grotesk, "Space Grotesk", system-ui);
+  font-size: clamp(2.2rem, 5.5vw, 4.5rem);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  color: #f3f7fc;
+  margin: 0;
+}
+
+.title em {
+  font-style: normal;
+  background: linear-gradient(110deg, #38d9ff 0%, #a3eaff 55%, #38d9ff 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ── Timeline ──────────────────────────────────────────── */
+
+.timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.entry {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(140px, 0.3fr) auto 1fr;
+  gap: 1.5rem;
+  padding: 2rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  align-items: start;
+}
+
+.entry:first-child {
+  border-top-color: rgba(56, 217, 255, 0.3);
+}
+
+.entry:last-child {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.entryPeriod {
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 0.78rem;
+  color: #38d9ff;
+  letter-spacing: 0.08em;
+  padding-top: 0.45rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.entryPeriod .now {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: #38d9ff;
+}
+
+.entryPeriod .now::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #38d9ff;
+  box-shadow: 0 0 8px #38d9ff;
+  animation: nowPulse 2s ease-in-out infinite;
+}
+
+.entryPeriod .duration {
+  font-size: 0.66rem;
+  color: #4a5568;
+  letter-spacing: 0.1em;
+}
+
+@keyframes nowPulse {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.4; }
+}
+
+/* Visual connector — the timeline spine */
+.entryRail {
+  position: relative;
+  width: 18px;
+  align-self: stretch;
+  display: flex;
+  justify-content: center;
+}
+
+.entryDot {
+  position: relative;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #04070d;
+  border: 2px solid #38d9ff;
+  margin-top: 0.6rem;
+  z-index: 2;
+}
+
+.entryDot.active {
+  background: #38d9ff;
+  box-shadow: 0 0 14px rgba(56, 217, 255, 0.7);
+}
+
+.entryDot.past {
+  border-color: rgba(56, 217, 255, 0.4);
+}
+
+.entryLine {
+  position: absolute;
+  top: 1.5rem;
+  bottom: -2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    rgba(56, 217, 255, 0.5),
+    rgba(56, 217, 255, 0.1)
+  );
+}
+
+.entry:last-child .entryLine {
+  display: none;
+}
+
+.entryBody {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.entryRole {
+  font-family: var(--font-grotesk, "Space Grotesk", system-ui);
+  font-size: clamp(1.25rem, 2vw, 1.6rem);
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  color: #e7eef7;
+  margin: 0;
+  line-height: 1.25;
+}
+
+.entryRole .roleAccent {
+  color: #38d9ff;
+}
+
+.entryCompany {
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 0.78rem;
+  color: #8899aa;
+  letter-spacing: 0.05em;
+  margin: 0;
+}
+
+.entryCompany .team {
+  color: #38d9ff;
+}
+
+.entryDesc {
+  font-family: var(--font-inter, "Inter", system-ui);
+  font-size: 0.95rem;
+  font-weight: 300;
+  line-height: 1.65;
+  color: #c1cad6;
+  margin: 0;
+  max-width: 60ch;
+}
+
+.entryDesc em {
+  font-style: normal;
+  color: #e7eef7;
+  font-weight: 400;
+}
+
+.entryChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.3rem;
+}
+
+.chip {
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 0.66rem;
+  color: #c1cad6;
+  background: rgba(56, 217, 255, 0.06);
+  border: 1px solid rgba(56, 217, 255, 0.18);
+  padding: 0.25rem 0.6rem;
+  border-radius: 3px;
+  letter-spacing: 0.04em;
+}
+
+.chip.primary {
+  color: #38d9ff;
+  background: rgba(56, 217, 255, 0.12);
+  border-color: rgba(56, 217, 255, 0.4);
+}
+
+.chip.faded {
+  color: #4a5568;
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+/* ── Transition arrow between past and present ─────────── */
+
+.transition {
+  display: grid;
+  grid-template-columns: minmax(140px, 0.3fr) auto 1fr;
+  gap: 1.5rem;
+  padding: 1.5rem 0;
+  align-items: center;
+}
+
+.transitionLeft {
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 0.66rem;
+  color: rgba(56, 217, 255, 0.7);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.transitionArrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 1.3rem;
+  color: #38d9ff;
+  letter-spacing: 0.2em;
+  animation: transitionPulse 2.5s ease-in-out infinite;
+}
+
+@keyframes transitionPulse {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50%      { opacity: 1;   transform: scale(1.08); }
+}
+
+.transitionBody {
+  font-family: var(--font-grotesk, "Space Grotesk", system-ui);
+  font-size: 0.95rem;
+  font-style: italic;
+  color: #8899aa;
+  letter-spacing: 0.01em;
+}
+
+.transitionBody strong {
+  color: #38d9ff;
+  font-style: normal;
+  font-weight: 500;
+}
+
+/* ── Languages footer ──────────────────────────────────── */
+
+.languages {
+  margin-top: 3rem;
+  padding: 1.5rem 0 0;
+  border-top: 1px dashed rgba(56, 217, 255, 0.15);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 1.5rem 2rem;
+}
+
+.languagesLabel {
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(56, 217, 255, 0.7);
+}
+
+.languagesList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.language {
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 0.85rem;
+  color: #c1cad6;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.language .level {
+  color: rgba(127, 228, 255, 0.7);
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+}
+
+@media (max-width: 880px) {
+  .head {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+  .entry,
+  .transition {
+    grid-template-columns: auto auto 1fr;
+    gap: 0.8rem;
+  }
+  .entryPeriod {
+    font-size: 0.7rem;
+  }
+}
