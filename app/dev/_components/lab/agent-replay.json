@@ -10,5 +10,16 @@
   { "kind": "toolCall", "text": "→ dry_run(branch='perf/enrich-broadcast', sample=0.01)" },
   { "kind": "thought", "text": "Sample finishes in 22s vs 14m baseline. Extrapolating ~50min for full run." },
   { "kind": "toolCall", "text": "→ open_pr(title='enrich_customer_facts: broadcast join', reviewers=['data-platform'])" },
-  { "kind": "answer", "text": "Drafted PR #2,141 — projected 8h → 52min (-89%). Awaiting review.", "kind2": "success" }
+  { "kind": "answer", "text": "Drafted PR #2,141 — projected 8h → 52min (-89%). Awaiting review.", "kind2": "success" },
+  { "kind": "thought", "text": "Next request: agent fails silently when the upstream feed is empty." },
+  { "kind": "toolCall", "text": "→ read_logs(agent='intake_router', last='6h', filter='warn|error')" },
+  { "kind": "thought", "text": "No errors logged — just an empty result loop. Classic." },
+  { "kind": "toolCall", "text": "→ add_guard(agent='intake_router', condition='len(batch) == 0', action='alert')" },
+  { "kind": "toolCall", "text": "→ write_test(name='intake_router_empty_feed', expect='alert + skip')" },
+  { "kind": "answer", "text": "Guard wired in, test passes, alert reaches Slack in <2s.", "kind2": "success" },
+  { "kind": "thought", "text": "Standardizing harness boilerplate across three agents — let's diff them first." },
+  { "kind": "toolCall", "text": "→ compare_skeletons(['router', 'retriever', 'evaluator'])" },
+  { "kind": "thought", "text": "Same setup block repeated three times. Lifting to a shared module." },
+  { "kind": "toolCall", "text": "→ refactor(extract='harness.bootstrap', shared_between=3)" },
+  { "kind": "answer", "text": "Three agents now share one bootstrap. -340 lines, +1 test file.", "kind2": "success" }
 ]
