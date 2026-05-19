@@ -1,0 +1,221 @@
+/* ────────────────────────────────────────────────────────────
+   Manifesto — SPEC-DEV-REDESIGN-001
+   Magazine-style identity declaration. Big typography, sparse
+   monospace accents, scroll-driven fade-in.
+   ──────────────────────────────────────────────────────── */
+
+.root {
+  position: relative;
+  padding: clamp(7rem, 14vh, 12rem) 2.5rem;
+  background: #070b12;
+  border-top: 1px solid rgba(56, 217, 255, 0.06);
+  border-bottom: 1px solid rgba(56, 217, 255, 0.06);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.root::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: min(1200px, 90vw);
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(56, 217, 255, 0.4),
+    transparent
+  );
+  transform: translateX(-50%);
+}
+
+.container {
+  max-width: 1180px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr);
+  gap: clamp(2rem, 6vw, 6rem);
+  align-items: start;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #38d9ff;
+  position: sticky;
+  top: 4rem;
+}
+
+.labelNum {
+  font-size: 0.62rem;
+  color: rgba(56, 217, 255, 0.55);
+  letter-spacing: 0.2em;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 2.6rem;
+}
+
+.heading {
+  font-family: var(--font-grotesk, "Space Grotesk", system-ui);
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  line-height: 1.08;
+  color: #e7eef7;
+  margin: 0;
+}
+
+.heading em {
+  font-style: normal;
+  background: linear-gradient(110deg, #38d9ff 0%, #7fe4ff 60%, #38d9ff 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+.heading .strike {
+  position: relative;
+  color: #4a5568;
+  font-style: normal;
+}
+
+.heading .strike::after {
+  content: "";
+  position: absolute;
+  left: -0.05em;
+  right: -0.05em;
+  top: 53%;
+  height: 0.08em;
+  background: #4a5568;
+  transform: rotate(-3deg);
+}
+
+.lede {
+  font-family: var(--font-inter, "Inter", system-ui);
+  font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+  font-weight: 300;
+  line-height: 1.7;
+  color: #c1cad6;
+  max-width: 60ch;
+  margin: 0;
+}
+
+.lede strong {
+  color: #e7eef7;
+  font-weight: 500;
+}
+
+/* ── Active list ───────────────────────────────────────── */
+
+.now {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.nowHeader {
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #38d9ff;
+  padding: 1.5rem 0 0.5rem;
+}
+
+.nowItem {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1.5rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  transition: border-color 0.3s ease;
+}
+
+.nowItem:hover {
+  border-bottom-color: rgba(56, 217, 255, 0.3);
+}
+
+.nowMarker {
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 0.72rem;
+  color: #38d9ff;
+  padding-top: 0.35rem;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+.nowText {
+  font-family: var(--font-inter, "Inter", system-ui);
+  font-size: 1.02rem;
+  font-weight: 300;
+  line-height: 1.6;
+  color: #c1cad6;
+}
+
+.nowText em {
+  font-style: normal;
+  color: #e7eef7;
+  font-weight: 500;
+}
+
+.nowText code {
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 0.92em;
+  color: #7fe4ff;
+  background: rgba(56, 217, 255, 0.08);
+  border: 1px solid rgba(56, 217, 255, 0.15);
+  padding: 0.05em 0.4em;
+  border-radius: 3px;
+  white-space: nowrap;
+}
+
+/* ── Pull quote at the end ─────────────────────────────── */
+
+.pullquote {
+  margin-top: 3rem;
+  padding: 2.5rem 0 0;
+  border-top: 1px dashed rgba(56, 217, 255, 0.15);
+  font-family: var(--font-grotesk, "Space Grotesk", system-ui);
+  font-size: clamp(1.4rem, 2.4vw, 1.9rem);
+  font-weight: 400;
+  line-height: 1.35;
+  color: #e7eef7;
+  letter-spacing: -0.01em;
+  max-width: 32ch;
+}
+
+.pullquote::before {
+  content: "—";
+  display: block;
+  color: #38d9ff;
+  font-size: 0.7em;
+  margin-bottom: 0.7rem;
+}
+
+/* ── Responsive ─────────────────────────────────────────── */
+
+@media (max-width: 880px) {
+  .container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .label {
+    position: relative;
+    top: auto;
+    flex-direction: row;
+    align-items: baseline;
+    gap: 0.8rem;
+  }
+}
