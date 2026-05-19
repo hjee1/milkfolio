@@ -79,7 +79,17 @@
       "Bash(sqlite3 data/castings.db \"SELECT \\(CASE WHEN l.url IS NULL OR l.url='' THEN 'EMPTY' ELSE 'HAS' END\\) AS bucket, COUNT\\(*\\) FROM applications a JOIN listings l ON l.id = a.listing_id GROUP BY bucket;\")",
       "Bash(pnpm exec *)",
       "Bash(pkill -f \"next\")",
-      "Bash(pnpm e2e *)"
+      "Bash(pnpm e2e *)",
+      "Bash(npx vercel@latest --version)",
+      "Bash(npx vercel@latest whoami)",
+      "Bash(/usr/bin/curl -s -o /dev/null -w \"/=%{http_code}\\\\n\" https://milkfolio-space.vercel.app/)",
+      "Bash(/usr/bin/curl -s -o /dev/null -w '/__TRACKED_VAR__=%{http_code}\\\\n' https://milkfolio-space.vercel.app/__TRACKED_VAR__)",
+      "Bash(/usr/bin/curl -s https://milkfolio-space.vercel.app/)",
+      "Bash(gh repo *)",
+      "Bash(/usr/bin/dig +short milkfolio.space)",
+      "Bash(/usr/bin/dig +short www.milkfolio.space)",
+      "Bash(/usr/bin/dig +short NS milkfolio.space)",
+      "Bash(gh api *)"
     ]
   }
 }
