@@ -17,23 +17,41 @@
   - motion@12.39.0 (peer: react ^18 || ^19 — satisfied)
   - pnpm typecheck: PASSED
 - next.config.ts: BUILD_SHA + BUILD_TIME env injection added (@MX:ANCHOR)
+- _components/shared/ scaffolded with tokens + 4 hooks (usePrefersReducedMotion, useDeviceTier, useBuildInfo, useFPS)
 - TDD methodology adjustment (recorded for transparency):
   - SPEC sets development_mode=tdd, but this is a UI-craft SPEC where unit testing has limited value
   - Decision: Skip dedicated unit-test framework (Vitest) setup in this turn
   - Hooks (usePrefersReducedMotion, useDeviceTier, useBuildInfo, useFPS) are written as pure, small modules
   - Verification path: e2e Playwright (Phase 7) + visual inspection during section implementation (Turns 2-5)
-  - This is a documented deviation. If the user objects, add Vitest setup as a separate SPEC.
 
-### Turn 1 remaining work
+### Turn 2 (2026-05-19)
 
-- Phase 1.5: tasks.md generation
-- _components/shared/tokens.ts
-- 4 shared hooks (usePrefersReducedMotion, useDeviceTier, useBuildInfo, useFPS)
-- Push to origin/main
+- @types/three@0.184.1 added (devDeps) — three.js has no bundled .d.ts
+- Hero stack written and integrated into page.tsx:
+  - `app/dev/_components/Hero.module.css` — full hero stylesheet, system board, fallback, responsive
+  - `app/dev/_components/HeroFallback.tsx` — static SVG topology for WebGL2-absent / loading state
+  - `app/dev/_components/HeroCanvas.tsx` — R3F particle field + distance-faded line segments + pointer attraction; honors useDeviceTier (particle count by tier) and usePrefersReducedMotion (single static frame instead of frame loop)
+  - `app/dev/_components/HeroVisual.tsx` — next/dynamic({ ssr: false }) wrapper around HeroCanvas; routes to HeroFallback when WebGL2 missing or while chunk is loading
+  - `app/dev/_components/HeroLiveBoard.tsx` — terminal-style status panel showing commit SHA, deploy age, live FPS, font-load state
+  - `app/dev/_components/Hero.tsx` — server-component composer with SSR-friendly text overlay
+- `app/dev/page.tsx` — replaced the old static hero markup with `<Hero />`; About/Stack/Experience/Contact remain on the legacy markup until Turns 3-5
+- `app/dev/layout.tsx` — metadata updated to "AI Technical Engineer"; old Data Engineer copy removed
+- Verification:
+  - `pnpm typecheck`: PASSED (strict, errors 0)
+  - `pnpm build`: PASSED (6 routes static-prerendered, /dev included)
+- Acceptance criteria moved from pending to in-progress:
+  - REQ-DEV-U-003 — AI Technical Engineer identity now visible in hero + metadata
+  - REQ-DEV-E-001 — hero WebGL visualization rendered (PoC; FPS verification in Turn 5)
+  - REQ-DEV-E-004 — pointer attraction in particle field implemented
+  - REQ-DEV-E-005 — live system board surfaces FPS, fonts on hydration
+  - REQ-DEV-O-001 — BUILD_SHA + BUILD_TIME wired through useBuildInfo into hero board
+  - REQ-DEV-O-002 — WebGL2 fallback (SVG) routed through HeroVisual
+  - REQ-DEV-O-003 — Three.js loaded via next/dynamic only
+  - REQ-DEV-S-001 — prefers-reduced-motion short-circuits the frame loop
+  - REQ-DEV-S-002 — particle count varies by device tier (mobile=600, tablet=1200, desktop=2400)
 
 ### Subsequent turns (planned)
 
-- Turn 2: Hero section (R3F signature visual + live system board)
-- Turn 3: Manifesto + Stack + Contact (static sections)
-- Turn 4: Lab — 3 interactive demo cards
-- Turn 5: Craft + e2e expansion + Lighthouse verification + Phase 2.5 quality gate + Phase 3 commits
+- Turn 3: Manifesto + Stack + Contact sections (static, replacing legacy About/Stack/Experience markup; removes the lingering Data Engineer copy and the /actor cross-link)
+- Turn 4: Lab — 3 interactive demo cards (Agent Thinking Replay + Compound Composer + DAG Explorer)
+- Turn 5: Craft section, e2e/dev.spec.ts expansion, Lighthouse verification, TRUST 5 quality gate, Phase 3 commit/PR

@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Hyunwoo Jee — Data Engineer",
+  title: "Hyunwoo Jee — AI Technical Engineer",
   description:
-    "Data Engineer at Hanwha System. Airflow, Databricks, Snowflake, Cognite.",
+    "AI Technical Engineer. Standardizing harness workflows, composing agents, building the next shape of how software gets made.",
   openGraph: {
-    title: "Hyunwoo Jee — Data Engineer",
+    title: "Hyunwoo Jee — AI Technical Engineer",
     description:
-      "Data Engineer at Hanwha System. Airflow, Databricks, Snowflake, Cognite.",
+      "Working at the frontier where AI engineering meets human craft.",
     url: "https://milkfolio.space/dev/",
     type: "profile",
   },

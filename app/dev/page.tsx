@@ -1,10 +1,11 @@
 import Link from "next/link";
 import { SiteFooter } from "@/components/SiteFooter";
+import { Hero } from "./_components/Hero";
 import styles from "./page.module.css";
 
-// Pure Server Component — no JS shipped to the client.
-// Dev profile uses cyan accent + animated grid hero; nav is custom
-// (not SiteNav) because the dev nav layout is single-row brand-less.
+// Now a hybrid: Hero is a cinematic Client-driven section (R3F + live board),
+// the remaining sections stay as static Server-rendered markup until they are
+// migrated by subsequent turns of SPEC-DEV-REDESIGN-001.
 
 const NAV_LINKS = [
   { href: "#about", label: "About" },
@@ -12,9 +13,6 @@ const NAV_LINKS = [
   { href: "#experience", label: "Experience" },
   { href: "#contact", label: "Contact" },
 ];
-
-const HERO_TAGS = ["Data Engineer", "Hanwha System"];
-const HERO_CHIPS = ["Airflow", "Databricks", "Snowflake", "Cognite"];
 
 const ABOUT_CARDS = [
   { num: "4", small: "+", label: "Years at Hanwha System" },
@@ -142,44 +140,8 @@ export default function DevPage() {
         </ul>
       </nav>
 
-      {/* HERO ─────────────────────────────────────── */}
-      <section className={styles.hero} id="top">
-        <div className={styles.heroGrid} aria-hidden />
-        <div className={styles.heroInner}>
-          <p className={styles.heroEyebrow}>
-            {HERO_TAGS.map((t) => (
-              <span key={t} className={styles.heroTag}>{t}</span>
-            ))}
-          </p>
-          <h1 className={styles.heroName}>
-            <span className={styles.line}>Hyunwoo</span>
-            <span className={`${styles.line} ${styles.accentText}`}>Jee.</span>
-          </h1>
-          <p className={styles.heroAlias}>Terry · 지현우</p>
-          <p className={styles.heroSub}>
-            Building data infrastructure at scale —<br />
-            pipelines, platforms, and everything in between.
-          </p>
-          <div className={styles.heroChips}>
-            {HERO_CHIPS.map((c) => (
-              <span key={c} className={styles.chip}>{c}</span>
-            ))}
-          </div>
-          <a href="#about" className={styles.heroBtn}>
-            <span>Explore</span>
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden>
-              <path
-                d="M7 1v12M1 7l6 6 6-6"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </a>
-        </div>
-        <div className={styles.heroScrollHint}>scroll</div>
-      </section>
+      {/* HERO — SPEC-DEV-REDESIGN-001 Turn 2 (R3F particle field + live board) */}
+      <Hero />
 
       {/* ABOUT ────────────────────────────────────── */}
       <section className={styles.section} id="about">
