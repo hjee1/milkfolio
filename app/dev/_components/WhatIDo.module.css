@@ -1,0 +1,476 @@
+/* ────────────────────────────────────────────────────────────
+   What I Do — SPEC-DEV-REDESIGN-001
+   Terminal-style background ticker + activity declarations
+   + small compound + DAG demos on the side.
+   ──────────────────────────────────────────────────────── */
+
+.root {
+  position: relative;
+  min-height: 100vh;
+  padding: clamp(7rem, 12vh, 10rem) 2.5rem;
+  background: #05080f;
+  overflow: hidden;
+  isolation: isolate;
+  border-top: 1px solid rgba(56, 217, 255, 0.08);
+}
+
+/* Top divider — glow line */
+.root::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: min(1200px, 90vw);
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(56, 217, 255, 0.5),
+    transparent
+  );
+  transform: translateX(-50%);
+}
+
+/* Faint scanlines overlay for terminal vibe */
+.root::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 3px,
+    rgba(56, 217, 255, 0.015) 3px,
+    rgba(56, 217, 255, 0.015) 4px
+  );
+}
+
+.container {
+  position: relative;
+  z-index: 3;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* ── Section heading ───────────────────────────────────── */
+
+.head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.8fr);
+  gap: clamp(2rem, 6vw, 5rem);
+  margin-bottom: 5rem;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #38d9ff;
+  position: sticky;
+  top: 4rem;
+  align-self: start;
+}
+
+.labelNum {
+  font-size: 0.6rem;
+  color: rgba(56, 217, 255, 0.5);
+}
+
+.title {
+  font-family: var(--font-grotesk, "Space Grotesk", system-ui);
+  font-size: clamp(2.2rem, 5.5vw, 4.5rem);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  color: #f3f7fc;
+  margin: 0;
+}
+
+.title em {
+  font-style: normal;
+  background: linear-gradient(110deg, #38d9ff 0%, #a3eaff 55%, #38d9ff 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+.titleStrike {
+  position: relative;
+  color: #4a5568;
+  font-style: normal;
+  margin-right: 0.15em;
+}
+
+.titleStrike::after {
+  content: "";
+  position: absolute;
+  left: -0.04em;
+  right: -0.04em;
+  top: 53%;
+  height: 0.07em;
+  background: #4a5568;
+  transform: rotate(-3deg);
+}
+
+/* ── Two-column body: activity list ← → live ticker ──── */
+
+.body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: start;
+  margin-bottom: 5rem;
+}
+
+.activities {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.activityHeader {
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba(56, 217, 255, 0.7);
+  padding: 0 0 1rem;
+  border-bottom: 1px dashed rgba(56, 217, 255, 0.2);
+}
+
+.activity {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1.5rem;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  transition: border-bottom-color 0.3s ease, padding-left 0.3s ease;
+}
+
+.activity:hover {
+  border-bottom-color: rgba(56, 217, 255, 0.4);
+  padding-left: 0.5rem;
+}
+
+.activityMarker {
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 0.72rem;
+  color: #38d9ff;
+  padding-top: 0.4rem;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+.activityBody {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.activityTitle {
+  font-family: var(--font-grotesk, "Space Grotesk", system-ui);
+  font-size: 1.18rem;
+  font-weight: 500;
+  color: #e7eef7;
+  letter-spacing: -0.01em;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.activityDesc {
+  font-family: var(--font-inter, "Inter", system-ui);
+  font-size: 0.92rem;
+  font-weight: 300;
+  color: #8899aa;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.activityDesc code {
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 0.92em;
+  color: #7fe4ff;
+  background: rgba(56, 217, 255, 0.07);
+  border: 1px solid rgba(56, 217, 255, 0.15);
+  padding: 0.05em 0.45em;
+  border-radius: 3px;
+  white-space: nowrap;
+}
+
+.activityDesc em {
+  font-style: normal;
+  color: #c1cad6;
+  font-weight: 400;
+}
+
+/* ── Ticker panel (right side) ─────────────────────────── */
+
+.ticker {
+  position: relative;
+  background: linear-gradient(180deg, #060912 0%, #030610 100%);
+  border: 1px solid rgba(56, 217, 255, 0.22);
+  border-radius: 6px;
+  overflow: hidden;
+  height: 540px;
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.5),
+    0 30px 80px -30px rgba(56, 217, 255, 0.2);
+  display: flex;
+  flex-direction: column;
+}
+
+.tickerBar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1rem;
+  background: rgba(56, 217, 255, 0.04);
+  border-bottom: 1px solid rgba(56, 217, 255, 0.18);
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 0.62rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #38d9ff;
+  flex-shrink: 0;
+}
+
+.tickerDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #38d9ff;
+  box-shadow: 0 0 8px #38d9ff;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.tickerSpacer { flex: 1; }
+
+.tickerRoute {
+  color: rgba(56, 217, 255, 0.5);
+  letter-spacing: 0.05em;
+  text-transform: none;
+  font-size: 0.66rem;
+}
+
+.tickerStream {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  padding: 1rem 0;
+  /* Top + bottom fade so lines vanish smoothly instead of clipping. */
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 12%,
+    black 88%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 12%,
+    black 88%,
+    transparent 100%
+  );
+}
+
+.tickerInner {
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 0.78rem;
+  line-height: 1.85;
+  padding: 0 1.2rem;
+}
+
+.tickerLine {
+  display: flex;
+  gap: 0.6rem;
+  white-space: pre-wrap;
+}
+
+.tickerLine.fresh {
+  animation: tickerLineIn 0.4s ease-out;
+}
+
+@keyframes tickerLineIn {
+  0%   { opacity: 0; transform: translateY(8px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.tickerPrompt {
+  color: #38d9ff;
+  flex-shrink: 0;
+}
+
+.tickerBody {
+  flex: 1;
+  color: #c1cad6;
+  word-break: break-word;
+}
+
+.tickerBody.thought {
+  color: #8899aa;
+  font-style: italic;
+}
+
+.tickerBody.toolCall {
+  color: #7fe4ff;
+}
+
+.tickerBody.answer {
+  color: #e7eef7;
+}
+
+.tickerBody.success::after {
+  content: " ✓";
+  color: #4ade80;
+}
+
+.tickerCursor {
+  display: inline-block;
+  width: 0.55ch;
+  height: 1em;
+  background: #38d9ff;
+  vertical-align: text-bottom;
+  margin-left: 1px;
+  animation: caretBlink 1s steps(2) infinite;
+}
+
+@keyframes caretBlink {
+  50% { opacity: 0; }
+}
+
+.tickerFoot {
+  padding: 0.6rem 1rem;
+  border-top: 1px solid rgba(56, 217, 255, 0.15);
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(127, 228, 255, 0.65);
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-shrink: 0;
+}
+
+/* ── Minis row: Compound + DAG ─────────────────────────── */
+
+.minis {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.4rem;
+  margin-top: 1rem;
+}
+
+.mini {
+  background: linear-gradient(180deg, #070b14 0%, #04070d 100%);
+  border: 1px solid rgba(56, 217, 255, 0.14);
+  border-radius: 6px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 380px;
+  position: relative;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.mini:hover {
+  border-color: rgba(56, 217, 255, 0.35);
+  transform: translateY(-2px);
+}
+
+.miniBar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 0.95rem;
+  background: rgba(56, 217, 255, 0.05);
+  border-bottom: 1px solid rgba(56, 217, 255, 0.18);
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 0.6rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #38d9ff;
+  flex-shrink: 0;
+}
+
+.miniBarDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #38d9ff;
+  box-shadow: 0 0 6px #38d9ff;
+}
+
+.miniBarSpacer { flex: 1; }
+
+.miniBarMeta {
+  color: rgba(56, 217, 255, 0.45);
+  letter-spacing: 0.05em;
+  text-transform: none;
+  font-size: 0.6rem;
+}
+
+.miniBody {
+  flex: 1;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  position: relative;
+}
+
+.miniTitle {
+  font-family: var(--font-grotesk, "Space Grotesk", system-ui);
+  font-size: 1rem;
+  font-weight: 500;
+  color: #e7eef7;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.miniDesc {
+  font-family: var(--font-inter, "Inter", system-ui);
+  font-size: 0.78rem;
+  color: #8899aa;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.miniCanvas {
+  flex: 1;
+  min-height: 180px;
+  position: relative;
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(56, 217, 255, 0.08);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+@media (max-width: 880px) {
+  .head {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+  .label {
+    position: relative;
+    top: auto;
+    flex-direction: row;
+    align-items: baseline;
+    gap: 0.8rem;
+  }
+  .body {
+    grid-template-columns: 1fr;
+    margin-bottom: 3rem;
+  }
+  .ticker { height: 420px; }
+  .minis { grid-template-columns: 1fr; }
+}
