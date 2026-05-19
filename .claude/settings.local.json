@@ -97,7 +97,8 @@
       "Bash(git config *)",
       "Bash(xargs git log --oneline -1)",
       "Skill(moai)",
-      "Bash(git rev-list *)"
+      "Bash(git rev-list *)",
+      "WebFetch(domain:ollivere.co)"
     ]
   }
 }
