@@ -1,17 +1,23 @@
 import type { NextConfig } from "next";
 
+// @MX:ANCHOR: Build-time metadata injection consumed by /dev Craft section.
+// @MX:REASON: Single source of truth for VERCEL_GIT_COMMIT_SHA and BUILD_TIME.
+//             Both /dev Hero and Craft sections read these as inlined constants.
+// @MX:SPEC: SPEC-DEV-REDESIGN-001 REQ-DEV-O-001 / REQ-DEV-E-005
+const BUILD_SHA = (process.env.VERCEL_GIT_COMMIT_SHA ?? "local-dev").slice(0, 7);
+const BUILD_TIME = new Date().toISOString();
+
 const config: NextConfig = {
-  // We coexist with the legacy GitHub-Pages HTML files in the repo root during
-  // the migration. Once Phase 7 removes those, this map can be deleted.
-  // The legacy files are static — they live in the repo root and `app/` routes
-  // override them in Next.js, so no special handling needed at build time.
   reactStrictMode: true,
   poweredByHeader: false,
-  // The /agent/data.html file is pushed by the hjee1/casting-agent pipeline.
-  // We serve it as a static asset via the public/agent path (see API route).
-  // Until Phase 3 wires the API route, it stays in /agent/data.html (legacy).
   // typedRoutes is stable in Next.js 16 (moved out of experimental).
   typedRoutes: true,
+  // Build-time constants surfaced to the client bundle (Next.js inlines these at build).
+  // Available as process.env.BUILD_SHA / BUILD_TIME inside any Client/Server Component.
+  env: {
+    BUILD_SHA,
+    BUILD_TIME,
+  },
 };
 
 export default config;

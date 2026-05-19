@@ -89,7 +89,14 @@
       "Bash(/usr/bin/dig +short milkfolio.space)",
       "Bash(/usr/bin/dig +short www.milkfolio.space)",
       "Bash(/usr/bin/dig +short NS milkfolio.space)",
-      "Bash(gh api *)"
+      "Bash(gh api *)",
+      "Bash(command -v gh)",
+      "Bash(gh auth *)",
+      "Bash(git status *)",
+      "Bash(git check-ignore *)",
+      "Bash(git config *)",
+      "Bash(xargs git log --oneline -1)",
+      "Skill(moai)"
     ]
   }
 }
