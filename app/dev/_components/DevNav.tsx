@@ -2,20 +2,13 @@ import Link from "next/link";
 import styles from "./DevNav.module.css";
 
 /**
- * Fixed top navigation for /dev. Anchor links to each section, plus a quiet
- * back-link to the milkfolio landing.
- *
- * Sections match SPEC-DEV-REDESIGN-001 section order.
- *
- * @MX:SPEC: SPEC-DEV-REDESIGN-001 REQ-DEV-U-001
+ * Fixed top navigation matching the new 4-section layout.
  */
 
 const LINKS = [
-  { href: "#manifesto", label: "now", num: "01" },
-  { href: "#lab", label: "lab", num: "03" },
-  { href: "#stack", label: "stack", num: "02" },
-  { href: "#craft", label: "craft", num: "04" },
-  { href: "#contact", label: "contact", num: "05" },
+  { href: "#now", label: "now", num: "01" },
+  { href: "#experience", label: "experience", num: "02" },
+  { href: "#contact", label: "contact", num: "03" },
 ];
 
 export function DevNav() {
