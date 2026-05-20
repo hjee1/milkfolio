@@ -87,16 +87,20 @@ export function Experience() {
                 Hanwha System · Data Platform · Seoul
               </p>
               <p className={styles.entryDesc}>
-                Built and ran production-grade pipelines, orchestration, and
-                cloud data platforms across industrial and enterprise contexts.
-                Four years of <em>making big data move on schedule</em> — the
-                muscle that informs how I think about agent systems today.
+                Four years building and running production-grade pipelines
+                across the Hanwha group — <em>Hanwha Q CELLS</em>,{" "}
+                <em>Hanwha Ocean</em>, and <em>Hanwha Group SI</em>. Shipped on
+                Databricks, Snowflake, and Cognite CDF; orchestrated with
+                Apache Airflow on Azure AKS (Kubernetes). The muscle that now
+                informs how I think about agent systems.
               </p>
               <div className={styles.entryChips}>
-                <span className={styles.chip}>Apache Airflow</span>
-                <span className={styles.chip}>Databricks</span>
-                <span className={styles.chip}>Snowflake</span>
-                <span className={styles.chip}>Cognite CDF</span>
+                <span className={`${styles.chip} ${styles.primary}`}>Apache Airflow</span>
+                <span className={`${styles.chip} ${styles.primary}`}>Databricks</span>
+                <span className={`${styles.chip} ${styles.primary}`}>Snowflake</span>
+                <span className={`${styles.chip} ${styles.primary}`}>Cognite CDF</span>
+                <span className={styles.chip}>Azure AKS</span>
+                <span className={styles.chip}>Kubernetes</span>
                 <span className={styles.chip}>Spark</span>
                 <span className={styles.chip}>Python</span>
                 <span className={styles.chip}>SQL</span>
