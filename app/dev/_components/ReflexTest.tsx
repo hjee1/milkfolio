@@ -36,11 +36,9 @@ export function ReflexTest() {
   const [results, setResults] = useState<RoundResult[]>([]);
   const [lastMs, setLastMs] = useState<number | null>(null);
   const [best, setBest] = useState<number | null>(null);
-  const [progress, setProgress] = useState(0); // 0..100 (for "go" timeout)
 
   const goAtRef = useRef<number>(0);
   const waitTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const progressRafRef = useRef<number | null>(null);
 
   // Hydrate best from localStorage.
   useEffect(() => {
@@ -57,35 +55,18 @@ export function ReflexTest() {
       clearTimeout(waitTimerRef.current);
       waitTimerRef.current = null;
     }
-    if (progressRafRef.current) {
-      cancelAnimationFrame(progressRafRef.current);
-      progressRafRef.current = null;
-    }
   }, []);
 
   // ── Start a single round ────────────────────────────
+  // The wait length is intentionally hidden — no progress bar — so the player
+  // can't read the cue. Surprise is the whole point of the game.
   const beginRound = useCallback(() => {
     setLastMs(null);
     setPhase("waiting");
-    setProgress(0);
     const wait = WAIT_MIN_MS + Math.random() * (WAIT_MAX_MS - WAIT_MIN_MS);
-    const start = performance.now();
-
-    // Animate the bottom bar while waiting so it doesn't feel dead.
-    const stepProgress = () => {
-      const elapsed = performance.now() - start;
-      const pct = Math.min(100, (elapsed / wait) * 100);
-      setProgress(pct);
-      if (pct < 100) {
-        progressRafRef.current = requestAnimationFrame(stepProgress);
-      }
-    };
-    progressRafRef.current = requestAnimationFrame(stepProgress);
-
     waitTimerRef.current = setTimeout(() => {
       goAtRef.current = performance.now();
       setPhase("go");
-      setProgress(0);
     }, wait);
   }, []);
 
@@ -168,7 +149,6 @@ export function ReflexTest() {
     setRound(0);
     setResults([]);
     setLastMs(null);
-    setProgress(0);
   };
 
   const handleClearBest = () => {
@@ -257,9 +237,6 @@ export function ReflexTest() {
             <h3 className={styles.heading}>{heading}</h3>
             <p className={styles.subline}>{subline}</p>
           </>
-        )}
-        {phase === "waiting" && (
-          <div className={styles.progress} style={{ width: `${progress}%` }} />
         )}
       </div>
 

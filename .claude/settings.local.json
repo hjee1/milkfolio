@@ -116,7 +116,8 @@
       "Bash(dig -x 216.198.79.1 +short)",
       "Bash(whois 216.198.79.1)",
       "Bash(curl -sIL --max-time 8 \"https://milkfolio-space.vercel.app\" -o /dev/null -w \"HTTP: %{http_code} | final URL: %{url_effective}\\\\n\")",
-      "Bash(git commit -m 'feat\\(dev\\): RobotPet scroll companion + ReflexTest game; reduce particle density *)"
+      "Bash(git commit -m 'feat\\(dev\\): RobotPet scroll companion + ReflexTest game; reduce particle density *)",
+      "Bash(git commit -m 'feat\\(dev\\): drop hero particles further + remove ReflexTest progress hint *)"
     ]
   }
 }

@@ -63,13 +63,13 @@ export const BREAKPOINT_TABLET = 1024 as const;
  * WebGL particle counts per device tier — driven by useDeviceTier.
  *
  * Tuned for "elegant", not "dense": sparse fields read as constellations,
- * dense fields read as noise. Lowered ~65% from earlier iterations because
- * the previous density felt cluttered.
+ * dense fields read as noise. Lowered iteratively — second pass cut another
+ * ~35% on top of the previous reduction.
  */
 export const PARTICLES_BY_TIER = {
-  mobile: 180,
-  tablet: 380,
-  desktop: 700,
+  mobile: 110,
+  tablet: 240,
+  desktop: 450,
 } as const;
 
 export type DeviceTier = keyof typeof PARTICLES_BY_TIER;

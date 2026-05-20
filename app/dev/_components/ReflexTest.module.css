@@ -155,16 +155,6 @@
   opacity: 0.7;
 }
 
-.progress {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  height: 3px;
-  background: linear-gradient(90deg, transparent, #38d9ff);
-  transition: width 0.05s linear;
-  width: 0%;
-}
-
 /* ── Rounds & best ──────────────────────────────────────── */
 
 .rounds {
