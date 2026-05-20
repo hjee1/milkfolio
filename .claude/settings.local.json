@@ -118,7 +118,8 @@
       "Bash(curl -sIL --max-time 8 \"https://milkfolio-space.vercel.app\" -o /dev/null -w \"HTTP: %{http_code} | final URL: %{url_effective}\\\\n\")",
       "Bash(git commit -m 'feat\\(dev\\): RobotPet scroll companion + ReflexTest game; reduce particle density *)",
       "Bash(git commit -m 'feat\\(dev\\): drop hero particles further + remove ReflexTest progress hint *)",
-      "Bash(git commit -m 'feat\\(dev\\): ReflexTest how-to-play guide + RobotPet expressions *)"
+      "Bash(git commit -m 'feat\\(dev\\): ReflexTest how-to-play guide + RobotPet expressions *)",
+      "Bash(git commit -m 'docs\\(spec\\): mark SPEC-DEV-REDESIGN-001 session-closed; capture outstanding items *)"
     ]
   }
 }
