@@ -138,6 +138,61 @@
   margin: 0;
 }
 
+/* ── First-time guide (idle, before first round) ─────────── */
+
+.guide {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  margin: 1.4rem auto 0;
+  text-align: left;
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 0.78rem;
+  line-height: 1.4;
+  color: #c1cad6;
+  max-width: 320px;
+}
+
+.guideLabel {
+  font-size: 0.62rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(56, 217, 255, 0.7);
+  margin-bottom: 0.2rem;
+}
+
+.guideStep {
+  display: grid;
+  grid-template-columns: 2ch 1fr;
+  gap: 0.7rem;
+  align-items: baseline;
+}
+
+.guideStepNum {
+  color: #38d9ff;
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+}
+
+.guideStepText {
+  color: #c1cad6;
+}
+
+.guideStepText em {
+  font-style: normal;
+  color: #38d9ff;
+  font-weight: 500;
+}
+
+.guideWarn {
+  margin-top: 0.4rem;
+  padding-top: 0.6rem;
+  border-top: 1px dashed rgba(255, 255, 255, 0.08);
+  font-size: 0.72rem;
+  color: rgba(252, 165, 165, 0.85);
+  letter-spacing: 0.02em;
+}
+
 .bigNumber {
   font-family: var(--font-grotesk, "Space Grotesk", system-ui);
   font-size: clamp(2.6rem, 6vw, 4.4rem);

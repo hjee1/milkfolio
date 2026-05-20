@@ -170,8 +170,11 @@ export function ReflexTest() {
     : null;
   const fastest = valid.length > 0 ? Math.min(...valid.map((r) => r.ms)) : null;
 
+  const isFirstTime =
+    phase === "idle" && lastMs == null && results.length === 0;
+
   let heading = "tap to start";
-  let subline = "5 rounds · click as soon as it turns cyan";
+  let subline = "click as soon as the screen turns cyan";
   let bigNumber: string | null = null;
 
   if (phase === "waiting") {
@@ -231,6 +234,41 @@ export function ReflexTest() {
               <span className={styles.unit}>ms</span>
             </h3>
             <p className={styles.subline}>{subline}</p>
+          </>
+        ) : isFirstTime ? (
+          <>
+            <h3 className={styles.heading}>{heading}</h3>
+            <p className={styles.subline}>{subline}</p>
+            <div className={styles.guide}>
+              <span className={styles.guideLabel}>// how to play</span>
+              <div className={styles.guideStep}>
+                <span className={styles.guideStepNum}>01</span>
+                <span className={styles.guideStepText}>
+                  press <em>start</em> to begin
+                </span>
+              </div>
+              <div className={styles.guideStep}>
+                <span className={styles.guideStepNum}>02</span>
+                <span className={styles.guideStepText}>
+                  wait while the screen is dim
+                </span>
+              </div>
+              <div className={styles.guideStep}>
+                <span className={styles.guideStepNum}>03</span>
+                <span className={styles.guideStepText}>
+                  click the instant it flashes <em>cyan</em>
+                </span>
+              </div>
+              <div className={styles.guideStep}>
+                <span className={styles.guideStepNum}>04</span>
+                <span className={styles.guideStepText}>
+                  5 rounds, then your <em>average + best</em>
+                </span>
+              </div>
+              <p className={styles.guideWarn}>
+                ⚠ clicking before the flash counts as a fault
+              </p>
+            </div>
           </>
         ) : (
           <>

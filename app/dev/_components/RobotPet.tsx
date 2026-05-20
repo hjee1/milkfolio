@@ -6,37 +6,48 @@ import styles from "./RobotPet.module.css";
 /**
  * RobotPet — fixed-position character that reacts to hovered hotspots.
  *
- * Any element on the page with a `data-robot-message="..."` attribute becomes
- * a hotspot. When the visitor mouses over it, the robot's speech bubble
- * appears and types the message character-by-character. When the visitor
- * leaves, the bubble lingers until the message has finished typing, plus a
- * short tail of dwell time.
+ * Hover handling:
+ *   Any element with `data-robot-message="..."` is a hotspot. Hover → speech
+ *   bubble appears with a typewriter effect. The bubble lingers until the
+ *   message finishes typing, plus a short dwell tail.
  *
- * Implementation notes:
- *   - DOM-level event listeners on document — no React Context plumbing required.
- *     Any markup in the tree can opt in by adding the data attribute.
- *   - The robot itself has `pointer-events: none` so it never blocks underlying
- *     clicks or hovers (including the page's WebGL canvas).
- *   - Reduced motion: bubble still appears but the character is still and the
- *     "typing" reduces to an instant full-text render.
+ * Expression handling:
+ *   The robot has a tiny mood state that periodically nudges itself:
+ *     - normal:  default, blinking eyes
+ *     - sleeping: after ~12s of no interaction (Zzz floats above)
+ *     - love:    a brief heart-eyes pulse, ~1.8s long, rarely
+ *     - talking: while a bubble is mid-type (mouth animates)
+ *   Hover / mousemove / scroll wakes the robot back to normal.
  *
- * @MX:SPEC: SPEC-DEV-REDESIGN-001 — Turn 6 (interactive scroll companion)
+ * @MX:NOTE: All extra timers run in two intervals (typing + mood) plus event
+ *           listeners — no per-frame loops. Page cost is negligible.
+ * @MX:SPEC: SPEC-DEV-REDESIGN-001 — Turn 6 / Turn 7 (expressions)
  */
 
 const TYPING_SPEED = 22; // ms per character
-const POST_TYPE_HOLD = 1100; // ms to keep bubble visible after typing finishes
+const POST_TYPE_HOLD = 1100; // ms after typing before bubble can hide
 const HOVER_LEAVE_HOLD = 700; // ms after mouseleave before scheduling hide
+
+const IDLE_MS_TO_SLEEP = 12_000; // sleep after this long of no activity
+const MOOD_TICK_MS = 4_000; // re-evaluate mood this often
+const LOVE_CHANCE_PER_TICK = 0.07; // ~7% per tick → bursts every ~minute
+const LOVE_DURATION_MS = 1_800;
+
+type Mood = "normal" | "sleeping" | "love";
 
 export function RobotPet() {
   const [activeMessage, setActiveMessage] = useState<string | null>(null);
   const [typed, setTyped] = useState("");
   const [bubbleVisible, setBubbleVisible] = useState(false);
   const [excited, setExcited] = useState(false);
+  const [mood, setMood] = useState<Mood>("normal");
 
   const currentHotspotRef = useRef<HTMLElement | null>(null);
   const typingTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const hideTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const excitedTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const loveTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const lastActivityRef = useRef<number>(Date.now());
   const reducedMotionRef = useRef(false);
 
   // Detect reduced-motion once on mount.
@@ -51,19 +62,25 @@ export function RobotPet() {
   useEffect(() => {
     if (typeof document === "undefined") return;
 
+    const wakeUp = () => {
+      lastActivityRef.current = Date.now();
+      // Don't interrupt a love burst — let it finish.
+      setMood((m) => (m === "sleeping" ? "normal" : m));
+    };
+
     const startMessage = (message: string) => {
       if (typingTimerRef.current) clearTimeout(typingTimerRef.current);
       if (hideTimerRef.current) clearTimeout(hideTimerRef.current);
 
       setActiveMessage(message);
       setBubbleVisible(true);
+      wakeUp();
 
       // Excited little jump on every new hotspot.
       setExcited(true);
       if (excitedTimerRef.current) clearTimeout(excitedTimerRef.current);
       excitedTimerRef.current = setTimeout(() => setExcited(false), 500);
 
-      // Type out, or dump everything at once for reduced motion.
       if (reducedMotionRef.current) {
         setTyped(message);
         return;
@@ -83,7 +100,6 @@ export function RobotPet() {
 
     const scheduleHide = () => {
       if (hideTimerRef.current) clearTimeout(hideTimerRef.current);
-      // Wait long enough that the user can keep reading after pulling the cursor away.
       hideTimerRef.current = setTimeout(() => {
         setBubbleVisible(false);
       }, HOVER_LEAVE_HOLD + POST_TYPE_HOLD);
@@ -106,8 +122,6 @@ export function RobotPet() {
       const hotspot = target.closest<HTMLElement>("[data-robot-message]");
       if (!hotspot) return;
 
-      // The related target check stops onMouseOut firing when the cursor moves
-      // between child elements inside the same hotspot.
       const next = e.relatedTarget as HTMLElement | null;
       if (next && hotspot.contains(next)) return;
 
@@ -117,30 +131,84 @@ export function RobotPet() {
       }
     };
 
+    const onActivity = () => wakeUp();
+
     document.addEventListener("mouseover", onOver);
     document.addEventListener("mouseout", onOut);
+    document.addEventListener("mousemove", onActivity, { passive: true });
+    document.addEventListener("scroll", onActivity, { passive: true });
+    document.addEventListener("keydown", onActivity);
 
     return () => {
       document.removeEventListener("mouseover", onOver);
       document.removeEventListener("mouseout", onOut);
+      document.removeEventListener("mousemove", onActivity);
+      document.removeEventListener("scroll", onActivity);
+      document.removeEventListener("keydown", onActivity);
       if (typingTimerRef.current) clearTimeout(typingTimerRef.current);
       if (hideTimerRef.current) clearTimeout(hideTimerRef.current);
       if (excitedTimerRef.current) clearTimeout(excitedTimerRef.current);
+      if (loveTimerRef.current) clearTimeout(loveTimerRef.current);
     };
   }, []);
+
+  // ── Mood ticker — sleeping / love bursts ───────────────
+  useEffect(() => {
+    if (reducedMotionRef.current) return;
+    const id = setInterval(() => {
+      // Don't override love or active bubble typing.
+      const stillTyping =
+        activeMessage != null && typed.length < activeMessage.length;
+      if (stillTyping) return;
+
+      const idleMs = Date.now() - lastActivityRef.current;
+
+      setMood((current) => {
+        // Love bursts cancel themselves via their own timer.
+        if (current === "love") return current;
+
+        if (idleMs > IDLE_MS_TO_SLEEP) {
+          return "sleeping";
+        }
+
+        // Random heart-eyes burst.
+        if (current === "normal" && Math.random() < LOVE_CHANCE_PER_TICK) {
+          if (loveTimerRef.current) clearTimeout(loveTimerRef.current);
+          loveTimerRef.current = setTimeout(() => {
+            setMood("normal");
+          }, LOVE_DURATION_MS);
+          return "love";
+        }
+
+        return "normal";
+      });
+    }, MOOD_TICK_MS);
+    return () => clearInterval(id);
+  }, [activeMessage, typed.length]);
 
   const stillTyping =
     activeMessage != null && typed.length < activeMessage.length && !reducedMotionRef.current;
 
+  // Mouth animates while talking.
+  const mouthClass = stillTyping ? styles.talking : "";
+
   return (
     <div className={styles.root} aria-hidden="true">
-      {/* Speech bubble — sits above the character */}
+      {/* Speech bubble */}
       <div
         className={`${styles.bubble} ${bubbleVisible && activeMessage ? styles.visible : ""}`}
       >
         {typed}
         {stillTyping && <span className={styles.cursor} />}
       </div>
+
+      {/* "Zzz" indicator when sleeping */}
+      {mood === "sleeping" && (
+        <div className={styles.zzz} aria-hidden="true">
+          z<span>z</span>
+          <span>z</span>
+        </div>
+      )}
 
       {/* Character */}
       <div className={`${styles.character} ${excited ? styles.excited : ""}`}>
@@ -172,8 +240,6 @@ export function RobotPet() {
             stroke="#38d9ff"
             strokeWidth="2"
           />
-
-          {/* Visor stripe — gives the head some life */}
           <line
             x1="18"
             y1="36"
@@ -183,31 +249,91 @@ export function RobotPet() {
             strokeWidth="1"
           />
 
-          {/* Eyes */}
-          <circle
-            className={`${styles.eye} ${styles.blinking}`}
-            cx="36"
-            cy="48"
-            r="5"
-          />
-          <circle
-            className={`${styles.eye} ${styles.blinking} ${styles.secondary}`}
-            cx="64"
-            cy="48"
-            r="5"
-          />
+          {/* Eyes — render varies by mood */}
+          {mood === "normal" && (
+            <>
+              <circle
+                className={`${styles.eye} ${styles.blinking}`}
+                cx="36"
+                cy="48"
+                r="5"
+              />
+              <circle
+                className={`${styles.eye} ${styles.blinking} ${styles.secondary}`}
+                cx="64"
+                cy="48"
+                r="5"
+              />
+            </>
+          )}
+          {mood === "sleeping" && (
+            <>
+              <path
+                d="M 30 49 q 6 -4 12 0"
+                stroke="#38d9ff"
+                strokeWidth="2"
+                strokeLinecap="round"
+                fill="none"
+              />
+              <path
+                d="M 58 49 q 6 -4 12 0"
+                stroke="#38d9ff"
+                strokeWidth="2"
+                strokeLinecap="round"
+                fill="none"
+              />
+            </>
+          )}
+          {mood === "love" && (
+            <>
+              {/* Heart path — left eye */}
+              <path
+                d="M 36 53 C 30 49, 30 43, 33 43 C 35 43, 36 45, 36 46 C 36 45, 37 43, 39 43 C 42 43, 42 49, 36 53 Z"
+                fill="#ff5d8f"
+                className={styles.loveEye}
+              />
+              <path
+                d="M 64 53 C 58 49, 58 43, 61 43 C 63 43, 64 45, 64 46 C 64 45, 65 43, 67 43 C 70 43, 70 49, 64 53 Z"
+                fill="#ff5d8f"
+                className={styles.loveEye}
+              />
+            </>
+          )}
 
-          {/* Mouth */}
-          <rect
-            className={`${styles.mouth} ${stillTyping ? styles.talking : ""}`}
-            x="40"
-            y="60"
-            width="20"
-            height="4"
-            rx="1"
-            fill="#38d9ff"
-            style={{ transformOrigin: "50px 62px" }}
-          />
+          {/* Mouth — varies by mood */}
+          {mood === "sleeping" ? (
+            // Calm closed mouth: small flat line, no animation
+            <line
+              x1="46"
+              y1="62"
+              x2="54"
+              y2="62"
+              stroke="#38d9ff"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+            />
+          ) : mood === "love" ? (
+            // Smiling open mouth
+            <path
+              d="M 40 60 q 10 8 20 0"
+              stroke="#38d9ff"
+              strokeWidth="1.8"
+              strokeLinecap="round"
+              fill="none"
+            />
+          ) : (
+            // Default tiny rectangle, animates while talking
+            <rect
+              className={`${styles.mouth} ${mouthClass}`}
+              x="40"
+              y="60"
+              width="20"
+              height="4"
+              rx="1"
+              fill="#38d9ff"
+              style={{ transformOrigin: "50px 62px" }}
+            />
+          )}
 
           {/* Body */}
           <rect
@@ -220,7 +346,6 @@ export function RobotPet() {
             stroke="#38d9ff"
             strokeWidth="1.5"
           />
-          {/* Body LEDs */}
           <circle cx="40" cy="89" r="1.5" fill="#38d9ff" />
           <circle cx="50" cy="89" r="1.5" fill="rgba(56, 217, 255, 0.4)" />
           <circle cx="60" cy="89" r="1.5" fill="#38d9ff" />
