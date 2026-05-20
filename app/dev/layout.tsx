@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
+import { RobotPet } from "./_components/RobotPet";
 
 export const metadata: Metadata = {
-  title: "Hyunwoo Jee — AI Technical Engineer",
+  title: "Hyunwoo Jee — AI Engineer",
   description:
-    "AI Technical Engineer. Standardizing harness workflows, composing agents, building the next shape of how software gets made.",
+    "AI Engineer · building the harness teams ship with. Standardizing harness workflows, composing agents.",
   openGraph: {
-    title: "Hyunwoo Jee — AI Technical Engineer",
-    description:
-      "Working at the frontier where AI engineering meets human craft.",
+    title: "Hyunwoo Jee — AI Engineer",
+    description: "Building the harness teams ship with.",
     url: "https://milkfolio.space/dev/",
     type: "profile",
   },
@@ -16,5 +16,11 @@ export const metadata: Metadata = {
 export default function DevLayout({ children }: { children: React.ReactNode }) {
   // data-accent="dev" switches --color-accent to the cyan brand color
   // for any token-aware descendant (utility classes, page CSS modules).
-  return <div data-accent="dev">{children}</div>;
+  // RobotPet is a fixed-position scroll companion — see RobotPet.tsx.
+  return (
+    <div data-accent="dev">
+      {children}
+      <RobotPet />
+    </div>
+  );
 }

@@ -48,6 +48,7 @@ export function Footer() {
               href="mailto:terryjhw@gmail.com"
               className={styles.channel}
               aria-label="Send email"
+              data-robot-message="Email is the easiest way! He responds fast — promise!"
             >
               <span className={styles.channelLabel}>email</span>
               terryjhw@gmail.com
@@ -58,6 +59,7 @@ export function Footer() {
               rel="noopener noreferrer"
               className={styles.channel}
               aria-label="View LinkedIn profile"
+              data-robot-message="His professional network! All the cool kids are there!"
             >
               <span className={styles.channelLabel}>linkedin</span>
               hyunwoo-jee
@@ -66,7 +68,11 @@ export function Footer() {
           </div>
         </div>
 
-        <div className={styles.telemetry} aria-label="Live page telemetry">
+        <div
+          className={styles.telemetry}
+          aria-label="Live page telemetry"
+          data-robot-message="LOOK! Real live stats! The page is breathing! It's ALIVE!! 🫀"
+        >
           <span className={styles.telemetryLabel}>// live</span>
           <span className={`${styles.telemetryItem} ${styles.live}`}>
             <span className={styles.telKey}>fps</span>

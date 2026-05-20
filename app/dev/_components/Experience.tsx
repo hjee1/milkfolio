@@ -25,7 +25,10 @@ export function Experience() {
 
         <div className={styles.timeline}>
           {/* ── Current chapter ── */}
-          <article className={styles.entry}>
+          <article
+            className={styles.entry}
+            data-robot-message="He's an AI Engineer NOW! Welcome to the future, friend!"
+          >
             <div className={styles.entryPeriod}>
               <span className={styles.now}>now</span>
               <span className={styles.duration}>2026 —</span>
@@ -72,7 +75,10 @@ export function Experience() {
           </div>
 
           {/* ── Previous chapter ── */}
-          <article className={styles.entry}>
+          <article
+            className={styles.entry}
+            data-robot-message="Four whole years of wrangling big data! That's a LOT of pipelines! He knows his stuff!"
+          >
             <div className={styles.entryPeriod}>
               <span>2022 — 2026</span>
               <span className={styles.duration}>~4 yrs</span>
@@ -109,7 +115,10 @@ export function Experience() {
           </article>
 
           {/* ── Foundation ── */}
-          <article className={styles.entry}>
+          <article
+            className={styles.entry}
+            data-robot-message="He went to school in Chicago! Five whole years in the US! That's where his English got so good!"
+          >
             <div className={styles.entryPeriod}>
               <span>2016 — 2020</span>
               <span className={styles.duration}>4 yrs</span>
@@ -136,7 +145,10 @@ export function Experience() {
           </article>
         </div>
 
-        <div className={styles.languages}>
+        <div
+          className={styles.languages}
+          data-robot-message="Korean! English! Chinese! Japanese! FOUR languages!! My circuits can't even process it!!"
+        >
           <span className={styles.languagesLabel}>// languages</span>
           <div className={styles.languagesList}>
             <span className={styles.language}>

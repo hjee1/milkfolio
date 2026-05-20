@@ -98,7 +98,25 @@
       "Bash(xargs git log --oneline -1)",
       "Skill(moai)",
       "Bash(git rev-list *)",
-      "WebFetch(domain:ollivere.co)"
+      "WebFetch(domain:ollivere.co)",
+      "Bash(command -v vercel)",
+      "Bash(vercel --version)",
+      "Bash(dig +short milkfolio.space A)",
+      "Bash(dig +short www.milkfolio.space CNAME)",
+      "Bash(curl -sI -L --max-time 10 https://milkfolio.space/dev/)",
+      "Bash(curl -sI --max-time 10 https://milkfolio-space-fxwh9ddbn-hjee1s-projects.vercel.app/dev)",
+      "Bash(curl -sIL --max-time 15 \"https://milkfolio.space/dev/\" -o /dev/null -w \"URL: %{url_effective}\\\\nHTTP: %{http_code}\\\\nServer: %{header_server}\\\\nTime: %{time_total}s\\\\n\")",
+      "Bash(curl -sL --max-time 15 \"https://milkfolio.space/dev\")",
+      "Bash(curl -sL --max-time 20 \"https://milkfolio-space-fxwh9ddbn-hjee1s-projects.vercel.app/dev\")",
+      "Bash(curl -sIL --max-time 20 \"https://milkfolio-space-fxwh9ddbn-hjee1s-projects.vercel.app/dev\" -o /dev/null -w \"HTTP: %{http_code}\\\\n\")",
+      "Bash(curl -sIL --max-time 25 \"https://milkfolio-space.vercel.app/dev\" -o /dev/null -w \"HTTP: %{http_code} | redirect: %{url_effective}\\\\n\")",
+      "Bash(curl -4 -sIL --max-time 25 \"https://milkfolio.space/dev/\" -o /dev/null -w \"HTTP: %{http_code} | server: %{remote_ip}\\\\n\")",
+      "Bash(ping -c 2 milkfolio.space)",
+      "Bash(dig milkfolio.space ANY +noall +answer)",
+      "Bash(dig -x 216.198.79.1 +short)",
+      "Bash(whois 216.198.79.1)",
+      "Bash(curl -sIL --max-time 8 \"https://milkfolio-space.vercel.app\" -o /dev/null -w \"HTTP: %{http_code} | final URL: %{url_effective}\\\\n\")",
+      "Bash(git commit -m 'feat\\(dev\\): RobotPet scroll companion + ReflexTest game; reduce particle density *)"
     ]
   }
 }

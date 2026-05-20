@@ -1,5 +1,5 @@
 import { AgentTicker } from "./AgentTicker";
-import { GameOfLife } from "./GameOfLife";
+import { ReflexTest } from "./ReflexTest";
 import styles from "./WhatIDo.module.css";
 
 /**
@@ -32,7 +32,10 @@ export function WhatIDo() {
           <div className={styles.activities}>
             <div className={styles.activityHeader}>// what I&apos;m doing</div>
 
-            <div className={styles.activity}>
+            <div
+              className={styles.activity}
+              data-robot-message="Standardizing AI workflows for a whole team! Big responsibility — he LOVES it!"
+            >
               <span className={styles.activityMarker}>01</span>
               <div className={styles.activityBody}>
                 <h3 className={styles.activityTitle}>AI tech standardization</h3>
@@ -44,7 +47,10 @@ export function WhatIDo() {
               </div>
             </div>
 
-            <div className={styles.activity}>
+            <div
+              className={styles.activity}
+              data-robot-message="He reads every release note. EVERY. ONE. The man is RELENTLESS!"
+            >
               <span className={styles.activityMarker}>02</span>
               <div className={styles.activityBody}>
                 <h3 className={styles.activityTitle}>Frontline research</h3>
@@ -57,7 +63,10 @@ export function WhatIDo() {
               </div>
             </div>
 
-            <div className={styles.activity}>
+            <div
+              className={styles.activity}
+              data-robot-message="He turns weeks of work into days! That's basically time travel!!"
+            >
               <span className={styles.activityMarker}>03</span>
               <div className={styles.activityBody}>
                 <h3 className={styles.activityTitle}>Compressing delivery</h3>
@@ -69,7 +78,10 @@ export function WhatIDo() {
               </div>
             </div>
 
-            <div className={styles.activity}>
+            <div
+              className={styles.activity}
+              data-robot-message="Hanwha Q CELLS! Hanwha Ocean! Hanwha Group SI! He's been EVERYWHERE in the group!"
+            >
               <span className={styles.activityMarker}>04</span>
               <div className={styles.activityBody}>
                 <h3 className={styles.activityTitle}>Collaborations & track record</h3>
@@ -86,10 +98,14 @@ export function WhatIDo() {
             </div>
           </div>
 
-          <AgentTicker />
+          <div data-robot-message="Shhh! He's coding right now! Watch the magic happen!!">
+            <AgentTicker />
+          </div>
         </div>
 
-        <GameOfLife />
+        <div data-robot-message="OH OH OH! Click to play! How fast are YOU? Bet I'm faster!! ⚡">
+          <ReflexTest />
+        </div>
       </div>
     </section>
   );
