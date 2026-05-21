@@ -486,3 +486,180 @@ test.describe("reel (Phase 3)", () => {
     expect(autoplay).toBe(false);
   });
 });
+
+// ────────────────────────────────────────────────────────────────────
+// Phase 4: Roles (RoleTimeline + Character Cards with 3D flip)
+// SPEC-ACTOR-REDESIGN-001 REQ-ACT-U-001/U-005/U-006/U-011,
+// REQ-ACT-E-004/E-005, REQ-ACT-S-001/S-002/S-003,
+// REQ-ACT-O-003/O-005, REQ-ACT-N-002/N-008
+// ────────────────────────────────────────────────────────────────────
+test.describe("Phase 4 roles", () => {
+  test.beforeEach(async ({ page }) => {
+    await page.goto("/actor");
+  });
+
+  // C5: 카드 정확히 6장, flippable 5장 (placeholder 1장 제외)
+  test("C5: section#roles renders exactly 6 character cards (REQ-ACT-U-006)", async ({
+    page,
+  }) => {
+    const cards = page.locator(
+      'section#roles [data-character-card="true"]',
+    );
+    await expect(cards).toHaveCount(6);
+    const flippable = page.locator(
+      'section#roles [data-character-card="true"][data-card-flippable="true"]',
+    );
+    await expect(flippable).toHaveCount(5);
+  });
+
+  // C2: 모바일 tap → data-flipped="true" (REQ-ACT-E-004)
+  test("C2: mobile tap on flippable card sets data-flipped='true' (REQ-ACT-E-004)", async ({
+    browser,
+  }) => {
+    const context = await browser.newContext({
+      viewport: { width: 390, height: 844 },
+      hasTouch: true,
+    });
+    const page = await context.newPage();
+    await page.goto("/actor");
+    const card = page
+      .locator(
+        'section#roles [data-character-card="true"][data-card-flippable="true"]',
+      )
+      .first();
+    await card.click();
+    await expect(card).toHaveAttribute("data-flipped", "true");
+    await context.close();
+  });
+
+  // C3: placeholder 카드는 flip 비활성 (REQ-ACT-E-005)
+  test("C3: placeholder card is not interactive (REQ-ACT-E-005)", async ({
+    page,
+  }) => {
+    const placeholder = page.locator(
+      'section#roles [data-character-card="true"][data-card-kind="placeholder"]',
+    );
+    await expect(placeholder).toHaveCount(1);
+    await expect(placeholder).toHaveAttribute("data-card-flippable", "false");
+  });
+
+  // C4: 키보드 Enter로 flip 토글 (REQ-ACT-S-003)
+  test("C4: keyboard Enter toggles flip on flippable card (REQ-ACT-S-003)", async ({
+    page,
+  }) => {
+    const card = page
+      .locator(
+        'section#roles [data-character-card="true"][data-card-flippable="true"]',
+      )
+      .first();
+    await card.focus();
+    await page.keyboard.press("Enter");
+    await expect(card).toHaveAttribute("data-flipped", "true");
+    await page.keyboard.press("Enter");
+    await expect(card).toHaveAttribute("data-flipped", "false");
+  });
+
+  // C6: 모바일 첫 세션 chevron 표시 → 첫 탭 → 모든 chevron 사라짐 + sessionStorage 저장 (REQ-ACT-O-005)
+  test("C6: mobile first-session chevron disappears after first tap (REQ-ACT-O-005)", async ({
+    browser,
+  }) => {
+    const context = await browser.newContext({
+      viewport: { width: 390, height: 844 },
+      hasTouch: true,
+    });
+    const page = await context.newPage();
+    await page.goto("/actor");
+    const chevronsBefore = page.locator(
+      'section#roles [data-chevron-hint="visible"]',
+    );
+    await expect(chevronsBefore.first()).toBeVisible();
+    const cardCount = await chevronsBefore.count();
+    expect(cardCount).toBe(5); // 5 flippable cards
+
+    const firstCard = page
+      .locator(
+        'section#roles [data-character-card="true"][data-card-flippable="true"]',
+      )
+      .first();
+    await firstCard.click();
+
+    await expect(
+      page.locator('section#roles [data-chevron-hint="visible"]'),
+    ).toHaveCount(0);
+
+    const stored = await page.evaluate(() =>
+      window.sessionStorage.getItem("actor.roles.cardTapped"),
+    );
+    expect(stored).toBe("true");
+
+    const localLen = await page.evaluate(() => window.localStorage.length);
+    expect(localLen).toBe(0);
+
+    await context.close();
+  });
+
+  // E1: prefers-reduced-motion → data-reduced-motion="true" (REQ-ACT-S-001)
+  test("E1: prefers-reduced-motion disables 3D transform (REQ-ACT-S-001)", async ({
+    browser,
+  }) => {
+    const context = await browser.newContext({ reducedMotion: "reduce" });
+    const page = await context.newPage();
+    await page.goto("/actor");
+    const card = page
+      .locator(
+        'section#roles [data-character-card="true"][data-card-flippable="true"]',
+      )
+      .first();
+    const reducedAttr = await card.getAttribute("data-reduced-motion");
+    expect(reducedAttr).toBe("true");
+    await context.close();
+  });
+
+  // G1: 모바일 viewport 320px에서 카드 grid 1-col (가로 스크롤 없음) (REQ-ACT-S-002)
+  test("G1: 320px viewport renders cards in single column (REQ-ACT-S-002)", async ({
+    browser,
+  }) => {
+    const context = await browser.newContext({
+      viewport: { width: 320, height: 720 },
+    });
+    const page = await context.newPage();
+    await page.goto("/actor");
+    const docWidth = await page.evaluate(
+      () => document.documentElement.scrollWidth,
+    );
+    expect(docWidth).toBeLessThanOrEqual(320);
+    await context.close();
+  });
+
+  // T-023 RoleTimeline 6 entries (REQ-ACT-U-006)
+  test("RoleTimeline renders 6 entries in year-desc order (REQ-ACT-U-006)", async ({
+    page,
+  }) => {
+    const timelineEntries = page.locator(
+      "section#roles [data-role-timeline-entry]",
+    );
+    await expect(timelineEntries).toHaveCount(6);
+    const firstYear = await timelineEntries.first().getAttribute("data-year");
+    expect(firstYear).toBe("2026");
+  });
+
+  // T-024 Roles 섹션은 h2를 가지고, h1 단독은 그대로 유지된다
+  test("Roles section has h2 and h1 count remains 1", async ({ page }) => {
+    await expect(page.locator("section#roles")).toHaveCount(1);
+    await expect(page.locator("h1")).toHaveCount(1);
+    await expect(
+      page.locator("section#roles h2").first(),
+    ).toBeVisible();
+  });
+
+  // T-025 Roles 섹션 emoji 0건 (REQ-ACT-N-008)
+  test("Roles section uses no emoji glyphs (REQ-ACT-N-008)", async ({
+    page,
+  }) => {
+    const roles = page.locator("section#roles");
+    const text = (await roles.textContent()) ?? "";
+    expect(text).not.toMatch(/[\u{1F300}-\u{1FAFF}]/u);
+    expect(text).not.toMatch(/[✀-➿]/);
+    expect(text).not.toMatch(/[☀-⛿]/);
+  });
+});

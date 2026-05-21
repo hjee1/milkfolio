@@ -1,7 +1,7 @@
 ## SPEC-ACTOR-REDESIGN-001 Progress
 
 - Started: 2026-05-21
-- Status: **Run in progress — Phase 0+1+2+3 완료, Phase 4~5 pending**
+- Status: **Run in progress — Phase 0+1+2+3 완료, Phase 4 in_progress (2026-05-22 재개), Phase 5 pending**
 - Harness level: standard
 - Development methodology: **TDD with brownfield enhancement** (per quality.yaml `development_mode: tdd`; SPEC frontmatter의 DDD 표기는 informational — 실제 작업은 test-first 사이클로 진행)
 - Execution mode: sub-agent (expert-frontend로 위임)
