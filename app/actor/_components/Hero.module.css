@@ -25,14 +25,17 @@
   gap: 0.85rem;
 }
 
-/* eyebrow — gold zone (b). small caps, 자간 넓음. */
+/* eyebrow — gold zone (b). small caps, 자간 넓음.
+   Hero는 carbon(#0a0a0a) 배경이므로 원본 warm gold(#b8a98a)가 WCAG AA를
+   충분히 통과한다 (~10:1). 본문(off-white)에서는 darken된 #8b6f47가
+   적용된다 — ACTOR_TOKENS.accentGold 참조. REQ-ACT-U-011/U-012. */
 .eyebrow {
   font-family: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
   font-size: clamp(0.7rem, 1.05vw, 0.85rem);
   letter-spacing: 0.32em;
   text-transform: uppercase;
   font-weight: 500;
-  color: #b8a98a; /* gold zone (b) */
+  color: #b8a98a; /* gold zone (b) on carbon — accentGoldOnDark */
   margin: 0;
 }
 
