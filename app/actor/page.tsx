@@ -1,30 +1,27 @@
 import { SiteNav } from "@/components/SiteNav";
 import { SiteFooter } from "@/components/SiteFooter";
+import { Hero } from "./_components/Hero";
 import { PROFILE, FILMOGRAPHY, GALLERY, NAV_LINKS } from "./data";
 import styles from "./page.module.css";
 
-// Server Component — no client JS needed. Pure markup, all data from data.ts.
+// /actor 페이지 (Phase 1).
+// Server Component parent. Hero는 새 풀파워 컴포넌트로 교체되었고
+// About/Filmography/Gallery/Contact는 Phase 2+에서 컴포넌트 분해될
+// 때까지 과도기 레거시 마크업을 off-white 톤으로 재정렬해 유지한다.
+//
+// @MX:SPEC: SPEC-ACTOR-REDESIGN-001 Phase 0+1
 export default function ActorPage() {
   return (
-    <div className={styles.body}>
+    <div className={styles.body} data-actor-body>
       <SiteNav brand={PROFILE.name} links={NAV_LINKS} />
 
       {/* HERO ─────────────────────────────────────── */}
-      <section className={styles.hero}>
-        <div className={styles.heroImageWrap}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={PROFILE.hero} alt={PROFILE.name} className={styles.heroImg} />
-          <div className={styles.heroOverlay} />
-        </div>
-        <div className={styles.heroText}>
-          <p className={styles.heroLabel}>{PROFILE.role}</p>
-          <h1 className={styles.heroName}>{PROFILE.name}</h1>
-          <p className={styles.heroNameEn}>{PROFILE.nameEn}</p>
-        </div>
-        <a href="#about" className={styles.scrollDown} aria-label="아래로 스크롤">
-          <span />
-        </a>
-      </section>
+      <Hero />
+
+      {/* Hero → body bridge — REQ-ACT-U-009 LOCKED 60~100px gradient */}
+      <div className={styles.heroBridge} data-hero-bridge />
+
+      {/* TODO Phase 2+: 아래 섹션들은 새 컴포넌트(Profile/Reel/Roles/Filmography/Contact)로 교체된다 */}
 
       {/* ABOUT ────────────────────────────────────── */}
       <section className={styles.about} id="about">
@@ -127,7 +124,6 @@ export default function ActorPage() {
           </p>
           <div className={styles.contactLinks}>
             <a href="mailto:terryjhw@gmail.com" className={styles.contactLink}>
-              <span className={styles.contactIcon}>✉</span>
               terryjhw@gmail.com
             </a>
             <a
@@ -136,7 +132,6 @@ export default function ActorPage() {
               rel="noopener noreferrer"
               className={styles.contactLink}
             >
-              <span className={styles.contactIcon}>📷</span>
               @oceanmeetrain
             </a>
           </div>
