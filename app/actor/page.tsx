@@ -1,15 +1,28 @@
 import { SiteNav } from "@/components/SiteNav";
 import { SiteFooter } from "@/components/SiteFooter";
 import { Hero } from "./_components/Hero";
-import { PROFILE, FILMOGRAPHY, GALLERY, NAV_LINKS } from "./data";
+import { Profile } from "./_components/Profile";
+import { Filmography } from "./_components/Filmography";
+import { PROFILE, NAV_LINKS } from "./data";
 import styles from "./page.module.css";
 
-// /actor 페이지 (Phase 1).
-// Server Component parent. Hero는 새 풀파워 컴포넌트로 교체되었고
-// About/Filmography/Gallery/Contact는 Phase 2+에서 컴포넌트 분해될
-// 때까지 과도기 레거시 마크업을 off-white 톤으로 재정렬해 유지한다.
+// /actor 페이지 (Phase 2).
+// Server Component parent. 6섹션 구조 중 현재 도착한 섹션:
+//   ✓ Hero (Phase 1)
+//   ✓ bridge (Phase 1)
+//   ✓ Profile (Phase 2)
+//   ✓ Filmography (Phase 2)
+//   ☐ Reel (Phase 3)
+//   ☐ Roles (Phase 4)
+//   △ Contact (Phase 5에서 새 컴포넌트로 교체 — 현재는 레거시 마크업 유지)
 //
-// @MX:SPEC: SPEC-ACTOR-REDESIGN-001 Phase 0+1
+// REQ-ACT-N-004 페르소나 분리: 본문(이 페이지에서 렌더되는 모든 텍스트)에
+// developer / engineer / IIT / Hanwha / Hyunwoo Jee / 지현우 / Terry (word
+// boundary) 등 prohibited substring이 0건이어야 한다. PROFILE.info에서
+// 학력·본업이 제거되었고 Profile/Filmography 컴포넌트는 데이터 그대로 렌더
+// 한다 — data.ts가 본 페이지의 페르소나 분리 single source of truth이다.
+//
+// @MX:SPEC: SPEC-ACTOR-REDESIGN-001 Phase 0+1+2
 export default function ActorPage() {
   return (
     <div className={styles.body} data-actor-body>
@@ -21,101 +34,17 @@ export default function ActorPage() {
       {/* Hero → body bridge — REQ-ACT-U-009 LOCKED 60~100px gradient */}
       <div className={styles.heroBridge} data-hero-bridge />
 
-      {/* TODO Phase 2+: 아래 섹션들은 새 컴포넌트(Profile/Reel/Roles/Filmography/Contact)로 교체된다 */}
+      {/* PROFILE (Phase 2) ────────────────────────── */}
+      <Profile />
 
-      {/* ABOUT ────────────────────────────────────── */}
-      <section className={styles.about} id="about">
-        <div className={styles.container}>
-          <div className={styles.aboutGrid}>
-            <div className={styles.aboutPhotoCol}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={PROFILE.about}
-                alt={`${PROFILE.name} 프로필`}
-                className={styles.aboutPhoto}
-              />
-            </div>
-            <div className={styles.aboutInfoCol}>
-              <h2 className={styles.sectionTitle}>프로필</h2>
-              <table className={styles.infoTable}>
-                <tbody>
-                  {PROFILE.info.map((row) => (
-                    <tr key={row.label}>
-                      <th>{row.label}</th>
-                      <td>
-                        {row.href ? (
-                          <a href={row.href}>{row.value}</a>
-                        ) : (
-                          row.value
-                        )}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* FILMOGRAPHY (Phase 2) ────────────────────── */}
+      <Filmography />
 
-      {/* FILMOGRAPHY ──────────────────────────────── */}
-      <section className={styles.filmography} id="filmography">
-        <div className={styles.container}>
-          <h2 className={`${styles.sectionTitle} ${styles.center}`}>필모그래피</h2>
-          {FILMOGRAPHY.map((block) => (
-            <div key={block.category} className={styles.filmoBlock}>
-              <h3 className={styles.filmoCategory}>{block.category}</h3>
-              <div>
-                {block.items.map((item, i) => (
-                  <div key={`${block.category}-${i}`} className={styles.filmoItem}>
-                    <span className={styles.filmoYear}>{item.year}</span>
-                    <div>
-                      <p className={styles.filmoTitle}>
-                        {item.title}
-                        {item.platform && (
-                          <span className={styles.filmoPlatform}>{item.platform}</span>
-                        )}
-                        {item.typeTag && (
-                          <span className={styles.filmoTypeTag}>{item.typeTag}</span>
-                        )}
-                      </p>
-                      <p className={styles.filmoRole}>
-                        {item.role}
-                        {item.type && (
-                          <span className={styles.filmoType}>{item.type}</span>
-                        )}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
+      {/* TODO Phase 3+4: Reel / Roles 섹션을 Filmography 위쪽 또는 사이에
+          삽입한다 (Hero → Profile → Reel → Roles → Filmography → Contact가
+          최종 순서). Phase 2 시점에는 Profile + Filmography만 활성. */}
 
-      {/* GALLERY ──────────────────────────────────── */}
-      <section className={styles.gallery} id="gallery">
-        <div className={styles.container}>
-          <h2 className={`${styles.sectionTitle} ${styles.center}`}>갤러리</h2>
-          <div className={styles.galleryGrid}>
-            {GALLERY.map((item, i) => (
-              <div
-                key={i}
-                className={`${styles.galleryItem} ${item.size ? styles[item.size] : ""}`}
-              >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={item.src} alt={item.alt} loading="lazy" />
-                {item.caption && (
-                  <div className={styles.galleryCaption}>{item.caption}</div>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CONTACT ──────────────────────────────────── */}
+      {/* CONTACT (레거시, Phase 5에서 신규 컴포넌트로 교체) ── */}
       <section className={styles.contact} id="contact">
         <div className={`${styles.container} ${styles.contactInner}`}>
           <h2 className={`${styles.sectionTitle} ${styles.center}`}>연락처</h2>
@@ -138,7 +67,7 @@ export default function ActorPage() {
         </div>
       </section>
 
-      <SiteFooter copyright="© 2025 서해우. All rights reserved." />
+      <SiteFooter copyright="© 2026 서해우. All rights reserved." />
     </div>
   );
 }
