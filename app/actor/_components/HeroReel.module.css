@@ -1,0 +1,80 @@
+/* HeroReel — Hero의 배경 비주얼 레이어.
+   포지셔닝: 부모 <section.hero>가 position:relative이고 100vh를 점유한다.
+   이 컴포넌트는 inset:0로 가득 채워 그 위에 카피 오버레이가 absolute로 얹힌다.
+*/
+
+.root {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.poster,
+.video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  /* 컬러 비주얼 — 매거진 톤은 grayscale 0%, 다만 carbon 위 대비 안정을 위해
+     약간의 어둠 가산 (vignette 레이어에서 처리). */
+  filter: brightness(0.92);
+}
+
+.video {
+  z-index: 1;
+}
+
+.poster {
+  z-index: 0;
+  display: block;
+}
+
+/* 미세 ken-burns — 20s alternate scale 1.0 → 1.05.
+   reduced-motion 환경에서는 컴포넌트에서 className 부착 자체를 차단한다. */
+.posterKenBurns {
+  animation: actorHeroKenBurns 22s ease-in-out infinite alternate;
+  transform-origin: center 40%;
+}
+
+@keyframes actorHeroKenBurns {
+  0%   { transform: scale(1.00); }
+  100% { transform: scale(1.05); }
+}
+
+/* film grain — SVG feTurbulence noise를 data URL로 인라인. ~7% opacity. */
+.grain {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0.07;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.5 0 0 0 0 0.5 0 0 0 0 0.5 0 0 0 1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 160px 160px;
+}
+
+/* 하단 vignette — 카피 가독성 확보. carbon 톤이라 매우 미세한 그라데이션. */
+.vignette {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    rgba(10, 10, 10, 0.10) 0%,
+    rgba(10, 10, 10, 0.00) 35%,
+    rgba(10, 10, 10, 0.55) 78%,
+    rgba(10, 10, 10, 0.85) 100%
+  );
+}
+
+/* 정적 안전망 — 브라우저가 prefers-reduced-motion을 무시할 가능성에 대비. */
+@media (prefers-reduced-motion: reduce) {
+  .posterKenBurns {
+    animation: none;
+    transform: none;
+  }
+}
