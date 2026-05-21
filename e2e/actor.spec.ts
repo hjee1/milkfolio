@@ -322,3 +322,167 @@ test.describe("profile + filmography (Phase 2)", () => {
     expect(text).not.toMatch(/[☀-⛿]/);
   });
 });
+
+// ────────────────────────────────────────────────────────────────────
+// Phase 3: Reel (server shell + client tabs + skeleton)
+// SPEC-ACTOR-REDESIGN-001 REQ-ACT-U-001/U-005/U-011, REQ-ACT-E-002/E-003/E-007,
+// REQ-ACT-S-002/S-003, REQ-ACT-O-001/O-002/O-004, REQ-ACT-N-001/N-002/N-008
+// ────────────────────────────────────────────────────────────────────
+test.describe("reel (Phase 3)", () => {
+  // B0 smoke: 섹션 존재 + h1 단독 유지 + Reel h2 도착
+  test("B0: <section id='reel'> exists, h1 count remains 1, Reel h2 present", async ({
+    page,
+  }) => {
+    await page.goto("/actor");
+    await expect(page.locator("section#reel")).toHaveCount(1);
+    // Hero가 h1 단독 보유. Phase 3 도입 후에도 h1은 1개여야 한다.
+    await expect(page.locator("h1")).toHaveCount(1);
+    // Reel section은 자체 h2를 가진다.
+    await expect(
+      page.locator("section#reel h2").first(),
+    ).toBeVisible();
+  });
+
+  // B1 mouse tab: Intro 기본 활성, Scene 클릭 → aria-selected 전환
+  test("B1: Intro tab is selected by default; clicking Scene activates it", async ({
+    page,
+  }) => {
+    await page.goto("/actor");
+    const introTab = page
+      .locator("section#reel [role='tab']")
+      .filter({ hasText: "Intro" });
+    const sceneTab = page
+      .locator("section#reel [role='tab']")
+      .filter({ hasText: "Scene" });
+    await expect(introTab).toHaveAttribute("aria-selected", "true");
+    await sceneTab.click();
+    await expect(sceneTab).toHaveAttribute("aria-selected", "true");
+    await expect(introTab).toHaveAttribute("aria-selected", "false");
+  });
+
+  // B2 keyboard: ArrowRight/Home/End 순환
+  test("B2: ArrowRight cycles tabs; Home/End jump to ends (WAI-ARIA tabs)", async ({
+    page,
+  }) => {
+    await page.goto("/actor");
+    const introTab = page
+      .locator("section#reel [role='tab']")
+      .filter({ hasText: "Intro" });
+    const sceneTab = page
+      .locator("section#reel [role='tab']")
+      .filter({ hasText: "Scene" });
+    const featuredTab = page
+      .locator("section#reel [role='tab']")
+      .filter({ hasText: "Featured" });
+
+    await introTab.focus();
+    await page.keyboard.press("ArrowRight");
+    await expect(sceneTab).toHaveAttribute("aria-selected", "true");
+    await page.keyboard.press("ArrowRight");
+    await expect(featuredTab).toHaveAttribute("aria-selected", "true");
+    // ArrowRight 순환 → Intro
+    await page.keyboard.press("ArrowRight");
+    await expect(introTab).toHaveAttribute("aria-selected", "true");
+    // End → 마지막 탭
+    await page.keyboard.press("End");
+    await expect(featuredTab).toHaveAttribute("aria-selected", "true");
+    // Home → 첫 탭
+    await page.keyboard.press("Home");
+    await expect(introTab).toHaveAttribute("aria-selected", "true");
+  });
+
+  // B3 empty videoUrl skeleton — 모든 episode가 빈 URL이므로 skeleton 가시
+  test("B3: empty videoUrl renders skeleton overlay + <video> markup reserved (REQ-ACT-O-001/O-002)", async ({
+    page,
+  }) => {
+    await page.goto("/actor");
+    const reel = page.locator("section#reel");
+    // <video> 마크업은 항상 예약되어야 한다 (REQ-ACT-O-001)
+    await expect(reel.locator("video")).toHaveCount(1);
+    // skeleton overlay 표시
+    await expect(reel.locator("[data-skeleton='true']")).toBeVisible();
+    // skeleton 카피 가시 — "영상 준비 중"
+    await expect(reel.getByText("영상 준비 중")).toBeVisible();
+  });
+
+  // B5 no third-party iframe (REQ-ACT-N-001)
+  test("B5: Reel section contains no <iframe>", async ({ page }) => {
+    await page.goto("/actor");
+    const iframes = await page.locator("section#reel iframe").count();
+    expect(iframes).toBe(0);
+  });
+
+  // B6 sessionStorage: 선택 episode 저장 + reload 후 복원, localStorage 미사용
+  test("B6: episode selection persists in sessionStorage; localStorage stays empty", async ({
+    page,
+  }) => {
+    await page.goto("/actor");
+
+    // Scene 탭 활성화
+    const sceneTab = page
+      .locator("section#reel [role='tab']")
+      .filter({ hasText: "Scene" });
+    await sceneTab.click();
+
+    // scene-3 episode 클릭 (Scene 카테고리의 3번째)
+    const episode3 = page
+      .locator("section#reel [data-episode-id='scene-3']")
+      .first();
+    await episode3.click();
+
+    // sessionStorage 저장 확인
+    const storedScene = await page.evaluate(() =>
+      window.sessionStorage.getItem("actor.reel.lastEpisode.scene"),
+    );
+    expect(storedScene).toBe("scene-3");
+
+    // localStorage는 사용 금지 — 전체 페이지에서 0건 (REQ-ACT-N-002)
+    const localLen = await page.evaluate(() => window.localStorage.length);
+    expect(localLen).toBe(0);
+
+    // 페이지 reload 후 Scene 탭 다시 활성화 → scene-3가 selected
+    await page.reload();
+    await sceneTab.click();
+    await expect(
+      page.locator("section#reel [data-episode-id='scene-3']").first(),
+    ).toHaveAttribute("aria-selected", "true");
+  });
+
+  // B7 reduced-data preload: matchMedia를 init script에서 패치
+  test("B7: prefers-reduced-data sets <video preload='none'> (REQ-ACT-E-007)", async ({
+    page,
+    context,
+  }) => {
+    // beforeEach가 아닌 per-test로 matchMedia를 override.
+    await context.addInitScript(() => {
+      const origMM = window.matchMedia.bind(window);
+      window.matchMedia = (q: string) => {
+        if (q.includes("prefers-reduced-data")) {
+          return {
+            matches: true,
+            media: q,
+            onchange: null,
+            addListener: () => {},
+            removeListener: () => {},
+            addEventListener: () => {},
+            removeEventListener: () => {},
+            dispatchEvent: () => false,
+          } as unknown as MediaQueryList;
+        }
+        return origMM(q);
+      };
+    });
+    await page.goto("/actor");
+    const reelVideo = page.locator("section#reel video").first();
+    await expect(reelVideo).toHaveCount(1);
+    const preload = await reelVideo.evaluate(
+      (el) => (el as HTMLVideoElement).getAttribute("preload"),
+    );
+    expect(preload).toBe("none");
+    // autoplay는 비활성
+    const autoplay = await reelVideo.evaluate(
+      (el) => (el as HTMLVideoElement).autoplay,
+    );
+    expect(autoplay).toBe(false);
+  });
+});
