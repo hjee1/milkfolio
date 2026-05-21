@@ -1,0 +1,243 @@
+/* ReelPlayer — tabs + player + episode list (client interactions).
+   off-white #f8f5f0 본문 위. gold accent는 활성 탭 underline + hover focus에
+   #8b6f47 (accentGold, WCAG AA on off-white)을 사용한다.
+   SPEC-ACTOR-REDESIGN-001 REQ-ACT-S-002/S-003, REQ-ACT-U-011/U-012 */
+
+.player {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.5rem, 3vh, 2.25rem);
+}
+
+/* ── Tablist ─────────────────────────────────────────────────── */
+.tablist {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(1rem, 3vw, 2.5rem);
+  border-bottom: 1px solid #d4ccbe; /* hairline (zone a) */
+  padding-bottom: 0;
+}
+
+.tab {
+  position: relative;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  padding: 0.85rem 0.25rem 1rem;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  color: #4a4a4a;
+  font-family: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: clamp(0.78rem, 1.1vw, 0.92rem);
+  transition: color 0.2s ease;
+}
+
+.tab[disabled],
+.tab[aria-disabled="true"] {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.tabActive {
+  color: #1a1a1a;
+}
+
+.tabActive::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 2px;
+  background: #8b6f47; /* accentGold underline */
+}
+
+.tab:hover:not([disabled]) {
+  color: #1a1a1a;
+}
+
+.tab:focus-visible {
+  outline: 2px solid #1a1a1a;
+  outline-offset: 2px;
+}
+
+.tabLabelEn {
+  font-weight: 500;
+}
+
+.tabLabelKo {
+  font-family: var(--font-pretendard), "Pretendard", -apple-system,
+    BlinkMacSystemFont, system-ui, sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: none;
+  color: #4a4a4a;
+}
+
+.tabActive .tabLabelKo {
+  color: #1a1a1a;
+}
+
+/* ── Panel — mobile-first 1-col, desktop 7/5 split ─────────────── */
+.panel {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(1.5rem, 3vh, 2rem);
+}
+
+@media (min-width: 768px) {
+  .panel {
+    grid-template-columns: 7fr 5fr;
+    column-gap: clamp(2rem, 4vw, 3.5rem);
+    align-items: start;
+  }
+}
+
+/* ── Stage (player) ──────────────────────────────────────────── */
+.stage {
+  position: relative;
+}
+
+.videoFrame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #1a1a1a;
+  overflow: hidden;
+  border: 1px solid #d4ccbe;
+}
+
+.video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: #0a0a0a;
+}
+
+/* skeleton overlay — videoUrl이 빈 episode일 때 (REQ-ACT-O-002) */
+.skeleton {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(
+    135deg,
+    #1a1a1a 0%,
+    #2a2620 50%,
+    #1a1a1a 100%
+  );
+  pointer-events: none;
+}
+
+.skeletonGrain {
+  position: absolute;
+  inset: 0;
+  /* CSS-only static grain. WCAG 영향 없음 (장식). */
+  background-image: radial-gradient(
+      circle at 12% 18%,
+      rgba(255, 255, 255, 0.04) 0,
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 78% 62%,
+      rgba(255, 255, 255, 0.05) 0,
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 45% 85%,
+      rgba(255, 255, 255, 0.03) 0,
+      transparent 35%
+    );
+  mix-blend-mode: screen;
+  opacity: 0.55;
+}
+
+.skeletonCopy {
+  position: relative;
+  font-family: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(0.85rem, 1.4vw, 1.05rem);
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: #f8f5f0;
+  margin: 0;
+}
+
+/* ── Episode list ─────────────────────────────────────────────── */
+.episodeList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-top: 1px solid #d4ccbe;
+}
+
+.episodeItem {
+  display: block;
+  border-bottom: 1px solid #d4ccbe;
+}
+
+.episodeButton {
+  width: 100%;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.1rem 0.25rem;
+  background: transparent;
+  border: 0;
+  text-align: left;
+  cursor: pointer;
+  color: #1a1a1a;
+  font-family: var(--font-pretendard), "Pretendard", -apple-system,
+    BlinkMacSystemFont, system-ui, sans-serif;
+  font-size: 0.96rem;
+  letter-spacing: 0.02em;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.episodeButton:hover {
+  color: #8b6f47;
+}
+
+.episodeButton:focus-visible {
+  outline: 2px solid #1a1a1a;
+  outline-offset: 2px;
+}
+
+.episodeButtonActive {
+  color: #1a1a1a;
+  font-weight: 600;
+}
+
+.episodeButtonActive .episodeTitle::before {
+  content: "";
+  display: inline-block;
+  width: 0.65rem;
+  height: 1px;
+  background: #8b6f47;
+  vertical-align: middle;
+  margin-right: 0.65rem;
+  transform: translateY(-2px);
+}
+
+.episodeTitle {
+  flex: 1;
+}
+
+.episodeBadge {
+  font-family: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #8b6f47;
+  font-weight: 500;
+  white-space: nowrap;
+}
