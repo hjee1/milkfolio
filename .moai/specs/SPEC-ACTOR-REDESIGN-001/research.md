@@ -2,6 +2,11 @@
 
 깊이 있는 사전 분석. SPEC 계획 전 의사 결정의 근거.
 
+## HISTORY
+
+- 2026-05-21 — v1.0.0 — 최초 작성.
+- 2026-05-21 — v1.0.0 — Amendment. 7 patches reflect: 결정 추적 §7에 모든 open question resolution 기록(bridge LOCK / sessionStorage memory / gold 3 zone / persona prohibited list / footer 2026 / chevron hint / asset lifecycle). 위험 매트릭스의 gold 콘트라스트 행을 darken 정책으로 갱신.
+
 ---
 
 ## 1. 현재 상태 분석 (Brownfield)
@@ -263,16 +268,19 @@
 
 | 위험 | 확률 | 영향 | 완화책 |
 |---|---|---|---|
-| off-white 위 #b8a98a contrast AA 미달 | 고 | 중 | hairline 액센트로만 사용, 본문은 ink. 구현 단계 측정. |
+| off-white 위 #b8a98a contrast AA 미달 | 고 | 중 | gold zone (b)/(c) 텍스트는 WCAG 4.5:1(또는 ≥18px bold 3:1) 필수. 미달 시 REQ-ACT-U-012 darken 정책으로 ≤ #8b6f47까지 토큰 전역 조정. 3 zone 모두 동일 값 적용. |
 | 모바일 Safari `<video>` autoplay 차단 | 중 | 고 | muted + playsinline 필수, data-saver 환경 fallback |
 | character card flip의 hydration mismatch | 중 | 중 | SSR 출발 상태 항상 front face, flip은 사용자 인터랙션 후 |
 | Cormorant Garamond 큰 한글 깨짐 | 저 | 중 | 한글은 절대 Cormorant 매핑 금지, Pretendard만 |
 | Lighthouse Performance 80 미달 (hero video) | 중 | 고 | preload=none, poster를 LCP element로, IO 진입 후 play |
-| 자산 미입수 상태에서 페이지 빈 듯 | 중 | 중 | placeholder UI(skeleton + grain)를 elegant하게 |
+| 자산 미입수 상태에서 페이지 빈 듯 | 중 | 중 | placeholder UI(skeleton + grain)를 elegant하게. Phase 6.4 sub-task로 data.ts 페이스트만으로 활성 가능 (REQ-ACT-O-001/002/003 contract). |
 | 키보드 only ReelPlayer 화살표 패턴 누락 | 중 | 고 | WAI-ARIA tabs 표준 구현 + E2E |
 | 6개 작품 set 임의 변경 | 저 | 고 | `data.ts` `@MX:ANCHOR` + E2E assertion |
-| 모바일에서 character card flip UX confusion | 중 | 중 | 첫 진입 hint 또는 작은 "Tap to flip" 라벨 |
-| Reel `videoUrl` 빈 상태가 너무 많아 부정적 인상 | 중 | 고 | 첫 채워질 episode 1개 우선(intro) → 페이지 진입 첫 임팩트 보존 |
+| 모바일에서 character card flip UX confusion | 중 | 중 | **RESOLVED Patch 6** — REQ-ACT-O-005 gold chevron(▶) 첫 세션 표시, 첫 탭 후 sessionStorage flag로 모든 카드 chevron 제거. placeholder 카드 제외. |
+| Reel `videoUrl` 빈 상태가 너무 많아 부정적 인상 | 중 | 고 | 첫 채워질 episode 1개 우선(intro) → 페이지 진입 첫 임팩트 보존. Phase 6.4 sub-task로 rolling 페이스트. |
+| 본문에 developer/engineer 정체성 누출 | 중 | 고 | **NEW Patch 4** — REQ-ACT-N-004 prohibited substring 15개 case-insensitive grep을 E2E H3에 게이트로. 사이트 공통 nav는 H5 예외. |
+| Reel 탭 전환 시 사용자가 첫 episode로 리셋되어 답답함 | 중 | 중 | **NEW Patch 2** — REQ-ACT-E-002 카테고리별 sessionStorage 마지막 선택 복원. localStorage / cookie 사용 금지. |
+| Hero→Profile 전환이 sharp cut으로 잘려 매거진 호흡 깨짐 | 중 | 중 | **NEW Patch 1** — REQ-ACT-U-009 60~100px gradient bridge LOCK + A4 정량 게이트. |
 
 ---
 
@@ -311,6 +319,15 @@
 | 다국어 | 한국어 고정 (영문 라벨 카피 단위 예외) | 캐스팅 시장 언어 |
 | Three.js / WebGL | 미사용 (`/dev` 시그니처와 분리) | 페르소나 차별화 |
 | Client JS leaf | 4종 (HeroReel / ReelPlayer / CharacterCard / RoleTimeline 옵션) | 번들·CLS 최소화 |
+| Hero→Profile 전환 | 60~100px vertical gradient bridge LOCK | **Patch 1 (Amendment)** — 사용자 명시, sharp cut 금지. REQ-ACT-U-009 |
+| Reel 카테고리 전환 episode 선택 | 카테고리별 sessionStorage 마지막 선택 복원, 첫 로드 기본 Intro + 첫 episode | **Patch 2 (Amendment)** — 사용자 명시. localStorage / cookie 금지. REQ-ACT-E-002/E-003 |
+| Reel reduced-data 환경 | 탭 전환 시 video preload 차단, poster만 | **Patch 2 (Amendment)** — REQ-ACT-E-007 |
+| Gold 액센트 zone | 3 zone(hairline + section label small caps + role-type tag pill), WCAG 미달 시 ≤ #8b6f47 darken 전역 토큰 | **Patch 3 (Amendment)** — 사용자 명시. REQ-ACT-U-011/U-012 |
+| 본문 prohibited substring | 15개 case-insensitive grep 0건. 본문 `<main>` 한정. 사이트 공통 nav는 예외 | **Patch 4 (Amendment)** — 사용자 명시. IIT / Computer Science / Hanwha / AI Technical Engineer / Hyunwoo Jee / 지현우 / Terry / developer / engineer / 엔지니어 등. REQ-ACT-N-004 |
+| profile.info 학력 노출 | 표시하지 않음(IIT / Computer Science는 prohibited 목록) | **Patch 4 (Amendment)** — 사용자 명시 |
+| footer 카피라이트 연도 | `© 2026 서해우` | **Patch 5 (Amendment)** — 사용자 명시. REQ-ACT-U-010 |
+| 모바일 character card flip hint | gold chevron(▶ 16×16 SVG) 첫 세션 표시 + 첫 탭 후 sessionStorage flag로 사라짐 | **Patch 6 (Amendment)** — 사용자 명시. REQ-ACT-O-005 |
+| 자산 입수 lifecycle | Phase 6.4 sub-task로 data.ts만 갱신, markup/CSS 변경 무. SPEC milestone은 자산 도착에 블로킹되지 않음 | **Patch 7 (Amendment)** — Placeholder-first contract REQ-ACT-O-001/002/003 |
 
 ---
 

@@ -2,6 +2,11 @@
 
 Given/When/Then 시나리오로 "완료" 정의. Playwright + Lighthouse + 수동 검증의 조합.
 
+## HISTORY
+
+- 2026-05-21 — v1.0.0 — 최초 작성. 13 시나리오 그룹(A~M).
+- 2026-05-21 — v1.0.0 — Amendment. 7 patches 반영: Hero→Profile bridge 60~100px 검증(A4 신규), Reel sessionStorage 마지막 선택 episode 복원(B6 신규), Reel reduced-data preload 차단(B7 신규), 모바일 flip chevron hint(C6 신규), gold 3 zone WCAG 검증(E6 신규), 본문 금지 substring grep(H3 강화), footer 2026(K3 신규).
+
 ---
 
 ## A. 기본 렌더 & 정체성
@@ -38,9 +43,21 @@ Given/When/Then 시나리오로 "완료" 정의. Playwright + Lighthouse + 수�
 **Then**
 - Cormorant Garamond 큰 H1 `S E O   H A E U`가 표시된다
 - 한국어 부제 `서해우`가 표시된다
-- profile 테이블 5~6개 행(생년 / 신체 / 언어 / 특기 / 이메일)이 표시된다
+- profile 테이블 5개 행(생년 / 신체 / 언어 / 특기 / 이메일)이 표시된다
+- 학력(IIT / Computer Science / B.S.) 행은 표시되지 않는다 (REQ-ACT-N-004 일관성)
 
-**검증**: Playwright `expect(page.locator('h1')).toContainText('SEO HAEU')` (자간 제거 normalize) + `expect(page).toContainText('1994.04.18')`
+**검증**: Playwright `expect(page.locator('h1')).toContainText('SEO HAEU')` (자간 제거 normalize) + `expect(page).toContainText('1994.04.18')` + `expect(page.locator('main')).not.toContainText(/IIT|Illinois Institute of Technology|Computer Science/i)`
+
+### A4. Hero→Profile gradient bridge 높이가 60~100px 범위에 있다
+
+**Given** 페이지가 로드되어 Hero(`section:first-of-type`) 와 Profile 사이에 bridge 요소가 렌더된 상태에서
+**When** bridge 요소의 computed height를 측정하면
+**Then**
+- bridge 높이가 60px 이상 100px 이하의 범위에 있다 (REQ-ACT-U-009)
+- carbon(#0a0a0a) → off-white(#f8f5f0) 수직 gradient가 적용되어 있다
+- sharp camera cut(높이 0px) 또는 100px 초과의 늘어진 bridge는 실패로 간주
+
+**검증**: Playwright `const h = await page.locator('[data-hero-bridge]').evaluate(el => el.getBoundingClientRect().height); expect(h).toBeGreaterThanOrEqual(60); expect(h).toBeLessThanOrEqual(100);`
 
 ---
 
@@ -101,6 +118,29 @@ Given/When/Then 시나리오로 "완료" 정의. Playwright + Lighthouse + 수�
 
 **검증**: Playwright `expect(page.locator('iframe[src*="youtube"], iframe[src*="vimeo"]')).toHaveCount(0)`
 
+### B6. Reel 카테고리별 마지막 선택 episode가 sessionStorage에서 복원된다
+
+**Given** 사용자가 Scene 카테고리에 진입해 episode #3을 선택했고, 이후 Featured 카테고리로 전환해 episode #2를 선택했고, 다시 Scene 카테고리 탭을 활성화하면
+**When** Scene 탭이 활성화되는 순간
+**Then**
+- 좌측 player가 Scene episode #3을 로드한다 (episode #1로 fallback되지 않는다)
+- `sessionStorage.getItem('actor.reel.lastEpisode.scene')`이 Scene #3의 episode id와 일치한다
+- `sessionStorage.getItem('actor.reel.lastEpisode.featured')`이 Featured #2의 episode id와 일치한다
+- localStorage 또는 쿠키에 동일 키가 저장되지 않는다 (sessionStorage 전용)
+
+**검증**: Playwright `await page.evaluate(() => sessionStorage.getItem('actor.reel.lastEpisode.scene'))` + 활성 player src 비교 + `await page.evaluate(() => localStorage.getItem('actor.reel.lastEpisode.scene'))` should be `null`
+
+### B7. prefers-reduced-data 환경에서 탭 전환 시 video preload 차단
+
+**Given** 사용자가 `prefers-reduced-data` 또는 slow connection 환경에 있고
+**When** 사용자가 Reel 카테고리 탭을 전환하면
+**Then**
+- 새로 활성화된 episode의 video가 자동 preload되지 않는다 (network 요청 0건)
+- player에는 poster frame만 표시된다
+- 사용자가 명시적으로 재생 컨트롤(play 버튼)을 활성화한 경우에만 video network 요청이 발생한다
+
+**검증**: Playwright `await context.addInitScript(() => { Object.defineProperty(navigator, 'connection', { get: () => ({ saveData: true }) }) })` + network 요청 모니터 + assert video 파일 fetch 0건 until explicit play
+
 ---
 
 ## C. Character Card 인터랙션
@@ -153,6 +193,23 @@ Given/When/Then 시나리오로 "완료" 정의. Playwright + Lighthouse + 수�
 **Then** 정확히 6장이 표시된다 (점원 / 국현 / 민혁 / 대현 / 집주인 / 준혁-placeholder)
 
 **검증**: Playwright `expect(page.locator('[data-character-card]')).toHaveCount(6)`
+
+### C6. 모바일 첫 세션에서 gold chevron hint가 표시되고 첫 탭 후 사라진다
+
+**Given** 모바일 사용자가 같은 세션에서 처음으로 `/actor`에 진입하여 Roles 섹션에 도달했고, `sessionStorage.actor.roles.cardTapped`가 미설정인 상태에서
+**When** character card grid를 스캔하면
+**Then**
+- 모든 flippable character card(5장 real)의 우측 하단에 작은 gold chevron(▶ 또는 동등한 16×16 SVG)이 표시된다
+- placeholder 카드(준혁/너만 있으면)에는 chevron이 표시되지 않는다
+
+**그리고**
+**When** 사용자가 어떤 카드든 한 번 탭하면
+**Then**
+- `sessionStorage.getItem('actor.roles.cardTapped')`가 `"true"`로 설정된다
+- 같은 세션 내에서 모든 카드의 chevron이 사라진다 (opacity 0 또는 DOM 제거)
+- reduced-motion 환경에서는 fade 애니메이션 없이 즉시 opacity toggle된다
+
+**검증**: Playwright `devices['iPhone 13']` + chevron locator count assertion + tap + sessionStorage value assertion + chevron 재카운트
 
 ---
 
@@ -254,6 +311,19 @@ Given/When/Then 시나리오로 "완료" 정의. Playwright + Lighthouse + 수�
 
 **검증**: Playwright `for await (const img of page.locator('img').all()) { ... }` + alt 길이 / 의미 검증
 
+### E6. Gold 액센트 3 zone WCAG 검증
+
+**Given** 페이지가 완전히 렌더된 상태에서 gold(#b8a98a) 토큰이 적용된 모든 요소에 대해
+**When** axe-core 또는 동등한 contrast 측정 도구로 검사하면
+**Then**
+- (a) hairline divider(1px): 비텍스트 장식이므로 contrast 측정에서 면제
+- (b) 섹션 라벨 small caps eyebrow(`REEL`, `ROLES`, `FILMOGRAPHY`, `CONTACT`): 텍스트로 간주. ≤18px 일반은 4.5:1, ≥18px bold는 3:1 이상이어야 한다
+- (c) role-type tag pill(예: `Netflix · 단역`, `단편 · 주연`): pill 텍스트와 배경 사이 4.5:1 이상이어야 한다
+- 어느 zone이든 미달 시, REQ-ACT-U-012에 따라 gold 토큰이 ≤ `#8b6f47` 범위로 darken되어 모든 zone에 동일 적용되어 있어야 한다
+- gold는 본문(body text) / 캐릭터명 / 작품명 / 연도 / 큰 헤드라인 / nav 링크에 사용되지 않는다 (이 요소들에는 ink 또는 off-white만 사용)
+
+**검증**: Playwright `@axe-core/playwright` color-contrast rule + 수동 zone 검증 + gold 사용 위치 grep으로 zone 외 오용 0건 확인
+
 ---
 
 ## F. 성능
@@ -346,16 +416,42 @@ Given/When/Then 시나리오로 "완료" 정의. Playwright + Lighthouse + 수�
 
 **검증**: Playwright `await page.content()` + regex 검색
 
-### H3. AI Technical Engineer 정체성 cross-link 부재
+### H3. 페르소나 완전 분리 — 본문 prohibited substring grep
 
-**Given** 페이지가 렌더된 상태에서
-**When** 모든 `<a>`, `<Link>` 태그를 스캔하면
-**Then**
-- `/dev` 경로로의 링크가 존재하지 않는다
-- "AI Technical Engineer", "Data Engineer", "Hyunwoo Jee" 단어가 본문에 등장하지 않는다 (`Seo Haeu` / `서해우`만 허용)
-- LinkedIn URL은 actor 컨텍스트에서 노출하지 않는다 (캐스팅 inquiry는 메일/인스타로 라우팅)
+**Given** 페이지가 렌더된 상태에서, 본문(`<main>` 내부, 사이트 공통 `<header>` / `<nav>` 제외)에 대해
+**When** REQ-ACT-N-004의 prohibited substring 목록을 case-insensitive grep으로 검색하면
+**Then** 다음 substring이 본문에서 **각각 0건** 등장한다:
+- `IIT`
+- `Illinois Institute of Technology`
+- `Computer Science`
+- `Hanwha`
+- `한화시스템`
+- `한화 시스템`
+- `AI Technical Engineer`
+- `AI Engineer`
+- `Data Engineer`
+- `Hyunwoo Jee`
+- `지현우`
+- `Terry`
+- `developer`
+- `engineer`
+- `엔지니어`
 
-**검증**: Playwright `expect(page.locator('a[href*="/dev"]')).toHaveCount(0)` + 본문 text 검색
+또한:
+- 본문 내 `<a href="/dev...">` 또는 `<a href` 시작이 `/dev`인 링크는 0건이다.
+- 사이트 공통 `<header>` / `<nav>`에서 `/dev` / `/designer` 등 페르소나 라우팅 링크는 허용되며 이 검증의 예외이다.
+- LinkedIn URL은 actor 컨텍스트(본문)에 노출하지 않는다.
+- `Seo Haeu` / `서해우`는 허용되며 prohibited 목록에 포함되지 않는다.
+
+**검증**: Playwright
+```js
+const mainText = (await page.locator('main').textContent()) ?? '';
+const banned = ['IIT', 'Illinois Institute of Technology', 'Computer Science', 'Hanwha', '한화시스템', '한화 시스템', 'AI Technical Engineer', 'AI Engineer', 'Data Engineer', 'Hyunwoo Jee', '지현우', 'Terry', 'developer', 'engineer', '엔지니어'];
+for (const s of banned) {
+  expect(mainText.toLowerCase()).not.toContain(s.toLowerCase());
+}
+expect(await page.locator('main a[href^="/dev"]').count()).toBe(0);
+```
 
 ### H4. emoji 글리프 부재
 
@@ -365,20 +461,32 @@ Given/When/Then 시나리오로 "완료" 정의. Playwright + Lighthouse + 수�
 
 **검증**: Playwright text content + emoji regex (`/[\u{1F300}-\u{1FAFF}]|[✀-➿]/u`)
 
+### H5. Nav exception — 사이트 공통 nav는 cross-persona 링크 허용
+
+**Given** 사이트 공통 `<header>` / `<nav>`(`SiteNav.tsx`)가 렌더된 상태에서
+**When** nav 내부 링크를 스캔하면
+**Then**
+- `/dev`, `/designer`, `/agent` 등 다른 페르소나로의 라우팅 링크가 존재할 수 있다
+- 이 nav 영역의 링크는 H3 검증의 예외이며 grep 대상에서 제외된다
+- 단, nav 영역에서도 본문 prohibited substring(`Hyunwoo Jee`, `developer`, `engineer` 등)이 텍스트로 노출되어서는 안 된다 (직업명 표기 0건)
+
+**검증**: Playwright `await page.locator('header nav a[href^="/dev"]').count()` >= 0 허용 + nav 텍스트 prohibited grep
+
 ---
 
 ## I. Hero 메타·전환
 
-### I1. Hero→Profile 톤 전환
+### I1. Hero→Profile 톤 전환 (정성 시각 검증)
 
 **Given** 사용자가 Hero에서 Profile로 스크롤하면
-**When** 전환 구간(80px 정도)을 관찰하면
+**When** 전환 구간(60~100px LOCKED, REQ-ACT-U-009)을 관찰하면
 **Then**
 - 배경이 `#0a0a0a`에서 `#f8f5f0`로 부드럽게 fade된다
 - gradient banding이 시각적으로 인지되지 않는다
 - 텍스트 콘트라스트가 전환 구간에서도 합리적이다
+- 정량 검증은 A4 참조 (60px ≤ height ≤ 100px)
 
-**검증**: 수동 검증 (스크린샷 + 시각 비교)
+**검증**: 수동 검증 (스크린샷 + 시각 비교) + A4 정량 게이트
 
 ### I2. Hero 카피와 시각 자산의 정합성
 
@@ -434,6 +542,16 @@ Given/When/Then 시나리오로 "완료" 정의. Playwright + Lighthouse + 수�
 - /actor 경로가 시각적으로 의도대로 렌더
 - 다른 라우트(/, /dev, /designer, /agent) 회귀 없음
 
+### K3. Footer 카피라이트 연도가 2026이다
+
+**Given** 페이지가 렌더된 상태에서, footer 영역에 대해
+**When** 카피라이트 표기 텍스트를 추출하면
+**Then**
+- 텍스트가 `© 2026 서해우. All rights reserved.` 또는 actor 톤에 맞게 갱신된 동등 표기와 일치한다 (REQ-ACT-U-010)
+- 연도 부분은 정확히 `2026`이다 (`2025` 등 이전 연도가 0건)
+
+**검증**: Playwright `await page.locator('footer').textContent()` + regex `/©\s*2026\s*서해우/` + `expect(footerText).not.toMatch(/©\s*2025/)`
+
 ---
 
 ## L. 수동 정성 검증 (KPI 게이트)
@@ -469,3 +587,11 @@ Given/When/Then 시나리오로 "완료" 정의. Playwright + Lighthouse + 수�
 - [ ] sync workflow 실행 → 관련 문서 갱신
 - [ ] `HERO.reelUrl` / Reel `videoUrl`이 모두 빈 상태에서도 페이지가 정상 동작
 - [ ] character card 카피 인터뷰 round 일정 합의(Phase 6, 별개 작업)
+- [ ] A4: Hero→Profile bridge 높이 60~100px 검증 통과
+- [ ] B6: Reel sessionStorage 마지막 선택 복원 통과
+- [ ] B7: reduced-data 환경 video preload 차단 통과
+- [ ] C6: 모바일 chevron hint 표시 + 첫 탭 후 사라짐 통과
+- [ ] E6: gold 액센트 3 zone WCAG 검증 통과 (또는 darken 정책 적용)
+- [ ] H3: 본문 prohibited substring grep 0건 통과
+- [ ] H5: nav exception 분리 통과
+- [ ] K3: footer 카피라이트 2026 검증 통과

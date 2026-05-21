@@ -2,6 +2,11 @@
 
 `/actor` 풀파워 재설계의 구현 계획. spec.md의 EARS 요구사항을 phase 단위 작업으로 분해. 시간 추정은 사용하지 않고 priority + 의존 순서로 정렬.
 
+## HISTORY
+
+- 2026-05-21 — v1.0.0 — 최초 작성. Phase 0 ~ 7.
+- 2026-05-21 — v1.0.0 — Amendment. Patch 7 반영: Phase 6 sub-task로 자산 입수 lifecycle을 명시(요즘것들 포스터 / 그래도 사랑이었다 still / 너만 있으면 production stills 도착 시 data.ts만 갱신, markup/CSS 변경 없음). Phase 1 작업에 bridge 60~100px LOCK 명시. Phase 3 작업에 Reel sessionStorage 메모리·reduced-data preload 차단 추가. Phase 4 작업에 chevron hint 추가. Phase 5 작업에 gold 3 zone WCAG 검증·본문 prohibited substring grep·footer 2026 추가.
+
 ---
 
 ## 0. 사전 준비 (Phase 0)
@@ -60,7 +65,8 @@ app/actor/
 - 매거진 12-col grid 시스템 (`grid-template-columns: repeat(12, minmax(0, 1fr))`)
 - 섹션별 vertical rhythm (예: hero 100vh, 본문 섹션 96~128px padding)
 - typography scale (Cormorant display H1~H3, Pretendard body 14/16/18)
-- hero→profile 수직 fade bridge (~80px gradient `#0a0a0a` → `#f8f5f0`)
+- hero→profile 수직 gradient bridge [LOCKED] (60px ≤ 높이 ≤ 100px, `#0a0a0a` → `#f8f5f0`, REQ-ACT-U-009). 별도 `<div data-hero-bridge>` 또는 동등 표식으로 E2E A4 측정 가능하게 한다. sharp cut 금지.
+- gold(#b8a98a) 토큰을 3 zone 한정으로 정의 — hairline / section label small caps eyebrow / role-type tag pill (REQ-ACT-U-011). 본문·캐릭터명·작품명·연도·큰 헤드라인·nav 링크에는 사용 금지.
 
 ### 1.2 Hero shell 구현
 - `Hero.tsx` (Server) — 큰 골격 + 좌측 하단 카피 오버레이 (한국어 카피는 SSR로 LCP 안정화)
@@ -125,12 +131,21 @@ app/actor/
 - 좌측 player: `<video controls poster={activeEpisode.thumb}>`
 - 우측 episode list: `role="tabpanel"` 안의 버튼 list
 - `videoUrl`이 빈 episode → player·list 양쪽 skeleton ("영상 준비 중" + grain)
-- 카테고리 전환 시 첫 episode 자동 선택 (또는 마지막 선택 유지 — UX 결정은 구현 시 단순한 쪽 채택)
+- **[LOCKED] 카테고리 전환 시 마지막 선택 episode 복원** (REQ-ACT-E-002):
+  - mount 시 `sessionStorage.getItem('actor.reel.lastEpisode.{categoryId}')` 조회
+  - 저장값 있으면 그 episode 로드, 없으면 카테고리의 첫 episode fallback
+  - 페이지 첫 로드 + 저장값 무 → 활성 탭 `Intro`, 그 첫(유일) episode
+  - episode 선택 시마다 `sessionStorage.setItem('actor.reel.lastEpisode.{categoryId}', episodeId)`
+  - localStorage / cookie 사용 금지 (REQ-ACT-N-002 일관)
+- **[LOCKED] prefers-reduced-data 분기** (REQ-ACT-E-007):
+  - 탭 전환 시 새 활성 episode의 video를 preload하지 않음 (`<video preload="none">`)
+  - poster frame만 표시, 명시적 play 버튼 활성화 시에만 video 로드
 - 키보드 패턴 (WAI-ARIA tabs):
   - Tab으로 탭 strip 진입
   - 활성 탭에서 좌/우 화살표로 카테고리 전환
   - Tab으로 episode list 진입, Enter/Space로 선택
 - `@MX:ANCHOR` — 외부 인터랙션 진입점
+- `@MX:NOTE` — sessionStorage key namespace (`actor.reel.lastEpisode.*`)
 
 ### 3.3 모바일 stack
 - `Reel.module.css` `@media (max-width: 768px)` → player 위, list 아래 세로 stack
@@ -167,7 +182,13 @@ app/actor/
 - `coverImage === null` 분기:
   - front: typographic placeholder (작품명 + roleType)
 - 키보드 활성화: 카드 자체가 `<button>` 또는 `role="button" tabindex="0"`, Enter/Space로 flip toggle
+- **[LOCKED] 모바일 첫 세션 chevron hint** (REQ-ACT-O-005):
+  - mount 시 `pointer: coarse` 또는 viewport < 768px + `sessionStorage.getItem('actor.roles.cardTapped') !== 'true'`이면 우측 하단에 작은 gold chevron (▶ 16×16 SVG) 표시
+  - 사용자가 어떤 카드든 한 번 탭 → `sessionStorage.setItem('actor.roles.cardTapped', 'true')` + 부모 컨테이너 또는 context를 통해 모든 카드의 chevron 동기 제거
+  - placeholder 카드는 chevron 표시 대상이 아님
+  - reduced-motion 환경에서는 chevron fade 없이 즉시 opacity toggle
 - `@MX:WARN` — hover/tap 분기 + reduced-motion fallback
+- `@MX:NOTE` — sessionStorage key (`actor.roles.cardTapped`) + chevron 첫 표시·해제 로직
 
 ### 4.3 Roles 섹션 조립
 - `Roles.tsx` (Server) — RoleTimeline 위에, CharacterCard grid 아래
@@ -184,7 +205,7 @@ app/actor/
 [Priority: High] 게이트.
 
 ### 5.1 hero→profile 전환 polish
-- 80px vertical fade bridge 시각 검증
+- [LOCKED] 60~100px vertical gradient bridge 시각 검증 (REQ-ACT-U-009) + A4 정량 게이트
 - Safari/Chrome/Firefox 비교 (gradient banding 없음 확인)
 - 모바일에서도 전환 자연스러움 확인
 
@@ -196,6 +217,13 @@ app/actor/
 - 모든 `<img>`에 의미있는 alt
 - reduced-motion 시뮬레이션 (Playwright `emulateMedia`)
 - 헤딩 위계 (h1 = Profile의 `S E O   H A E U`, 섹션 h2)
+- **[NEW] gold 3 zone WCAG 검증** (REQ-ACT-U-012):
+  - hairline(1px) → 비텍스트 장식 면제
+  - section label small caps eyebrow → 4.5:1(≤18px) 또는 3:1(≥18px bold)
+  - role-type tag pill → 4.5:1
+  - 미달 시 토큰 ≤ #8b6f47까지 darken, 전역 적용
+- **[NEW] 본문 prohibited substring grep** (REQ-ACT-N-004) — E2E H3에 포함
+- **[NEW] footer 카피라이트 연도 `2026` 검증** (REQ-ACT-U-010) — E2E K3에 포함
 
 ### 5.3 성능 검증
 - Lighthouse 모바일 Performance >= 80
@@ -213,8 +241,15 @@ app/actor/
   - reduced-motion 시뮬레이션 (`emulateMedia({ reducedMotion: 'reduce' })`)
   - 모바일 viewport (`devices['iPhone 13']`) → Reel 세로 stack 확인
   - 6 작품 정확성 assertion (캐릭터명·작품명 정정 검증)
-  - `/dev` cross-link 부재 검증 (`a[href*="/dev"]` 0건)
   - 금지 작품(`사랑하거나 말거나`, `오르골` 등) 미노출 검증
+  - **[NEW] Hero→Profile bridge 높이 60~100px 측정** (A4)
+  - **[NEW] Reel sessionStorage 마지막 선택 episode 복원 시나리오** (B6) + localStorage 0건 (B6)
+  - **[NEW] prefers-reduced-data 탭 전환 시 video preload 차단** (B7)
+  - **[NEW] 모바일 첫 세션 chevron 표시 + 첫 탭 후 사라짐** (C6)
+  - **[NEW] gold 액센트 사용 위치가 3 zone 외 영역에 0건** (E6, grep)
+  - **[NEW] 본문(`<main>`) prohibited substring 15개 0건 grep** (H3) + `<main> a[href^="/dev"]` 0건
+  - **[NEW] 사이트 공통 `<header>` / `<nav>`는 페르소나 라우팅 링크 허용** (H5 예외)
+  - **[NEW] footer 카피라이트 `© 2026 서해우` 정규식 일치 + `© 2025` 0건** (K3)
 
 ---
 
@@ -238,16 +273,31 @@ app/actor/
 ### 6.3 placeholder 카드 메시지 확정
 - 너만 있으면 (준혁) — "STILL COMING · 2026" 또는 동일 의미 카피
 
+### 6.4 [LOCKED Patch 7] Asset Arrival Sub-task (data.ts only)
+
+사용자가 다음 자산을 공급할 때마다, SPEC contract에 의해 **`data.ts`만 갱신**하며 markup·CSS 변경은 발생하지 않는다 (REQ-ACT-O-001/002/003 placeholder-first contract). SPEC milestone은 자산 도착에 블로킹되지 않으며, 자산 부재 상태에서도 정상 동작이 검증된다.
+
+| 자산 입수 시점 | data.ts 변경 |
+|---|---|
+| 요즘것들 포스터 이미지 | 민혁 character card `coverImage: "/actor/assets/..."` 페이스트 + `cardKind: "poster"` 활성 |
+| 그래도 사랑이었다 still 이미지(들) | 국현 character card `coverImage` + `stills` 페이스트 + `cardKind: "low-quality-still"` 활성 |
+| 너만 있으면 production stills 또는 포스터 | 준혁 character card `coverImage` 페이스트 + 필요 시 `cardKind` 전환 (`placeholder` → `still` 또는 `poster`) |
+| reel intro / scene / featured 영상 (총 11개 candidate) | 해당 `REEL[i].episodes[j].videoUrl` 페이스트 + (옵션) `thumb` / `durationSec` |
+| hero reel 편집본 | `HERO.reelUrl` 페이스트 → `<video>` 자동 활성 (REQ-ACT-O-001) |
+
+검증 contract: 이 sub-task의 데이터 변경 후에도 (a) A4 bridge 측정, (b) C5 카드 6장, (c) C6 chevron, (d) H1 작품 6개, (e) H3 본문 prohibited substring 0건, (f) K3 footer 연도 — 모두 통과해야 한다.
+
 ---
 
 ## 7. Phase 7 — 자산 입수 후 통합 (rolling)
 
-[Priority: Low, rolling] SPEC 범위 외이지만 plan에 명시.
+[Priority: Low, rolling] Phase 6.4의 sub-task가 실제 자산 도착 시 실행되는 단계. SPEC 범위 외이지만 plan에 명시.
 
 - 사용자가 reel 영상(11개) 편집 완료 시 → `data.ts`의 `videoUrl` 페이스트
 - 사용자가 요즘것들 포스터 입수 시 → 민혁 카드 `coverImage` 페이스트 + `cardKind: "poster"` 활성
 - 사용자가 그래도 사랑이었다 still 입수 시 → 국현 카드 `coverImage` 페이스트 + `cardKind: "low-quality-still"` 활성
 - 마크업 변경 없이 데이터 페이스트만으로 활성 (REQ-ACT-O-001/002/003 contract)
+- 변경 후 E2E 회귀 통과 확인 (Phase 6.4 검증 contract)
 
 ---
 
@@ -319,12 +369,14 @@ Phase 7 (자산 입수 통합) ────── rolling
 
 ---
 
-## 12. Open Questions (구현 단계에서 결정)
+## 12. Open Questions — Resolution Status
 
-1. **hero→profile 전환 정확한 방식** — 80px gradient bridge vs sharp cut(camera cut 느낌). 권장: gradient bridge. PoC 후 결정.
-2. **Reel 카테고리 전환 시 episode 선택 동작** — (a) 첫 episode 자동 선택, (b) 카테고리별 마지막 선택 기억. 권장: (a) 단순함 우선.
-3. **character card flip 트리거 모바일** — hover 미지원 모바일에서 tap = toggle. 첫 진입 시 hint 제공할지 (작은 "Tap to flip" 라벨) 결정.
-4. **국현(그래도 사랑이었다) 카드 grayscale 처리 강도** — 자산 입수 후 시각 비교 라운드.
-5. **profile.info 학력 노출 여부** — 캐스팅 시장 컨벤션 고려, 사용자 결정.
-6. **gold(#b8a98a) 액센트 컬러 채택 범위** — 콘트라스트 측정 후 hairline 한정 vs 카테고리 라벨까지 확장.
-7. **footer 카피라이트 갱신** — 기존 "© 2025 서해우. All rights reserved." → 2026 갱신 또는 유지.
+| # | Question | Resolution (2026-05-21 Amendment) |
+|---|---|---|
+| 1 | hero→profile 전환 방식 | **RESOLVED (Patch 1)** — 60~100px gradient bridge LOCKED, REQ-ACT-U-009 |
+| 2 | Reel 카테고리 전환 시 episode 선택 | **RESOLVED (Patch 2)** — 카테고리별 sessionStorage 마지막 선택 복원, REQ-ACT-E-002/E-003. 첫 로드 기본은 Intro + 첫 episode |
+| 3 | character card flip 모바일 hint | **RESOLVED (Patch 6)** — gold chevron(▶ 16×16) 첫 세션 표시, 첫 탭 후 사라짐, REQ-ACT-O-005 |
+| 4 | 국현 카드 grayscale 강도 | OPEN — 자산 입수 후 시각 비교 라운드 (Phase 6.4 sub-task) |
+| 5 | profile.info 학력 노출 | **RESOLVED (Patch 4)** — 표시하지 않음. IIT / Computer Science / B.S.는 REQ-ACT-N-004 prohibited substring 목록 |
+| 6 | gold 액센트 채택 범위 | **RESOLVED (Patch 3)** — 3 zone(hairline + section label + role-type tag pill), WCAG 미달 시 ≤ #8b6f47 darken, REQ-ACT-U-011/U-012 |
+| 7 | footer 카피라이트 연도 | **RESOLVED (Patch 5)** — `© 2026 서해우`, REQ-ACT-U-010 |

@@ -6,6 +6,10 @@ status: draft
 
 # SPEC-ACTOR-REDESIGN-001 (Compact) — /actor 풀파워 재설계
 
+## HISTORY
+- 2026-05-21 — v1.0.0 — 최초 작성.
+- 2026-05-21 — v1.0.0 — Amendment. 7 patches: bridge LOCK / Reel sessionStorage / gold 3 zone / persona prohibited-list / footer 2026 / chevron hint / asset lifecycle.
+
 ## Mission
 `/actor`를 정적 다크 노이르 5섹션 → Editorial Magazine (VOGUE Korea) 6섹션으로 전면 재설계. 캐스팅 디렉터 30초 결정 윈도우 충족. KPI: "이 배우와 회의를 잡고 싶다".
 
@@ -15,8 +19,8 @@ Hero (carbon #0a0a0a, video shell + 좌측 카피) → Profile (off-white 매거
 ## Visual System
 - Body: off-white #f8f5f0 + ink #1a1a1a, Cormorant Garamond (라틴) + Pretendard (국문). Noto Serif KR 제거(actor 범위).
 - Hero only: carbon #0a0a0a + off-white text.
-- Hero→Profile 수직 fade bridge ~80px.
-- Accent: #b8a98a gold(콘트라스트 측정 후 hairline 한정), 미달 시 ink 통일.
+- Hero→Profile carbon→off-white 수직 gradient bridge **60~100px LOCKED** (REQ-ACT-U-009, VOGUE 디지털 커버 패턴). sharp cut 금지.
+- Accent: #b8a98a gold — **3 zone에만 사용 (hairline + section label small caps eyebrow + role-type tag pill)**. WCAG 2.1 AA 통과 시 채택, 미달 시 ≤ #8b6f47 darken 토큰 전역 적용 (REQ-ACT-U-011/U-012).
 
 ## EARS Requirements (요약)
 
@@ -28,15 +32,20 @@ Hero (carbon #0a0a0a, video shell + 좌측 카피) → Profile (off-white 매거
 - **U-005**: Server Component parent + Client leaves (HeroReel/ReelPlayer/CharacterCard)
 - **U-006**: 정확히 6작품 (D5)
 - **U-007**: `data-accent="actor"` wrapper 유지
-- **U-008**: /dev cross-link 금지
+- **U-008**: /dev cross-link 금지 (본문 한정; 사이트 공통 nav는 예외)
+- **U-009**: Hero→Profile carbon→off-white gradient bridge 60~100px LOCKED
+- **U-010**: footer 카피라이트 연도 `2026`
+- **U-011**: gold(#b8a98a) 3 zone만 사용 (hairline / section label / role-type tag)
+- **U-012**: gold WCAG AA 미달 시 ≤ #8b6f47 darken, 전역 토큰 조정
 
 ### Event-Driven
 - **E-001**: Hero 진입 시 100vh + 좌측 카피 (`서해우 / Seo Haeu — Actor since 2023` + 라인업 힌트)
-- **E-002**: Reel 탭 클릭/키보드 활성화 → player + list 갱신, 포커스 유지
-- **E-003**: Reel episode 클릭 → player 로드. videoUrl 빈 값 → skeleton
+- **E-002**: Reel 탭 클릭/키보드 활성화 → player + list 갱신, 포커스 유지. **카테고리별 마지막 선택 episode를 `sessionStorage.actor.reel.lastEpisode.{categoryId}`에서 복원. 저장 없으면 첫 episode. 첫 로드 기본은 Intro + 첫 episode.**
+- **E-003**: Reel episode 클릭 → player 로드. videoUrl 빈 값 → skeleton. **선택 즉시 `sessionStorage`에 저장.**
 - **E-004**: character card hover(데스크톱) / tap(모바일) → 3D flip back face (스틸 mini-grid + note + hashtags)
 - **E-005**: placeholder card는 flip 대신 typographic placeholder 유지
 - **E-006**: `HERO.reelUrl` 빈 값 → 정적 portrait + grain + ken-burns. URL 채워짐 → `<video>` 활성
+- **E-007**: prefers-reduced-data 시 Reel 탭 전환에서 video preload 차단, poster만
 
 ### State-Driven
 - **S-001**: reduced-motion → 자동재생/ken-burns/flip transform 비활성, opacity fade로 대체
@@ -48,13 +57,14 @@ Hero (carbon #0a0a0a, video shell + 좌측 카피) → Profile (off-white 매거
 - **O-001**: reelUrl 빈 값 → `<video>` shell 예약, markup 변경 없이 URL 주입만으로 활성
 - **O-002**: videoUrl 빈 값 → elegant skeleton ("영상 준비 중" + grain)
 - **O-003**: coverImage === null → typographic front placeholder
+- **O-005**: 모바일 첫 세션 + `sessionStorage.actor.roles.cardTapped` 미설정 → flippable 카드 우측 하단 gold chevron (▶ 16×16 SVG). 첫 탭 후 `cardTapped=true` 설정 + 모든 chevron 사라짐. placeholder 카드 제외. reduced-motion 시 opacity toggle만.
 - **O-004**: 빈 카테고리 → 탭 disabled + aria-disabled
 
 ### Unwanted
 - **N-001**: third-party 영상 임베드(YouTube/Vimeo iframe) 금지, 자체 호스팅 `<video>`만
-- **N-002**: third-party 분석 스크립트 신규 추가 금지
+- **N-002**: third-party 분석 스크립트 신규 추가 금지. 클라이언트 상태는 `sessionStorage`만 사용 (localStorage/cookie 금지)
 - **N-003**: 회원가입/구독/뉴스레터/예약 금지
-- **N-004**: /dev cross-link 금지
+- **N-004**: 본문(`<main>`)에 prohibited substring 0건. case-insensitive: `IIT`, `Illinois Institute of Technology`, `Computer Science`, `Hanwha`, `한화시스템`, `한화 시스템`, `AI Technical Engineer`, `AI Engineer`, `Data Engineer`, `Hyunwoo Jee`, `지현우`, `Terry`, `developer`, `engineer`, `엔지니어`. 본문 내 `<a href="/dev...">` 0건. 사이트 공통 `<header>`/`<nav>`의 `/dev` 라우팅 링크는 예외.
 - **N-005**: §6 D5 외 작품(사랑하거나 말거나, 단절, 삶, 오르골, 오르골들 등) 노출 금지
 - **N-006**: Lighthouse Performance 모바일 < 80 금지
 - **N-007**: hydration layout shift CLS 0.1+ 금지
@@ -81,20 +91,27 @@ Hero (carbon #0a0a0a, video shell + 좌측 카피) → Profile (off-white 매거
 
 - **A1**: hero carbon + body off-white + 전환 fade bridge 시각 확인
 - **A2**: 6 섹션 DOM 존재
+- **A4**: Hero→Profile bridge 높이 60~100px 측정 (REQ-ACT-U-009)
 - **B1/B2**: Reel 탭 마우스/키보드 활성화, 좌우 화살표 패턴
 - **B3**: 빈 videoUrl → skeleton, 페이지 깨짐 없음
 - **B5**: third-party 영상 iframe 0건
+- **B6**: Reel 카테고리별 마지막 선택 episode sessionStorage 복원 (localStorage 사용 0건)
+- **B7**: prefers-reduced-data 시 탭 전환 video preload 차단
 - **C1/C2/C4**: character card hover/tap/키보드 flip
 - **C3**: placeholder card flip 비활성
 - **C5**: 카드 정확히 6장
+- **C6**: 모바일 첫 세션 chevron 표시, 첫 탭 후 사라짐
 - **D1/D3**: hero reelUrl 빈 값 → portrait + grain + ken-burns, 카피 항상 표시
 - **E1/E2/E3**: reduced-motion / reduced-data 존중, 키보드 only 완전 탐색
 - **E4**: Lighthouse Accessibility ≥ 95
+- **E6**: gold 3 zone WCAG 검증 (또는 ≤ #8b6f47 darken)
 - **F1/F3**: Lighthouse Performance ≥ 80, LCP element = hero poster
 - **G1**: 모바일 320px 가로 스크롤 없음, character card 1-col
 - **H1/H2**: 6작품만, 금지 작품 0건
-- **H3**: /dev cross-link / Hyunwoo Jee / AI Technical Engineer 0건
+- **H3**: 본문 prohibited substring 0건 grep (15개 substring 목록)
 - **H4**: emoji 0건
+- **H5**: 사이트 공통 nav의 cross-persona 링크는 예외, 단 직업명 텍스트는 nav에도 0건
+- **K3**: footer 카피라이트 `© 2026 서해우`
 - **L1**: 사용자 "이 배우와 회의를 잡고 싶다" KPI 게이트
 
 ## Files to Modify
