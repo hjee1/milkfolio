@@ -1,7 +1,7 @@
 ## SPEC-ACTOR-REDESIGN-001 Progress
 
 - Started: 2026-05-21
-- Status: **Run in progress — Phase 0+1+2+3 완료, Phase 4 in_progress (2026-05-22 재개), Phase 5 pending**
+- Status: **Run in progress — Phase 0+1+2+3+4 완료, Phase 5 pending**
 - Harness level: standard
 - Development methodology: **TDD with brownfield enhancement** (per quality.yaml `development_mode: tdd`; SPEC frontmatter의 DDD 표기는 informational — 실제 작업은 test-first 사이클로 진행)
 - Execution mode: sub-agent (expert-frontend로 위임)
@@ -15,6 +15,7 @@
 - 2026-05-21 — **Run Phase 2 완료** — data.ts 전면 재구조화(PROFILE/HERO/REEL 3카테고리×11ep placeholder/TIMELINE 6entries/CHARACTER_CARDS 6cards/FILMOGRAPHY 6works/NAV_LINKS 5anchors, @MX:ANCHOR×2 + @MX:NOTE×2). Profile.tsx + Filmography.tsx (Server) + 각 module.css. LD2 토큰 swap: `accentGold` #b8a98a→#8b6f47 (off-white용), `accentGoldOnDark` #b8a98a 신설 (Hero carbon용). LD1 h1 ownership: Hero h1 유지, Profile h2 "Seo Haeu". page.tsx 옛 About/Filmography/Gallery 제거. **22/22 테스트 PASS** (12 신규 Phase 2 + 2 unskip 재작성 + 8 hero v2 preserve). tsc 0 errors, build 성공.
 - 2026-05-21 — **Run Phase 3 완료** — Reel.tsx (Server, eyebrow "Reel" + h2 "데모 영상" + lead 한국어 1줄) + ReelPlayer.tsx (Client, WAI-ARIA tabs roving tabindex + Intro/Scene/Featured 3 카테고리 + sessionStorage `actor.reel.lastEpisode.{categoryId}` 복원·저장 + REQ-ACT-O-001 spread 패턴 video shell + skeleton overlay + reduced-data preload="none") + 각 module.css. page.tsx에 `<Reel />` 1줄 + 주석 Phase 3 체크리스트 갱신. @MX:ANCHOR×1 (ReelPlayer 인터랙션 진입점, fan_in: Reel.tsx + e2e + data.ts REEL = 3) + @MX:NOTE×3. **29/29 테스트 PASS** (Phase 1 hero 7 + Phase 2 profile/filmography 13 + 상단 smoke 2 + Phase 3 reel 7: B0/B1/B2/B3/B5/B6/B7). tsc 0 errors. evaluator-active weighted 0.832 PASS (Functionality 0.75, Security 1.00, Craft 0.75, Consistency 0.88).
 - 2026-05-21 — **LD2 v2 token re-darken** — evaluator-active가 정량 검증으로 REQ-ACT-U-012 미달 발견(`#8b6f47` on `#f8f5f0` 실측 4.33:1 < AA 4.5:1, 0.17 부족 — Phase 2 LD2 token 결정 시 contrast 계산이 부정확했음). `accentGold` `#8b6f47` → `#7c6240` (실측 5.25:1, AA 통과 + 여유). 영향 범위: tokens.ts + page.module.css(--actor-accent-gold CSS var) + Hero/Profile/Reel/ReelPlayer/Filmography module.css + Profile.tsx/Reel.tsx 주석. SPEC REQ-ACT-U-012 조항 "≤ #8b6f47 darken"은 새 값(#7c6240)이 상한보다 더 어둡게 위치하므로 준수. 색상 교체 후 tsc 0 / 29/29 e2e PASS 재확인. `accentGoldOnDark: #b8a98a` (Hero carbon 위)는 ~10:1로 충분하여 변경 없음.
+- 2026-05-22 — **Run Phase 4 완료** — Roles 섹션 (Timeline + Character Cards) 신설. RoleTimeline.tsx (Server, horizontal 6작품 magazine 인덱스 — 연도 desc) + CharacterCard.tsx (Client, 4종 cardKind 분기: still/poster/low-quality-still/placeholder + CSS hover(`@media (hover:hover) and (pointer:fine)` 가드) + JS tap state 이중 경로 + WAI-ARIA button + Enter/Space 키보드 토글 + prefers-reduced-motion fallback(transform:none + opacity fade) + sessionStorage `actor.roles.cardTapped` chevron hint 가드 + window 'actor:firstRoleCardTap' CustomEvent 전파 + cleanup) + Roles.tsx (Server, eyebrow `accentGold #7c6240` + h2 "역할" + lead + RoleTimeline + 3/2/1 col grid wrapper). page.tsx 3차 조립 (Reel↔Filmography 사이 Roles 삽입). e2e/actor.spec.ts에 Phase 4 describe 10건 추가 (C2/C3/C4/C5/C6/E1/G1 + RoleTimeline/Roles 섹션 smoke). **39/39 테스트 PASS** (Phase 1 hero 8 + Phase 2 profile/filmography 12 + Phase 3 reel 7 + Phase 4 roles 10 + top-level smoke 2). tsc 0 errors, pnpm build 성공 (7/7 static pages). evaluator-active weighted 0.903 PASS (Functionality 0.93, Security 0.90 must-pass, Craft 0.82, Consistency 0.95). LOW finding 1건 처리: Roles.tsx JSDoc 페르소나 분리 코멘트의 substring 예시 제거 → 중립 표현으로 갱신. @MX 태그: CharacterCard ANCHOR×1 (인터랙션 진입점, fan_in=3) + WARN×1 (CustomEvent cleanup + sessionStorage try/catch) + NOTE×1, RoleTimeline NOTE×1, Roles NOTE×1. localStorage 사용 전체 페이지 0건 재확인 (REQ-ACT-N-002).
 
 ### Phase Status
 
@@ -24,7 +25,7 @@
 | Phase 1 | 비주얼 시스템 + Hero shell | **completed** (2026-05-21) |
 | Phase 2 | Profile + Filmography (서버 렌더) | **completed** (2026-05-21) |
 | Phase 3 | REEL Client component | **completed** (2026-05-21) |
-| Phase 4 | ROLES (Timeline + Character Cards) | pending |
+| Phase 4 | ROLES (Timeline + Character Cards) | **completed** (2026-05-22) |
 | Phase 5 | Polish (전환·접근성·성능·E2E) | pending |
 | Phase 6 | 데이터 인터뷰 (character card 카피) | pending (rolling) |
 | Phase 7 | 자산 입수 후 통합 (rolling) | pending (rolling) |

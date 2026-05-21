@@ -18,7 +18,7 @@ import styles from "./Roles.module.css";
  * 페르소나 분리 (REQ-ACT-N-004): 본 컴포넌트의 정적 헤드라인 3줄(eyebrow
  * 영문 "Roles" + h2 "역할" + lead 한국어 1줄)에 prohibited substring
  * 0건. CHARACTER_CARDS와 TIMELINE 데이터도 data.ts에서 동일 분리 원칙으로
- * 작성되어 있다 (지현우/Terry/engineer 등 0건).
+ * 관리되어 본문에 prohibited substring 0건이 보장된다.
  *
  * 매거진 톤:
  *   - eyebrow는 gold-on-light (`accentGold` #7c6240) small caps (REQ-ACT-U-011)
