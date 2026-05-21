@@ -1,5 +1,5 @@
 /* Reel — 데모 영상 섹션 (server shell).
-   off-white #f8f5f0 위. eyebrow는 gold-on-light (#8b6f47, ACTOR_TOKENS.accentGold,
+   off-white #f8f5f0 위. eyebrow는 gold-on-light (#7c6240, ACTOR_TOKENS.accentGold,
    WCAG AA 통과). h2는 Cormorant 중형, lead는 Pretendard ink.soft.
    SPEC-ACTOR-REDESIGN-001 REQ-ACT-U-003/U-004/U-011/U-012 */
 
@@ -30,7 +30,7 @@
   letter-spacing: 0.32em;
   text-transform: uppercase;
   font-weight: 500;
-  color: #8b6f47; /* accentGold — gold zone (b) on light, WCAG AA */
+  color: #7c6240; /* accentGold — gold zone (b) on light, WCAG AA */
   margin: 0;
 }
 

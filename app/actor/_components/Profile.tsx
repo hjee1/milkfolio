@@ -19,7 +19,7 @@ import styles from "./Profile.module.css";
  *     `terry`는 word boundary로 판단되어 본문 검증에서 통과).
  *
  * 매거진 톤:
- *   - eyebrow는 gold-on-light (#8b6f47, ACTOR_TOKENS.accentGold) small caps
+ *   - eyebrow는 gold-on-light (#7c6240, ACTOR_TOKENS.accentGold) small caps
  *   - h2는 Cormorant Italic 중형 (Hero H1보다 작게)
  *   - profile 테이블은 hairline border (#d4ccbe) + 넉넉한 padding
  *

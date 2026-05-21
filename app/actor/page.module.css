@@ -7,7 +7,7 @@
    - Hero→body 60~100px gradient bridge (LOCKED, REQ-ACT-U-009)
    - gold accent (zone a hairline / b section label / c role-type tag)는
      Profile/Filmography 컴포넌트 module에서 ACTOR_TOKENS.accentGold
-     (#8b6f47, WCAG AA on off-white)로 적용. Hero eyebrow만 carbon 위
+     (#7c6240, 실측 5.25:1 — WCAG AA on off-white)로 적용. Hero eyebrow만 carbon 위
      accentGoldOnDark (#b8a98a) 사용. REQ-ACT-U-011/U-012.
 
    Phase 2 이후 Reel / Roles / Contact는 신규 컴포넌트로 추가/교체된다.
@@ -30,7 +30,7 @@
   --actor-ink-soft: #4a4a4a;
   --actor-rule: #d4ccbe;
   /* gold — 본문(off-white) 위 darken (REQ-ACT-U-012, WCAG AA 통과). */
-  --actor-accent-gold: #8b6f47;
+  --actor-accent-gold: #7c6240;
   /* Hero(carbon) 위 전용 — accentGoldOnDark. Hero.module.css에서 사용. */
   --actor-accent-gold-on-dark: #b8a98a;
 

@@ -19,7 +19,7 @@ import styles from "./Reel.module.css";
  * Terry / 지현우 …) 0건을 작성 시점에 확정한다.
  *
  * 매거진 톤:
- *   - eyebrow는 gold-on-light (`accentGold` #8b6f47) small caps (REQ-ACT-U-011)
+ *   - eyebrow는 gold-on-light (`accentGold` #7c6240) small caps (REQ-ACT-U-011)
  *   - h2는 Cormorant 중형 (Profile / Filmography와 동일 스케일)
  *   - lead는 Pretendard, ink.soft, 1줄
  *

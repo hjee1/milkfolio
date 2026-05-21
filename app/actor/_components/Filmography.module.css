@@ -1,6 +1,6 @@
 /* Filmography — 매거진 인덱스 타이포.
    off-white 본문 위. gold 액센트는 zone (b) section label + zone (c)
-   role-type tag (모두 darken #8b6f47, WCAG AA 통과).
+   role-type tag (모두 darken #7c6240, WCAG AA 통과).
    SPEC-ACTOR-REDESIGN-001 REQ-ACT-U-011/U-012 */
 
 .root {
@@ -30,7 +30,7 @@
   letter-spacing: 0.32em;
   text-transform: uppercase;
   font-weight: 500;
-  color: #8b6f47; /* gold zone (b) on light — darken */
+  color: #7c6240; /* gold zone (b) on light — darken */
   margin: 0;
 }
 
@@ -69,7 +69,7 @@
   letter-spacing: 0.28em;
   text-transform: uppercase;
   font-weight: 500;
-  color: #8b6f47; /* gold zone (b) on light — darken */
+  color: #7c6240; /* gold zone (b) on light — darken */
   margin: 0;
   flex-shrink: 0;
 }
@@ -99,7 +99,7 @@
 }
 
 .entry:hover {
-  background-color: rgba(139, 111, 71, 0.04);
+  background-color: rgba(124, 98, 64, 0.04);
 }
 
 .entry:last-child {
@@ -150,8 +150,8 @@
   letter-spacing: 0.18em;
   text-transform: uppercase;
   font-weight: 500;
-  color: #8b6f47;
-  border: 1px solid #8b6f47;
+  color: #7c6240;
+  border: 1px solid #7c6240;
   padding: 0.18rem 0.6rem;
   border-radius: 2px;
   line-height: 1.2;
@@ -173,7 +173,7 @@
     BlinkMacSystemFont, system-ui, sans-serif;
   font-size: 0.82rem;
   font-style: italic;
-  color: #8b6f47;
+  color: #7c6240;
   letter-spacing: 0.02em;
 }
 

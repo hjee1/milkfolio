@@ -44,14 +44,14 @@
   padding-block-start: 0.5rem;
 }
 
-/* eyebrow — gold zone (b) on light. ACTOR_TOKENS.accentGold(#8b6f47, WCAG AA). */
+/* eyebrow — gold zone (b) on light. ACTOR_TOKENS.accentGold(#7c6240, WCAG AA). */
 .eyebrow {
   font-family: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
   font-size: clamp(0.72rem, 1vw, 0.84rem);
   letter-spacing: 0.32em;
   text-transform: uppercase;
   font-weight: 500;
-  color: #8b6f47;
+  color: #7c6240;
   margin: 0 0 1.5rem;
 }
 
@@ -155,13 +155,13 @@
 
 .infoLink:hover,
 .infoLink:focus-visible {
-  color: #8b6f47;
-  border-bottom-color: #8b6f47;
+  color: #7c6240;
+  border-bottom-color: #7c6240;
   outline: none;
 }
 
 .infoLink:focus-visible {
-  outline: 2px solid #8b6f47;
+  outline: 2px solid #7c6240;
   outline-offset: 4px;
 }
 

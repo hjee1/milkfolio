@@ -1,6 +1,6 @@
 /* ReelPlayer — tabs + player + episode list (client interactions).
    off-white #f8f5f0 본문 위. gold accent는 활성 탭 underline + hover focus에
-   #8b6f47 (accentGold, WCAG AA on off-white)을 사용한다.
+   #7c6240 (accentGold, WCAG AA on off-white)을 사용한다.
    SPEC-ACTOR-REDESIGN-001 REQ-ACT-S-002/S-003, REQ-ACT-U-011/U-012 */
 
 .player {
@@ -53,7 +53,7 @@
   right: 0;
   bottom: -1px;
   height: 2px;
-  background: #8b6f47; /* accentGold underline */
+  background: #7c6240; /* accentGold underline */
 }
 
 .tab:hover:not([disabled]) {
@@ -204,7 +204,7 @@
 }
 
 .episodeButton:hover {
-  color: #8b6f47;
+  color: #7c6240;
 }
 
 .episodeButton:focus-visible {
@@ -222,7 +222,7 @@
   display: inline-block;
   width: 0.65rem;
   height: 1px;
-  background: #8b6f47;
+  background: #7c6240;
   vertical-align: middle;
   margin-right: 0.65rem;
   transform: translateY(-2px);
@@ -237,7 +237,7 @@
   font-size: 0.7rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: #8b6f47;
+  color: #7c6240;
   font-weight: 500;
   white-space: nowrap;
 }
