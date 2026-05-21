@@ -1,114 +1,95 @@
 /* ────────────────────────────────────────────────────────────
-   Actor profile — 서해우
-   Visual parity goal with legacy /actor/index.html (REQ-003).
-   All colors via tokens; fonts via tokens; layout preserved.
+   /actor — Editorial Magazine 비주얼 시스템 (Phase 1)
+   SPEC-ACTOR-REDESIGN-001
+   - Body: off-white #f8f5f0 + ink #1a1a1a + Pretendard 본문
+   - Hero only: carbon #0a0a0a (Hero 컴포넌트 module이 처리)
+   - 매거진 12-col grid, Cormorant 디스플레이 + Pretendard 본문
+   - Hero→body 60~100px gradient bridge (LOCKED, REQ-ACT-U-009)
+   Phase 2 이후 About/Filmography/Gallery/Contact 섹션은 새 컴포넌트로
+   교체된다. 본 모듈은 그때까지의 과도기를 처리하면서 새 톤을 적용한다.
    ──────────────────────────────────────────────────────── */
 
+/* /actor 범위 전용 CSS 변수 정의.
+   --font-pretendard / --font-cormorant는 app/layout.tsx <head>에서 link로
+   웹폰트를 받아오고, 여기서 fallback stack을 묶어 노출한다. */
 .body {
-  font-family: var(--font-serif-ko);
-  font-weight: 300;
-  line-height: 1.7;
-  background: var(--color-bg);
-  color: var(--color-text);
+  --font-cormorant: "Cormorant Garamond", Georgia, serif;
+  --font-pretendard: "Pretendard", -apple-system, BlinkMacSystemFont,
+    system-ui, "Segoe UI", "Noto Sans KR", sans-serif;
+  --actor-bg-body: #f8f5f0;
+  --actor-bg-hero: #0a0a0a;
+  --actor-ink: #1a1a1a;
+  --actor-ink-soft: #4a4a4a;
+  --actor-rule: #d4ccbe;
+  --actor-accent-gold: #b8a98a;
+
+  font-family: var(--font-pretendard);
+  font-weight: 400;
+  line-height: 1.65;
+  background-color: var(--actor-bg-body);
+  color: var(--actor-ink);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-.container {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 2rem;
-}
-
-/* ── HERO ── */
-.hero {
-  position: relative;
-  height: 100vh;
-  min-height: 700px;
-  overflow: hidden;
-  display: flex;
-  align-items: flex-end;
-}
-.heroImageWrap { position: absolute; inset: 0; }
-.heroImg {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  object-position: center top;
-  filter: grayscale(20%);
-}
-.heroOverlay {
-  position: absolute; inset: 0;
+/* Hero → body 수직 gradient bridge — REQ-ACT-U-009 LOCKED 60~100px.
+   sharp camera cut 금지. carbon → off-white. */
+.heroBridge {
+  height: clamp(64px, 8vh, 96px);
+  width: 100%;
   background: linear-gradient(
     to bottom,
-    rgba(10, 10, 10, 0.1) 0%,
-    rgba(10, 10, 10, 0) 40%,
-    rgba(10, 10, 10, 0.7) 75%,
-    rgba(10, 10, 10, 0.95) 100%
+    var(--actor-bg-hero) 0%,
+    #1a1814 35%,
+    #5a5448 65%,
+    var(--actor-bg-body) 100%
   );
-}
-.heroText {
-  position: relative;
-  z-index: 2;
-  padding: 0 3rem 6rem;
-}
-.heroLabel {
-  font-family: var(--font-serif);
-  font-size: 0.85rem;
-  letter-spacing: 0.35em;
-  color: var(--color-accent);
-  text-transform: uppercase;
-  margin-bottom: 0.5rem;
-}
-.heroName {
-  font-family: var(--font-serif-ko);
-  font-size: clamp(3.5rem, 9vw, 7rem);
-  font-weight: 300;
-  letter-spacing: 0.05em;
-  line-height: 1;
-  color: var(--color-text);
-}
-.heroNameEn {
-  font-family: var(--font-serif);
-  font-size: clamp(1rem, 2.5vw, 1.6rem);
-  font-weight: 300;
-  font-style: italic;
-  color: var(--color-text-soft);
-  letter-spacing: 0.08em;
-  margin-top: 0.5rem;
+  /* 본문 진입 직전의 톤 안정용 — 마지막 1px만 off-white 단색 */
+  border-bottom: 0;
 }
 
-.scrollDown {
-  position: absolute;
-  bottom: 2rem;
-  right: 3rem;
-  z-index: 2;
-  width: 28px;
-  height: 48px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 14px;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  padding-top: 6px;
-}
-.scrollDown span {
-  display: block;
-  width: 4px;
-  height: 10px;
-  background: var(--color-accent);
-  border-radius: 2px;
-  animation: scrollDot 1.8s ease-in-out infinite;
-}
-@keyframes scrollDot {
-  0%, 100% { opacity: 1; transform: translateY(0); }
-  50%      { opacity: 0.2; transform: translateY(14px); }
+/* 매거진 12-col 컨테이너 — Phase 2 이후 모든 본문 섹션이 공유한다. */
+.container {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 clamp(1.25rem, 4vw, 3rem);
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: clamp(1rem, 2.5vw, 2rem);
 }
 
-/* ── SECTION TITLE ── */
+/* ───────────────────────────────────────────────────────────────
+   Phase 1 과도기 — 기존 About/Filmography/Gallery/Contact 섹션의
+   레거시 클래스를 새 톤(off-white + ink)에 정합시키는 최소 스타일.
+   Phase 2에서 컴포넌트로 분해되면 본 섹션은 자연 제거된다.
+   ─────────────────────────────────────────────────────────────── */
+
+.about,
+.filmography,
+.gallery,
+.contact {
+  padding: clamp(4rem, 9vh, 7rem) 0;
+  background: var(--actor-bg-body);
+  color: var(--actor-ink);
+}
+
+/* about/filmography/gallery/contact의 inner container — 12-col grid를
+   사용하지 않는 레거시 레이아웃은 단순 wrapper로 폭만 제어한다. */
+.about > .container,
+.filmography > .container,
+.gallery > .container,
+.contact > .container {
+  display: block; /* 레거시 마크업은 grid를 가정하지 않음 */
+}
+
+/* section title — 새 톤에 맞춰 Cormorant + ink */
 .sectionTitle {
-  font-family: var(--font-serif);
+  font-family: var(--font-cormorant);
   font-size: clamp(1.6rem, 4vw, 2.4rem);
-  font-weight: 300;
-  letter-spacing: 0.12em;
-  color: var(--color-text);
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--actor-ink);
   margin-bottom: 3rem;
 }
 .sectionTitle.center { text-align: center; }
@@ -117,208 +98,167 @@
   display: block;
   width: 2.5rem;
   height: 1px;
-  background: var(--color-accent);
+  background: var(--actor-accent-gold); /* gold zone (a) — hairline */
   margin-top: 0.75rem;
 }
 .sectionTitle.center::after { margin: 0.75rem auto 0; }
 
-/* ── ABOUT ── */
-.about {
-  padding: 8rem 0;
-  background: var(--color-bg-soft);
-}
+/* about (레거시) */
 .aboutGrid {
   display: grid;
   grid-template-columns: 1fr 1.4fr;
-  gap: 5rem;
+  gap: clamp(2rem, 5vw, 5rem);
   align-items: start;
 }
-.aboutPhotoCol {
-  position: sticky;
-  top: 6rem;
-}
+.aboutPhotoCol { position: sticky; top: 6rem; }
 .aboutPhoto {
   width: 100%;
-  aspect-ratio: 2 / 3;
+  aspect-ratio: 3 / 4;
   object-fit: cover;
   object-position: center top;
-  filter: grayscale(15%);
   display: block;
+  filter: grayscale(8%);
 }
 .aboutInfoCol { padding-top: 0.5rem; }
 
-.infoTable {
-  width: 100%;
-  border-collapse: collapse;
-}
+.infoTable { width: 100%; border-collapse: collapse; }
 .infoTable th,
 .infoTable td {
   padding: 1.1rem 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-  font-size: 0.92rem;
+  border-bottom: 1px solid var(--actor-rule);
+  font-size: 0.95rem;
   vertical-align: top;
   line-height: 1.6;
   white-space: pre-line;
+  text-align: left;
 }
 .infoTable th {
   width: 6rem;
-  color: var(--color-accent);
-  font-weight: 400;
+  font-weight: 500;
   letter-spacing: 0.05em;
   padding-right: 1.5rem;
   white-space: nowrap;
-}
-.infoTable td {
-  color: var(--color-text-soft);
-}
-.infoTable a:hover { color: var(--color-accent); }
-
-/* ── FILMOGRAPHY ── */
-.filmography {
-  padding: 8rem 0;
-  background: var(--color-bg);
-}
-.filmoBlock { margin-bottom: 4rem; }
-
-.filmoCategory {
-  font-family: var(--font-serif);
-  font-size: 0.75rem;
-  letter-spacing: 0.25em;
+  color: var(--actor-ink);
+  font-family: var(--font-cormorant);
   text-transform: uppercase;
-  color: var(--color-accent);
+  font-size: 0.78rem;
+}
+.infoTable td { color: var(--actor-ink-soft); }
+.infoTable a:hover { color: var(--actor-accent-gold); }
+
+/* filmography (레거시) */
+.filmoBlock { margin-bottom: 4rem; }
+.filmoCategory {
+  font-family: var(--font-cormorant);
+  font-size: 0.78rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--actor-accent-gold); /* gold zone (b) — section label */
   margin-bottom: 1.5rem;
   padding-bottom: 0.5rem;
-  border-bottom: 1px solid rgba(184, 169, 138, 0.2);
+  border-bottom: 1px solid var(--actor-rule);
 }
-
 .filmoItem {
   display: flex;
   align-items: baseline;
   gap: 2rem;
   padding: 1.1rem 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-  transition: background 0.2s, padding-left 0.2s;
+  border-bottom: 1px solid var(--actor-rule);
 }
-.filmoItem:hover {
-  background: rgba(255, 255, 255, 0.02);
-  padding-left: 0.5rem;
-}
-
 .filmoYear {
-  font-family: var(--font-serif);
-  font-size: 0.9rem;
-  color: var(--color-text-dim);
-  min-width: 3rem;
-  letter-spacing: 0.05em;
+  font-family: var(--font-cormorant);
+  font-size: 0.92rem;
+  color: var(--actor-ink-soft);
+  min-width: 3.2rem;
+  letter-spacing: 0.06em;
 }
-
 .filmoTitle {
-  font-size: 1rem;
-  color: var(--color-text);
-  margin-bottom: 0.2rem;
+  font-size: 1.02rem;
+  color: var(--actor-ink);
+  margin-bottom: 0.25rem;
   display: flex;
   align-items: center;
   gap: 0.6rem;
   flex-wrap: wrap;
+  font-weight: 500;
 }
-
 .filmoPlatform {
-  font-size: 0.65rem;
-  letter-spacing: 0.1em;
-  background: #e50914;
-  color: #fff;
-  padding: 0.1rem 0.45rem;
+  font-size: 0.66rem;
+  letter-spacing: 0.12em;
+  background: #1a1a1a;
+  color: #f8f5f0;
+  padding: 0.12rem 0.5rem;
   border-radius: 2px;
-  font-family: var(--font-serif);
+  font-family: var(--font-cormorant);
   font-weight: 600;
   text-transform: uppercase;
 }
-
 .filmoTypeTag {
-  font-size: 0.65rem;
-  letter-spacing: 0.08em;
-  background: rgba(255, 255, 255, 0.08);
-  color: var(--color-text-dim);
-  padding: 0.1rem 0.5rem;
+  font-size: 0.66rem;
+  letter-spacing: 0.1em;
+  background: rgba(26, 26, 26, 0.06);
+  color: var(--actor-ink-soft);
+  padding: 0.12rem 0.55rem;
   border-radius: 2px;
-  font-family: var(--font-serif);
+  font-family: var(--font-cormorant);
 }
-
 .filmoRole {
-  font-size: 0.88rem;
-  color: var(--color-text-dim);
+  font-size: 0.9rem;
+  color: var(--actor-ink-soft);
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
-
 .filmoType {
-  font-size: 0.65rem;
-  border: 1px solid rgba(184, 169, 138, 0.35);
-  color: var(--color-accent);
-  padding: 0.05rem 0.45rem;
+  font-size: 0.66rem;
+  border: 1px solid var(--actor-accent-gold); /* gold zone (c) — role-type tag */
+  color: var(--actor-accent-gold);
+  padding: 0.08rem 0.5rem;
   border-radius: 2px;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
 }
 
-/* ── GALLERY ── */
-.gallery {
-  padding: 8rem 0;
-  background: var(--color-bg-soft);
-}
+/* gallery (레거시) */
 .galleryGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: auto auto;
   gap: 0.5rem;
 }
 .galleryItem {
   position: relative;
   overflow: hidden;
   aspect-ratio: 3 / 4;
-  background: var(--color-surface);
+  background: rgba(26, 26, 26, 0.04);
 }
-.galleryItem.main {
-  grid-row: span 2;
-  aspect-ratio: unset;
-}
+.galleryItem.main { grid-row: span 2; aspect-ratio: unset; }
 .galleryItem.wide { aspect-ratio: 16 / 9; }
 .galleryItem img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.6s ease, filter 0.6s ease;
-  filter: grayscale(20%);
+  filter: grayscale(8%);
   display: block;
-}
-.galleryItem:hover img {
-  transform: scale(1.04);
-  filter: grayscale(0%);
 }
 .galleryCaption {
   position: absolute;
   bottom: 0; left: 0; right: 0;
-  padding: 0.7rem 1rem;
-  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+  padding: 0.65rem 0.9rem;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
   font-size: 0.75rem;
-  color: var(--color-text-soft);
-  letter-spacing: 0.05em;
+  color: #f8f5f0;
+  letter-spacing: 0.04em;
   opacity: 0;
   transition: opacity 0.3s;
 }
 .galleryItem:hover .galleryCaption { opacity: 1; }
 
-/* ── CONTACT ── */
-.contact {
-  padding: 8rem 0;
-  background: var(--color-bg);
-}
+/* contact (레거시) */
 .contactInner { text-align: center; }
 .contactSub {
-  color: var(--color-text-dim);
-  font-size: 0.92rem;
+  color: var(--actor-ink-soft);
+  font-size: 0.95rem;
   margin-bottom: 3rem;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.02em;
 }
 .contactLinks {
   display: flex;
@@ -327,39 +267,34 @@
   flex-wrap: wrap;
 }
 .contactLink {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 0.75rem;
-  font-size: 0.95rem;
-  color: var(--color-text-soft);
-  letter-spacing: 0.05em;
+  gap: 0.7rem;
+  font-size: 0.98rem;
+  color: var(--actor-ink);
+  letter-spacing: 0.03em;
   border-bottom: 1px solid transparent;
   padding-bottom: 2px;
-  transition: color 0.3s, border-color 0.3s;
+  transition: color 0.25s, border-color 0.25s;
 }
 .contactLink:hover {
-  color: var(--color-accent);
-  border-color: var(--color-accent);
+  color: var(--actor-accent-gold);
+  border-bottom-color: var(--actor-accent-gold);
 }
 .contactIcon { font-size: 1rem; }
 
-/* ── RESPONSIVE ── */
+/* ── Responsive ── */
 @media (max-width: 768px) {
-  .heroText { padding: 0 1.5rem 4rem; }
-  .scrollDown { right: 1.5rem; }
-  .aboutGrid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .container { padding: 0 1.25rem; }
+  .aboutGrid { grid-template-columns: 1fr; gap: 2rem; }
   .aboutPhotoCol { position: static; }
   .aboutPhoto { aspect-ratio: 3 / 4; }
   .galleryGrid { grid-template-columns: 1fr 1fr; }
   .galleryItem.main { grid-column: span 2; aspect-ratio: 3 / 4; }
   .galleryItem.wide { grid-column: span 2; }
-  .contactLinks { flex-direction: column; align-items: center; gap: 1.5rem; }
-  .container { padding: 0 1.25rem; }
+  .contactLinks { flex-direction: column; align-items: center; gap: 1.4rem; }
   .about,
   .filmography,
   .gallery,
-  .contact { padding: 5rem 0; }
-}
-@media (max-width: 480px) {
-  .heroName { font-size: 3rem; }
+  .contact { padding: 4rem 0; }
 }

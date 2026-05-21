@@ -24,6 +24,22 @@ export type GalleryItem = {
   size?: "main" | "wide";  // grid placement modifier
 };
 
+// /actor Hero 영상/포스터 contract (Phase 1).
+// reelUrl이 비어 있으면 HeroReel은 정적 portrait + grain + ken-burns로 출발하고,
+// 사용자가 academy 모놀로그 클립 편집 후 URL만 페이스트하면 markup 변경 없이
+// <video>가 활성된다 (REQ-ACT-O-001). lineupHint는 Hero 좌측 하단 카피
+// 마지막 줄에 표시된다 (REQ-ACT-E-001).
+//
+// @MX:NOTE: [AUTO] HERO contract — reelUrl 페이스트 한 줄로 video 활성.
+//           Phase 2+에서 PROFILE/REEL/TIMELINE/CHARACTER_CARDS 등 전면
+//           재구조화가 들어와도 이 HERO 객체의 스키마는 변경되지 않는다.
+// @MX:SPEC: SPEC-ACTOR-REDESIGN-001 REQ-ACT-O-001, REQ-ACT-E-001, REQ-ACT-E-006
+export const HERO = {
+  reelUrl: "", // 빈 값 → HeroReel은 poster 단독 표시
+  posterImage: "/actor/assets/hero.jpg",
+  lineupHint: "Netflix · 당신이 죽였다 외",
+} as const;
+
 export const PROFILE = {
   name: "서해우",
   nameEn: "Seo Haeu",
