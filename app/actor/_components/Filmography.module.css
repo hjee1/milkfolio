@@ -1,0 +1,219 @@
+/* Filmography — 매거진 인덱스 타이포.
+   off-white 본문 위. gold 액센트는 zone (b) section label + zone (c)
+   role-type tag (모두 darken #8b6f47, WCAG AA 통과).
+   SPEC-ACTOR-REDESIGN-001 REQ-ACT-U-011/U-012 */
+
+.root {
+  background-color: #f8f5f0;
+  color: #1a1a1a;
+  padding-block: clamp(5rem, 12vh, 8rem);
+  padding-inline: clamp(1.25rem, 4vw, 3rem);
+}
+
+.container {
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+/* 섹션 헤더 — eyebrow + Cormorant H2 */
+.head {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin-bottom: clamp(2.5rem, 6vh, 4.5rem);
+  text-align: left;
+}
+
+.eyebrow {
+  font-family: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(0.72rem, 1vw, 0.84rem);
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: #8b6f47; /* gold zone (b) on light — darken */
+  margin: 0;
+}
+
+.title {
+  font-family: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+/* 카테고리 블록 묶음 */
+.blocks {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2.5rem, 6vh, 4rem);
+}
+
+.block {
+  /* magazine breathing room — 각 카테고리 사이는 .blocks gap이 처리 */
+}
+
+/* 카테고리 라벨 행 — `드라마 ─────────────────` 패턴 */
+.categoryRow {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.categoryLabel {
+  font-family: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: #8b6f47; /* gold zone (b) on light — darken */
+  margin: 0;
+  flex-shrink: 0;
+}
+
+.categoryRule {
+  display: block;
+  flex: 1;
+  height: 1px;
+  background: #d4ccbe; /* hairline (zone a) */
+}
+
+/* 엔트리 리스트 */
+.entries {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.entry {
+  display: grid;
+  grid-template-columns: 4rem 1fr;
+  column-gap: 1.5rem;
+  align-items: baseline;
+  padding-block: 1.15rem;
+  border-bottom: 1px solid #d4ccbe;
+  transition: background-color 0.25s ease;
+}
+
+.entry:hover {
+  background-color: rgba(139, 111, 71, 0.04);
+}
+
+.entry:last-child {
+  border-bottom: 0;
+}
+
+/* 연도 — 작은 serif, 우측 정렬 시각 안정 */
+.year {
+  font-family: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  color: #4a4a4a;
+  text-align: left;
+}
+
+.entryBody {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  min-width: 0;
+}
+
+.entryTop {
+  display: flex;
+  align-items: baseline;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+}
+
+.titleText {
+  font-family: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(1.15rem, 2.2vw, 1.55rem);
+  font-weight: 400;
+  color: #1a1a1a;
+  line-height: 1.25;
+}
+
+.titleText em {
+  font-style: italic;
+}
+
+/* 플랫폼 chip — 작은 outline pill, gold-on-light.
+   Netflix 빨간 배지 대신 매거진 톤의 hairline tag로 통일. */
+.platform {
+  display: inline-block;
+  font-family: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: #8b6f47;
+  border: 1px solid #8b6f47;
+  padding: 0.18rem 0.6rem;
+  border-radius: 2px;
+  line-height: 1.2;
+  vertical-align: baseline;
+}
+
+.entryBottom {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* roleType — gold-on-light italic 작은 pill (zone c). darken으로 WCAG AA. */
+.roleType {
+  font-family: var(--font-pretendard), "Pretendard", -apple-system,
+    BlinkMacSystemFont, system-ui, sans-serif;
+  font-size: 0.82rem;
+  font-style: italic;
+  color: #8b6f47;
+  letter-spacing: 0.02em;
+}
+
+.roleSeparator {
+  color: #d4ccbe;
+  font-size: 0.85rem;
+  user-select: none;
+}
+
+.roleName {
+  font-family: var(--font-pretendard), "Pretendard", -apple-system,
+    BlinkMacSystemFont, system-ui, sans-serif;
+  font-size: 0.92rem;
+  color: #4a4a4a;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .root {
+    padding-block: clamp(3.5rem, 9vh, 5.5rem);
+  }
+  .head {
+    margin-bottom: 2.5rem;
+  }
+  .entry {
+    grid-template-columns: 1fr;
+    row-gap: 0.45rem;
+    padding-block: 1.1rem;
+  }
+  .year {
+    font-size: 0.82rem;
+    letter-spacing: 0.12em;
+  }
+  .titleText {
+    font-size: 1.15rem;
+  }
+  .platform {
+    font-size: 0.62rem;
+    padding: 0.15rem 0.5rem;
+  }
+}
