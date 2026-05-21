@@ -29,11 +29,26 @@ export const ACTOR_TOKENS = {
   // hairline divider (off-white 위 1px 가는 선)
   rule: "#d4ccbe",
 
-  // gold 액센트 — 3 zone에만 사용 (hairline / section label / role-type tag).
-  // REQ-ACT-U-011. 본문/캐릭터명/작품명/연도/큰 헤드라인/nav 링크에는 사용
-  // 금지. WCAG AA 미달 시 darken 토큰(≤ #8b6f47, REQ-ACT-U-012)으로 전역 조정.
-  accentGold: "#b8a98a",
-  accentGoldDarken: "#8b6f47", // WCAG fallback (REQ-ACT-U-012)
+  // ─────────────────────────────────────────────────────────────────
+  // Gold 액센트 — 컨텍스트별 2개 토큰 (REQ-ACT-U-011 / U-012, LD2 결정).
+  //
+  // off-white(#f8f5f0) 본문 위에서 원본 #b8a98a는 명도가 너무 가까워 WCAG
+  // 2.1 AA를 충족하지 못한다 (대비비 ~2.3:1, AA 텍스트 기준 4.5:1 미달).
+  // 따라서 본문 섹션(Profile / Reel / Roles / Filmography / Contact)의
+  // section label small caps eyebrow + role-type tag pill에는 darken된
+  // `accentGold` (#8b6f47, ~6:1)를 사용한다.
+  //
+  // 반면 Hero(carbon #0a0a0a) 위에서는 원본 #b8a98a가 ~10:1로 안전하므로
+  // 별도 `accentGoldOnDark` 토큰을 노출하여 Hero eyebrow에만 사용한다.
+  //
+  // hairline(1px divider)은 비텍스트 장식이라 WCAG 텍스트 contrast 면제
+  // 대상이지만, 톤 일관성을 위해 본문 hairline에도 darken 토큰을 적용한다.
+  // ─────────────────────────────────────────────────────────────────
+  // 본문(off-white) 위 — WCAG AA 통과 darken 값. REQ-ACT-U-012 상한 #8b6f47.
+  accentGold: "#8b6f47",
+  // Hero(carbon) 위 전용 — 원본 warm gold. carbon 배경에서는 콘트라스트가
+  // 충분하므로 darken하지 않고 매거진의 따뜻한 골드 인상을 유지한다.
+  accentGoldOnDark: "#b8a98a",
 
   // 폰트 — Cormorant Garamond (라틴 serif 디스플레이) + Pretendard (국문 sans
   // 본문/UI). Noto Serif KR은 /actor 범위에서 사용하지 않는다 (REQ-ACT-U-004).
