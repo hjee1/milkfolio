@@ -12,6 +12,7 @@
 - 2026-05-21 — v1.0.0 draft 작성. EARS U/E/S/O/N 30개.
 - 2026-05-21 — v1.0.0 Amendment 1 — 7 patches 적용: bridge LOCK / Reel sessionStorage / gold 3 zone / persona prohibited-list / footer 2026 / chevron hint / asset lifecycle. EARS 5개 신규(U-009/U-010/U-011/U-012/E-007/O-005), N-004 강화, E-002/E-003 revision. 총 36개 EARS 클로즈.
 - 2026-05-21 — **Run Phase 0+1 완료** — 폰트(Cormorant + Pretendard via CDN), 토큰 모듈, reduced-motion/reduced-data 훅, Hero.tsx(Server) + HeroReel.tsx(Client, placeholder 셸), page.module.css 전면 교체(off-white body + carbon hero + 12-col grid + 60~96px bridge), e2e/actor.spec.ts 확장(8/8 신규 hero 테스트 PASS, 2개 기존 테스트 skip with Phase 2 TODO). tsc 0 errors, pnpm build 성공.
+- 2026-05-21 — **Run Phase 2 완료** — data.ts 전면 재구조화(PROFILE/HERO/REEL 3카테고리×11ep placeholder/TIMELINE 6entries/CHARACTER_CARDS 6cards/FILMOGRAPHY 6works/NAV_LINKS 5anchors, @MX:ANCHOR×2 + @MX:NOTE×2). Profile.tsx + Filmography.tsx (Server) + 각 module.css. LD2 토큰 swap: `accentGold` #b8a98a→#8b6f47 (off-white용), `accentGoldOnDark` #b8a98a 신설 (Hero carbon용). LD1 h1 ownership: Hero h1 유지, Profile h2 "Seo Haeu". page.tsx 옛 About/Filmography/Gallery 제거. **22/22 테스트 PASS** (12 신규 Phase 2 + 2 unskip 재작성 + 8 hero v2 preserve). tsc 0 errors, build 성공.
 
 ### Phase Status
 
@@ -19,7 +20,7 @@
 |---|---|---|
 | Phase 0 | 사전 준비 (폰트, 토큰, hook, 디렉터리 셋업) | **completed** (2026-05-21) |
 | Phase 1 | 비주얼 시스템 + Hero shell | **completed** (2026-05-21) |
-| Phase 2 | Profile + Filmography (서버 렌더) | pending |
+| Phase 2 | Profile + Filmography (서버 렌더) | **completed** (2026-05-21) |
 | Phase 3 | REEL Client component | pending |
 | Phase 4 | ROLES (Timeline + Character Cards) | pending |
 | Phase 5 | Polish (전환·접근성·성능·E2E) | pending |

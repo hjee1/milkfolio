@@ -21,9 +21,12 @@ test.describe("/actor page (top-level smoke)", () => {
     expect(h1Text).toContain("SEOHAEU");
 
     // Profile + Filmography 섹션은 h2를 가진다. 갤러리는 제거됨.
-    // (SiteNav도 같은 문자열을 <a>로 가지므로 h2에 한정한다.)
+    // Profile h2는 영문 매거진 헤드라인 "Seo Haeu" — 한국어 "프로필"은
+    // eyebrow(<p>)로 표시되며 h2는 영문이다 (LD1 결정 + 매거진 톤).
+    // Filmography h2는 한국어 "필모그래피".
+    // (SiteNav도 "프로필" 라벨을 <a>로 가지므로 h2에 한정해 확인한다.)
     await expect(
-      page.locator("h2").filter({ hasText: /프로필|profile/i }),
+      page.locator("section#profile h2").filter({ hasText: /Seo\s*Haeu/i }),
     ).toBeVisible();
     await expect(
       page.locator("h2").filter({ hasText: "필모그래피" }),
