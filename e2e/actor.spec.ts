@@ -663,3 +663,228 @@ test.describe("Phase 4 roles", () => {
     expect(text).not.toMatch(/[☀-⛿]/);
   });
 });
+
+// ────────────────────────────────────────────────────────────────────
+// Phase 5: Final assembly — Contact 신규 컴포넌트 + 6 sections 완성 + 종합
+// 회귀 (페르소나 substring 0건 / emoji 0건 / 키보드 traversal / 6작품 정확성
+// / footer 카피라이트).
+// SPEC-ACTOR-REDESIGN-001 REQ-ACT-U-001/U-002/U-006/U-008/U-010/U-011,
+// REQ-ACT-N-004/N-005/N-008, REQ-ACT-S-003
+//
+// 기존 Phase 1~4 케이스는 한 글자도 수정하지 않는다. 본 describe는 page.tsx의
+// Contact 교체와 6섹션 최종 조립에 한정된 회귀 보호이다.
+// ────────────────────────────────────────────────────────────────────
+test.describe("Phase 5 final assembly", () => {
+  test.beforeEach(async ({ page }) => {
+    await page.goto("/actor");
+  });
+
+  // A2: 6 sections 모두 DOM에 존재 (REQ-ACT-U-001).
+  test("A2: 6 sections present (REQ-ACT-U-001)", async ({ page }) => {
+    // Hero는 <section aria-label="Hero">로, 나머지 5섹션은 id로 식별된다.
+    // Hero는 별도 selector로 단독 검증.
+    await expect(page.locator('section[aria-label="Hero"]')).toHaveCount(1);
+    await expect(page.locator("section#profile")).toHaveCount(1);
+    await expect(page.locator("section#reel")).toHaveCount(1);
+    await expect(page.locator("section#roles")).toHaveCount(1);
+    await expect(page.locator("section#filmography")).toHaveCount(1);
+    await expect(page.locator("section#contact")).toHaveCount(1);
+    // Hero가 단독으로 h1을 보유 (LD1).
+    await expect(page.locator("h1")).toHaveCount(1);
+  });
+
+  // Contact 컴포넌트 기본 마크업 — 매거진 헤드라인 + 두 링크.
+  test("Contact section renders mailto and instagram links", async ({
+    page,
+  }) => {
+    const contact = page.locator("section#contact");
+    await expect(contact).toBeVisible();
+    await expect(
+      contact.locator('a[href="mailto:terryjhw@gmail.com"]'),
+    ).toHaveCount(1);
+    await expect(
+      contact.locator('a[href*="instagram.com/oceanmeetrain"]'),
+    ).toHaveCount(1);
+
+    // h2 headline 'C A S T I N Q U I R Y' (공백 무시 + 대소문자 무시).
+    const h2text = await contact.locator("h2").first().textContent();
+    const normalized = (h2text ?? "").replace(/\s+/g, "").toUpperCase();
+    expect(normalized).toContain("CASTINQUIRY");
+  });
+
+  // Contact h2의 id가 section의 aria-labelledby와 매칭되는지 (a11y).
+  test("Contact section has accessible heading association", async ({
+    page,
+  }) => {
+    const contact = page.locator("section#contact");
+    const ariaLabelledBy = await contact.getAttribute("aria-labelledby");
+    expect(ariaLabelledBy).toBe("contact-heading");
+    await expect(page.locator("#contact-heading")).toHaveCount(1);
+  });
+
+  // H1 + H2: 정확히 6작품 노출 + 금지 작품 0건 (REQ-ACT-U-006, REQ-ACT-N-005).
+  test("H1/H2: filmography lists exactly 6 works, no excluded titles (REQ-ACT-U-006, REQ-ACT-N-005)", async ({
+    page,
+  }) => {
+    // Filmography 컴포넌트의 작품 entry selector는 data-filmo-entry이다.
+    await expect(
+      page.locator("section#filmography [data-filmo-entry]"),
+    ).toHaveCount(6);
+
+    // §6 D5에 명시된 6 작품 제목이 모두 노출되는지 확인.
+    const filmography = page.locator("section#filmography");
+    const expectedTitles = [
+      "너만 있으면",
+      "당신이 죽였다",
+      "그래도 사랑이었다",
+      "요즘것들",
+      "어느날 엄마가 봉투를 썼다",
+      "눈",
+    ];
+    for (const t of expectedTitles) {
+      await expect(filmography.getByText(t).first()).toBeVisible();
+    }
+    expect(expectedTitles.length).toBe(6);
+
+    // 금지 작품(이전 데이터에 있었던 작품)은 본문 어디에도 0건.
+    // [data-actor-body] 내부 텍스트로 검증 (nav/footer 포함하지만 이 작품들은
+    // 어디에도 등장하면 안 됨).
+    const body = page.locator("[data-actor-body]");
+    const bodyText = (await body.innerText()) ?? "";
+    for (const banned of [
+      "사랑하거나 말거나",
+      "단절",
+      "삶 ",
+      "오르골",
+      "오르골들",
+      "매장직원",
+    ]) {
+      expect(bodyText).not.toContain(banned);
+    }
+  });
+
+  // H3: 본문(section 영역) prohibited substring 0건 (REQ-ACT-N-004).
+  // Phase 2의 동등 케이스는 section 직속 텍스트만 검증했고, Phase 5에서는
+  // Contact 신규 컴포넌트가 본문에 합쳐졌으므로 6 section 전부를 재검증한다.
+  test("H3: body sections contain zero prohibited substrings (REQ-ACT-N-004)", async ({
+    page,
+  }) => {
+    // [data-actor-body] 직속 section 텍스트를 합친다. SiteNav 영역은 제외 —
+    // SiteNav는 페르소나 라우팅을 위해 /dev 링크를 가질 수 있는 예외이다
+    // (REQ-ACT-N-004 마지막 단락 + REQ-ACT-U-008).
+    const sectionTexts = await page
+      .locator("[data-actor-body] > section")
+      .allTextContents();
+    // Hero의 aria-label로 식별되는 section은 직속 자식이 아닐 수 있어
+    // SiteNav를 제외한 모든 section을 백업으로 추가 매칭한다.
+    const allSectionTexts = await page.locator("section").allTextContents();
+    const joined = [...sectionTexts, ...allSectionTexts].join("\n");
+    const lower = joined.toLowerCase();
+
+    const substrings = [
+      "iit",
+      "illinois institute of technology",
+      "computer science",
+      "hanwha",
+      "한화시스템",
+      "한화 시스템",
+      "ai technical engineer",
+      "ai engineer",
+      "data engineer",
+      "hyunwoo jee",
+      "지현우",
+      "developer",
+      "engineer",
+      "엔지니어",
+    ];
+    for (const s of substrings) {
+      expect(lower).not.toContain(s);
+    }
+
+    // 'Terry'는 word boundary로 검증 — 'terryjhw@gmail.com' 이메일은 허용.
+    // case-insensitive word boundary 매칭은 본문에 단독 'Terry'가 노출되면
+    // 위반이지만 이메일 사용자명에 포함된 'terryjhw'는 word 일부라 통과한다.
+    expect(joined).not.toMatch(/\bTerry\b/i);
+  });
+
+  // H4: 본문 emoji glyph 0건 (REQ-ACT-N-008).
+  // Node V8은 \p{Extended_Pictographic} 유니코드 속성 클래스를 지원한다.
+  test("H4: body contains zero emoji glyphs (REQ-ACT-N-008)", async ({
+    page,
+  }) => {
+    const sectionTexts = await page
+      .locator("[data-actor-body] section")
+      .allTextContents();
+    const joined = sectionTexts.join("\n");
+    const emojiRegex = /\p{Extended_Pictographic}/u;
+    expect(emojiRegex.test(joined)).toBe(false);
+  });
+
+  // H5: 본문 <main>/section 내 /dev href 0건 (REQ-ACT-U-008).
+  // SiteNav(공통 header)는 페르소나 라우팅을 위해 /dev 링크를 가질 수 있다 —
+  // REQ-ACT-N-004 마지막 단락의 예외. 본문 section만 검사한다.
+  test("H5: body sections contain zero /dev hrefs (REQ-ACT-U-008)", async ({
+    page,
+  }) => {
+    const hrefs = await page
+      .locator("[data-actor-body] > section a")
+      .evaluateAll((anchors) =>
+        anchors.map(
+          (a) => (a as HTMLAnchorElement).getAttribute("href") ?? "",
+        ),
+      );
+    const devLinks = hrefs.filter((h) => h.startsWith("/dev"));
+    expect(devLinks.length).toBe(0);
+  });
+
+  // K3: footer 카피라이트 © 2026 서해우 (REQ-ACT-U-010).
+  test("K3: footer shows 2026 서해우 (REQ-ACT-U-010)", async ({ page }) => {
+    const footer = page.locator("footer").first();
+    await expect(footer).toBeVisible();
+    const text = (await footer.innerText()) ?? "";
+    expect(text).toContain("2026");
+    expect(text).toContain("서해우");
+  });
+
+  // E3 sample: 키보드 Tab traversal이 Contact 이메일 링크에 도달 가능
+  // (REQ-ACT-S-003). 페이지 첫 focusable에서 시작해 Tab을 충분히 눌러
+  // mailto:terryjhw@gmail.com anchor가 활성 포커스가 되는지 확인한다.
+  test("E3: tab order reaches Contact mailto link (REQ-ACT-S-003)", async ({
+    page,
+  }) => {
+    // body로 포커스 시작점을 명시화.
+    await page.evaluate(() => document.body.focus());
+
+    let reached = false;
+    for (let i = 0; i < 80; i++) {
+      await page.keyboard.press("Tab");
+      const focused = await page.evaluate(() => {
+        const el = document.activeElement as HTMLAnchorElement | null;
+        if (!el) return { tag: "", href: "" };
+        return {
+          tag: el.tagName,
+          href: (el as HTMLAnchorElement).href ?? "",
+        };
+      });
+      if (
+        focused.tag === "A" &&
+        focused.href.startsWith("mailto:terryjhw@gmail.com")
+      ) {
+        reached = true;
+        break;
+      }
+    }
+    expect(reached).toBe(true);
+  });
+
+  // Contact emoji 0건 — Phase 2의 profile/filmography emoji 테스트와 동일 패턴.
+  test("Contact section uses no emoji glyphs (REQ-ACT-N-008)", async ({
+    page,
+  }) => {
+    const contact = page.locator("section#contact");
+    const text = (await contact.textContent()) ?? "";
+    expect(text).not.toMatch(/[\u{1F300}-\u{1FAFF}]/u);
+    expect(text).not.toMatch(/[✀-➿]/);
+    expect(text).not.toMatch(/[☀-⛿]/);
+  });
+});

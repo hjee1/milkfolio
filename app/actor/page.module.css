@@ -59,10 +59,12 @@
 }
 
 /* ───────────────────────────────────────────────────────────────
-   레거시 Contact (Phase 5 교체 예정)
-   현재는 이메일·인스타 링크만 표시하는 단순 섹션. emoji는 이미 제거되어
-   있으나 캐스팅 톤 매거진 헤드라인(`C A S T   I N Q U I R Y`) + 큰
-   editorial typography로의 격상은 Phase 5에서 진행된다.
+   레거시 Contact 스타일 (Phase 5 신규 Contact 컴포넌트로 교체 완료)
+   page.tsx는 더 이상 .contact / .contactInner / .contactLinks /
+   .contactLink / .contactSub / .sectionTitle / .center / .container
+   클래스를 참조하지 않는다. CSS module은 import만 안 하면 deadcode가
+   되므로 빌드/런타임에는 영향이 없다. 향후 cleanup 사이클에서
+   삭제 가능하며, 현재 단계에서는 diff noise를 최소화한다.
    ─────────────────────────────────────────────────────────────── */
 
 .contact {
