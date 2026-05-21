@@ -1,29 +1,60 @@
 ## SPEC-ACTOR-REDESIGN-001 Progress
 
 - Started: 2026-05-21
-- Status: draft (annotation cycle 진행 중 — Amendment 1 적용 후, Run phase 미진입)
+- Status: **Run in progress — Phase 0+1 완료, Phase 2~5 pending**
 - Harness level: standard
-- Development methodology: DDD (per spec frontmatter; brownfield — 기존 `app/actor/` 자산·data 활용)
-- Execution mode: sub-agent (Run phase 진입 시 expert-frontend 위임 예정)
+- Development methodology: **TDD with brownfield enhancement** (per quality.yaml `development_mode: tdd`; SPEC frontmatter의 DDD 표기는 informational — 실제 작업은 test-first 사이클로 진행)
+- Execution mode: sub-agent (expert-frontend로 위임)
 - Detected language skill: moai-lang-typescript
 
 ### HISTORY
 
 - 2026-05-21 — v1.0.0 draft 작성. EARS U/E/S/O/N 30개.
 - 2026-05-21 — v1.0.0 Amendment 1 — 7 patches 적용: bridge LOCK / Reel sessionStorage / gold 3 zone / persona prohibited-list / footer 2026 / chevron hint / asset lifecycle. EARS 5개 신규(U-009/U-010/U-011/U-012/E-007/O-005), N-004 강화, E-002/E-003 revision. 총 36개 EARS 클로즈.
+- 2026-05-21 — **Run Phase 0+1 완료** — 폰트(Cormorant + Pretendard via CDN), 토큰 모듈, reduced-motion/reduced-data 훅, Hero.tsx(Server) + HeroReel.tsx(Client, placeholder 셸), page.module.css 전면 교체(off-white body + carbon hero + 12-col grid + 60~96px bridge), e2e/actor.spec.ts 확장(8/8 신규 hero 테스트 PASS, 2개 기존 테스트 skip with Phase 2 TODO). tsc 0 errors, pnpm build 성공.
 
 ### Phase Status
 
 | Phase | 설명 | 상태 |
 |---|---|---|
-| Phase 0 | 사전 준비 (폰트, 토큰, hook, 디렉터리 셋업) | pending |
-| Phase 1 | 비주얼 시스템 + Hero shell | pending |
+| Phase 0 | 사전 준비 (폰트, 토큰, hook, 디렉터리 셋업) | **completed** (2026-05-21) |
+| Phase 1 | 비주얼 시스템 + Hero shell | **completed** (2026-05-21) |
 | Phase 2 | Profile + Filmography (서버 렌더) | pending |
 | Phase 3 | REEL Client component | pending |
 | Phase 4 | ROLES (Timeline + Character Cards) | pending |
 | Phase 5 | Polish (전환·접근성·성능·E2E) | pending |
 | Phase 6 | 데이터 인터뷰 (character card 카피) | pending (rolling) |
 | Phase 7 | 자산 입수 후 통합 (rolling) | pending (rolling) |
+
+### Phase 0+1 Deliverables
+
+**Files created (7)**
+- `app/actor/_components/shared/tokens.ts` — `@MX:ANCHOR` ACTOR_TOKENS
+- `app/actor/_components/shared/usePrefersReducedMotion.ts` — `@MX:NOTE` REQ-ACT-S-001
+- `app/actor/_components/shared/usePrefersReducedData.ts` — `@MX:NOTE` REQ-ACT-S-004/E-007
+- `app/actor/_components/Hero.tsx` (Server) — `@MX:NOTE`
+- `app/actor/_components/Hero.module.css`
+- `app/actor/_components/HeroReel.tsx` (Client) — `@MX:ANCHOR` REQ-ACT-O-001/E-006
+- `app/actor/_components/HeroReel.module.css`
+
+**Files modified (5)**
+- `app/actor/data.ts` — added `HERO` export (reelUrl/posterImage/lineupHint) + `@MX:NOTE`
+- `app/actor/page.module.css` — 전면 교체 (off-white body, carbon hero, 12-col grid, 64~96px bridge)
+- `app/actor/page.tsx` — `<Hero />` 통합 + `<div data-hero-bridge />` + Phase 2 TODO 마커
+- `app/actor/layout.tsx` — title/description/OG 갱신, Pretendard `<link>` CDN 주입
+- `e2e/actor.spec.ts` — `hero v2 (Phase 1)` describe 7개 신규 + 2개 기존 skip
+
+**Test results**: 8/8 신규 + 1/1 기존(filmography) PASS, 2 skipped (Phase 2 TODO). tsc 0 errors, build OK.
+
+**Deviation 노트**:
+- 폰트: `next/font/google`은 Somansa 프록시에서 실패 → 기존 `globals.css @import` 패턴 + Pretendard CDN(jsdelivr) 사용. Phase 7에서 self-host woff2로 정리 권장.
+- 기존 테스트 2개 skip: 옛 Hero의 `h1 = 서해우` 가정이 깨짐 → Phase 2에서 h1 ownership 결정 (Hero h1 유지 vs Profile h1로 이동).
+
+**Phase 2 인계 사항**:
+- h1 ownership: 현재 Hero `<h1>S E O   H A E U</h1>`. Profile 섹션에도 h1 두면 중복. Phase 2 결정 필요 (권장: Hero를 h1로 유지, Profile은 h2).
+- Gold WCAG: 현재 Hero eyebrow는 carbon 위 #b8a98a (10:1, OK). Phase 2에서 off-white 위 적용 시 ~2.3:1 → REQ-ACT-U-012 darken (#8b6f47) 토큰 전환 필요.
+- HeroReel의 `{...(hasReel ? { src } : {})}` 패턴은 ReelPlayer skeleton에 동일 적용 권장.
+- 레거시 About/Filmography/Gallery/Contact는 데이터·마크업이 SPEC 위반 상태로 남아있음 — Phase 2에서 전면 교체.
 
 ### EARS coverage (현재 시점 — 작성만 됨)
 
