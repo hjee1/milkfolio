@@ -1,7 +1,7 @@
 ---
 id: SPEC-ACTOR-REDESIGN-001
 version: 1.0.0
-status: draft
+status: completed
 ---
 
 # SPEC-ACTOR-REDESIGN-001 (Compact) — /actor 풀파워 재설계

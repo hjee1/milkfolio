@@ -1,9 +1,9 @@
 ---
 id: SPEC-ACTOR-REDESIGN-001
 version: 1.0.0
-status: draft
+status: completed
 created: 2026-05-21
-updated: 2026-05-21
+updated: 2026-05-22
 author: Hyunwoo Jee (terryjhw@gmail.com)
 priority: P1
 issue_number: 0
@@ -465,3 +465,66 @@ export const NAV_LINKS: { href: string; label: string }[]; // 6 sections
 - `.moai/project/product.md` — 멀티-페르소나 portfolio 컨텍스트, KPI ("이 배우와 회의를 잡고 싶다")
 - `.moai/project/structure.md` — Next.js 16 App Router project 컨벤션
 - `.claude/rules/moai/design/constitution.md` — 디자인 시스템 헌법(FROZEN/EVOLVABLE 영역, 브랜드 컨텍스트)
+
+---
+
+## 12. Implementation Notes (Sync 시점 추가, 2026-05-22)
+
+SPEC-ACTOR-REDESIGN-001 자동화 범위(Phase 0~5)가 모두 구현되어 `origin/main`에 반영되었음. SPEC 라이프사이클 레벨은 spec-first (Level 1) 기본값 적용 — 본 노트 추가와 동시에 `status: draft` → `status: completed`로 전환되며 이후 능동적 변경은 발생하지 않는다. Phase 6/7 rolling 작업은 SPEC 본문을 갱신하지 않고 `app/actor/data.ts` 페이스트만으로 진행한다.
+
+### Phase 별 구현 요약
+
+| Phase | 결과 | 핵심 결정 |
+|---|---|---|
+| 0 | 폰트(Cormorant + Pretendard CDN) + 토큰 + reduced-motion/data 훅 | LD1 — Hero h1 단독 |
+| 1 | Hero(Server) + HeroReel(Client) + page.module.css 전면 교체 + bridge LOCK 60~100px | REQ-ACT-U-009 LOCK |
+| 2 | data.ts 전면 재구조화 + Profile + Filmography + LD2 token `#8b6f47` 결정 | LD2 v1 |
+| 3 | Reel(Server) + ReelPlayer(Client) WAI-ARIA tabs + sessionStorage + LD2 v2 token re-darken `#7c6240` (실측 5.25:1 AA) | REQ-ACT-U-012 정량 검증 |
+| 4 | RoleTimeline + CharacterCard 3D flip + chevron hint + Roles wrapper + window CustomEvent 전파 | REQ-ACT-O-005 패턴 |
+| 5 | Contact editorial(`C A S T   I N Q U I R Y`) + 6섹션 최종 조립 + 종합 e2e 회귀 (A2/H1~H5/K3/E3) | 6 sections lock |
+
+### 누적 정량 지표
+
+- e2e: **49/49 PASS** (회귀 0)
+- tsc: 0 errors
+- pnpm build: 7/7 static pages (Turbopack)
+- evaluator-active weighted: Phase 4 0.903 / Phase 5 **0.943 PASS** (standard harness threshold 0.75 초과)
+- localStorage 사용 전체 페이지: 0건 (REQ-ACT-N-002)
+- 본문 prohibited substring: 0건 (15개 substring + Terry word boundary, REQ-ACT-N-004)
+- 본문 emoji glyph: 0건 (Extended_Pictographic, REQ-ACT-N-008)
+- 본문 `/dev` href: 0건 (REQ-ACT-U-008)
+- footer 카피라이트: `© 2026 서해우` (REQ-ACT-U-010)
+- @MX 태그: ACTOR_TOKENS ANCHOR 1 + CharacterCard ANCHOR 1 + CharacterCard WARN 1 + 다수 NOTE — anchor_per_file ≤ 3, warn_per_file ≤ 5 모두 준수
+
+### SPEC vs 구현 divergence
+
+원래 `plan.md`의 7-Turn mapping과 실제 구현은 거의 일치. 주요 deviation:
+
+- **폰트 로딩 방식**: 계획 `next/font/google` → 실제 `globals.css @import` + Pretendard CDN(jsdelivr). 사유: Somansa 프록시에서 `next/font` 실패. 향후 self-host woff2로 정리 권장.
+- **LD2 token re-darken**: 계획 `#8b6f47` (REQ-ACT-U-012 상한) → 실제 `#7c6240` (실측 5.25:1 AA). 사유: `#8b6f47` 실측 4.33:1로 AA 4.5:1 미달, evaluator-active 정량 검증으로 발견. SPEC 본문(§Visual System Gold)은 "≤ #8b6f47 darken" 표현이므로 더 어두운 `#7c6240`은 상한 안쪽 → 준수.
+- **CharacterCard wrapper 구조**: 계획상 chevron hint 상태를 Roles wrapper에 lift 가능성 검토 → 실제는 각 CharacterCard가 sessionStorage + `window 'actor:firstRoleCardTap'` CustomEvent로 자체 동기화 (Roles는 Server 유지). 사유: REQ-ACT-U-005 Server parent + Client leaves 원칙 엄격 준수.
+- **레거시 CSS 정리**: page.module.css의 `.contact*` 클래스는 page.tsx에서 더 이상 참조되지 않으나 cleanup sprint 분리 위해 정의 보존 + 코멘트 마킹. drive-by 회피.
+
+### Phase 6/7 rolling (별도 SPEC 없이 data.ts 페이스트만)
+
+- **Phase 6**: CHARACTER_CARDS 6장(준혁/점원/국현/민혁/대현/집주인)의 `note` + `hashtags` 카피 — 사용자 인터뷰 1장씩
+- **Phase 7**: 
+  - HERO `reelUrl` 페이스트 → markup 변경 0건으로 video 활성 (REQ-ACT-O-001)
+  - REEL 11개 episode `videoUrl` 페이스트 → skeleton → player 활성 (REQ-ACT-O-002)
+  - 그래도 사랑이었다 still + 요즘것들 포스터 등 자산 입수 시 `CHARACTER_CARDS.coverImage` 페이스트 (REQ-ACT-O-003)
+
+### 사용자 runtime 검증 (SPEC 내 미해결 acceptance)
+
+- E4: Lighthouse Accessibility ≥ 95 — Chrome DevTools Lighthouse 모바일 실행
+- F1/F3: Lighthouse Performance ≥ 80, LCP < 2.5s, CLS < 0.1 — 동일 도구
+- F2: bundle 측정 (`ANALYZE=true pnpm build`)
+- L1: "이 배우와 회의를 잡고 싶다" KPI 시각 게이트 — 사용자 정성 판단
+
+### 커밋 라인 (origin/main)
+
+```
+71ab828  feat(actor): SPEC-ACTOR-REDESIGN-001 Phase 5 Polish (6섹션 완성)
+aeff232  feat(actor): SPEC-ACTOR-REDESIGN-001 Phase 4 ROLES + chevron hint
+9941daf  feat(actor): SPEC-ACTOR-REDESIGN-001 Phase 3 REEL + WCAG AA token re-darken
+(+ Phase 0~2 auto-commit clusters)
+```

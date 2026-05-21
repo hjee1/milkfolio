@@ -40,17 +40,19 @@
 ## 폰트 시스템
 
 - **랜딩 (`/`)**: Cormorant Garamond (이름) + Space Grotesk (UI)
-- **/actor**: Noto Serif KR + Cormorant Garamond (한국어 시네마틱)
+- **/actor**: Cormorant Garamond (라틴 serif 디스플레이) + Pretendard (국문 sans 본문/UI) — SPEC-ACTOR-REDESIGN-001 LD1 (Noto Serif KR은 actor 범위에서 제거됨)
 - **/dev**: Space Grotesk + Inter + Fira Code (영어, 모노스페이스 액센트)
 - **/designer**: TBD (소프트 톤)
 
-폰트 로딩: Next.js `next/font` 사용 (preload + variable fonts 우선)
+폰트 로딩: 랜딩·`/dev`·`/designer`는 Next.js `next/font` 사용. `/actor`는 `globals.css @import` + Pretendard CDN(jsdelivr) — Somansa 프록시에서 `next/font` 실패로 인한 fallback. 향후 self-host woff2 권장.
 
 ## 컬러·테마 토큰
 
 - 랜딩: `#0a0e1a` 베이스
 - **/dev 액센트**: `#38d9ff` (cyan) — SPEC-DEV-REDESIGN-001에서 보조 톤 추가 예정
-- /actor 액센트: `#b8a98a` (warm gold)
+- **/actor 액센트** (SPEC-ACTOR-REDESIGN-001 LD2 v2, 2026-05-21):
+  - body off-white(`#f8f5f0`) 위: `accentGold` `#7c6240` (실측 5.25:1 WCAG AA) — eyebrow + role-type tag + hairline (REQ-ACT-U-011 gold 3 zone)
+  - hero carbon(`#0a0a0a`) 위 전용: `accentGoldOnDark` `#b8a98a` (원본 warm gold, ~10:1) — Hero eyebrow만
 - /designer 액센트: `#d4b8cc` (soft pink/lavender, placeholder)
 
 ## 보안·인증
@@ -70,12 +72,14 @@
 | 페르소나 | Performance | Accessibility | Best Practices | SEO |
 |---|---|---|---|---|
 | `/` | >= 95 | >= 95 | >= 95 | >= 95 |
-| `/actor` | >= 90 | >= 95 | >= 95 | >= 95 |
+| `/actor` | **>= 80** (REQ-ACT-N-006) | >= 95 (E4) | >= 95 | >= 95 |
 | `/dev` (재설계 후) | **>= 80** ★ | >= 95 | >= 95 | >= 90 |
 | `/designer` | >= 95 | >= 95 | >= 95 | >= 95 |
 | `/agent` | >= 85 | >= 90 | >= 95 | (비공개) |
 
 ★ /dev는 WebGL/Three.js 도입으로 Performance 천장이 다소 낮춰지나 80 이하로 내려가면 안 됨.
+
+/actor도 Hero `<video>` 활성 후 LCP·CLS 부담이 있어 80 floor. SPEC-ACTOR-REDESIGN-001 acceptance F1/F3 (LCP < 2.5s, CLS < 0.1) 동반 검증 필수.
 
 ## 브라우저 호환성
 

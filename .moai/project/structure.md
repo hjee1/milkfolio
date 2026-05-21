@@ -11,11 +11,27 @@ milkfolio/
 │   ├── page.tsx            # 랜딩 (/) — 3-panel hover-expand
 │   ├── page.module.css     # 랜딩 스타일
 │   ├── globals.css         # 글로벌 CSS, Tailwind 토큰
-│   ├── actor/              # /actor — 서해우 배우 프로필 (한국어)
+│   ├── actor/              # /actor — 서해우 배우 프로필 (한국어, SPEC-ACTOR-REDESIGN-001 6섹션 Editorial Magazine)
 │   │   ├── layout.tsx
-│   │   ├── page.tsx
-│   │   ├── page.module.css
-│   │   └── data.ts         # 출연작·갤러리 데이터
+│   │   ├── page.tsx        # Server parent, 6 sections 조립
+│   │   ├── page.module.css # off-white body + carbon hero + bridge + 12-col grid
+│   │   ├── data.ts         # PROFILE / HERO / REEL / TIMELINE / CHARACTER_CARDS / FILMOGRAPHY / NAV_LINKS
+│   │   └── _components/
+│   │       ├── Hero.tsx                # Server, 좌측 카피 + scroll cue
+│   │       ├── HeroReel.tsx            # Client, reelUrl 분기 + ken-burns + reduced-motion/data 분기
+│   │       ├── Profile.tsx             # Server, 12-col magazine grid + Cormorant h2
+│   │       ├── Reel.tsx                # Server, Netflix detail page header
+│   │       ├── ReelPlayer.tsx          # Client, WAI-ARIA tabs + sessionStorage actor.reel.lastEpisode.*
+│   │       ├── Roles.tsx               # Server, RoleTimeline + CharacterCard 3/2/1 col grid
+│   │       ├── RoleTimeline.tsx        # Server, horizontal 6작품 magazine 인덱스
+│   │       ├── CharacterCard.tsx       # Client, 4종 cardKind + 3D flip + chevron hint sessionStorage + CustomEvent
+│   │       ├── Filmography.tsx         # Server, 매거진 인덱스 6작품
+│   │       ├── Contact.tsx             # Server, C A S T I N Q U I R Y editorial
+│   │       ├── *.module.css            # 컴포넌트별 스타일
+│   │       └── shared/
+│   │           ├── tokens.ts           # ACTOR_TOKENS (accentGold #7c6240 off-white / accentGoldOnDark #b8a98a carbon)
+│   │           ├── usePrefersReducedMotion.ts
+│   │           └── usePrefersReducedData.ts
 │   ├── dev/                # /dev — Hyunwoo Jee AI Tech Engineer (영어)
 │   │   ├── layout.tsx
 │   │   ├── page.tsx        # ★ SPEC-DEV-REDESIGN-001 대상

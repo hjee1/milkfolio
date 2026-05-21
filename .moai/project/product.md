@@ -75,7 +75,7 @@
 ## 향후 로드맵
 
 1. **SPEC-DEV-REDESIGN-001 (진행 중)** — `/dev` 풀파워 재설계 (AI Technical Engineer 정체성 반영)
-2. **(예정)** `/actor` 풀파워 재설계 — 유튜브 연기 영상 카테고리(코미디·감성·자기소개·출연), 스틸컷 갤러리, 역할별 관리
+2. **완료 (2026-05-22) SPEC-ACTOR-REDESIGN-001** — `/actor` Editorial Magazine 6섹션 재설계 (Hero / Profile / Reel / Roles / Filmography / Contact). 49/49 e2e PASS, evaluator-active weighted 0.943. Phase 6/7 rolling: character note·hashtag 인터뷰 + 영상·자산 페이스트.
 3. **(예정)** `/designer` 동생 포트폴리오 자료 입수 후 구현
 4. **(예정)** 공통: favicon, OG 메타, sitemap, back-to-top
 
