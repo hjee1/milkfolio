@@ -1,0 +1,79 @@
+/* Roles — 인물 중심 섹션 (server shell).
+   off-white #f8f5f0 위. eyebrow gold-on-light (#7c6240, WCAG AA).
+   섹션 헤더 + RoleTimeline + CharacterCard grid 3-col / 2-col / 1-col.
+   SPEC-ACTOR-REDESIGN-001 REQ-ACT-U-003/U-004/U-011/U-012, REQ-ACT-S-002 */
+
+.root {
+  background-color: #f8f5f0;
+  color: #1a1a1a;
+  padding-block: clamp(5rem, 12vh, 8rem);
+  padding-inline: clamp(1.25rem, 4vw, 3rem);
+}
+
+.container {
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+/* 섹션 헤더 — eyebrow + Cormorant H2 + lead (Reel/Profile/Filmography와 동일 톤) */
+.head {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin-bottom: clamp(2.5rem, 6vh, 4rem);
+  text-align: left;
+}
+
+.eyebrow {
+  font-family: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(0.72rem, 1vw, 0.84rem);
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: #7c6240;
+  margin: 0;
+}
+
+.title {
+  font-family: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.lead {
+  font-family: var(--font-pretendard), "Pretendard", -apple-system,
+    BlinkMacSystemFont, system-ui, sans-serif;
+  font-size: clamp(0.95rem, 1.4vw, 1.05rem);
+  line-height: 1.7;
+  color: #4a4a4a;
+  margin: 0.35rem 0 0;
+  max-width: 42rem;
+}
+
+/* CharacterCard grid — desktop 3-col / tablet 2-col / mobile 1-col (REQ-ACT-S-002) */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1.25rem, 2.5vw, 2rem);
+}
+
+/* ── Responsive ── */
+@media (max-width: 1023px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .root {
+    padding-block: clamp(3.5rem, 9vh, 5.5rem);
+  }
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+}
