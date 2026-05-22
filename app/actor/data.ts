@@ -315,8 +315,9 @@ export const CHARACTER_CARDS: CharacterCard[] = [
       "/actor/assets/still_bongtu_2.jpg",
       "/actor/assets/still_bongtu_3.jpg",
     ],
-    note: "",
-    hashtags: [],
+    // Phase 6 interview round 2 (2026-05-22, 본인 직접 작성)
+    note: "어머니와의 갈등을 봉투로 표현한 작품. 단편이지만 주연으로서 갈등의 감정선을 갈등과 이해를 통해 나만의 방식으로 표현했습니다.",
+    hashtags: ["#단편", "#주연", "#가족", "#봉투", "#어머니와아들"],
     cardKind: "still",
   },
   {
