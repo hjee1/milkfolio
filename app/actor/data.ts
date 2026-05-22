@@ -274,8 +274,9 @@ export const CHARACTER_CARDS: CharacterCard[] = [
       "/actor/assets/still_netflix_1.jpg",
       "/actor/assets/still_netflix_2.jpg",
     ],
-    note: "",
-    hashtags: [],
+    // Phase 6 interview round 1 (2026-05-22, 본인 직접 작성)
+    note: "몇 컷이 들어가는 단역이지만 손님을 응대하는 점원을 평범하게 정확히 연기하며 주연들의 연기에 방해가 되지 않게 노력했습니다.",
+    hashtags: ["#Netflix", "#2025", "#생활감", "#깔끔함", "#점원"],
     cardKind: "still",
   },
   {
