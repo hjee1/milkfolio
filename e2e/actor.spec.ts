@@ -498,18 +498,21 @@ test.describe("Phase 4 roles", () => {
     await page.goto("/actor");
   });
 
-  // C5: 카드 정확히 6장, flippable 5장 (placeholder 1장 제외)
-  test("C5: section#roles renders exactly 6 character cards (REQ-ACT-U-006)", async ({
+  // C5: 카드 정확히 5장, flippable 4장 (placeholder 1장 제외).
+  // Phase 6 amendment (2026-05-22): 작품은 6편 그대로 유지되지만 character card는
+  // 5장으로 축소 — gukhyeon-2025 (그래도 사랑이었다) 카드 본인 결정으로 제거.
+  // REQ-ACT-U-006 6작품 lock은 TIMELINE/FILMOGRAPHY에서 그대로 준수.
+  test("C5: section#roles renders exactly 5 character cards (REQ-ACT-U-006 작품 6편, 카드 5장)", async ({
     page,
   }) => {
     const cards = page.locator(
       'section#roles [data-character-card="true"]',
     );
-    await expect(cards).toHaveCount(6);
+    await expect(cards).toHaveCount(5);
     const flippable = page.locator(
       'section#roles [data-character-card="true"][data-card-flippable="true"]',
     );
-    await expect(flippable).toHaveCount(5);
+    await expect(flippable).toHaveCount(4);
   });
 
   // C2: 모바일 tap → data-flipped="true" (REQ-ACT-E-004)
@@ -574,7 +577,7 @@ test.describe("Phase 4 roles", () => {
     );
     await expect(chevronsBefore.first()).toBeVisible();
     const cardCount = await chevronsBefore.count();
-    expect(cardCount).toBe(5); // 5 flippable cards
+    expect(cardCount).toBe(4); // 4 flippable cards (Phase 6 amend: 국현 카드 제거)
 
     const firstCard = page
       .locator(

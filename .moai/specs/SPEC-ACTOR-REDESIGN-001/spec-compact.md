@@ -14,7 +14,7 @@ status: completed
 `/actor`를 정적 다크 노이르 5섹션 → Editorial Magazine (VOGUE Korea) 6섹션으로 전면 재설계. 캐스팅 디렉터 30초 결정 윈도우 충족. KPI: "이 배우와 회의를 잡고 싶다".
 
 ## 6 Sections (locked)
-Hero (carbon #0a0a0a, video shell + 좌측 카피) → Profile (off-white 매거진 grid + Cormorant H1) → Reel (Netflix detail page: Intro/Scene/Featured 탭 + 좌 player + 우 list) → Roles (horizontal timeline + 6 character cards with 3D flip) → Filmography (매거진 인덱스 타이포, 6작품) → Contact (`C A S T   I N Q U I R Y` editorial).
+Hero (carbon #0a0a0a, video shell + 좌측 카피) → Profile (off-white 매거진 grid + Cormorant H1) → Reel (Netflix detail page: Intro/Scene/Featured 탭 + 좌 player + 우 list) → Roles (horizontal timeline 6작품 + 5 character cards with 3D flip, Phase 6 amend) → Filmography (매거진 인덱스 타이포, 6작품) → Contact (`C A S T   I N Q U I R Y` editorial).
 
 ## Visual System
 - Body: off-white #f8f5f0 + ink #1a1a1a, Cormorant Garamond (라틴) + Pretendard (국문). Noto Serif KR 제거(actor 범위).
@@ -72,7 +72,7 @@ Hero (carbon #0a0a0a, video shell + 좌측 카피) → Profile (off-white 매거
 
 ## Data Model (data.ts 재구조화)
 
-`PROFILE` / `HERO` (reelUrl 분기 contract) / `REEL` (3 카테고리: Intro 1ep, Scene 5ep, Featured 5ep) / `TIMELINE` (6작품, 연도 desc) / `CHARACTER_CARDS` (5 real + 1 placeholder, cardKind: still/poster/low-quality-still/placeholder) / `FILMOGRAPHY` (드라마/영화/뮤지컬 카테고리) / `NAV_LINKS` (6 sections).
+`PROFILE` / `HERO` (reelUrl 분기 contract) / `REEL` (3 카테고리: Intro 1ep, Scene 5ep, Featured 5ep) / `TIMELINE` (6작품, 연도 desc) / `CHARACTER_CARDS` (4 real + 1 placeholder = 5, cardKind: still/poster/placeholder; Phase 6 amend로 gukhyeon-2025 제거, low-quality-still kind는 현재 미사용) / `FILMOGRAPHY` (드라마/영화/뮤지컬 카테고리) / `NAV_LINKS` (6 sections).
 
 ## 6 Works (D5, locked)
 
@@ -99,7 +99,7 @@ Hero (carbon #0a0a0a, video shell + 좌측 카피) → Profile (off-white 매거
 - **B7**: prefers-reduced-data 시 탭 전환 video preload 차단
 - **C1/C2/C4**: character card hover/tap/키보드 flip
 - **C3**: placeholder card flip 비활성
-- **C5**: 카드 정확히 6장
+- **C5**: 카드 정확히 5장 (Phase 6 amend, 작품은 6편 그대로)
 - **C6**: 모바일 첫 세션 chevron 표시, 첫 탭 후 사라짐
 - **D1/D3**: hero reelUrl 빈 값 → portrait + grain + ken-burns, 카피 항상 표시
 - **E1/E2/E3**: reduced-motion / reduced-data 존중, 키보드 only 완전 탐색

@@ -228,9 +228,15 @@ export const TIMELINE: TimelineEntry[] = [
 ];
 
 // ─── CHARACTER_CARDS ───────────────────────────────────────────────
-// Phase 4 Roles 섹션의 6장 character card.
-// 5 real(stills/poster/low-quality-still) + 1 placeholder = 6.
+// Phase 4 Roles 섹션의 character card 세트.
+// 4 real(stills/poster) + 1 placeholder = 5.
 // 순서: TIMELINE과 동일하게 연도 descending.
+//
+// Phase 6 amendment (2026-05-22): gukhyeon-2025 (국현 / 그래도 사랑이었다)
+// 카드는 본인 결정으로 제거됨. 단 TIMELINE과 FILMOGRAPHY의 '그래도 사랑이었다'
+// 작품 자체는 유지 (REQ-ACT-U-006 6작품 lock 준수). 결과적으로 작품 6편 ↔
+// character card 5장 비대칭이 의도적으로 수용된다 (Roles의 RoleTimeline은
+// 6작품 모두 표시, CharacterCard grid는 5장만 표시).
 //
 // note, hashtags는 SPEC 단계에서 빈 문자열·빈 배열로 출발한다 (Phase 6
 // 인터뷰 round에서 채워진다, SPEC §2 out-of-scope).
@@ -279,18 +285,6 @@ export const CHARACTER_CARDS: CharacterCard[] = [
     note: "몇 컷이 들어가는 단역이지만 손님을 응대하는 점원을 평범하게 정확히 연기하며 주연들의 연기에 방해가 되지 않게 노력했습니다.",
     hashtags: ["#Netflix", "#2025", "#생활감", "#깔끔함", "#점원"],
     cardKind: "still",
-  },
-  {
-    id: "gukhyeon-2025",
-    characterName: "국현",
-    workTitle: "그래도 사랑이었다",
-    year: 2025,
-    roleType: "단편 · 주연",
-    coverImage: null,
-    stills: [],
-    note: "",
-    hashtags: [],
-    cardKind: "low-quality-still",
   },
   {
     id: "minhyeok-2024",

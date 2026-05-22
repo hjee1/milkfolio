@@ -185,14 +185,14 @@ test_file: e2e/actor.spec.ts
 - `videoUrl`이 빈 episode는 player·list 양쪽에서 "영상 준비 중" skeleton(미세 grain) 표시
 - [NEW] `_components/ReelPlayer.tsx` (Client) — 탭 상태 + 활성 episode + video src swap
 
-### Section 3 — ROLES (타임라인 + 6 character cards)
+### Section 3 — ROLES (타임라인 6작품 + 5 character cards, Phase 6 amend)
 
 [NEW] 인물 중심 섹션(기존에 없음)
 - 상단: `_components/RoleTimeline.tsx` — 6개 작품의 horizontal timeline
   - 정렬: 연도 descending(2026 → 2023). 가장 최근이 먼저 읽힌다.
   - 노드: 연도 + 작품명 + role-type tag(예: `Netflix · 단역`, `단편 · 주연`, `뮤지컬 · 주연`)
   - 기본 SSR 정적 렌더. scroll-linked 애니메이션 도입 시에만 Client로 승격 — 기본은 SSR.
-- 하단: character card grid (3-col 데스크톱 / 2-col 태블릿 / 1-col 모바일), 총 6장 (5 real + 1 placeholder)
+- 하단: character card grid (3-col 데스크톱 / 2-col 태블릿 / 1-col 모바일), 총 5장 (4 real + 1 placeholder, Phase 6 amend로 gukhyeon-2025 제거 — RoleTimeline은 6작품 그대로 표시)
   - 모든 카드 공통: front face = 표지 이미지(또는 typographic placeholder) + character name + 작품명 + 짧은 hashtag chip
   - back face = 스틸 mini-grid (2~3장) + 1~2줄 character note + 2~3 hashtags
   - flip 인터랙션: 데스크톱 hover + 모바일 tap, CSS 3D transform. reduced-motion이면 opacity fade로 대체.
@@ -310,7 +310,7 @@ export type CharacterCard = {
   cardKind: CardKind;
 };
 
-export const CHARACTER_CARDS: CharacterCard[]; // 5 real + 1 placeholder = 6
+export const CHARACTER_CARDS: CharacterCard[]; // 4 real + 1 placeholder = 5 (Phase 6 amend)
 
 export type FilmographyItem = {
   year: number;
@@ -507,11 +507,11 @@ SPEC-ACTOR-REDESIGN-001 자동화 범위(Phase 0~5)가 모두 구현되어 `orig
 
 ### Phase 6/7 rolling (별도 SPEC 없이 data.ts 페이스트만)
 
-- **Phase 6**: CHARACTER_CARDS 6장(준혁/점원/국현/민혁/대현/집주인)의 `note` + `hashtags` 카피 — 사용자 인터뷰 1장씩
+- **Phase 6**: CHARACTER_CARDS 5장(준혁/점원/민혁/대현/집주인)의 `note` + `hashtags` 카피 — 사용자 인터뷰 1장씩. gukhyeon-2025 카드는 본인 결정으로 제거 (작품은 TIMELINE/FILMOGRAPHY에 유지)
 - **Phase 7**: 
   - HERO `reelUrl` 페이스트 → markup 변경 0건으로 video 활성 (REQ-ACT-O-001)
   - REEL 11개 episode `videoUrl` 페이스트 → skeleton → player 활성 (REQ-ACT-O-002)
-  - 그래도 사랑이었다 still + 요즘것들 포스터 등 자산 입수 시 `CHARACTER_CARDS.coverImage` 페이스트 (REQ-ACT-O-003)
+  - 요즘것들 포스터 등 자산 입수 시 `CHARACTER_CARDS.coverImage` 페이스트 (REQ-ACT-O-003) — '그래도 사랑이었다'는 Phase 6 amend로 카드 제거되어 자산 불필요
 
 ### 사용자 runtime 검증 (SPEC 내 미해결 acceptance)
 
