@@ -299,8 +299,9 @@ export const CHARACTER_CARDS: CharacterCard[] = [
     roleType: "뮤지컬 · 주연",
     coverImage: null,
     stills: [],
-    note: "",
-    hashtags: [],
+    // Phase 6 interview round 4 (2026-05-22, 본인 직접 작성)
+    note: "민혁의 반전을 숨기며 대사와 넘버들로 자신의 마음을 차근차근 들어내는 캐릭터를 연기했습니다.",
+    hashtags: ["#2024", "#요즘것들", "#대학로", "#종합예술", "#반전"],
     cardKind: "poster",
   },
   {
