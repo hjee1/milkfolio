@@ -331,8 +331,9 @@ export const CHARACTER_CARDS: CharacterCard[] = [
       "/actor/assets/still_nun_1.jpg",
       "/actor/assets/still_nun_2.jpg",
     ],
-    note: "",
-    hashtags: [],
+    // Phase 6 interview round 3 (2026-05-22, 본인 직접 작성)
+    note: "집주인이 여주인공을 감시하는 범죄스릴러. 집, 집주인, 입주자, 이 세가지의 요소로 진행되는 스토리.",
+    hashtags: ["#단편", "#주연", "#범죄스릴러", "#변태"],
     cardKind: "still",
   },
 ];
