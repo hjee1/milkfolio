@@ -120,7 +120,15 @@
       "Bash(git commit -m 'feat\\(dev\\): drop hero particles further + remove ReflexTest progress hint *)",
       "Bash(git commit -m 'feat\\(dev\\): ReflexTest how-to-play guide + RobotPet expressions *)",
       "Bash(git commit -m 'docs\\(spec\\): mark SPEC-DEV-REDESIGN-001 session-closed; capture outstanding items *)",
-      "mcp__sequential-thinking__sequentialthinking"
+      "mcp__sequential-thinking__sequentialthinking",
+      "Bash(npx tsc *)",
+      "Bash(pnpm playwright *)",
+      "Bash(dig *)",
+      "Bash(curl *)",
+      "Bash(openssl s_client -connect 216.198.79.1:443 -servername milkfolio.space -tls1_2 -timeout 8)",
+      "Bash(openssl s_client -connect 216.198.79.1:443 -servername vercel.com -tls1_2 -timeout 8)",
+      "Bash(openssl s_client -connect 216.198.79.1:443 -servername milkfolio.space)",
+      "Bash(openssl s_client -connect 216.198.79.1:443 -servername vercel.com)"
     ]
   }
 }
