@@ -258,8 +258,9 @@ export const CHARACTER_CARDS: CharacterCard[] = [
     roleType: "단편 · 주연",
     coverImage: null,
     stills: [],
-    note: "",
-    hashtags: [],
+    // Phase 6 interview round 5 (2026-05-22, 본인 직접 작성)
+    note: "썸을 야무지게 말아먹고 키친 야무지게 뜯는 압도적 존재감. 땡길걸...",
+    hashtags: ["#단편", "#주연", "#2026"],
     cardKind: "placeholder",
   },
   {
