@@ -51,6 +51,20 @@
   margin: 0;
 }
 
+/* SEO / HAEU 두 단어를 감싸는 row span. 데스크톱에선 inline으로 흘러가서
+   nameGap과 합쳐 한 줄로 보이고, 모바일에선 nameGap이 block으로 바뀌면서
+   자연 줄바꿈이 일어난다. white-space: nowrap으로 단어 내부 글자(예: H A E U)
+   는 절대 쪼개지지 않게 한다 (image_1 'SEO HA / EU' 깨짐 방지). */
+.nameRow {
+  white-space: nowrap;
+}
+
+.nameGap {
+  /* 데스크톱: 두 단어 사이 공백을 inline으로 노출 (정확히 nbsp 2개). */
+  display: inline;
+  white-space: pre;
+}
+
 /* Korean subtitle — Pretendard light */
 .subtitle {
   font-family: var(--font-pretendard), "Pretendard", -apple-system,
@@ -120,6 +134,21 @@
   .scrollCue {
     /* 모바일에서는 scroll cue 비표시 (공간 부족) */
     display: none;
+  }
+  /* SEO / HAEU 줄바꿈 — 의도적 2줄 editorial layout.
+     nameGap을 block 처리 + 폭 0 + 줄 사이 간격을 위로 약간 끌어올림. */
+  .nameGap {
+    display: block;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    white-space: normal;
+  }
+  /* 두 줄 모두 보일 때 line-height가 너무 답답하지 않게 약간 늘림. */
+  .name {
+    line-height: 1;
+    /* 모바일 가독성 확보 — 너무 작으면 임팩트가 죽으므로 폰트는 유지하고
+       overlay 좌우 패딩으로 글자가 잘리지 않도록 한다. */
   }
 }
 

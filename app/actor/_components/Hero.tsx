@@ -33,8 +33,26 @@ export function Hero() {
         {/* eyebrow: gold zone (b) — REQ-ACT-U-011 section label small caps. */}
         <p className={styles.eyebrow}>Actor since 2023</p>
 
+        {/*
+          모바일(≤768px)에서는 'S E O' / 'H A E U' 두 줄로 의도적 분할.
+          letter-spacing이 큰 magazine 헤드라인은 한 줄에 모두 담으려 하면
+          글꼴이 너무 작아져 헤드라인 압이 죽는다. 두 줄 레이아웃은 editorial
+          톤과 자연스럽게 어울리고 헤드라인 임팩트를 유지한다.
+
+          데스크톱(>768px)에서는 nameGap이 inline으로 보여 'S E O  H A E U'
+          한 줄로 표시된다. aria-label="Seo Haeu"가 보조 기술 사용자에게는
+          분할 여부와 무관하게 단일 발화를 보장한다 (S/E/O 자모음 낭독 방지).
+        */}
         <h1 className={styles.name} aria-label="Seo Haeu">
-          <span aria-hidden="true">S E O&nbsp;&nbsp;H A E U</span>
+          <span aria-hidden="true" className={styles.nameRow}>
+            S E O
+          </span>
+          <span aria-hidden="true" className={styles.nameGap}>
+            {"  "}
+          </span>
+          <span aria-hidden="true" className={styles.nameRow}>
+            H A E U
+          </span>
         </h1>
 
         <p className={styles.subtitle}>서해우</p>

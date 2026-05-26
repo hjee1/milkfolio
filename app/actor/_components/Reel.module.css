@@ -54,38 +54,57 @@
   max-width: 42rem;
 }
 
-/* "더보기" 외부 플레이리스트 링크 — 매거진 톤 hairline.
-   ReelPlayer 바로 아래 오른쪽 정렬, ink.soft → gold hover.
-   REEL 카탈로그 밖 추가 영상을 보고 싶은 캐스팅 디렉터를 위한 출구. */
+/* "더보기" 외부 플레이리스트 링크 — gold pill 강조.
+   기존 hairline은 너무 약해 사용자가 인지하지 못한다(2026-05-26 피드백).
+   gold border + 골드-on-cream 톤으로 명시적 CTA 가시화. 매거진 톤은
+   pill의 작은 사이즈 + Pretendard 본문 글꼴 + 큰 spacing 유지로 보존. */
 .moreLine {
-  margin: clamp(1.5rem, 3vh, 2.25rem) 0 0;
-  text-align: right;
+  margin: clamp(2rem, 4vh, 3rem) 0 0;
+  text-align: center; /* 데스크톱/모바일 공통 중앙 정렬로 발견성 ↑ */
   font-family: var(--font-pretendard), "Pretendard", -apple-system,
     BlinkMacSystemFont, system-ui, sans-serif;
-  font-size: clamp(0.86rem, 1.1vw, 0.95rem);
+  font-size: clamp(0.92rem, 1.15vw, 1rem);
 }
 
 .moreLink {
   display: inline-flex;
-  align-items: baseline;
-  gap: 0.4em;
-  color: #4a4a4a; /* ink.soft */
+  align-items: center;
+  gap: 0.55em;
+  padding: 0.7em 1.4em;
+  color: #7c6240; /* accentGold — 항상 골드 톤 */
+  background-color: rgba(124, 98, 64, 0.06); /* 매우 옅은 골드 톤 fill */
+  border: 1.5px solid #7c6240;
+  border-radius: 999px;
   text-decoration: none;
-  border-bottom: 1px solid #d4ccbe;
-  padding-bottom: 2px;
-  transition: color 160ms ease, border-color 160ms ease;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  transition: background-color 180ms ease, color 180ms ease,
+    transform 180ms ease, box-shadow 180ms ease;
 }
 
 .moreLink:hover,
 .moreLink:focus-visible {
-  color: #7c6240; /* accentGold */
-  border-bottom-color: #7c6240;
+  background-color: #7c6240;
+  color: #f8f5f0; /* off-white — 반전 hover */
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px -6px rgba(124, 98, 64, 0.5);
+}
+
+.moreLink:focus-visible {
+  outline: 2px solid #7c6240;
+  outline-offset: 3px;
 }
 
 .moreArrow {
   display: inline-block;
   vertical-align: -1px;
   color: currentColor;
+  transition: transform 180ms ease;
+}
+
+.moreLink:hover .moreArrow,
+.moreLink:focus-visible .moreArrow {
+  transform: translate(2px, -2px); /* 약간 외부 링크 방향 강조 */
 }
 
 /* ── Responsive ── */
@@ -94,7 +113,8 @@
     padding-block: clamp(3.5rem, 9vh, 5.5rem);
   }
 
-  .moreLine {
-    text-align: left;
+  .moreLink {
+    /* 모바일에서도 충분한 탭 타겟 확보 (≥44px height per WCAG 2.5.5) */
+    padding: 0.85em 1.3em;
   }
 }
