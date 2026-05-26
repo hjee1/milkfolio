@@ -1,0 +1,196 @@
+/* ConceptCarousel — 컨셉 사진 캐러셀.
+   부모 컨테이너(.cardMedia)의 aspect-ratio 4:5를 채우는 absolute layer
+   기반 슬라이드. 단일 이미지면 정적, 다중 이미지면 화살표 + dot + auto-rotate.
+   매거진 톤 유지: 검정 chrome 대신 hairline + 반투명 톤. */
+
+.root {
+  position: absolute;
+  inset: 0;
+  outline: none;
+}
+
+.root:focus-visible {
+  outline: 2px solid #7c6240;
+  outline-offset: 2px;
+}
+
+.slides {
+  position: absolute;
+  inset: 0;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0;
+  transition: opacity 520ms ease;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.slide[data-active="true"] {
+  opacity: 1;
+  z-index: 1;
+}
+
+/* reduced-motion: 전환을 0으로 단축 (REQ-ACT-S-001 정신) */
+.root[data-reduced-motion="true"] .slide {
+  transition: opacity 0ms;
+}
+
+/* 좌/우 네비 — 매거진 톤. 반투명 흰 바탕 + hairline. */
+.nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  border: 1px solid rgba(212, 204, 190, 0.9); /* hairline */
+  background: rgba(248, 245, 240, 0.82); /* off-white tinted */
+  color: #1a1a1a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  transition: background 160ms ease, color 160ms ease, border-color 160ms ease,
+    opacity 160ms ease;
+  opacity: 0.85;
+}
+
+.nav:hover,
+.nav:focus-visible {
+  background: #f8f5f0;
+  color: #7c6240;
+  border-color: #7c6240;
+  opacity: 1;
+}
+
+.nav:focus-visible {
+  outline: 2px solid #7c6240;
+  outline-offset: 2px;
+}
+
+.navPrev {
+  left: 0.75rem;
+}
+
+.navNext {
+  right: 0.75rem;
+}
+
+/* dot indicators — 하단 중앙 */
+.dots {
+  position: absolute;
+  left: 50%;
+  bottom: 0.85rem;
+  transform: translateX(-50%);
+  z-index: 3;
+  display: flex;
+  gap: 0.4rem;
+  margin: 0;
+  padding: 0.35rem 0.6rem;
+  list-style: none;
+  background: rgba(248, 245, 240, 0.78);
+  border-radius: 999px;
+  border: 1px solid rgba(212, 204, 190, 0.8);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+.dotItem {
+  display: block;
+  line-height: 0;
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  border: 0;
+  padding: 0;
+  background: rgba(74, 74, 74, 0.45);
+  cursor: pointer;
+  transition: background 160ms ease, transform 160ms ease;
+}
+
+.dot[data-active="true"] {
+  background: #7c6240;
+  transform: scale(1.25);
+}
+
+.dot:hover,
+.dot:focus-visible {
+  background: #7c6240;
+}
+
+.dot:focus-visible {
+  outline: 2px solid #7c6240;
+  outline-offset: 2px;
+}
+
+/* 카운터 — 우상단 작은 라벨 */
+.counter {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  z-index: 3;
+  margin: 0;
+  padding: 0.2rem 0.55rem;
+  font-family: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  color: #1a1a1a;
+  background: rgba(248, 245, 240, 0.82);
+  border: 1px solid rgba(212, 204, 190, 0.8);
+  border-radius: 2px;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+.counterCurrent {
+  font-weight: 500;
+}
+
+.counterSep {
+  margin: 0 0.25em;
+  color: #7c6240;
+}
+
+.counterTotal {
+  color: #4a4a4a;
+}
+
+/* ── Touch / 모바일: 네비 조금 작게, 더 가까이 ── */
+@media (max-width: 768px) {
+  .nav {
+    width: 32px;
+    height: 32px;
+  }
+
+  .navPrev {
+    left: 0.5rem;
+  }
+
+  .navNext {
+    right: 0.5rem;
+  }
+
+  .dots {
+    bottom: 0.6rem;
+    padding: 0.3rem 0.5rem;
+  }
+
+  .counter {
+    top: 0.5rem;
+    right: 0.5rem;
+    font-size: 0.75rem;
+  }
+}

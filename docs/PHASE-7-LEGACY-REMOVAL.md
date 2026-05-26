@@ -1,5 +1,13 @@
 # Phase 7 — Legacy HTML 제거
 
+> **✅ COMPLETED — historical reference.**
+> 이 문서가 명시한 제거 대상(`index.html`, `actor/index.html`, `dev/index.html`,
+> `designer/index.html`, `agent/index.html`, `CNAME` 등)은 모두 main에서 삭제되었고,
+> 현재 모든 라우트는 `app/` (Next.js App Router)에서 서빙된다.
+> `agent/data.html`만 의도적으로 보존(외부 casting-agent 워크플로우가 push).
+>
+> 절차는 향후 유사한 legacy 정리 시 참조용으로 보존.
+
 GitHub Pages 시대의 정적 HTML 파일들을 안전하게 제거하는 절차.
 SPEC-MIGRATE-NEXT-001 Phase 7.
 

@@ -128,7 +128,14 @@
       "Bash(openssl s_client -connect 216.198.79.1:443 -servername milkfolio.space -tls1_2 -timeout 8)",
       "Bash(openssl s_client -connect 216.198.79.1:443 -servername vercel.com -tls1_2 -timeout 8)",
       "Bash(openssl s_client -connect 216.198.79.1:443 -servername milkfolio.space)",
-      "Bash(openssl s_client -connect 216.198.79.1:443 -servername vercel.com)"
+      "Bash(openssl s_client -connect 216.198.79.1:443 -servername vercel.com)",
+      "Bash(ffmpeg -version)",
+      "Bash(brew install *)",
+      "Bash(ffprobe -v error -show_entries format=duration,size,bit_rate -show_entries stream=width,height,r_frame_rate,codec_name -of default=noprint_wrappers=1 \"/Users/hyunwoojee/Downloads/연기영상총집합\\(~2026_05\\).mp4\")",
+      "Bash(ffmpeg -y -i '/Users/hyunwoojee/Downloads/연기영상총집합\\(~2026_05\\).mp4' -vf scale=-2:720 -c:v libx264 -preset slow -crf 30 -pix_fmt yuv420p -movflags +faststart -an public/actor/assets/hero-reel.mp4)",
+      "Bash(ffprobe -v error -show_entries format=duration,size,bit_rate -show_entries stream=width,height,codec_name -of default=noprint_wrappers=1 public/actor/assets/hero-reel.mp4)",
+      "Bash(ffmpeg -y -i '/Users/hyunwoojee/Downloads/연기영상총집합\\(~2026_05\\).mp4' -vf scale=-2:720 -c:v libx264 -preset slow -crf 23 -pix_fmt yuv420p -movflags +faststart -an public/actor/assets/hero-reel.mp4)",
+      "Bash(ffprobe -v error -show_entries format=bit_rate -of default=noprint_wrappers=1 public/actor/assets/hero-reel.mp4)"
     ]
   }
 }

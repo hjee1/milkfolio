@@ -2,6 +2,7 @@ import { SiteNav } from "@/components/SiteNav";
 import { SiteFooter } from "@/components/SiteFooter";
 import { Hero } from "./_components/Hero";
 import { Profile } from "./_components/Profile";
+import { PhotoConcepts } from "./_components/PhotoConcepts";
 import { Reel } from "./_components/Reel";
 import { Roles } from "./_components/Roles";
 import { Filmography } from "./_components/Filmography";
@@ -9,11 +10,12 @@ import { Contact } from "./_components/Contact";
 import { PROFILE, NAV_LINKS } from "./data";
 import styles from "./page.module.css";
 
-// /actor 페이지 (Phase 5 — 6 sections 완성).
-// Server Component parent. 6섹션 구조 전부 도착:
+// /actor 페이지 (Phase 5 + 2026-05-26 PhotoConcepts 인서트).
+// Server Component parent. 7섹션 구조:
 //   ✓ Hero (Phase 1)
 //   ✓ bridge (Phase 1)
 //   ✓ Profile (Phase 2)
+//   ✓ PhotoConcepts (2026-05-26)  ← Profile 직후 인서트
 //   ✓ Reel (Phase 3)
 //   ✓ Roles (Phase 4)
 //   ✓ Filmography (Phase 2)
@@ -40,6 +42,9 @@ export default function ActorPage() {
 
       {/* PROFILE (Phase 2) ────────────────────────── */}
       <Profile />
+
+      {/* PHOTO CONCEPTS (2026-05-26) ──────────────── */}
+      <PhotoConcepts />
 
       {/* REEL (Phase 3) ───────────────────────────── */}
       <Reel />

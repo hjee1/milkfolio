@@ -1,13 +1,25 @@
 # Vercel 배포 가이드
 
+> **✅ COMPLETED — historical reference (2026-05-18).**
+> 이 문서는 GitHub Pages → Vercel 마이그레이션 *절차*를 기록한 가이드이며,
+> 마이그레이션은 이미 완료되었다. 현재 운영 상태:
+>
+> - DNS: A `216.198.79.1`, `64.29.17.1` (Vercel anycast) — Namecheap에서 관리
+> - 호스팅: Vercel, region `icn1`, `hjee1/milkfolio` main 자동 배포
+> - 빌드: `pnpm install --frozen-lockfile` + `pnpm build` (vercel.json)
+> - 5 라우트 (`/`, `/actor`, `/dev`, `/designer`, `/agent`) 모두 production 정상
+>
+> 향후 재배포·도메인 변경·롤백이 필요할 때 절차 참고용으로 보존.
+> 진행 중 작업이 아니므로 체크박스의 미완료 표시는 무시.
+
 milkfolio.space 도메인을 GitHub Pages → Vercel 로 전환하는 절차. SPEC-MIGRATE-NEXT-001 Phase 6.
 
 ## 사전 조건
 
 - [x] Phase 1~5 완료 (Next.js 빌드, 5 페이지, e2e 통과)
 - [x] `vercel.json` + `.vercelignore` 커밋됨
-- [ ] Vercel 계정 (https://vercel.com — GitHub OAuth 가입 가능)
-- [ ] Namecheap (또는 도메인 등록 업체) 로그인 정보
+- [x] Vercel 계정 (https://vercel.com — GitHub OAuth 가입 가능)
+- [x] Namecheap (또는 도메인 등록 업체) 로그인 정보
 
 ## 권장: GitHub 연동 방식 (CLI 보다 안전)
 

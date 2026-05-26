@@ -167,14 +167,16 @@ test.describe("profile + filmography (Phase 2)", () => {
     expect(naturalWidth).toBeGreaterThan(0);
   });
 
-  test("profile table contains key info (1994.04.18, 180cm, terryjhw@gmail.com)", async ({
+  test("profile table contains key info (1994.04.18, 180cm, seohaeu.actor@gmail.com)", async ({
     page,
   }) => {
     await page.goto("/actor");
     const profile = page.locator("section#profile");
     await expect(profile).toContainText("1994.04.18");
     await expect(profile).toContainText(/180\s*cm/);
-    await expect(profile).toContainText("terryjhw@gmail.com");
+    await expect(profile).toContainText("seohaeu.actor@gmail.com");
+    // terryjhw@... 매핑은 2026-05-26 제거됨 — 페르소나 누출 위험 0 달성.
+    await expect(profile).not.toContainText("terryjhw");
   });
 
   test("profile section does NOT expose 학력/IIT/Computer Science (REQ-ACT-N-004)", async ({
@@ -189,7 +191,7 @@ test.describe("profile + filmography (Phase 2)", () => {
     expect(text).not.toMatch(/학력/);
   });
 
-  test("filmography category labels (드라마 / 영화 / 뮤지컬) render", async ({
+  test("filmography category labels (드라마 / 영화 / 뮤지컬 / 광고) render", async ({
     page,
   }) => {
     await page.goto("/actor");
@@ -197,6 +199,8 @@ test.describe("profile + filmography (Phase 2)", () => {
     await expect(filmography.getByText("드라마", { exact: true })).toBeVisible();
     await expect(filmography.getByText("영화", { exact: true })).toBeVisible();
     await expect(filmography.getByText("뮤지컬", { exact: true })).toBeVisible();
+    // 2026-05-26: 너만 있으면 광고 분리 (단편 → 광고). 새 카테고리.
+    await expect(filmography.getByText("광고", { exact: true })).toBeVisible();
   });
 
   test("filmography lists exactly 6 works (REQ-ACT-U-006 / acceptance H1)", async ({
@@ -279,12 +283,9 @@ test.describe("profile + filmography (Phase 2)", () => {
       "Data Engineer",
       "Hyunwoo Jee",
       "지현우",
-      // 'Terry'는 case-insensitive grep이지만 'terry'는 이메일 'terryjhw'에
-      // 포함되므로 단어 경계로 한정한다. acceptance H3는 substring 검색이지만
-      // 'terryjhw@gmail.com'에서 substring 'terry'가 잡히면 이메일을 노출할 수
-      // 없어진다 — 이메일은 합리적 캐스팅 contact이므로 word boundary로 검증.
-      // (acceptance H3의 의도는 페르소나 호명이지 이메일 차단이 아니다.)
-      // word boundary 검증은 별도 케이스에서 처리하지 않고 main에서 제거.
+      // 'Terry' word boundary는 별도 케이스에서 검증. 2026-05-26 이메일이
+      // seohaeu.actor@... 으로 통일된 이후로는 본문에 'terry' substring이
+      // 잡힐 통로 자체가 사라졌으나, 페르소나 호명을 막는 H3 가드는 유지.
       "developer",
       "engineer",
       "엔지니어",
@@ -391,99 +392,85 @@ test.describe("reel (Phase 3)", () => {
     await expect(introTab).toHaveAttribute("aria-selected", "true");
   });
 
-  // B3 empty videoUrl skeleton — 모든 episode가 빈 URL이므로 skeleton 가시
-  test("B3: empty videoUrl renders skeleton overlay + <video> markup reserved (REQ-ACT-O-001/O-002)", async ({
+  // B3 (2026-05-26 변경): 모든 카테고리에 YouTube URL이 채워졌으므로 skeleton
+  // 분기는 활성되지 않는다. 대신 iframe이 1개 마운트되었는지 검증한다.
+  // <video> 마크업은 비-YouTube 분기 fallback이므로 더 이상 강제하지 않는다.
+  test("B3: REEL renders YouTube iframe instead of skeleton (REQ-ACT-O-001/O-002 amendment)", async ({
     page,
   }) => {
     await page.goto("/actor");
     const reel = page.locator("section#reel");
-    // <video> 마크업은 항상 예약되어야 한다 (REQ-ACT-O-001)
-    await expect(reel.locator("video")).toHaveCount(1);
-    // skeleton overlay 표시
-    await expect(reel.locator("[data-skeleton='true']")).toBeVisible();
-    // skeleton 카피 가시 — "영상 준비 중"
-    await expect(reel.getByText("영상 준비 중")).toBeVisible();
+    // 활성 카테고리(Intro) 영상이 youtube-nocookie iframe으로 마운트.
+    await expect(reel.locator("iframe")).toHaveCount(1);
+    const src = await reel.locator("iframe").first().getAttribute("src");
+    expect(src ?? "").toContain("youtube-nocookie.com/embed/");
+    // skeleton 분기는 활성되지 않음.
+    await expect(reel.locator("[data-skeleton='true']")).toHaveCount(0);
+    await expect(reel.getByText("영상 준비 중")).toHaveCount(0);
   });
 
-  // B5 no third-party iframe (REQ-ACT-N-001)
-  test("B5: Reel section contains no <iframe>", async ({ page }) => {
+  // B5 (2026-05-26 amendment): REQ-ACT-N-001 "no third-party iframe"은 본인
+  // YouTube 영상 공유 결정으로 명시적 예외 처리. REEL 내 iframe은 정확히 1개
+  // (현재 활성 episode), youtube-nocookie.com 도메인으로 한정한다.
+  test("B5: REEL contains exactly 1 YouTube iframe (privacy-enhanced domain)", async ({
+    page,
+  }) => {
     await page.goto("/actor");
-    const iframes = await page.locator("section#reel iframe").count();
-    expect(iframes).toBe(0);
+    const iframes = page.locator("section#reel iframe");
+    await expect(iframes).toHaveCount(1);
+    const src = (await iframes.first().getAttribute("src")) ?? "";
+    expect(src).toMatch(/^https:\/\/www\.youtube-nocookie\.com\/embed\//);
   });
 
-  // B6 sessionStorage: 선택 episode 저장 + reload 후 복원, localStorage 미사용
-  test("B6: episode selection persists in sessionStorage; localStorage stays empty", async ({
+  // B6 (2026-05-26 변경): 각 카테고리가 1개 episode로 축소되어 다른 episode를
+  // 골라 저장 검증하는 분기는 의미가 없다. 대신 다른 카테고리(Scene)를 활성화
+  // 했을 때 episode-1이 자동 선택되고 sessionStorage가 작성되는지 검증한다.
+  test("B6: switching category writes sessionStorage; localStorage stays empty", async ({
     page,
   }) => {
     await page.goto("/actor");
 
-    // Scene 탭 활성화
+    // Scene 탭 활성화 — Scene 카테고리에는 scene-1만 존재.
     const sceneTab = page
       .locator("section#reel [role='tab']")
       .filter({ hasText: "Scene" });
     await sceneTab.click();
 
-    // scene-3 episode 클릭 (Scene 카테고리의 3번째)
-    const episode3 = page
-      .locator("section#reel [data-episode-id='scene-3']")
+    // Scene 영역의 유일한 episode(scene-1)을 명시적으로 클릭하여 저장 트리거.
+    const scene1 = page
+      .locator("section#reel [data-episode-id='scene-1']")
       .first();
-    await episode3.click();
+    await scene1.click();
 
-    // sessionStorage 저장 확인
     const storedScene = await page.evaluate(() =>
       window.sessionStorage.getItem("actor.reel.lastEpisode.scene"),
     );
-    expect(storedScene).toBe("scene-3");
+    expect(storedScene).toBe("scene-1");
 
     // localStorage는 사용 금지 — 전체 페이지에서 0건 (REQ-ACT-N-002)
     const localLen = await page.evaluate(() => window.localStorage.length);
     expect(localLen).toBe(0);
 
-    // 페이지 reload 후 Scene 탭 다시 활성화 → scene-3가 selected
+    // 페이지 reload 후 Scene 탭 다시 활성화 → scene-1가 selected
     await page.reload();
     await sceneTab.click();
     await expect(
-      page.locator("section#reel [data-episode-id='scene-3']").first(),
+      page.locator("section#reel [data-episode-id='scene-1']").first(),
     ).toHaveAttribute("aria-selected", "true");
   });
 
-  // B7 reduced-data preload: matchMedia를 init script에서 패치
-  test("B7: prefers-reduced-data sets <video preload='none'> (REQ-ACT-E-007)", async ({
+  // B7 (2026-05-26 amendment): 활성 episode가 YouTube iframe으로 바뀌어
+  // <video preload> 가드는 더 이상 작동하지 않는다. 대신 iframe에 lazy
+  // loading이 적용되어 reduced-data 환경에서도 초기 트래픽이 차단되는지
+  // 확인한다 (REQ-ACT-E-007 정신 유지).
+  test("B7: REEL iframe uses loading='lazy' for reduced-data parity (REQ-ACT-E-007)", async ({
     page,
-    context,
   }) => {
-    // beforeEach가 아닌 per-test로 matchMedia를 override.
-    await context.addInitScript(() => {
-      const origMM = window.matchMedia.bind(window);
-      window.matchMedia = (q: string) => {
-        if (q.includes("prefers-reduced-data")) {
-          return {
-            matches: true,
-            media: q,
-            onchange: null,
-            addListener: () => {},
-            removeListener: () => {},
-            addEventListener: () => {},
-            removeEventListener: () => {},
-            dispatchEvent: () => false,
-          } as unknown as MediaQueryList;
-        }
-        return origMM(q);
-      };
-    });
     await page.goto("/actor");
-    const reelVideo = page.locator("section#reel video").first();
-    await expect(reelVideo).toHaveCount(1);
-    const preload = await reelVideo.evaluate(
-      (el) => (el as HTMLVideoElement).getAttribute("preload"),
-    );
-    expect(preload).toBe("none");
-    // autoplay는 비활성
-    const autoplay = await reelVideo.evaluate(
-      (el) => (el as HTMLVideoElement).autoplay,
-    );
-    expect(autoplay).toBe(false);
+    const reelIframe = page.locator("section#reel iframe").first();
+    await expect(reelIframe).toHaveCount(1);
+    const loading = await reelIframe.getAttribute("loading");
+    expect(loading).toBe("lazy");
   });
 });
 
@@ -498,11 +485,11 @@ test.describe("Phase 4 roles", () => {
     await page.goto("/actor");
   });
 
-  // C5: 카드 정확히 5장, flippable 4장 (placeholder 1장 제외).
-  // Phase 6 amendment (2026-05-22): 작품은 6편 그대로 유지되지만 character card는
-  // 5장으로 축소 — gukhyeon-2025 (그래도 사랑이었다) 카드 본인 결정으로 제거.
-  // REQ-ACT-U-006 6작품 lock은 TIMELINE/FILMOGRAPHY에서 그대로 준수.
-  test("C5: section#roles renders exactly 5 character cards (REQ-ACT-U-006 작품 6편, 카드 5장)", async ({
+  // C5 (2026-05-26 amendment): 너만있으면(준혁) 카드가 광고 stills 도착으로
+  // placeholder → still로 승격되어 placeholder 카드가 0개가 되었다. 카드 5장
+  // 전부 flippable. 작품 6편 lock(REQ-ACT-U-006)은 TIMELINE/FILMOGRAPHY에서
+  // 그대로 준수.
+  test("C5: section#roles renders exactly 5 character cards, all flippable (REQ-ACT-U-006 작품 6편, 카드 5장)", async ({
     page,
   }) => {
     const cards = page.locator(
@@ -512,7 +499,7 @@ test.describe("Phase 4 roles", () => {
     const flippable = page.locator(
       'section#roles [data-character-card="true"][data-card-flippable="true"]',
     );
-    await expect(flippable).toHaveCount(4);
+    await expect(flippable).toHaveCount(5);
   });
 
   // C2: 모바일 tap → data-flipped="true" (REQ-ACT-E-004)
@@ -535,15 +522,26 @@ test.describe("Phase 4 roles", () => {
     await context.close();
   });
 
-  // C3: placeholder 카드는 flip 비활성 (REQ-ACT-E-005)
-  test("C3: placeholder card is not interactive (REQ-ACT-E-005)", async ({
+  // C3 (2026-05-26 amendment): placeholder 카드가 모두 still로 승격되어
+  // 현재 데이터셋에는 placeholder 카드가 0개이다. 가드 자체는 유지 — 향후
+  // 새 작품이 추가될 때 placeholder가 다시 들어오면 인터랙티브하지 않아야
+  // 하므로 placeholder 카드가 존재할 때만 비-flippable이 강제되는지를 약식
+  // 검증한다 (현재 데이터에서는 0건이라 0건 자체가 기대값).
+  test("C3: placeholder cards (if any) are non-interactive (REQ-ACT-E-005)", async ({
     page,
   }) => {
     const placeholder = page.locator(
       'section#roles [data-character-card="true"][data-card-kind="placeholder"]',
     );
-    await expect(placeholder).toHaveCount(1);
-    await expect(placeholder).toHaveAttribute("data-card-flippable", "false");
+    const count = await placeholder.count();
+    expect(count).toBe(0);
+    // 향후 placeholder가 재등장하면 아래 단언이 자동으로 가드 역할을 한다.
+    for (let i = 0; i < count; i++) {
+      await expect(placeholder.nth(i)).toHaveAttribute(
+        "data-card-flippable",
+        "false",
+      );
+    }
   });
 
   // C4: 키보드 Enter로 flip 토글 (REQ-ACT-S-003)
@@ -577,7 +575,9 @@ test.describe("Phase 4 roles", () => {
     );
     await expect(chevronsBefore.first()).toBeVisible();
     const cardCount = await chevronsBefore.count();
-    expect(cardCount).toBe(4); // 4 flippable cards (Phase 6 amend: 국현 카드 제거)
+    // 2026-05-26: 너만있으면(준혁) 카드 placeholder→still 승격으로 flippable
+    // 카드가 5장이 되었다 (Phase 6 amend의 4장 → 5장).
+    expect(cardCount).toBe(5);
 
     const firstCard = page
       .locator(
@@ -703,7 +703,7 @@ test.describe("Phase 5 final assembly", () => {
     const contact = page.locator("section#contact");
     await expect(contact).toBeVisible();
     await expect(
-      contact.locator('a[href="mailto:terryjhw@gmail.com"]'),
+      contact.locator('a[href="mailto:seohaeu.actor@gmail.com"]'),
     ).toHaveCount(1);
     await expect(
       contact.locator('a[href*="instagram.com/oceanmeetrain"]'),
@@ -804,7 +804,7 @@ test.describe("Phase 5 final assembly", () => {
       expect(lower).not.toContain(s);
     }
 
-    // 'Terry'는 word boundary로 검증 — 'terryjhw@gmail.com' 이메일은 허용.
+    // 'Terry'는 word boundary로 검증 — 'seohaeu.actor@gmail.com' 이메일은 허용.
     // case-insensitive word boundary 매칭은 본문에 단독 'Terry'가 노출되면
     // 위반이지만 이메일 사용자명에 포함된 'terryjhw'는 word 일부라 통과한다.
     expect(joined).not.toMatch(/\bTerry\b/i);
@@ -851,7 +851,7 @@ test.describe("Phase 5 final assembly", () => {
 
   // E3 sample: 키보드 Tab traversal이 Contact 이메일 링크에 도달 가능
   // (REQ-ACT-S-003). 페이지 첫 focusable에서 시작해 Tab을 충분히 눌러
-  // mailto:terryjhw@gmail.com anchor가 활성 포커스가 되는지 확인한다.
+  // mailto:seohaeu.actor@gmail.com anchor가 활성 포커스가 되는지 확인한다.
   test("E3: tab order reaches Contact mailto link (REQ-ACT-S-003)", async ({
     page,
   }) => {
@@ -871,7 +871,7 @@ test.describe("Phase 5 final assembly", () => {
       });
       if (
         focused.tag === "A" &&
-        focused.href.startsWith("mailto:terryjhw@gmail.com")
+        focused.href.startsWith("mailto:seohaeu.actor@gmail.com")
       ) {
         reached = true;
         break;

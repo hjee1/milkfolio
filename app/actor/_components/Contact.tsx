@@ -14,9 +14,9 @@ import styles from "./Contact.module.css";
  *
  * 페르소나 분리 (REQ-ACT-N-004): 본 컴포넌트의 모든 텍스트는 정적이며
  * prohibited substring(IIT / Hanwha / developer / engineer / Terry word
- * boundary / 지현우 …) 0건이 작성 시점에 확정된다. 이메일
- * `terryjhw@gmail.com`은 캐스팅 contact으로 허용 (word boundary 검증을
- * 통과하므로 'Terry' 단독 노출이 아니다).
+ * boundary / 지현우 …) 0건이 작성 시점에 확정된다. 캐스팅 contact 이메일은
+ * `seohaeu.actor@gmail.com`으로 통일되어 페르소나 누출 위험이 0이다
+ * (이전 terryjhw@... 매핑은 2026-05-26 제거됨).
  *
  * 톤:
  *   - eyebrow: gold-on-light (`accentGold` #7c6240) small caps (REQ-ACT-U-011)
@@ -56,9 +56,9 @@ export function Contact() {
             <span className={styles.linkLabel}>Email</span>
             <a
               className={styles.emailLink}
-              href="mailto:terryjhw@gmail.com"
+              href="mailto:seohaeu.actor@gmail.com"
             >
-              terryjhw@gmail.com
+              seohaeu.actor@gmail.com
             </a>
           </li>
           <li className={styles.linkRow}>

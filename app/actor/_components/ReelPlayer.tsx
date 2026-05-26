@@ -21,6 +21,42 @@ import styles from "./ReelPlayer.module.css";
  */
 const STORAGE_PREFIX = "actor.reel.lastEpisode";
 
+/**
+ * YouTube watch / youtu.be / embed URL에서 video ID를 추출.
+ * 매칭 실패 시 null. ReelPlayer가 이 값으로 iframe vs <video> 분기.
+ *
+ * 지원 패턴:
+ *   - https://youtu.be/{id}
+ *   - https://www.youtube.com/watch?v={id}
+ *   - https://www.youtube.com/embed/{id}
+ *   - 위 패턴에 ? 쿼리스트링이나 추가 path가 따라붙어도 11자 ID만 추출
+ *
+ * @MX:NOTE: [AUTO] YouTube ID는 정확히 11자 [A-Za-z0-9_-]. 호환성 위해
+ *           정규식으로 좁혀서 추출하고, 그 외 입력은 null로 fail-closed.
+ */
+function parseYouTubeId(url: string): string | null {
+  if (!url) return null;
+  try {
+    const parsed = new URL(url);
+    const host = parsed.hostname.replace(/^www\./, "");
+    if (host === "youtu.be") {
+      const id = parsed.pathname.slice(1).split("/")[0] ?? "";
+      return /^[A-Za-z0-9_-]{11}$/.test(id) ? id : null;
+    }
+    if (host === "youtube.com" || host === "m.youtube.com") {
+      if (parsed.pathname === "/watch") {
+        const v = parsed.searchParams.get("v") ?? "";
+        return /^[A-Za-z0-9_-]{11}$/.test(v) ? v : null;
+      }
+      const embedMatch = parsed.pathname.match(/^\/embed\/([A-Za-z0-9_-]{11})/);
+      if (embedMatch) return embedMatch[1] ?? null;
+    }
+  } catch {
+    return null;
+  }
+  return null;
+}
+
 type ReelPlayerProps = {
   categories: ReelCategory[];
 };
@@ -183,9 +219,19 @@ export function ReelPlayer({ categories }: ReelPlayerProps) {
     activeCategory.episodes[0];
   const activeVideoUrl = activeEpisode?.videoUrl ?? "";
   const hasVideo = Boolean(activeVideoUrl);
+  const youTubeId = hasVideo ? parseYouTubeId(activeVideoUrl) : null;
+  const isYouTube = youTubeId !== null;
 
   // reduced-data → preload="none". 기본은 "metadata" (REQ-ACT-E-007).
+  // YouTube iframe 분기에서는 사용되지 않지만 <video> fallback에서 사용.
   const preload: "none" | "metadata" = reducedData ? "none" : "metadata";
+
+  // YouTube embed URL — reduced-data 활성 시 autoplay 차단, 그 외 기본도 자동
+  // 재생하지 않음(rel=0, modestbranding=1). 사용자가 클릭하여 재생 (REEL은
+  // 캐스팅 디렉터가 명시적으로 보고 싶은 영상만 본다는 가정).
+  const youTubeSrc = youTubeId
+    ? `https://www.youtube-nocookie.com/embed/${youTubeId}?rel=0&modestbranding=1&playsinline=1`
+    : "";
 
   return (
     <div className={styles.player}>
@@ -245,16 +291,30 @@ export function ReelPlayer({ categories }: ReelPlayerProps) {
           <div
             className={styles.videoFrame}
             data-skeleton={hasVideo ? "false" : "true"}
+            data-source={isYouTube ? "youtube" : hasVideo ? "mp4" : "none"}
           >
-            <video
-              key={activeEpisode?.id ?? activeCategory.id}
-              className={styles.video}
-              controls
-              playsInline
-              preload={preload}
-              autoPlay={false}
-              {...(hasVideo ? { src: activeVideoUrl } : {})}
-            />
+            {isYouTube ? (
+              <iframe
+                key={activeEpisode?.id ?? activeCategory.id}
+                className={styles.video}
+                src={youTubeSrc}
+                title={activeEpisode?.title ?? "데모 영상"}
+                loading="lazy"
+                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                referrerPolicy="strict-origin-when-cross-origin"
+              />
+            ) : (
+              <video
+                key={activeEpisode?.id ?? activeCategory.id}
+                className={styles.video}
+                controls
+                playsInline
+                preload={preload}
+                autoPlay={false}
+                {...(hasVideo ? { src: activeVideoUrl } : {})}
+              />
+            )}
             {!hasVideo ? (
               <div className={styles.skeleton} aria-hidden="true">
                 <div className={styles.skeletonGrain} />

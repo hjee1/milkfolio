@@ -1,4 +1,4 @@
-import { REEL } from "../data";
+import { REEL, REEL_MORE_PLAYLIST_URL } from "../data";
 import { ReelPlayer } from "./ReelPlayer";
 import styles from "./Reel.module.css";
 
@@ -48,6 +48,41 @@ export function Reel() {
         </header>
 
         <ReelPlayer categories={REEL} />
+
+        {/*
+          더보기 — 본인 YouTube 플레이리스트로 외부 이동. ReelPlayer 카탈로그
+          밖의 추가 영상을 보고 싶은 캐스팅 디렉터를 위한 출구 (외부 자원이라
+          target=_blank + noopener noreferrer 강제).
+        */}
+        <p className={styles.moreLine}>
+          <a
+            className={styles.moreLink}
+            href={REEL_MORE_PLAYLIST_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            더보기 — YouTube 플레이리스트
+            {/* 인라인 SVG 화살표 — 매거진 톤 유지 + Unicode emoji 글리프
+                회피 (REQ-ACT-N-008). */}
+            <svg
+              className={styles.moreArrow}
+              width="12"
+              height="12"
+              viewBox="0 0 12 12"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <path
+                d="M3.5 8.5L8.5 3.5M4.5 3.5h4v4"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.4"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </a>
+        </p>
       </div>
     </section>
   );

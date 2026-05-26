@@ -1,7 +1,23 @@
 # PROJECT_LOG — milkfolio
-> Last updated: 2026-04-17
-> This file is the source of truth for the milkfolio portfolio project.
-> Future Claude sessions: read this first before touching anything.
+
+> **⚠️ HISTORICAL ARCHIVE (frozen 2026-04-17 state).**
+> This file is **no longer source of truth.** It captures the GitHub Pages /
+> pure-HTML era and the early designer build, kept for narrative context.
+>
+> **Current SoT (as of 2026-05-22):**
+> - **Project context:** `.moai/project/product.md` · `structure.md` · `tech.md`
+> - **Quick reference:** `CLAUDE.md` (root)
+> - **Active SPECs:** `.moai/specs/`
+> - **Stack changed:** pure HTML/CSS on GitHub Pages → **Next.js 16 + React 19 + Vercel**
+>   (see `docs/DEPLOY-VERCEL.md` for the migration; `docs/PHASE-7-LEGACY-REMOVAL.md` for the cleanup)
+> - **/dev identity changed:** Data Engineer → **AI Technical Engineer** (한화시스템 AI기술팀)
+> - **/actor redesigned:** SPEC-ACTOR-REDESIGN-001 (Editorial Magazine 6섹션) completed
+>
+> If anything below contradicts the current SoT, trust the SoT.
+
+---
+
+## Original content (frozen 2026-04-17)
 
 ---
 

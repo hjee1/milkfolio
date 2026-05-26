@@ -15,8 +15,8 @@ import styles from "./Profile.module.css";
  * 페르소나 분리 (REQ-ACT-N-004):
  *   - PROFILE.info에는 학력/본업/엔지니어/Terry 등 prohibited substring이
  *     포함되지 않는다 (data.ts에서 enforce).
- *   - 이메일 `terryjhw@gmail.com`은 캐스팅 contact으로 허용 (substring
- *     `terry`는 word boundary로 판단되어 본문 검증에서 통과).
+ *   - 이메일 `seohaeu.actor@gmail.com`은 캐스팅 contact으로 사용. 이전
+ *     terryjhw@... 매핑은 2026-05-26 제거됨 (페르소나 누출 위험 0 달성).
  *
  * 매거진 톤:
  *   - eyebrow는 gold-on-light (#7c6240, ACTOR_TOKENS.accentGold) small caps
