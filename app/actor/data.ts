@@ -229,7 +229,11 @@ export const PHOTO_CONCEPTS: PhotoConcept[] = [
     id: "office",
     labelKo: "직장인 컨셉",
     labelEn: "Office",
-    images: ["/actor/assets/concept/office_1.jpeg"],
+    images: [
+      "/actor/assets/concept/office_1.jpeg",
+      "/actor/assets/concept/office_2.jpeg",
+      "/actor/assets/concept/office_3.jpeg",
+    ],
     altBase: "서해우 직장인 컨셉",
   },
   {
@@ -337,8 +341,8 @@ export const CHARACTER_CARDS: CharacterCard[] = [
       "/actor/assets/still_neoman_2.png",
       "/actor/assets/still_neoman_3.png",
     ],
-    // Phase 6 interview round 5 (2026-05-22, 본인 직접 작성)
-    note: "썸을 야무지게 말아먹고 키친 야무지게 뜯는 압도적 존재감. 땡길걸...",
+    // Phase 6 interview round 5 (2026-05-22 작성, 2026-05-26 본인 수정).
+    note: "실패한 썸을 뒤로하고 배달음식으로 마음을 달래는 인간남자. 땡길걸...",
     hashtags: ["#광고", "#주연", "#2026"],
     cardKind: "still",
   },
