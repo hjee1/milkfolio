@@ -146,7 +146,21 @@
       "Bash(cp ~/Downloads/서해우프로필사진/직장인컨셉_2.jpeg public/actor/assets/concept/office_2.jpeg)",
       "Bash(cp ~/Downloads/서해우프로필사진/직장인컨셉_3.jpeg public/actor/assets/concept/office_3.jpeg)",
       "Bash(ffmpeg -y -ss 30 -i public/actor/assets/hero-reel.mp4 -frames:v 1 -q:v 3 public/actor/assets/hero.jpg)",
-      "Bash(sips -g pixelWidth -g pixelHeight public/actor/assets/hero.jpg)"
+      "Bash(sips -g pixelWidth -g pixelHeight public/actor/assets/hero.jpg)",
+      "Bash(node -e \"const p=require\\('./package.json'\\); console.log\\(JSON.stringify\\({name:p.name, packageManager:p.packageManager, engines:p.engines, scripts:p.scripts}, null, 2\\)\\)\")",
+      "Bash(rm -rf /private/tmp/claude-501/-Users-hyunwoojee-milkfolio/a9faf01f-8d31-44af-93c2-d4f36e816490/scratchpad/mf-diag)",
+      "Bash(git worktree *)",
+      "Bash(git -C /private/tmp/claude-501/-Users-hyunwoojee-milkfolio/a9faf01f-8d31-44af-93c2-d4f36e816490/scratchpad/mf-diag log --oneline -1)",
+      "Bash(echo \"===== BUILD EXIT: $? =====\")",
+      "Bash(grep -Ev \"^\\\\s*$\")",
+      "Bash(git ls-tree *)",
+      "Bash(git merge *)",
+      "Bash(mdfind -name casting-agent)"
     ]
-  }
+  },
+  "enabledMcpjsonServers": [
+    "context7",
+    "sequential-thinking",
+    "moai-lsp"
+  ]
 }

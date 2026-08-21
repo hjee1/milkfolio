@@ -1,0 +1,3893 @@
+{
+  "communities": {
+    "0": [
+      "actor_data",
+      "actor_data_cardkind",
+      "actor_data_character_cards",
+      "actor_data_charactercard",
+      "actor_data_filmography",
+      "actor_data_filmographyblock",
+      "actor_data_filmographyentry",
+      "actor_data_hero",
+      "actor_data_nav_links",
+      "actor_data_navlink",
+      "actor_data_photo_concepts",
+      "actor_data_photoconcept",
+      "actor_data_profile",
+      "actor_data_profileinforow",
+      "actor_data_reel",
+      "actor_data_reelcategory",
+      "actor_data_reelcategoryid",
+      "actor_data_reelepisode",
+      "actor_data_roletype",
+      "actor_data_timeline",
+      "actor_data_timelineentry",
+      "actor_page",
+      "actor_page_actorpage",
+      "app_actor_components_hero_tsx_components_hero",
+      "app_actor_components_hero_tsx_components_hero_hero",
+      "components_charactercard",
+      "components_charactercard_charactercard",
+      "components_charactercard_charactercardprops",
+      "components_conceptcarousel",
+      "components_conceptcarousel_conceptcarousel",
+      "components_conceptcarousel_conceptcarouselprops",
+      "components_contact",
+      "components_contact_contact",
+      "components_filmography",
+      "components_filmography_filmography",
+      "components_heroreel",
+      "components_heroreel_heroreel",
+      "components_heroreel_heroreelprops",
+      "components_photoconcepts",
+      "components_photoconcepts_photoconcepts",
+      "components_profile",
+      "components_profile_profile",
+      "components_reel",
+      "components_reel_reel",
+      "components_reelplayer",
+      "components_reelplayer_episodeselection",
+      "components_reelplayer_parseyoutubeid",
+      "components_reelplayer_reelplayer",
+      "components_reelplayer_reelplayerprops",
+      "components_roles",
+      "components_roles_roles",
+      "components_roletimeline",
+      "components_roletimeline_roletimeline",
+      "components_sitefooter",
+      "components_sitefooter_sitefooter",
+      "components_sitenav",
+      "components_sitenav_navlink",
+      "components_sitenav_sitenav",
+      "shared_useprefersreduceddata",
+      "shared_useprefersreduceddata_useprefersreduceddata"
+    ],
+    "1": [
+      "moai_agent_common_protocol",
+      "moai_agent_hooks",
+      "moai_askuserquestion",
+      "moai_background_write_restriction",
+      "moai_checkpoint_gate",
+      "moai_clean",
+      "moai_codemaps",
+      "moai_constitution",
+      "moai_context7",
+      "moai_coverage",
+      "moai_dark_flow_warning",
+      "moai_db",
+      "moai_delegation_decision",
+      "moai_design",
+      "moai_e2e",
+      "moai_einstein",
+      "moai_feedback",
+      "moai_feynman_protocol",
+      "moai_fix",
+      "moai_four_stage",
+      "moai_handle_agent_hook_sh",
+      "moai_hook_actions_table",
+      "moai_hook_events_table",
+      "moai_hook_factory_go",
+      "moai_hooks_system",
+      "moai_learning_dir",
+      "moai_lessons_protocol",
+      "moai_loop",
+      "moai_mx",
+      "moai_mx_quality_gates",
+      "moai_mx_tag_integration",
+      "moai_notion_mcp",
+      "moai_opus47_philosophy",
+      "moai_orchestrator",
+      "moai_plan",
+      "moai_posttooluse_event",
+      "moai_pretooluse_event",
+      "moai_progress_board",
+      "moai_project_cmd",
+      "moai_researcher",
+      "moai_researcher_binary_eval",
+      "moai_researcher_frozenguard",
+      "moai_researcher_workflow",
+      "moai_review",
+      "moai_run",
+      "moai_six_core_behaviors",
+      "moai_skill_router",
+      "moai_subagentstop_event",
+      "moai_sync",
+      "moai_taskcompleted_event",
+      "moai_teammateidle_event",
+      "moai_thin_command_pattern",
+      "moai_trust5"
+    ],
+    "2": [
+      "agent_actions",
+      "agent_actions_data_file",
+      "agent_actions_fetchagentdata",
+      "agent_agentclient",
+      "agent_agentclient_agentclient",
+      "agent_agentclient_anomalysection",
+      "agent_agentclient_applicationcard",
+      "agent_agentclient_applicationssection",
+      "agent_agentclient_channelrow",
+      "agent_agentclient_channelssection",
+      "agent_agentclient_costssection",
+      "agent_agentclient_dashboard",
+      "agent_agentclient_filterandsort",
+      "agent_agentclient_filterargs",
+      "agent_agentclient_gate",
+      "agent_agentclient_getperiodwindow",
+      "agent_agentclient_inperiod",
+      "agent_agentclient_mapbadgeclass",
+      "agent_agentclient_matchstatus",
+      "agent_agentclient_numclass",
+      "agent_agentclient_parsedate",
+      "agent_agentclient_periodfilter",
+      "agent_agentclient_periodsection",
+      "agent_agentclient_periodwindow",
+      "agent_agentclient_sanitizebody",
+      "agent_agentclient_sectionprops",
+      "agent_agentclient_sha256",
+      "agent_agentclient_sortkey",
+      "agent_agentclient_statusfilter",
+      "agent_agentclient_tab",
+      "agent_page",
+      "agent_page_agentpage",
+      "lib_parse_data_html",
+      "lib_parse_data_html_parseanomaly",
+      "lib_parse_data_html_parseapplications",
+      "lib_parse_data_html_parsechannels",
+      "lib_parse_data_html_parsecosts",
+      "lib_parse_data_html_parsecostsareactual",
+      "lib_parse_data_html_parsedatahtml",
+      "lib_parse_data_html_parsekpis",
+      "lib_parse_data_html_parselastupdated",
+      "lib_parse_data_html_parseperiods",
+      "types_agent",
+      "types_agent_agentdata",
+      "types_agent_anomaly",
+      "types_agent_application",
+      "types_agent_channel",
+      "types_agent_cost",
+      "types_agent_fetchresult",
+      "types_agent_kpi",
+      "types_agent_periods",
+      "types_agent_periodtable"
+    ],
+    "3": [
+      "milkfolio_agent_data_html_pipeline",
+      "milkfolio_claudemd",
+      "milkfolio_legacy_gh_pages_era",
+      "milkfolio_multi_identity_portfolio",
+      "milkfolio_persona_isolation_rule",
+      "milkfolio_project_log",
+      "milkfolio_route_actor",
+      "milkfolio_route_agent",
+      "milkfolio_route_designer",
+      "milkfolio_route_dev",
+      "milkfolio_route_root",
+      "milkfolio_somansa_dlp_block",
+      "milkfolio_spec_actor_redesign_001",
+      "milkfolio_spec_dev_redesign_001",
+      "milkfolio_stack_nextjs_react",
+      "milkfolio_vercel_hosting",
+      "moai_builder_agent",
+      "moai_builder_plugin",
+      "moai_builder_skill",
+      "moai_concept_bias_prevention",
+      "moai_concept_checkpoint_resume",
+      "moai_concept_context_memory_commits",
+      "moai_concept_ears",
+      "moai_concept_evaluator_profile",
+      "moai_concept_mx_tags",
+      "moai_concept_pencil_mcp_workflow",
+      "moai_concept_phase_contracts",
+      "moai_concept_ralph_lsp",
+      "moai_concept_skeptical_evaluator",
+      "moai_concept_spec_workflow",
+      "moai_concept_trust5",
+      "moai_evaluator_active",
+      "moai_expert_backend",
+      "moai_expert_debug",
+      "moai_expert_devops",
+      "moai_expert_frontend",
+      "moai_expert_performance",
+      "moai_expert_refactoring",
+      "moai_expert_security",
+      "moai_expert_testing",
+      "moai_manager_ddd",
+      "moai_manager_docs",
+      "moai_manager_git",
+      "moai_manager_project",
+      "moai_manager_quality",
+      "moai_manager_spec",
+      "moai_manager_strategy",
+      "moai_manager_tdd",
+      "moai_plan_auditor"
+    ],
+    "4": [
+      "references_mx_tag_anchor_security_exception",
+      "references_mx_tag_fan_in_analysis",
+      "references_mx_tag_moai_workflow_mx_tag",
+      "references_mx_tag_tag_syntax_grammar",
+      "team_debug_competing_hypothesis",
+      "team_debug_workflow_team_debug",
+      "team_glm_cg_mode",
+      "team_glm_moai_cc_command",
+      "team_glm_moai_cg_command",
+      "team_glm_tmux_session_env",
+      "team_glm_z_ai_glm_api",
+      "team_plan_analyst_role",
+      "team_plan_annotation_cycle",
+      "team_plan_architect_role",
+      "team_plan_researcher_role",
+      "team_plan_workflow_team_plan",
+      "team_run_backend_dev_role",
+      "team_run_dynamic_team_generation",
+      "team_run_frontend_dev_role",
+      "team_run_role_profile_reference",
+      "team_run_tester_role",
+      "team_run_workflow_team_run",
+      "team_sync_sub_agent_rationale",
+      "team_sync_workflow_team_sync",
+      "workflows_clean_dead_code_classification",
+      "workflows_clean_mx_tag_cross_check",
+      "workflows_clean_workflow_clean",
+      "workflows_coverage_gap_prioritization",
+      "workflows_coverage_pre_analysis_mx_scan",
+      "workflows_coverage_workflow_coverage",
+      "workflows_fix_fix_levels",
+      "workflows_fix_parallel_scan",
+      "workflows_fix_pre_fix_mx_context_scan",
+      "workflows_fix_structured_error_normalization",
+      "workflows_fix_workflow_fix",
+      "workflows_gate_pre_commit_quality_gate",
+      "workflows_gate_workflow_gate",
+      "workflows_loop_completion_marker",
+      "workflows_loop_memory_pressure_check",
+      "workflows_loop_snapshot_resume",
+      "workflows_loop_workflow_loop",
+      "workflows_moai_complexity_estimator",
+      "workflows_moai_development_mode_routing",
+      "workflows_moai_execution_mode_gate",
+      "workflows_moai_plan_run_sync_pipeline",
+      "workflows_moai_workflow_moai",
+      "workflows_mx_priority_levels_p1_p4",
+      "workflows_mx_three_pass_scan",
+      "workflows_mx_workflow_mx"
+    ],
+    "5": [
+      "moai_foundation_philosopher_alternative_generation",
+      "moai_foundation_philosopher_assumption_audit",
+      "moai_foundation_philosopher_cognitive_bias_check",
+      "moai_foundation_philosopher_first_principles_phase",
+      "moai_foundation_philosopher_skill",
+      "moai_foundation_philosopher_trade_off_phase",
+      "moai_foundation_thinking_critical_evaluation_fw",
+      "moai_foundation_thinking_deep_questioning_fw",
+      "moai_foundation_thinking_diverge_converge_fw",
+      "moai_foundation_thinking_skill",
+      "modules_assumption_matrix",
+      "modules_cognitive_bias",
+      "modules_cognitive_bias_anchoring_bias",
+      "modules_cognitive_bias_availability_heuristic",
+      "modules_cognitive_bias_confirmation_bias",
+      "modules_cognitive_bias_devils_advocate",
+      "modules_cognitive_bias_overconfidence_bias",
+      "modules_cognitive_bias_pre_mortem",
+      "modules_cognitive_bias_sunk_cost_fallacy",
+      "modules_critical_evaluation_assess_evidence",
+      "modules_critical_evaluation_detect_fallacies",
+      "modules_critical_evaluation_doc",
+      "modules_critical_evaluation_restate",
+      "modules_deep_questioning_doc",
+      "modules_deep_questioning_layer1",
+      "modules_deep_questioning_layer6",
+      "modules_diverge_converge_cluster_phase",
+      "modules_diverge_converge_converge_phase",
+      "modules_diverge_converge_diverge_phase",
+      "modules_diverge_converge_doc",
+      "modules_first_principles",
+      "modules_first_principles_five_whys",
+      "modules_first_principles_hard_constraint",
+      "modules_first_principles_self_imposed_constraint",
+      "modules_first_principles_soft_constraint",
+      "modules_trade_off_analysis",
+      "modules_trade_off_analysis_weighted_scoring",
+      "references_philosopher_examples",
+      "references_philosopher_reference",
+      "references_philosopher_reference_adr",
+      "references_philosopher_reference_kepner_tregoe",
+      "references_philosopher_reference_ooda",
+      "references_philosopher_reference_six_thinking_hats",
+      "references_philosopher_reference_thinking_fast_slow",
+      "references_thinking_reference",
+      "references_thinking_reference_ideo",
+      "references_thinking_reference_socratic"
+    ],
+    "6": [
+      "moai_domain_uiux_skill",
+      "moai_domain_uiux_skill_accessibility_by_default",
+      "moai_domain_uiux_skill_design_token_first",
+      "modules_accessibility_wcag",
+      "modules_accessibility_wcag_get_contrast_ratio",
+      "modules_accessibility_wcag_jest_axe",
+      "modules_accessibility_wcag_reduced_motion",
+      "modules_accessibility_wcag_use_keyboard_navigation",
+      "modules_component_architecture",
+      "modules_component_architecture_button_cva",
+      "modules_component_architecture_storybook",
+      "modules_icon_libraries",
+      "modules_icon_libraries_hugeicons",
+      "modules_icon_libraries_iconify",
+      "modules_icon_libraries_lucide",
+      "modules_theming_system",
+      "modules_theming_system_css_variables",
+      "modules_theming_system_nova_preset",
+      "modules_theming_system_tailwind_v4",
+      "modules_theming_system_theme_provider",
+      "modules_vercel_react_best_practices",
+      "modules_vercel_react_best_practices_avoid_barrel_imports",
+      "modules_vercel_react_best_practices_bundle_size_optimization",
+      "modules_vercel_react_best_practices_dynamic_imports",
+      "modules_vercel_react_best_practices_eliminating_waterfalls",
+      "modules_vercel_react_best_practices_promise_all",
+      "modules_vercel_react_best_practices_react_cache",
+      "modules_vercel_react_best_practices_suspense_boundaries",
+      "modules_vue35_patterns",
+      "modules_vue35_patterns_composition_api",
+      "modules_vue35_patterns_pinia_store",
+      "modules_vue35_patterns_use_fetch",
+      "modules_vue35_patterns_use_form",
+      "modules_web_interface_guidelines",
+      "modules_web_interface_guidelines_anti_ai_slop",
+      "modules_web_interface_guidelines_frontend_composition",
+      "modules_web_interface_guidelines_motion_principles",
+      "modules_web_interface_guidelines_review_checklist",
+      "references_examples_frontend",
+      "references_examples_frontend_compound_components",
+      "references_examples_frontend_data_table",
+      "references_examples_frontend_next16_server_actions",
+      "references_examples_frontend_server_components",
+      "references_examples_uiux",
+      "references_examples_uiux_form_zod",
+      "references_examples_uiux_tanstack_table"
+    ],
+    "7": [
+      "moai_workflow_worktree_isolation_principle",
+      "moai_workflow_worktree_skill",
+      "modules_integration_patterns",
+      "modules_moai_adk_integration",
+      "modules_moai_adk_integration_branch_naming",
+      "modules_moai_adk_integration_plan_phase",
+      "modules_moai_adk_integration_run_phase",
+      "modules_moai_adk_integration_sync_phase",
+      "modules_parallel_advanced",
+      "modules_parallel_advanced_feature_flags",
+      "modules_parallel_advanced_microservices",
+      "modules_parallel_development",
+      "modules_parallel_development_isolation_model",
+      "modules_parallel_workflows",
+      "modules_parallel_workflows_experiment_production",
+      "modules_parallel_workflows_independent_spec",
+      "modules_parallel_workflows_sequential_overlap",
+      "modules_registry_architecture",
+      "modules_registry_architecture_atomic_update",
+      "modules_registry_architecture_file_locking",
+      "modules_registry_architecture_schema",
+      "modules_resource_optimization",
+      "modules_resource_optimization_error_hierarchy",
+      "modules_resource_optimization_streaming",
+      "modules_tools_integration",
+      "modules_tools_integration_github_actions",
+      "modules_tools_integration_vscode",
+      "modules_troubleshooting",
+      "modules_troubleshooting_detached_head",
+      "modules_troubleshooting_orphaned_entries",
+      "modules_troubleshooting_registry_corruption",
+      "modules_worktree_commands",
+      "modules_worktree_commands_clean",
+      "modules_worktree_commands_go",
+      "modules_worktree_commands_new",
+      "modules_worktree_commands_switch",
+      "modules_worktree_commands_sync",
+      "modules_worktree_management",
+      "modules_worktree_management_gitmanager",
+      "modules_worktree_management_registrymanager",
+      "modules_worktree_management_worktreemanager",
+      "references_worktree_examples",
+      "references_worktree_examples_worktreeautomation"
+    ],
+    "8": [
+      "app_dev_components_hero_tsx_components_hero",
+      "app_dev_components_hero_tsx_components_hero_hero",
+      "components_agentticker",
+      "components_agentticker_agentticker",
+      "components_agentticker_entry",
+      "components_agentticker_speed_by_kind",
+      "components_agentticker_step",
+      "components_agentticker_steps",
+      "components_devnav",
+      "components_devnav_devnav",
+      "components_devnav_links",
+      "components_experience",
+      "components_experience_experience",
+      "components_footer",
+      "components_footer_footer",
+      "components_herofallback",
+      "components_herofallback_fallback_edges",
+      "components_herofallback_fallback_nodes",
+      "components_herofallback_herofallback",
+      "components_heroliveboard",
+      "components_heroliveboard_heroliveboard",
+      "components_heroliveboard_usefontsloaded",
+      "components_herovisual",
+      "components_herovisual_detectwebgl2",
+      "components_herovisual_herocanvas",
+      "components_herovisual_herovisual",
+      "components_reflextest",
+      "components_reflextest_phase",
+      "components_reflextest_reflextest",
+      "components_reflextest_roundresult",
+      "components_whatido",
+      "components_whatido_whatido",
+      "dev_page",
+      "dev_page_devpage",
+      "shared_usebuildinfo",
+      "shared_usebuildinfo_buildinfo",
+      "shared_usebuildinfo_formatage",
+      "shared_usebuildinfo_usebuildinfo",
+      "shared_usefps",
+      "shared_usefps_usefps"
+    ],
+    "9": [
+      "ast_grep_api_migration",
+      "ast_grep_cicd_integration",
+      "ast_grep_code_modernization",
+      "ast_grep_composite_rules",
+      "ast_grep_examples",
+      "ast_grep_go_patterns",
+      "ast_grep_language_specific",
+      "ast_grep_meta_variables",
+      "ast_grep_pattern_syntax",
+      "ast_grep_python_patterns",
+      "ast_grep_refactoring_patterns",
+      "ast_grep_reference",
+      "ast_grep_relational_rules",
+      "ast_grep_rule_of_500",
+      "ast_grep_rust_patterns",
+      "ast_grep_secrets_detection",
+      "ast_grep_security_rules",
+      "ast_grep_sql_injection_detection",
+      "ast_grep_structural_vs_regex",
+      "ast_grep_typescript_patterns",
+      "ast_grep_xss_detection",
+      "ast_grep_yaml_rules",
+      "expert_backend_agent",
+      "expert_security_agent",
+      "moai_ref_api_patterns_error_format",
+      "moai_ref_api_patterns_http_status",
+      "moai_ref_api_patterns_hyrums_law",
+      "moai_ref_api_patterns_pagination",
+      "moai_ref_api_patterns_rest_conventions",
+      "moai_ref_api_patterns_skill",
+      "moai_ref_api_patterns_versioning",
+      "moai_ref_owasp_checklist_skill",
+      "moai_tool_ast_grep_skill",
+      "owasp_authentication_checklist",
+      "owasp_http_security_headers",
+      "owasp_input_validation",
+      "owasp_jwt_config",
+      "owasp_top_10_api"
+    ],
+    "10": [
+      "moai_formats_data_skill",
+      "moai_formats_data_skill_toon_encoding_overview",
+      "moai_foundation_cc_skill",
+      "moai_foundation_cc_skill_progressive_disclosure",
+      "moai_foundation_cc_skill_subagent_rules",
+      "modules_caching_performance",
+      "modules_caching_performance_cacheinvalidator",
+      "modules_caching_performance_datacache",
+      "modules_caching_performance_multilevelcache",
+      "modules_caching_performance_performancemonitor",
+      "modules_caching_performance_smartcache",
+      "modules_data_format_index",
+      "modules_data_format_index_dataprocessor",
+      "modules_data_validation",
+      "modules_data_validation_advancedvalidator",
+      "modules_data_validation_datavalidator",
+      "modules_data_validation_schemaevolution",
+      "modules_json_optimization",
+      "modules_json_optimization_jsonoptimizer",
+      "modules_json_optimization_smartcache_json",
+      "modules_json_optimization_streamprocessor",
+      "modules_json_optimization_yamloptimizer",
+      "modules_skill_modularization_template",
+      "modules_toon_encoding",
+      "modules_toon_encoding_toonencoder",
+      "modules_toon_encoding_type_markers",
+      "reference_advanced_agent_patterns",
+      "reference_advanced_agent_patterns_context_engineering",
+      "reference_advanced_agent_patterns_contextual_retrieval",
+      "reference_advanced_agent_patterns_explore_plan_code_commit",
+      "reference_advanced_agent_patterns_orchestrator_worker",
+      "reference_advanced_agent_patterns_think_tool",
+      "reference_advanced_agent_patterns_tool_consolidation",
+      "reference_advanced_agent_patterns_two_agent_pattern",
+      "references_examples_formats_data",
+      "references_examples_formats_data_formatconverter",
+      "references_reference_formats_data",
+      "references_reference_formats_data_llmdatapreparer"
+    ],
+    "11": [
+      "agent_data_html",
+      "agent_data_html_casting_agent_dashboard",
+      "docs_deploy_vercel",
+      "docs_phase_7_legacy_removal",
+      "spec_dev_redesign_001_research",
+      "spec_dev_redesign_001_research_ai_technical_engineer_identity",
+      "spec_dev_redesign_001_research_cinematic_hero",
+      "spec_dev_redesign_001_research_contact_section",
+      "spec_dev_redesign_001_research_craft_section",
+      "spec_dev_redesign_001_research_cyan_signature",
+      "spec_dev_redesign_001_research_lab_section",
+      "spec_dev_redesign_001_research_manifesto_section",
+      "spec_dev_redesign_001_research_meta_telemetry",
+      "spec_dev_redesign_001_research_motion_choice",
+      "spec_dev_redesign_001_research_portfolio_is_the_proof",
+      "spec_dev_redesign_001_research_reduced_motion_respect",
+      "spec_dev_redesign_001_research_stack_section",
+      "spec_dev_redesign_001_research_threejs_r3f_choice",
+      "spec_dev_redesign_001_spec",
+      "spec_dev_redesign_001_spec_career_separation_principle",
+      "spec_dev_redesign_001_spec_compact",
+      "spec_dev_redesign_001_spec_req_dev_n_001_no_external_llm",
+      "spec_dev_redesign_001_spec_req_dev_n_004_no_actor_crosslink",
+      "spec_dev_redesign_001_spec_req_dev_n_005_lighthouse_floor",
+      "spec_dev_redesign_001_spec_req_dev_u_001_six_sections",
+      "spec_dev_redesign_001_spec_req_dev_u_003_ai_technical_engineer",
+      "spec_dev_redesign_001_tasks",
+      "spec_dev_redesign_001_tasks_t009_hero_r3f",
+      "spec_dev_redesign_001_tasks_t014_lab_container",
+      "spec_dev_redesign_001_tasks_t018_craft_telemetry",
+      "spec_dev_redesign_001_tasks_t022_e2e_expansion",
+      "spec_migrate_next_001_spec",
+      "spec_migrate_next_001_spec_agent_data_flow",
+      "spec_migrate_next_001_spec_casting_agent_compat",
+      "spec_migrate_next_001_spec_phase_6_vercel_deploy",
+      "spec_migrate_next_001_spec_phase_7_legacy_removal",
+      "spec_migrate_next_001_spec_single_source_design_tokens"
+    ],
+    "12": [
+      "package",
+      "package_dependencies",
+      "package_dependencies_cheerio",
+      "package_dependencies_class_variance_authority",
+      "package_dependencies_clsx",
+      "package_dependencies_motion",
+      "package_dependencies_next",
+      "package_dependencies_react",
+      "package_dependencies_react_dom",
+      "package_dependencies_react_three_drei",
+      "package_dependencies_react_three_fiber",
+      "package_dependencies_tailwind_merge",
+      "package_dependencies_three",
+      "package_description",
+      "package_devdependencies",
+      "package_devdependencies_playwright_test",
+      "package_devdependencies_postcss",
+      "package_devdependencies_tailwindcss",
+      "package_devdependencies_tailwindcss_postcss",
+      "package_devdependencies_types_node",
+      "package_devdependencies_types_react",
+      "package_devdependencies_types_react_dom",
+      "package_devdependencies_types_three",
+      "package_devdependencies_typescript",
+      "package_name",
+      "package_packagemanager",
+      "package_private",
+      "package_scripts",
+      "package_scripts_build",
+      "package_scripts_dev",
+      "package_scripts_e2e",
+      "package_scripts_e2e_report",
+      "package_scripts_e2e_ui",
+      "package_scripts_lint",
+      "package_scripts_start",
+      "package_scripts_typecheck",
+      "package_version"
+    ],
+    "13": [
+      "schemas_config_schema_api_key_description",
+      "schemas_config_schema_api_key_type",
+      "schemas_config_schema_auto_detect_default",
+      "schemas_config_schema_auto_detect_description",
+      "schemas_config_schema_auto_detect_type",
+      "schemas_config_schema_cache_enabled_default",
+      "schemas_config_schema_cache_enabled_type",
+      "schemas_config_schema_default_language_default",
+      "schemas_config_schema_default_language_description",
+      "schemas_config_schema_default_language_pattern",
+      "schemas_config_schema_default_language_type",
+      "schemas_config_schema_fallback_language_default",
+      "schemas_config_schema_fallback_language_description",
+      "schemas_config_schema_fallback_language_pattern",
+      "schemas_config_schema_fallback_language_type",
+      "schemas_config_schema_language_config_description",
+      "schemas_config_schema_language_config_properties",
+      "schemas_config_schema_language_config_required",
+      "schemas_config_schema_language_config_type",
+      "schemas_config_schema_properties_api_key",
+      "schemas_config_schema_properties_auto_detect",
+      "schemas_config_schema_properties_cache_enabled",
+      "schemas_config_schema_properties_default_language",
+      "schemas_config_schema_properties_fallback_language",
+      "schemas_config_schema_properties_language_config",
+      "schemas_config_schema_properties_provider",
+      "schemas_config_schema_properties_translation_service",
+      "schemas_config_schema_provider_default",
+      "schemas_config_schema_provider_enum",
+      "schemas_config_schema_provider_type",
+      "schemas_config_schema_translation_service_properties",
+      "schemas_config_schema_translation_service_type"
+    ],
+    "14": [
+      "external_library_radix_ui",
+      "external_library_tailwind_v4",
+      "external_skill_moai_domain_uiux",
+      "mermaid_modules_advanced_patterns",
+      "mermaid_modules_c4_microservices",
+      "mermaid_modules_multi_tenant_architecture",
+      "mermaid_modules_optimization",
+      "mermaid_modules_state_machine_ecommerce",
+      "mermaid_references_examples",
+      "mermaid_references_reference",
+      "nextra_modules_advanced_patterns",
+      "nextra_modules_content_architecture_optimization",
+      "nextra_modules_optimization",
+      "nextra_references_examples",
+      "nextra_references_reference",
+      "shadcn_concept_architect_optimizer",
+      "shadcn_concept_cli_v4",
+      "shadcn_concept_components_json",
+      "shadcn_concept_css_variables_mandate",
+      "shadcn_concept_oklch_theming",
+      "shadcn_concept_radix_ui_unified",
+      "shadcn_concept_rtl_support",
+      "shadcn_concept_wcag_aa_compliance",
+      "shadcn_concept_zod_react_hook_form",
+      "shadcn_modules_advanced_patterns",
+      "shadcn_modules_cli_registry",
+      "shadcn_modules_optimization",
+      "shadcn_modules_shadcn_components",
+      "shadcn_modules_shadcn_theming",
+      "shadcn_references_examples",
+      "shadcn_skill"
+    ],
+    "15": [
+      "schemas_config_schema_auto_dependencies_default",
+      "schemas_config_schema_auto_dependencies_description",
+      "schemas_config_schema_auto_dependencies_type",
+      "schemas_config_schema_create_virtual_env_default",
+      "schemas_config_schema_create_virtual_env_description",
+      "schemas_config_schema_create_virtual_env_type",
+      "schemas_config_schema_default_template_description",
+      "schemas_config_schema_default_template_type",
+      "schemas_config_schema_git_init_default",
+      "schemas_config_schema_git_init_description",
+      "schemas_config_schema_git_init_type",
+      "schemas_config_schema_license_template_description",
+      "schemas_config_schema_license_template_type",
+      "schemas_config_schema_node_properties",
+      "schemas_config_schema_node_type",
+      "schemas_config_schema_package_managers_properties",
+      "schemas_config_schema_package_managers_type",
+      "schemas_config_schema_project_initializer_description",
+      "schemas_config_schema_project_initializer_properties",
+      "schemas_config_schema_project_initializer_type",
+      "schemas_config_schema_properties_auto_dependencies",
+      "schemas_config_schema_properties_create_virtual_env",
+      "schemas_config_schema_properties_default_template",
+      "schemas_config_schema_properties_git_init",
+      "schemas_config_schema_properties_license_template",
+      "schemas_config_schema_properties_node",
+      "schemas_config_schema_properties_package_managers",
+      "schemas_config_schema_properties_project_initializer",
+      "schemas_config_schema_properties_python",
+      "schemas_config_schema_python_properties",
+      "schemas_config_schema_python_type"
+    ],
+    "16": [
+      "design_constitution",
+      "design_constitution_anti_pattern",
+      "design_constitution_brand_context",
+      "design_constitution_canary_check",
+      "design_constitution_contradiction_detector",
+      "design_constitution_design_brief",
+      "design_constitution_evaluator_active",
+      "design_constitution_evolution_rollback",
+      "design_constitution_evolvable_zone",
+      "design_constitution_expert_frontend",
+      "design_constitution_frozen_guard",
+      "design_constitution_frozen_zone",
+      "design_constitution_gan_loop",
+      "design_constitution_graduation_protocol",
+      "design_constitution_human_oversight",
+      "design_constitution_learnings_pipeline",
+      "design_constitution_leniency_prevention",
+      "design_constitution_manager_spec",
+      "design_constitution_moai_domain_brand_design",
+      "design_constitution_moai_domain_copywriting",
+      "design_constitution_moai_workflow_design_import",
+      "design_constitution_pass_threshold_floor",
+      "design_constitution_pipeline_architecture",
+      "design_constitution_rate_limiter",
+      "design_constitution_safety_5_layers",
+      "design_constitution_sprint_contract"
+    ],
+    "17": [
+      "moai_platform_auth_auth0_platform",
+      "moai_platform_auth_clerk_platform",
+      "moai_platform_auth_firebase_auth_platform",
+      "moai_platform_auth_skill",
+      "moai_platform_database_cloud_firestore",
+      "moai_platform_database_cloud_neon",
+      "moai_platform_database_cloud_skill",
+      "moai_platform_database_cloud_supabase",
+      "moai_platform_deployment_convex",
+      "moai_platform_deployment_railway",
+      "moai_platform_deployment_skill",
+      "moai_platform_deployment_vercel",
+      "reference_auth0_attack_protection",
+      "reference_auth0_bot_detection",
+      "reference_auth0_breached_password_detection",
+      "reference_clerk_env_variables",
+      "reference_clerk_sdk_versions",
+      "reference_comparison_auth_feature_matrix",
+      "reference_comparison_deployment_platforms",
+      "reference_comparison_sql_vs_nosql",
+      "reference_convex_reactive_queries",
+      "reference_firebase_auth_setup",
+      "reference_firestore_nosql_docs",
+      "reference_neon_branching",
+      "reference_neon_serverless_driver",
+      "reference_supabase_platform_ref"
+    ],
+    "18": [
+      "moai_tool_svg_index",
+      "moai_tool_svg_skill",
+      "svg_accessibility_aria",
+      "svg_animation",
+      "svg_basic_shapes",
+      "svg_basic_template",
+      "svg_basics",
+      "svg_clipping_masking",
+      "svg_css_animations",
+      "svg_examples",
+      "svg_filters",
+      "svg_gpu_accelerated_properties",
+      "svg_gradients",
+      "svg_icon_sprites",
+      "svg_js_animations",
+      "svg_optimization",
+      "svg_path_commands",
+      "svg_reference",
+      "svg_smil_animations",
+      "svg_styling",
+      "svg_symbol_use",
+      "svg_text_elements",
+      "svg_viewbox",
+      "svgo_config",
+      "svgo_tool",
+      "svgz_compression"
+    ],
+    "19": [
+      "evaluator_active_agent_ref",
+      "expert_frontend_agent_ref",
+      "moai_domain_brand_design_ref",
+      "moai_domain_copywriting_ref",
+      "moai_workflow_design_context_priority_order",
+      "moai_workflow_design_context_skill",
+      "moai_workflow_design_context_tbd_filter",
+      "moai_workflow_design_context_token_estimation",
+      "moai_workflow_design_import_error_codes",
+      "moai_workflow_design_import_security_scan",
+      "moai_workflow_design_import_skill",
+      "moai_workflow_design_import_token_normalization",
+      "moai_workflow_gan_loop_4dimension",
+      "moai_workflow_gan_loop_leniency_prevention",
+      "moai_workflow_gan_loop_must_pass_firewall",
+      "moai_workflow_gan_loop_skill",
+      "moai_workflow_gan_loop_sprint_contract",
+      "moai_workflow_gan_loop_stagnation_detection",
+      "moai_workflow_pencil_dsl_grammar",
+      "moai_workflow_pencil_error_codes",
+      "moai_workflow_pencil_integration_skill",
+      "moai_workflow_pencil_screenshot_retention",
+      "moai_workflow_pencil_subbatch_split"
+    ],
+    "20": [
+      "core_settings_management_agent_teams_env",
+      "core_settings_management_workflow_team",
+      "development_agent_authoring",
+      "development_agent_authoring_csv_format",
+      "development_agent_authoring_dynamic_team_gen",
+      "development_agent_authoring_frontmatter",
+      "development_agent_authoring_permission_modes",
+      "development_agent_authoring_persistent_memory",
+      "development_agent_authoring_plugin_limits",
+      "development_agent_authoring_role_profiles",
+      "development_model_policy",
+      "development_model_policy_cg_mode",
+      "development_model_policy_effort_levels",
+      "development_model_policy_tiers",
+      "development_model_policy_valid_values",
+      "development_skill_authoring",
+      "development_skill_authoring_builtin_vars",
+      "development_skill_authoring_frontmatter_schema",
+      "development_skill_authoring_invocation_control",
+      "development_skill_authoring_progressive_disclosure",
+      "development_skill_authoring_shell_injection",
+      "development_skill_authoring_skill_priority"
+    ],
+    "21": [
+      "expert_frontend_agent",
+      "moai_ref_react_patterns_skill",
+      "nextjs_app_router_structure",
+      "react_compound_components",
+      "react_container_presentational",
+      "react_custom_hooks_pattern",
+      "react_headless_component",
+      "react_state_management_guide",
+      "reference_railway",
+      "reference_railway_docker",
+      "reference_railway_dockerfile_best_practices",
+      "reference_railway_healthchecks",
+      "reference_railway_toml",
+      "reference_railway_volumes",
+      "reference_vercel",
+      "reference_vercel_analytics",
+      "reference_vercel_blob",
+      "reference_vercel_edge_functions",
+      "reference_vercel_isr",
+      "reference_vercel_json",
+      "reference_vercel_kv",
+      "reference_vercel_postgres"
+    ],
+    "22": [
+      "automated_code_review_context7_integration",
+      "automated_code_review_review_workflows",
+      "automated_code_review_trust5_framework",
+      "code_review_analysis_patterns",
+      "code_review_core_classes",
+      "code_review_tool_integration_staticanalysistools",
+      "ddd_context7_test_generation",
+      "modules_trust5_validation",
+      "modules_trust5_validation_codeissue",
+      "modules_trust5_validation_relevance",
+      "modules_trust5_validation_safety",
+      "modules_trust5_validation_timeliness",
+      "modules_trust5_validation_trustcategory",
+      "modules_trust5_validation_truthfulness",
+      "modules_trust5_validation_usability",
+      "trust5_framework_relevance_analysis",
+      "trust5_framework_safety_analysis",
+      "trust5_framework_scoring_algorithms",
+      "trust5_framework_timeliness_analysis",
+      "trust5_framework_truthfulness_analysis",
+      "trust5_framework_usability_analysis"
+    ],
+    "23": [
+      "performance_optimization_analyze_cpu_profile",
+      "performance_optimization_bottleneckdetector",
+      "performance_optimization_check_alerts",
+      "performance_optimization_create_optimization_plan",
+      "performance_optimization_detect_bottlenecks",
+      "performance_optimization_detect_cpu_bottlenecks",
+      "performance_optimization_detect_memory_bottlenecks",
+      "performance_optimization_detect_realtime_bottlenecks",
+      "performance_optimization_functionprofile",
+      "performance_optimization_monitor_loop",
+      "performance_optimization_optimizationplan",
+      "performance_optimization_optimizationplanner",
+      "performance_optimization_optimizationtype",
+      "performance_optimization_performancebottleneck",
+      "performance_optimization_performanceprofiler",
+      "performance_optimization_performancesnapshot",
+      "performance_optimization_prioritize_bottlenecks",
+      "performance_optimization_realtimemonitor",
+      "performance_optimization_start_monitoring",
+      "performance_optimization_start_profiling",
+      "performance_optimization_stop_profiling"
+    ],
+    "24": [
+      "reference_claude_code_agent_orchestration_patterns",
+      "reference_claude_code_command_parameter_system",
+      "reference_claude_code_command_storage_locations",
+      "reference_claude_code_custom_slash_command_concept",
+      "reference_claude_code_custom_slash_commands_official",
+      "reference_skill_example_api_documentation_generator",
+      "reference_skill_example_code_comment_analyzer",
+      "reference_skill_example_python_testing_expert",
+      "reference_skill_examples",
+      "reference_sub_agent_development_orchestrator",
+      "reference_sub_agent_full_stack_specialist",
+      "reference_sub_agent_pattern_conditional_delegation",
+      "reference_sub_agent_pattern_parallel_delegation",
+      "reference_sub_agent_pattern_sequential_delegation",
+      "reference_sub_agents_integration_patterns",
+      "references_examples",
+      "references_examples_aidebugger_workflow",
+      "references_examples_custom_skill_creation",
+      "references_examples_dddmanager_cycle",
+      "references_examples_sub_agent_delegation_patterns",
+      "references_examples_trust5_code_review"
+    ],
+    "25": [
+      "tsconfig",
+      "tsconfig_compileroptions",
+      "tsconfig_compileroptions_allowjs",
+      "tsconfig_compileroptions_esmoduleinterop",
+      "tsconfig_compileroptions_incremental",
+      "tsconfig_compileroptions_isolatedmodules",
+      "tsconfig_compileroptions_jsx",
+      "tsconfig_compileroptions_lib",
+      "tsconfig_compileroptions_module",
+      "tsconfig_compileroptions_moduleresolution",
+      "tsconfig_compileroptions_noemit",
+      "tsconfig_compileroptions_paths",
+      "tsconfig_compileroptions_plugins",
+      "tsconfig_compileroptions_resolvejsonmodule",
+      "tsconfig_compileroptions_skiplibcheck",
+      "tsconfig_compileroptions_strict",
+      "tsconfig_compileroptions_target",
+      "tsconfig_exclude",
+      "tsconfig_include",
+      "tsconfig_paths"
+    ],
+    "26": [
+      "external_agent_code_frontend",
+      "external_library_mdx",
+      "external_library_nextjs",
+      "external_platform_vercel",
+      "external_skill_moai_docs_generation",
+      "nextra_concept_flexsearch_integration",
+      "nextra_concept_mdx_callout_component",
+      "nextra_concept_meta_navigation",
+      "nextra_concept_theme_config",
+      "nextra_modules_advanced_deployment_patterns",
+      "nextra_modules_configuration",
+      "nextra_modules_deployment",
+      "nextra_modules_framework_core_configuration",
+      "nextra_modules_i18n_setup",
+      "nextra_modules_mdx_components",
+      "nextra_skill",
+      "nextra_skill_progressive_disclosure"
+    ],
+    "27": [
+      "schemas_config_schema_author_description",
+      "schemas_config_schema_author_type",
+      "schemas_config_schema_license_description",
+      "schemas_config_schema_license_enum",
+      "schemas_config_schema_license_type",
+      "schemas_config_schema_name_description",
+      "schemas_config_schema_name_maxlength",
+      "schemas_config_schema_name_minlength",
+      "schemas_config_schema_name_type",
+      "schemas_config_schema_project_settings_properties",
+      "schemas_config_schema_properties_author",
+      "schemas_config_schema_properties_license",
+      "schemas_config_schema_properties_name",
+      "schemas_config_schema_properties_type",
+      "schemas_config_schema_type_description",
+      "schemas_config_schema_type_enum",
+      "schemas_config_schema_type_type"
+    ],
+    "28": [
+      "advanced_patterns_spec_template_inheritance",
+      "doc_templates_product_template",
+      "doc_templates_structure_template",
+      "doc_templates_tech_template",
+      "examples_project_moaimenuproject",
+      "migration_guide_spec_validation_script",
+      "moai_workflow_project_modules",
+      "moai_workflow_project_skill",
+      "moai_workflow_spec_ears_patterns",
+      "moai_workflow_spec_lifecycle",
+      "moai_workflow_spec_required_files",
+      "moai_workflow_spec_scope_classification",
+      "moai_workflow_spec_skill",
+      "overview_project_configuration_migrator",
+      "overview_project_unifiedconfigmanager",
+      "reference_project_language_token_cost"
+    ],
+    "29": [
+      "schemas_config_schema_auto_generate_default",
+      "schemas_config_schema_auto_generate_description",
+      "schemas_config_schema_auto_generate_type",
+      "schemas_config_schema_custom_templates_type",
+      "schemas_config_schema_documentation_properties",
+      "schemas_config_schema_include_examples_default",
+      "schemas_config_schema_include_examples_description",
+      "schemas_config_schema_include_examples_type",
+      "schemas_config_schema_output_directory_default",
+      "schemas_config_schema_output_directory_description",
+      "schemas_config_schema_output_directory_type",
+      "schemas_config_schema_properties_auto_generate",
+      "schemas_config_schema_properties_custom_templates",
+      "schemas_config_schema_properties_include_examples",
+      "schemas_config_schema_properties_output_directory"
+    ],
+    "30": [
+      "schemas_config_schema_documentation_description",
+      "schemas_config_schema_documentation_type",
+      "schemas_config_schema_metadata_type",
+      "schemas_config_schema_project_settings_description",
+      "schemas_config_schema_project_settings_required",
+      "schemas_config_schema_project_settings_type",
+      "schemas_config_schema_properties",
+      "schemas_config_schema_properties_documentation",
+      "schemas_config_schema_properties_metadata",
+      "schemas_config_schema_properties_project_settings",
+      "schemas_config_schema_properties_version",
+      "schemas_config_schema_version_default",
+      "schemas_config_schema_version_description",
+      "schemas_config_schema_version_pattern",
+      "schemas_config_schema_version_type"
+    ],
+    "31": [
+      "advanced_patterns_intelligent_doc_discovery",
+      "advanced_patterns_lazy_documentation_loader",
+      "advanced_patterns_progressive_document_enhancer",
+      "advanced_patterns_related_document_finder",
+      "examples_analyze_user_intent",
+      "examples_documentation_cache",
+      "moai_workflow_jit_docs_intent_detection",
+      "moai_workflow_jit_docs_quality_weights",
+      "moai_workflow_jit_docs_skill",
+      "optimization_compressed_document_storage",
+      "optimization_document_load_metrics",
+      "optimization_incremental_document_index",
+      "optimization_lru_document_cache",
+      "reference_official_docs_map"
+    ],
+    "32": [
+      "designer_page",
+      "designer_page_awards",
+      "designer_page_contacts",
+      "designer_page_designerpage",
+      "designer_page_nav_links",
+      "designer_page_skills",
+      "designer_projectgallery",
+      "designer_projectgallery_projectgallery",
+      "designer_projects",
+      "designer_projects_project",
+      "designer_projects_projectdescsection",
+      "designer_projects_projectlink",
+      "designer_projects_projectmeta",
+      "designer_projects_projects"
+    ],
+    "33": [
+      "examples_loop_astgrep_rules",
+      "examples_loop_state",
+      "moai_workflow_loop_completion_conditions",
+      "moai_workflow_loop_graceful_degradation",
+      "moai_workflow_loop_post_tool_lsp",
+      "moai_workflow_loop_ralph_yaml",
+      "moai_workflow_loop_skill",
+      "moai_workflow_loop_stop_loop_controller",
+      "moai_workflow_research_eval_schema",
+      "moai_workflow_research_safety_layers",
+      "moai_workflow_research_skill",
+      "reference_loop_lsp_servers_table",
+      "reference_loop_moailspclient",
+      "reference_loop_sgconfig_yml"
+    ],
+    "34": [
+      "moai_docs_generation_skill_docs_generation",
+      "moai_docs_generation_skill_jsdoc",
+      "moai_docs_generation_skill_mkdocs",
+      "moai_docs_generation_skill_nextra",
+      "moai_docs_generation_skill_sphinx",
+      "moai_docs_generation_skill_typedoc",
+      "modules_api_documentation_api_docs_module",
+      "modules_api_documentation_fastapi_openapi",
+      "modules_api_documentation_redoc",
+      "modules_api_documentation_swagger_jsdoc",
+      "modules_code_documentation_code_docs_module",
+      "modules_index_modules_index",
+      "modules_multi_format_output_multi_format_module",
+      "modules_user_guides_user_guides_module"
+    ],
+    "35": [
+      "moai_design_tools_skill_design_tools",
+      "moai_design_tools_skill_figma_mcp",
+      "moai_design_tools_skill_pen_file_format",
+      "moai_design_tools_skill_pencil_mcp",
+      "moai_design_tools_skill_pencil_to_code",
+      "reference_comparison_decision_matrix",
+      "reference_comparison_hybrid_workflow",
+      "reference_figma_figma_mcp_setup",
+      "reference_figma_remote_mcp_server",
+      "reference_pencil_code_batch_get",
+      "reference_pencil_code_prompt_workflow",
+      "reference_pencil_renderer_batch_design",
+      "reference_pencil_renderer_node_types"
+    ],
+    "36": [
+      "reference_claude_code_cli_allowed_tools_flag",
+      "reference_claude_code_cli_fork_session",
+      "reference_claude_code_cli_interactive_mode",
+      "reference_claude_code_cli_max_turns",
+      "reference_claude_code_cli_output_format_json",
+      "reference_claude_code_cli_prompt_mode",
+      "reference_claude_code_cli_reference_official",
+      "reference_claude_code_cli_resume_session",
+      "reference_claude_code_cli_system_prompt_options",
+      "reference_claude_code_headless_mode",
+      "reference_claude_code_headless_official",
+      "reference_claude_code_headless_schema_validation",
+      "reference_claude_code_headless_streaming_json"
+    ],
+    "37": [
+      "evaluatorprofiles_default",
+      "evaluatorprofiles_four_dimensions",
+      "evaluatorprofiles_lenient",
+      "evaluatorprofiles_strict",
+      "sections_harness",
+      "sections_harness_complexity_estimator",
+      "sections_harness_minimal_level",
+      "sections_harness_standard_level",
+      "sections_harness_thorough_level",
+      "workflows_run_phase25_quality",
+      "workflows_run_phase28a_evaluator",
+      "workflows_run_phase29_mx_update"
+    ],
+    "38": [
+      "moai_workflow_testing_advanced_patterns",
+      "moai_workflow_testing_ai_debugging",
+      "moai_workflow_testing_automated_code_review",
+      "moai_workflow_testing_index",
+      "moai_workflow_testing_optimization",
+      "moai_workflow_testing_performance_optimization",
+      "moai_workflow_testing_quality_metrics",
+      "moai_workflow_testing_security_analysis",
+      "moai_workflow_testing_skill",
+      "moai_workflow_testing_smart_refactoring",
+      "moai_workflow_testing_static_analysis",
+      "moai_workflow_testing_trust5"
+    ],
+    "39": [
+      "sections_quality_astgrep_gate",
+      "sections_quality_config",
+      "sections_quality_ddd_settings",
+      "sections_quality_lsp_gates",
+      "sections_quality_memory_guard",
+      "sections_quality_tdd_settings",
+      "sections_quality_trust5",
+      "sections_ralph_config",
+      "sections_ralph_lint_as_instruction",
+      "sections_ralph_loop_controller",
+      "sections_sunset_advisor_mode",
+      "sections_sunset_config"
+    ],
+    "40": [
+      "specactorredesign001_49e2etests",
+      "specactorredesign001_dataonlyassetcontract",
+      "specactorredesign001_evaluatorscore0943",
+      "specactorredesign001_phase0prep",
+      "specactorredesign001_phase2profilefilm",
+      "specactorredesign001_phase4gukhyeonremoved",
+      "specactorredesign001_phase6datainterview",
+      "specactorredesign001_phase7assetarrival",
+      "specactorredesign001_plan_doc",
+      "specactorredesign001_progress_doc",
+      "specactorredesign001_tasks_doc",
+      "specactorredesign001_turn7mappings"
+    ],
+    "41": [
+      "workflows_review",
+      "workflows_review_critique_mode",
+      "workflows_review_performance_perspective",
+      "workflows_review_quality_perspective",
+      "workflows_review_security_perspective",
+      "workflows_review_ux_perspective",
+      "workflows_security",
+      "workflows_security_data_isolation",
+      "workflows_security_dep_vuln_scan",
+      "workflows_security_owasp_top_10",
+      "workflows_security_secrets_scan",
+      "workflows_sync_phase055_security"
+    ],
+    "42": [
+      "astgreprules_go_hardcoding",
+      "astgreprules_go_no_duplicate_coverage_threshold",
+      "astgreprules_go_no_hardcoded_api_url",
+      "astgreprules_go_no_raw_getenv",
+      "sections_gate",
+      "sections_gate_ast_grep_gate",
+      "sections_lsp",
+      "sections_lsp_aggregator",
+      "sections_lsp_astgrep_delegation",
+      "sections_lsp_gopls_bridge",
+      "sections_lsp_powernap_core"
+    ],
+    "43": [
+      "moai_domain_backend_circuit_breaker",
+      "moai_domain_backend_graphql_strawberry",
+      "moai_domain_backend_hyrums_law",
+      "moai_domain_backend_jwt_auth",
+      "moai_domain_backend_mongodb_motor",
+      "moai_domain_backend_n_plus_one",
+      "moai_domain_backend_postgres_sqlalchemy",
+      "moai_domain_backend_restful_api",
+      "moai_domain_backend_skill",
+      "modules_nextjs16_patterns_route_handlers",
+      "references_examples_database_pool"
+    ],
+    "44": [
+      "moai_foundation_context_aggressive_clear_strategy",
+      "moai_foundation_context_handoff_protocol",
+      "moai_foundation_context_session_state_persistence",
+      "moai_foundation_context_skill",
+      "moai_foundation_context_threshold_60_75_85",
+      "moai_foundation_context_token_budget_management",
+      "references_examples_agent_compatibility_matrix",
+      "references_examples_handoff_manager",
+      "references_examples_session_manager",
+      "references_examples_token_budget_manager",
+      "references_reference_plan_run_sync_workflow"
+    ],
+    "45": [
+      "moai_foundation_core_modular_system",
+      "moai_foundation_core_skill",
+      "moai_foundation_core_spec_first_ddd",
+      "moai_foundation_core_token_optimization",
+      "moai_foundation_core_trust_5_framework",
+      "modules_modular_system_standard_structure",
+      "modules_trust_5_framework_five_pillars",
+      "modules_trust_5_implementation_red_green_refactor",
+      "modules_trust_5_validation_cicd_pipeline",
+      "references_examples_trust_5_validation_example",
+      "references_reference_moai_foundation_core_ref"
+    ],
+    "46": [
+      "moai_foundation_quality_quality_orchestrator",
+      "modules_best_practices_context7_library_mappings",
+      "modules_best_practices_custom_quality_rule",
+      "modules_best_practices_engine",
+      "modules_integration_patterns_quality_gate_pipeline",
+      "modules_proactive_scanner",
+      "modules_trust5_secured_validator",
+      "modules_trust5_testable_validator",
+      "modules_trust5_validator",
+      "references_quality_reference_ci_integration",
+      "references_quality_reference_context7_client"
+    ],
+    "47": [
+      "moai_framework_electron_auto_update",
+      "moai_framework_electron_context_isolation",
+      "moai_framework_electron_electron_builder",
+      "moai_framework_electron_electron_forge",
+      "moai_framework_electron_ipc_pattern",
+      "moai_framework_electron_main_process",
+      "moai_framework_electron_preload_script",
+      "moai_framework_electron_renderer_process",
+      "moai_framework_electron_skill",
+      "references_electron_examples",
+      "references_electron_reference"
+    ],
+    "48": [
+      "project_structure_builddeploy",
+      "project_structure_devroutecurrent",
+      "project_structure_devrouteredesigned",
+      "project_structure_doc",
+      "project_structure_namingconvention",
+      "project_structure_personarouteseparation",
+      "specactorredesign001_h3prohibitedsubstring",
+      "specactorredesign001_personaseparation",
+      "specdevredesign001_plan_doc",
+      "specdevredesign001_progress_doc",
+      "specdevredesign001_turn2incorrectincremental"
+    ],
+    "49": [
+      "schemas_config_schema",
+      "schemas_config_schema_additionalproperties",
+      "schemas_config_schema_custom_templates_patternproperties",
+      "schemas_config_schema_description",
+      "schemas_config_schema_id",
+      "schemas_config_schema_patternproperties",
+      "schemas_config_schema_required",
+      "schemas_config_schema_schema",
+      "schemas_config_schema_title",
+      "schemas_config_schema_type",
+      "schemas_config_schema_version"
+    ],
+    "50": [
+      "schemas_config_schema_caching_properties",
+      "schemas_config_schema_caching_type",
+      "schemas_config_schema_properties_caching",
+      "schemas_config_schema_properties_strategy",
+      "schemas_config_schema_properties_ttl_hours",
+      "schemas_config_schema_strategy_default",
+      "schemas_config_schema_strategy_enum",
+      "schemas_config_schema_strategy_type",
+      "schemas_config_schema_ttl_hours_default",
+      "schemas_config_schema_ttl_hours_minimum",
+      "schemas_config_schema_ttl_hours_type"
+    ],
+    "51": [
+      "schemas_config_schema_created_at_description",
+      "schemas_config_schema_created_at_format",
+      "schemas_config_schema_created_at_type",
+      "schemas_config_schema_metadata_properties",
+      "schemas_config_schema_migration_history_type",
+      "schemas_config_schema_properties_created_at",
+      "schemas_config_schema_properties_migration_history",
+      "schemas_config_schema_properties_updated_at",
+      "schemas_config_schema_updated_at_description",
+      "schemas_config_schema_updated_at_format",
+      "schemas_config_schema_updated_at_type"
+    ],
+    "52": [
+      "sections_interview",
+      "sections_language",
+      "workflows_plan",
+      "workflows_plan_ears_format",
+      "workflows_plan_phase_031_interview",
+      "workflows_plan_phase_03_clarity",
+      "workflows_plan_phase_04_ultrathink",
+      "workflows_plan_phase_05_deep_research",
+      "workflows_plan_phase_125_design_direction",
+      "workflows_plan_phase_1a_exploration",
+      "workflows_plan_phase_1b_spec_planning"
+    ],
+    "53": [
+      "specactorredesign001_6workslocked",
+      "specactorredesign001_currentdataerrors",
+      "specactorredesign001_earsubiquitous",
+      "specactorredesign001_editorialmagazinepattern",
+      "specactorredesign001_research_doc",
+      "specactorredesign001_spec_doc",
+      "specactorredesign001_specompact_doc",
+      "specactorredesign001_voguekoreareference",
+      "specdevredesign001_acceptance_doc",
+      "specdevredesign001_aiidentityrebrand",
+      "specdevredesign001_nollmapiprinciple"
+    ],
+    "54": [
+      "core_settings_management",
+      "core_settings_management_claude_in_chrome",
+      "core_settings_management_claude_settings_json",
+      "core_settings_management_context7",
+      "core_settings_management_hooks_quoting_rule",
+      "core_settings_management_mcp_json",
+      "core_settings_management_pencil_mcp",
+      "core_settings_management_sequential_thinking",
+      "core_settings_management_statusline_no_env",
+      "core_settings_management_toolsearch_mcp_loading"
+    ],
+    "55": [
+      "moai_design_craft_skill_design_audit",
+      "moai_design_craft_skill_design_critique",
+      "moai_design_craft_skill_design_direction",
+      "moai_design_craft_skill_intent_first",
+      "moai_skill_deepthink_vs_ultrathink",
+      "moai_skill_execution_directive",
+      "moai_skill_intent_router",
+      "moai_skill_moai_unified_orchestrator",
+      "modules_design_memory_system_md_protocol",
+      "modules_design_memory_write_protocol"
+    ],
+    "56": [
+      "moai_domain_database_polyglot_persistence",
+      "moai_domain_database_skill",
+      "modules_index_module_index",
+      "modules_mongodb_aggregation_pipelines",
+      "modules_mongodb_document_modeling",
+      "modules_oracle_connect_by",
+      "modules_postgresql_jsonb_gin",
+      "references_examples_data_router",
+      "references_examples_mongo_analytics",
+      "references_reference_multi_db_transaction"
+    ],
+    "57": [
+      "moai_domain_frontend_skill",
+      "modules_ai_frontend_patterns_reasoning_level",
+      "modules_ai_frontend_patterns_visual_reference",
+      "modules_nextjs16_patterns_app_router",
+      "modules_nextjs16_patterns_isr",
+      "modules_performance_optimization_code_splitting",
+      "modules_performance_optimization_dynamic_import",
+      "modules_react19_patterns_cache_api",
+      "modules_react19_patterns_server_components",
+      "modules_react19_patterns_suspense"
+    ],
+    "58": [
+      "moai_platform_chrome_extension_manifest_v3",
+      "moai_platform_chrome_extension_skill",
+      "modules_apis_quick_reference_chrome_apis",
+      "modules_content_scripts_guide_content_scripts",
+      "modules_manifest_v3_reference_manifest_fields",
+      "modules_messaging_patterns_msg_passing",
+      "modules_publishing_guide_web_store",
+      "modules_security_csp_security_csp",
+      "modules_service_worker_patterns_sw",
+      "modules_ui_components_ext_ui"
+    ],
+    "59": [
+      "modules_agents_reference_agent_catalog",
+      "modules_agents_reference_naming_convention",
+      "modules_agents_reference_tier1_workflow",
+      "modules_agents_reference_tier3_domain",
+      "modules_agents_reference_tier4_mcp_resume",
+      "modules_commands_reference_clear_after_plan",
+      "modules_commands_reference_command_catalog",
+      "modules_execution_rules_agent_first",
+      "modules_execution_rules_security_sandbox",
+      "modules_index_module_catalog"
+    ],
+    "60": [
+      "project_tech_bundleimpact320kb",
+      "project_tech_corestack",
+      "project_tech_devredesignlibraries",
+      "project_tech_doc",
+      "project_tech_fontsystem",
+      "project_tech_lighthousetargets",
+      "project_tech_pretendardcdnfallback",
+      "project_tech_servercomponentsdefault",
+      "project_tech_typescriptconfig",
+      "specdevredesign001_r3fparticlefield"
+    ],
+    "61": [
+      "reference_claude_code_devcontainer_network_isolation",
+      "reference_claude_code_devcontainer_skip_permissions",
+      "reference_claude_code_devcontainer_unattended_operation",
+      "reference_claude_code_devcontainer_volume_mounts",
+      "reference_claude_code_devcontainers_official",
+      "reference_claude_code_sandbox_auto_allow_mode",
+      "reference_claude_code_sandbox_filesystem_isolation",
+      "reference_claude_code_sandbox_network_isolation",
+      "reference_claude_code_sandbox_security_limitations",
+      "reference_claude_code_sandboxing_official"
+    ],
+    "62": [
+      "schemas_config_schema_check_security_default",
+      "schemas_config_schema_check_security_type",
+      "schemas_config_schema_check_syntax_default",
+      "schemas_config_schema_check_syntax_type",
+      "schemas_config_schema_properties_check_security",
+      "schemas_config_schema_properties_check_syntax",
+      "schemas_config_schema_properties_strict_mode",
+      "schemas_config_schema_strict_mode_default",
+      "schemas_config_schema_strict_mode_type",
+      "schemas_config_schema_validation_properties"
+    ],
+    "63": [
+      "schemas_config_schema_minification_default",
+      "schemas_config_schema_minification_description",
+      "schemas_config_schema_minification_type",
+      "schemas_config_schema_properties_minification",
+      "schemas_config_schema_properties_template_optimizer",
+      "schemas_config_schema_properties_validation",
+      "schemas_config_schema_template_optimizer_description",
+      "schemas_config_schema_template_optimizer_properties",
+      "schemas_config_schema_template_optimizer_type",
+      "schemas_config_schema_validation_type"
+    ],
+    "64": [
+      "sections_db",
+      "workflows_project_db_detection_artifact",
+      "workflows_project_phase41a_db_detection",
+      "workflows_sync",
+      "workflows_sync_phase008_db_doc",
+      "workflows_sync_phase01_deployment_readiness",
+      "workflows_sync_phase05_quality",
+      "workflows_sync_phase06_mx_validation",
+      "workflows_sync_phase07_coverage",
+      "workflows_sync_phase315_local_ci_mirror"
+    ],
+    "65": [
+      "specactorredesign001_a4herobridge",
+      "specactorredesign001_acceptance_doc",
+      "specactorredesign001_b6sessionstorage",
+      "specactorredesign001_b7reduceddata",
+      "specactorredesign001_c6chevronhint",
+      "specactorredesign001_k3footer2026",
+      "specactorredesign001_l1kpigate",
+      "specactorredesign001_phase1heroshell",
+      "specactorredesign001_phase3reelclient",
+      "specactorredesign001_phase4roles"
+    ],
+    "66": [
+      "workflows_run_drift_guard",
+      "workflows_run_phase15_task_decomp",
+      "workflows_run_phase16_failing_checklist",
+      "workflows_run_phase17_scaffolding",
+      "workflows_run_phase18_mx_scan",
+      "workflows_run_phase1_strategy",
+      "workflows_run_phase2_implementation",
+      "workflows_sync_phase15_divergence",
+      "workflows_sync_phase22_doc_sync",
+      "workflows_sync_spec_lifecycle_level"
+    ],
+    "67": [
+      "moai_workflow_spec_auth_example",
+      "moai_workflow_spec_ears_pattern",
+      "moai_workflow_spec_examples",
+      "moai_workflow_spec_reference",
+      "moai_workflow_spec_simple_crud_template",
+      "moai_workflow_tdd_examples",
+      "moai_workflow_tdd_quality_yaml",
+      "moai_workflow_tdd_reference",
+      "moai_workflow_tdd_skill"
+    ],
+    "68": [
+      "reference_claude_code_iam_enterprise_policy_overrides",
+      "reference_claude_code_iam_mcp_server_permissions",
+      "reference_claude_code_iam_official",
+      "reference_claude_code_iam_rbac",
+      "reference_claude_code_iam_tool_permission_rules",
+      "reference_claude_code_settings_environment_overrides",
+      "reference_claude_code_settings_json",
+      "reference_claude_code_settings_official",
+      "reference_complete_configuration_guide"
+    ],
+    "69": [
+      "sections_llm",
+      "sections_llm_cc_mode",
+      "sections_llm_cg_mode",
+      "sections_llm_glm_mode",
+      "workflows_plan_decision_point_35",
+      "workflows_project_phase37_dev_mode",
+      "workflows_run",
+      "workflows_run_phase095_scale_mode",
+      "workflows_run_phase09_jit_language"
+    ],
+    "70": [
+      "db_migrations_doc",
+      "db_queries_doc",
+      "db_readme_autosyncpolicy",
+      "db_readme_doc",
+      "db_readme_excludedpatterns",
+      "db_rlspolicies_doc",
+      "db_schema_doc",
+      "db_seeddata_doc"
+    ],
+    "71": [
+      "moai_domain_backend_repository_pattern_cache",
+      "modules_redis_distributed_lock",
+      "modules_redis_multi_layer_cache",
+      "references_examples_cache_layer",
+      "references_examples_distributed_lock_py",
+      "references_examples_user_cache_service",
+      "references_reference_repository_pattern",
+      "references_reference_service_layer"
+    ],
+    "72": [
+      "moai_domain_brand_design_ai_slop_detection",
+      "moai_domain_brand_design_hero_first_chaining",
+      "moai_domain_brand_design_skill",
+      "moai_domain_brand_design_visual_identity_md",
+      "moai_domain_copywriting_anti_ai_slop",
+      "moai_domain_copywriting_brand_voice_md",
+      "moai_domain_copywriting_skill",
+      "modules_ai_frontend_patterns_content_first"
+    ],
+    "73": [
+      "moai_domain_db_docs_drift_check",
+      "moai_domain_db_docs_erd_mmd",
+      "moai_domain_db_docs_migrations_md",
+      "moai_domain_db_docs_proposal_json",
+      "moai_domain_db_docs_recursion_guard",
+      "moai_domain_db_docs_refresh",
+      "moai_domain_db_docs_schema_md",
+      "moai_domain_db_docs_skill"
+    ],
+    "74": [
+      "moai_foundation_quality_skill",
+      "modules_quality_best_practices_doc",
+      "modules_quality_integration_patterns_doc",
+      "modules_quality_proactive_analysis_doc",
+      "modules_quality_trust5_doc",
+      "references_quality_examples",
+      "references_quality_reference",
+      "references_quality_reference_quality_metrics"
+    ],
+    "75": [
+      "modules_critique_workflow_drift_types",
+      "modules_critique_workflow_hard_rules",
+      "modules_critique_workflow_hero_budget",
+      "modules_critique_workflow_rejection_criteria",
+      "modules_critique_workflow_three_step",
+      "modules_web_copy_craft_anti_ai_checklist",
+      "modules_web_copy_craft_concrete_over_abstract",
+      "modules_web_copy_craft_sentence_rhythm"
+    ],
+    "76": [
+      "project_product",
+      "project_product_agent_dashboard",
+      "project_product_disclosure_policy",
+      "project_product_kpi",
+      "project_product_non_goals",
+      "project_product_persona_isolation",
+      "project_product_personas",
+      "sections_project_config"
+    ],
+    "77": [
+      "reference_best_practices_least_privilege",
+      "reference_claude_code_skill_allowed_tools",
+      "reference_claude_code_skill_md_structure",
+      "reference_skill_formatting_guide",
+      "reference_skill_frontmatter_field_specifications",
+      "reference_skill_template_complete",
+      "reference_sub_agent_template_complete",
+      "reference_sub_agents_formatting_guide"
+    ],
+    "78": [
+      "reference_claude_code_discover_plugins_official",
+      "reference_claude_code_marketplace_json_schema",
+      "reference_claude_code_marketplace_reserved_names",
+      "reference_claude_code_marketplace_source_types",
+      "reference_claude_code_official_anthropic_marketplace",
+      "reference_claude_code_plugin_entry_configuration",
+      "reference_claude_code_plugin_marketplace_add",
+      "reference_claude_code_plugin_marketplaces_official"
+    ],
+    "79": [
+      "schemas_config_schema_batch_questions_description",
+      "schemas_config_schema_batch_questions_properties",
+      "schemas_config_schema_batch_questions_type",
+      "schemas_config_schema_enabled_default",
+      "schemas_config_schema_enabled_description",
+      "schemas_config_schema_enabled_type",
+      "schemas_config_schema_properties_batch_questions",
+      "schemas_config_schema_properties_enabled"
+    ],
+    "80": [
+      "schemas_config_schema_description_description",
+      "schemas_config_schema_description_maxlength",
+      "schemas_config_schema_description_type",
+      "schemas_config_schema_items_properties",
+      "schemas_config_schema_properties_description",
+      "schemas_config_schema_properties_from_version",
+      "schemas_config_schema_properties_timestamp",
+      "schemas_config_schema_properties_to_version"
+    ],
+    "81": [
+      "schemas_config_schema_items_pattern",
+      "schemas_config_schema_items_type",
+      "schemas_config_schema_migration_history_items",
+      "schemas_config_schema_properties_supported_languages",
+      "schemas_config_schema_supported_languages_description",
+      "schemas_config_schema_supported_languages_items",
+      "schemas_config_schema_supported_languages_type",
+      "schemas_config_schema_supported_languages_uniqueitems"
+    ],
+    "82": [
+      "vercel",
+      "vercel_buildcommand",
+      "vercel_framework",
+      "vercel_headers",
+      "vercel_installcommand",
+      "vercel_outputdirectory",
+      "vercel_regions",
+      "vercel_schema"
+    ],
+    "83": [
+      "ddd_analyze_preserve_improve",
+      "ddd_behavior_preservation",
+      "ddd_chestertons_fence",
+      "ddd_coupling_cohesion_metrics",
+      "ddd_vs_tdd_comparison",
+      "manager_ddd_agent",
+      "moai_workflow_ddd_skill"
+    ],
+    "84": [
+      "moai_foundation_core_delegation_principle",
+      "modules_delegation_advanced_resilient",
+      "modules_delegation_implementation_context_manager",
+      "modules_delegation_patterns_conditional",
+      "modules_delegation_patterns_parallel",
+      "modules_delegation_patterns_sequential",
+      "references_reference_subagent_delegation_api"
+    ],
+    "85": [
+      "modules_intent_first_content_plan",
+      "modules_intent_first_design_direction_statement",
+      "modules_intent_first_domain_exploration",
+      "modules_intent_first_domain_vocabulary",
+      "modules_intent_first_interaction_thesis",
+      "modules_intent_first_visual_thesis",
+      "modules_intent_first_why_before_what"
+    ],
+    "86": [
+      "project_tech_agentpasswordgate",
+      "specagentfilter001_andconditioncombination",
+      "specagentfilter001_filterbarexternal",
+      "specagentfilter001_spec_doc",
+      "specagentsearch001_clientonlysearch",
+      "specagentsearch001_globalwindowbinding",
+      "specagentsearch001_spec_doc"
+    ],
+    "87": [
+      "reference_best_practices_checklist",
+      "reference_best_practices_frontmatter_validation",
+      "reference_best_practices_progressive_disclosure_design",
+      "reference_claude_code_agent_skills_standard",
+      "reference_claude_code_progressive_disclosure_architecture",
+      "reference_claude_code_skill_anti_patterns",
+      "reference_claude_code_skills_official"
+    ],
+    "88": [
+      "reference_claude_code_sub_agent_built_ins",
+      "reference_claude_code_sub_agent_concept",
+      "reference_claude_code_sub_agent_context_management",
+      "reference_claude_code_sub_agent_model_selection",
+      "reference_claude_code_sub_agent_resumable_agents",
+      "reference_claude_code_sub_agents_official",
+      "reference_sub_agent_frontmatter_field_specifications"
+    ],
+    "89": [
+      "sections_memo_config",
+      "sections_memo_priorities",
+      "sections_workflow_config",
+      "sections_workflow_role_profiles",
+      "sections_workflow_team_patterns",
+      "sections_workflow_token_budget",
+      "sections_workflow_worktree_automation"
+    ],
+    "90": [
+      "workflow_mx_tag_protocol_mx_anchor",
+      "workflow_mx_tag_protocol_mx_note",
+      "workflow_mx_tag_protocol_mx_protocol",
+      "workflow_mx_tag_protocol_mx_todo",
+      "workflow_mx_tag_protocol_mx_warn",
+      "workflow_mx_tag_protocol_spec_mx_001",
+      "workflow_mx_tag_protocol_tag_lifecycle"
+    ],
+    "91": [
+      "workflow_spec_workflow_replanning_gate",
+      "workflow_spec_workflow_run_phase",
+      "workflow_workflow_modes_brownfield",
+      "workflow_workflow_modes_ddd_mode",
+      "workflow_workflow_modes_drift_guard",
+      "workflow_workflow_modes_self_review",
+      "workflow_workflow_modes_tdd_mode"
+    ],
+    "92": [
+      "components_herocanvas",
+      "components_herocanvas_herocanvas",
+      "components_herocanvas_line_color_rgb",
+      "components_herocanvas_particlefield",
+      "shared_usedevicetier",
+      "shared_usedevicetier_usedevicetier"
+    ],
+    "93": [
+      "components_robotpet",
+      "components_robotpet_mood",
+      "components_robotpet_robotpet",
+      "dev_layout",
+      "dev_layout_devlayout",
+      "dev_layout_metadata"
+    ],
+    "94": [
+      "design_auto_load_priority",
+      "design_readme",
+      "design_research_template",
+      "design_reserved_filenames",
+      "design_spec_template",
+      "design_system_template"
+    ],
+    "95": [
+      "evaluatorprofiles_ai_slop_detection",
+      "evaluatorprofiles_frontend",
+      "sections_design",
+      "sections_design_brand_context",
+      "sections_design_claude_design",
+      "sections_design_gan_loop"
+    ],
+    "96": [
+      "expert_testing_agent",
+      "manager_tdd_agent",
+      "moai_ref_testing_pyramid_skill",
+      "test_aaa_pattern",
+      "test_damp_over_dry",
+      "test_pyramid_ratios"
+    ],
+    "97": [
+      "manager_git_agent",
+      "moai_ref_git_workflow_conventional_commits",
+      "moai_ref_git_workflow_gitflow",
+      "moai_ref_git_workflow_github_flow",
+      "moai_ref_git_workflow_safety_rules",
+      "moai_ref_git_workflow_skill"
+    ],
+    "98": [
+      "mcp",
+      "mcp_command_bin_bash",
+      "mcp_command_moai",
+      "mcp_mcp_server_context7",
+      "mcp_mcp_server_moai_lsp",
+      "mcp_mcp_server_sequential_thinking"
+    ],
+    "99": [
+      "moai_crush",
+      "moai_jsonrpc2",
+      "moai_lsp_client_doc",
+      "moai_powernap",
+      "moai_spec_gopls_bridge_001",
+      "moai_spec_lsp_core_002"
+    ],
+    "100": [
+      "moai_foundation_context_progressive_disclosure",
+      "moai_foundation_core_progressive_disclosure_principle",
+      "modules_progressive_disclosure_500_line_limit",
+      "modules_progressive_disclosure_three_levels",
+      "references_examples_context_tag_manager",
+      "references_examples_progressive_summarizer"
+    ],
+    "101": [
+      "moai_manifest",
+      "moai_manifest_claude_rules_moai_workflow_worktree_integration_md_provenance",
+      "moai_manifest_deployed_at",
+      "moai_manifest_files",
+      "moai_manifest_files_claude_rules_moai_workflow_worktree_integration_md",
+      "moai_manifest_version"
+    ],
+    "102": [
+      "moai_skill_workflow_quick_reference",
+      "workflow_spec_workflow_plan_phase",
+      "workflow_spec_workflow_sync_phase",
+      "workflow_spec_workflow_team_mode",
+      "workflow_spec_workflow_three_phase",
+      "workflow_spec_workflow_token_strategy"
+    ],
+    "103": [
+      "moai_workflow_templates_code_templates",
+      "moai_workflow_templates_examples",
+      "moai_workflow_templates_feedback_templates",
+      "moai_workflow_templates_reference",
+      "moai_workflow_templates_skill",
+      "moai_workflow_templates_template_optimizer"
+    ],
+    "104": [
+      "modules_web_copy_craft_declaration",
+      "modules_web_copy_craft_direct_question",
+      "modules_web_copy_craft_empathy_hook",
+      "modules_web_copy_craft_headline_formulas",
+      "modules_web_copy_craft_number_anchor",
+      "modules_web_copy_craft_reversal"
+    ],
+    "105": [
+      "reference_claude_code_hook_configuration_locations",
+      "reference_claude_code_hook_events",
+      "reference_claude_code_hook_frontmatter_2026_01",
+      "reference_claude_code_hook_security_validation",
+      "reference_claude_code_hooks_official",
+      "reference_claude_code_plugin_components"
+    ],
+    "106": [
+      "reference_claude_code_memory_claude_md",
+      "reference_claude_code_memory_import_directive",
+      "reference_claude_code_memory_official",
+      "reference_claude_code_memory_scope_hierarchy",
+      "reference_claude_code_plugin_installation_scopes",
+      "reference_claude_code_settings_file_locations"
+    ],
+    "107": [
+      "references_reference",
+      "references_reference_aidebugger",
+      "references_reference_airefactorer",
+      "references_reference_automatedcodereviewer",
+      "references_reference_tddmanager",
+      "references_reference_testspecification"
+    ],
+    "108": [
+      "schemas_config_schema_max_questions_default",
+      "schemas_config_schema_max_questions_description",
+      "schemas_config_schema_max_questions_maximum",
+      "schemas_config_schema_max_questions_minimum",
+      "schemas_config_schema_max_questions_type",
+      "schemas_config_schema_properties_max_questions"
+    ],
+    "109": [
+      "schemas_config_schema_properties_retry_attempts",
+      "schemas_config_schema_retry_attempts_default",
+      "schemas_config_schema_retry_attempts_description",
+      "schemas_config_schema_retry_attempts_maximum",
+      "schemas_config_schema_retry_attempts_minimum",
+      "schemas_config_schema_retry_attempts_type"
+    ],
+    "110": [
+      "schemas_config_schema_properties_timeout_seconds",
+      "schemas_config_schema_timeout_seconds_default",
+      "schemas_config_schema_timeout_seconds_description",
+      "schemas_config_schema_timeout_seconds_maximum",
+      "schemas_config_schema_timeout_seconds_minimum",
+      "schemas_config_schema_timeout_seconds_type"
+    ],
+    "111": [
+      "workflows_e2e_agent_browser",
+      "workflows_e2e_chrome_devtools_mcp",
+      "workflows_e2e_claude_in_chrome",
+      "workflows_e2e_playwright_cli",
+      "workflows_e2e_tool_selection_recommendation",
+      "workflows_e2e_workflow_e2e"
+    ],
+    "112": [
+      "app_page",
+      "app_page_homepage",
+      "app_page_metadata",
+      "app_page_panel",
+      "app_page_panels"
+    ],
+    "113": [
+      "development_coding_standards",
+      "development_coding_standards_claude_md_40k",
+      "development_coding_standards_language_policy",
+      "development_coding_standards_paths_frontmatter",
+      "development_coding_standards_thin_command"
+    ],
+    "114": [
+      "docs_mcp_oauth_github",
+      "docs_mcp_oauth_keychain",
+      "docs_mcp_oauth_sentry",
+      "docs_mcp_oauth_setup",
+      "docs_mcp_oauth_slack"
+    ],
+    "115": [
+      "languages_flutter",
+      "languages_java",
+      "languages_kotlin",
+      "languages_scala",
+      "languages_swift"
+    ],
+    "116": [
+      "moai_domain_backend_event_driven",
+      "moai_domain_backend_event_microservice",
+      "references_reference_cqrs_pattern",
+      "references_reference_event_publisher",
+      "references_reference_event_subscriber"
+    ],
+    "117": [
+      "moai_manifest_claude_agents_moai_builder_agent_md_current_hash",
+      "moai_manifest_claude_agents_moai_builder_agent_md_deployed_hash",
+      "moai_manifest_claude_agents_moai_builder_agent_md_provenance",
+      "moai_manifest_claude_agents_moai_builder_agent_md_template_hash",
+      "moai_manifest_files_claude_agents_moai_builder_agent_md"
+    ],
+    "118": [
+      "moai_manifest_claude_agents_moai_builder_plugin_md_current_hash",
+      "moai_manifest_claude_agents_moai_builder_plugin_md_deployed_hash",
+      "moai_manifest_claude_agents_moai_builder_plugin_md_provenance",
+      "moai_manifest_claude_agents_moai_builder_plugin_md_template_hash",
+      "moai_manifest_files_claude_agents_moai_builder_plugin_md"
+    ],
+    "119": [
+      "moai_manifest_claude_agents_moai_builder_skill_md_current_hash",
+      "moai_manifest_claude_agents_moai_builder_skill_md_deployed_hash",
+      "moai_manifest_claude_agents_moai_builder_skill_md_provenance",
+      "moai_manifest_claude_agents_moai_builder_skill_md_template_hash",
+      "moai_manifest_files_claude_agents_moai_builder_skill_md"
+    ],
+    "120": [
+      "moai_manifest_claude_agents_moai_evaluator_active_md_current_hash",
+      "moai_manifest_claude_agents_moai_evaluator_active_md_deployed_hash",
+      "moai_manifest_claude_agents_moai_evaluator_active_md_provenance",
+      "moai_manifest_claude_agents_moai_evaluator_active_md_template_hash",
+      "moai_manifest_files_claude_agents_moai_evaluator_active_md"
+    ],
+    "121": [
+      "moai_manifest_claude_agents_moai_expert_backend_md_current_hash",
+      "moai_manifest_claude_agents_moai_expert_backend_md_deployed_hash",
+      "moai_manifest_claude_agents_moai_expert_backend_md_provenance",
+      "moai_manifest_claude_agents_moai_expert_backend_md_template_hash",
+      "moai_manifest_files_claude_agents_moai_expert_backend_md"
+    ],
+    "122": [
+      "moai_manifest_claude_agents_moai_expert_debug_md_current_hash",
+      "moai_manifest_claude_agents_moai_expert_debug_md_deployed_hash",
+      "moai_manifest_claude_agents_moai_expert_debug_md_provenance",
+      "moai_manifest_claude_agents_moai_expert_debug_md_template_hash",
+      "moai_manifest_files_claude_agents_moai_expert_debug_md"
+    ],
+    "123": [
+      "moai_manifest_claude_agents_moai_expert_devops_md_current_hash",
+      "moai_manifest_claude_agents_moai_expert_devops_md_deployed_hash",
+      "moai_manifest_claude_agents_moai_expert_devops_md_provenance",
+      "moai_manifest_claude_agents_moai_expert_devops_md_template_hash",
+      "moai_manifest_files_claude_agents_moai_expert_devops_md"
+    ],
+    "124": [
+      "moai_manifest_claude_agents_moai_expert_frontend_md_current_hash",
+      "moai_manifest_claude_agents_moai_expert_frontend_md_deployed_hash",
+      "moai_manifest_claude_agents_moai_expert_frontend_md_provenance",
+      "moai_manifest_claude_agents_moai_expert_frontend_md_template_hash",
+      "moai_manifest_files_claude_agents_moai_expert_frontend_md"
+    ],
+    "125": [
+      "moai_manifest_claude_agents_moai_expert_performance_md_current_hash",
+      "moai_manifest_claude_agents_moai_expert_performance_md_deployed_hash",
+      "moai_manifest_claude_agents_moai_expert_performance_md_provenance",
+      "moai_manifest_claude_agents_moai_expert_performance_md_template_hash",
+      "moai_manifest_files_claude_agents_moai_expert_performance_md"
+    ],
+    "126": [
+      "moai_manifest_claude_agents_moai_expert_refactoring_md_current_hash",
+      "moai_manifest_claude_agents_moai_expert_refactoring_md_deployed_hash",
+      "moai_manifest_claude_agents_moai_expert_refactoring_md_provenance",
+      "moai_manifest_claude_agents_moai_expert_refactoring_md_template_hash",
+      "moai_manifest_files_claude_agents_moai_expert_refactoring_md"
+    ],
+    "127": [
+      "moai_manifest_claude_agents_moai_expert_security_md_current_hash",
+      "moai_manifest_claude_agents_moai_expert_security_md_deployed_hash",
+      "moai_manifest_claude_agents_moai_expert_security_md_provenance",
+      "moai_manifest_claude_agents_moai_expert_security_md_template_hash",
+      "moai_manifest_files_claude_agents_moai_expert_security_md"
+    ],
+    "128": [
+      "moai_manifest_claude_agents_moai_expert_testing_md_current_hash",
+      "moai_manifest_claude_agents_moai_expert_testing_md_deployed_hash",
+      "moai_manifest_claude_agents_moai_expert_testing_md_provenance",
+      "moai_manifest_claude_agents_moai_expert_testing_md_template_hash",
+      "moai_manifest_files_claude_agents_moai_expert_testing_md"
+    ],
+    "129": [
+      "moai_manifest_claude_agents_moai_manager_ddd_md_current_hash",
+      "moai_manifest_claude_agents_moai_manager_ddd_md_deployed_hash",
+      "moai_manifest_claude_agents_moai_manager_ddd_md_provenance",
+      "moai_manifest_claude_agents_moai_manager_ddd_md_template_hash",
+      "moai_manifest_files_claude_agents_moai_manager_ddd_md"
+    ],
+    "130": [
+      "moai_manifest_claude_agents_moai_manager_docs_md_current_hash",
+      "moai_manifest_claude_agents_moai_manager_docs_md_deployed_hash",
+      "moai_manifest_claude_agents_moai_manager_docs_md_provenance",
+      "moai_manifest_claude_agents_moai_manager_docs_md_template_hash",
+      "moai_manifest_files_claude_agents_moai_manager_docs_md"
+    ],
+    "131": [
+      "moai_manifest_claude_agents_moai_manager_git_md_current_hash",
+      "moai_manifest_claude_agents_moai_manager_git_md_deployed_hash",
+      "moai_manifest_claude_agents_moai_manager_git_md_provenance",
+      "moai_manifest_claude_agents_moai_manager_git_md_template_hash",
+      "moai_manifest_files_claude_agents_moai_manager_git_md"
+    ],
+    "132": [
+      "moai_manifest_claude_agents_moai_manager_project_md_current_hash",
+      "moai_manifest_claude_agents_moai_manager_project_md_deployed_hash",
+      "moai_manifest_claude_agents_moai_manager_project_md_provenance",
+      "moai_manifest_claude_agents_moai_manager_project_md_template_hash",
+      "moai_manifest_files_claude_agents_moai_manager_project_md"
+    ],
+    "133": [
+      "moai_manifest_claude_agents_moai_manager_quality_md_current_hash",
+      "moai_manifest_claude_agents_moai_manager_quality_md_deployed_hash",
+      "moai_manifest_claude_agents_moai_manager_quality_md_provenance",
+      "moai_manifest_claude_agents_moai_manager_quality_md_template_hash",
+      "moai_manifest_files_claude_agents_moai_manager_quality_md"
+    ],
+    "134": [
+      "moai_manifest_claude_agents_moai_manager_spec_md_current_hash",
+      "moai_manifest_claude_agents_moai_manager_spec_md_deployed_hash",
+      "moai_manifest_claude_agents_moai_manager_spec_md_provenance",
+      "moai_manifest_claude_agents_moai_manager_spec_md_template_hash",
+      "moai_manifest_files_claude_agents_moai_manager_spec_md"
+    ],
+    "135": [
+      "moai_manifest_claude_agents_moai_manager_strategy_md_current_hash",
+      "moai_manifest_claude_agents_moai_manager_strategy_md_deployed_hash",
+      "moai_manifest_claude_agents_moai_manager_strategy_md_provenance",
+      "moai_manifest_claude_agents_moai_manager_strategy_md_template_hash",
+      "moai_manifest_files_claude_agents_moai_manager_strategy_md"
+    ],
+    "136": [
+      "moai_manifest_claude_agents_moai_manager_tdd_md_current_hash",
+      "moai_manifest_claude_agents_moai_manager_tdd_md_deployed_hash",
+      "moai_manifest_claude_agents_moai_manager_tdd_md_provenance",
+      "moai_manifest_claude_agents_moai_manager_tdd_md_template_hash",
+      "moai_manifest_files_claude_agents_moai_manager_tdd_md"
+    ],
+    "137": [
+      "moai_manifest_claude_agents_moai_plan_auditor_md_current_hash",
+      "moai_manifest_claude_agents_moai_plan_auditor_md_deployed_hash",
+      "moai_manifest_claude_agents_moai_plan_auditor_md_provenance",
+      "moai_manifest_claude_agents_moai_plan_auditor_md_template_hash",
+      "moai_manifest_files_claude_agents_moai_plan_auditor_md"
+    ],
+    "138": [
+      "moai_manifest_claude_agents_moai_researcher_md_current_hash",
+      "moai_manifest_claude_agents_moai_researcher_md_deployed_hash",
+      "moai_manifest_claude_agents_moai_researcher_md_provenance",
+      "moai_manifest_claude_agents_moai_researcher_md_template_hash",
+      "moai_manifest_files_claude_agents_moai_researcher_md"
+    ],
+    "139": [
+      "moai_manifest_claude_commands_moai_clean_md_current_hash",
+      "moai_manifest_claude_commands_moai_clean_md_deployed_hash",
+      "moai_manifest_claude_commands_moai_clean_md_provenance",
+      "moai_manifest_claude_commands_moai_clean_md_template_hash",
+      "moai_manifest_files_claude_commands_moai_clean_md"
+    ],
+    "140": [
+      "moai_manifest_claude_commands_moai_codemaps_md_current_hash",
+      "moai_manifest_claude_commands_moai_codemaps_md_deployed_hash",
+      "moai_manifest_claude_commands_moai_codemaps_md_provenance",
+      "moai_manifest_claude_commands_moai_codemaps_md_template_hash",
+      "moai_manifest_files_claude_commands_moai_codemaps_md"
+    ],
+    "141": [
+      "moai_manifest_claude_commands_moai_coverage_md_current_hash",
+      "moai_manifest_claude_commands_moai_coverage_md_deployed_hash",
+      "moai_manifest_claude_commands_moai_coverage_md_provenance",
+      "moai_manifest_claude_commands_moai_coverage_md_template_hash",
+      "moai_manifest_files_claude_commands_moai_coverage_md"
+    ],
+    "142": [
+      "moai_manifest_claude_commands_moai_db_md_current_hash",
+      "moai_manifest_claude_commands_moai_db_md_deployed_hash",
+      "moai_manifest_claude_commands_moai_db_md_provenance",
+      "moai_manifest_claude_commands_moai_db_md_template_hash",
+      "moai_manifest_files_claude_commands_moai_db_md"
+    ],
+    "143": [
+      "moai_manifest_claude_commands_moai_design_md_current_hash",
+      "moai_manifest_claude_commands_moai_design_md_deployed_hash",
+      "moai_manifest_claude_commands_moai_design_md_provenance",
+      "moai_manifest_claude_commands_moai_design_md_template_hash",
+      "moai_manifest_files_claude_commands_moai_design_md"
+    ],
+    "144": [
+      "moai_manifest_claude_commands_moai_e2e_md_current_hash",
+      "moai_manifest_claude_commands_moai_e2e_md_deployed_hash",
+      "moai_manifest_claude_commands_moai_e2e_md_provenance",
+      "moai_manifest_claude_commands_moai_e2e_md_template_hash",
+      "moai_manifest_files_claude_commands_moai_e2e_md"
+    ],
+    "145": [
+      "moai_manifest_claude_commands_moai_feedback_md_current_hash",
+      "moai_manifest_claude_commands_moai_feedback_md_deployed_hash",
+      "moai_manifest_claude_commands_moai_feedback_md_provenance",
+      "moai_manifest_claude_commands_moai_feedback_md_template_hash",
+      "moai_manifest_files_claude_commands_moai_feedback_md"
+    ],
+    "146": [
+      "moai_manifest_claude_commands_moai_fix_md_current_hash",
+      "moai_manifest_claude_commands_moai_fix_md_deployed_hash",
+      "moai_manifest_claude_commands_moai_fix_md_provenance",
+      "moai_manifest_claude_commands_moai_fix_md_template_hash",
+      "moai_manifest_files_claude_commands_moai_fix_md"
+    ],
+    "147": [
+      "moai_manifest_claude_commands_moai_loop_md_current_hash",
+      "moai_manifest_claude_commands_moai_loop_md_deployed_hash",
+      "moai_manifest_claude_commands_moai_loop_md_provenance",
+      "moai_manifest_claude_commands_moai_loop_md_template_hash",
+      "moai_manifest_files_claude_commands_moai_loop_md"
+    ],
+    "148": [
+      "moai_manifest_claude_commands_moai_mx_md_current_hash",
+      "moai_manifest_claude_commands_moai_mx_md_deployed_hash",
+      "moai_manifest_claude_commands_moai_mx_md_provenance",
+      "moai_manifest_claude_commands_moai_mx_md_template_hash",
+      "moai_manifest_files_claude_commands_moai_mx_md"
+    ],
+    "149": [
+      "moai_manifest_claude_commands_moai_plan_md_current_hash",
+      "moai_manifest_claude_commands_moai_plan_md_deployed_hash",
+      "moai_manifest_claude_commands_moai_plan_md_provenance",
+      "moai_manifest_claude_commands_moai_plan_md_template_hash",
+      "moai_manifest_files_claude_commands_moai_plan_md"
+    ],
+    "150": [
+      "moai_manifest_claude_commands_moai_project_md_current_hash",
+      "moai_manifest_claude_commands_moai_project_md_deployed_hash",
+      "moai_manifest_claude_commands_moai_project_md_provenance",
+      "moai_manifest_claude_commands_moai_project_md_template_hash",
+      "moai_manifest_files_claude_commands_moai_project_md"
+    ],
+    "151": [
+      "moai_manifest_claude_commands_moai_review_md_current_hash",
+      "moai_manifest_claude_commands_moai_review_md_deployed_hash",
+      "moai_manifest_claude_commands_moai_review_md_provenance",
+      "moai_manifest_claude_commands_moai_review_md_template_hash",
+      "moai_manifest_files_claude_commands_moai_review_md"
+    ],
+    "152": [
+      "moai_manifest_claude_commands_moai_run_md_current_hash",
+      "moai_manifest_claude_commands_moai_run_md_deployed_hash",
+      "moai_manifest_claude_commands_moai_run_md_provenance",
+      "moai_manifest_claude_commands_moai_run_md_template_hash",
+      "moai_manifest_files_claude_commands_moai_run_md"
+    ],
+    "153": [
+      "moai_manifest_claude_commands_moai_sync_md_current_hash",
+      "moai_manifest_claude_commands_moai_sync_md_deployed_hash",
+      "moai_manifest_claude_commands_moai_sync_md_provenance",
+      "moai_manifest_claude_commands_moai_sync_md_template_hash",
+      "moai_manifest_files_claude_commands_moai_sync_md"
+    ],
+    "154": [
+      "moai_manifest_claude_hooks_moai_handle_agent_hook_sh_current_hash",
+      "moai_manifest_claude_hooks_moai_handle_agent_hook_sh_deployed_hash",
+      "moai_manifest_claude_hooks_moai_handle_agent_hook_sh_provenance",
+      "moai_manifest_claude_hooks_moai_handle_agent_hook_sh_template_hash",
+      "moai_manifest_files_claude_hooks_moai_handle_agent_hook_sh"
+    ],
+    "155": [
+      "moai_manifest_claude_hooks_moai_handle_compact_sh_current_hash",
+      "moai_manifest_claude_hooks_moai_handle_compact_sh_deployed_hash",
+      "moai_manifest_claude_hooks_moai_handle_compact_sh_provenance",
+      "moai_manifest_claude_hooks_moai_handle_compact_sh_template_hash",
+      "moai_manifest_files_claude_hooks_moai_handle_compact_sh"
+    ],
+    "156": [
+      "moai_manifest_claude_hooks_moai_handle_config_change_sh_current_hash",
+      "moai_manifest_claude_hooks_moai_handle_config_change_sh_deployed_hash",
+      "moai_manifest_claude_hooks_moai_handle_config_change_sh_provenance",
+      "moai_manifest_claude_hooks_moai_handle_config_change_sh_template_hash",
+      "moai_manifest_files_claude_hooks_moai_handle_config_change_sh"
+    ],
+    "157": [
+      "moai_manifest_claude_hooks_moai_handle_cwd_changed_sh_current_hash",
+      "moai_manifest_claude_hooks_moai_handle_cwd_changed_sh_deployed_hash",
+      "moai_manifest_claude_hooks_moai_handle_cwd_changed_sh_provenance",
+      "moai_manifest_claude_hooks_moai_handle_cwd_changed_sh_template_hash",
+      "moai_manifest_files_claude_hooks_moai_handle_cwd_changed_sh"
+    ],
+    "158": [
+      "moai_manifest_claude_hooks_moai_handle_elicitation_result_sh_current_hash",
+      "moai_manifest_claude_hooks_moai_handle_elicitation_result_sh_deployed_hash",
+      "moai_manifest_claude_hooks_moai_handle_elicitation_result_sh_provenance",
+      "moai_manifest_claude_hooks_moai_handle_elicitation_result_sh_template_hash",
+      "moai_manifest_files_claude_hooks_moai_handle_elicitation_result_sh"
+    ],
+    "159": [
+      "moai_manifest_claude_hooks_moai_handle_elicitation_sh_current_hash",
+      "moai_manifest_claude_hooks_moai_handle_elicitation_sh_deployed_hash",
+      "moai_manifest_claude_hooks_moai_handle_elicitation_sh_provenance",
+      "moai_manifest_claude_hooks_moai_handle_elicitation_sh_template_hash",
+      "moai_manifest_files_claude_hooks_moai_handle_elicitation_sh"
+    ],
+    "160": [
+      "moai_manifest_claude_hooks_moai_handle_file_changed_sh_current_hash",
+      "moai_manifest_claude_hooks_moai_handle_file_changed_sh_deployed_hash",
+      "moai_manifest_claude_hooks_moai_handle_file_changed_sh_provenance",
+      "moai_manifest_claude_hooks_moai_handle_file_changed_sh_template_hash",
+      "moai_manifest_files_claude_hooks_moai_handle_file_changed_sh"
+    ],
+    "161": [
+      "moai_manifest_claude_hooks_moai_handle_instructions_loaded_sh_current_hash",
+      "moai_manifest_claude_hooks_moai_handle_instructions_loaded_sh_deployed_hash",
+      "moai_manifest_claude_hooks_moai_handle_instructions_loaded_sh_provenance",
+      "moai_manifest_claude_hooks_moai_handle_instructions_loaded_sh_template_hash",
+      "moai_manifest_files_claude_hooks_moai_handle_instructions_loaded_sh"
+    ],
+    "162": [
+      "moai_manifest_claude_hooks_moai_handle_notification_sh_current_hash",
+      "moai_manifest_claude_hooks_moai_handle_notification_sh_deployed_hash",
+      "moai_manifest_claude_hooks_moai_handle_notification_sh_provenance",
+      "moai_manifest_claude_hooks_moai_handle_notification_sh_template_hash",
+      "moai_manifest_files_claude_hooks_moai_handle_notification_sh"
+    ],
+    "163": [
+      "moai_manifest_claude_hooks_moai_handle_permission_denied_sh_current_hash",
+      "moai_manifest_claude_hooks_moai_handle_permission_denied_sh_deployed_hash",
+      "moai_manifest_claude_hooks_moai_handle_permission_denied_sh_provenance",
+      "moai_manifest_claude_hooks_moai_handle_permission_denied_sh_template_hash",
+      "moai_manifest_files_claude_hooks_moai_handle_permission_denied_sh"
+    ],
+    "164": [
+      "moai_manifest_claude_hooks_moai_handle_permission_request_sh_current_hash",
+      "moai_manifest_claude_hooks_moai_handle_permission_request_sh_deployed_hash",
+      "moai_manifest_claude_hooks_moai_handle_permission_request_sh_provenance",
+      "moai_manifest_claude_hooks_moai_handle_permission_request_sh_template_hash",
+      "moai_manifest_files_claude_hooks_moai_handle_permission_request_sh"
+    ],
+    "165": [
+      "moai_manifest_claude_hooks_moai_handle_post_compact_sh_current_hash",
+      "moai_manifest_claude_hooks_moai_handle_post_compact_sh_deployed_hash",
+      "moai_manifest_claude_hooks_moai_handle_post_compact_sh_provenance",
+      "moai_manifest_claude_hooks_moai_handle_post_compact_sh_template_hash",
+      "moai_manifest_files_claude_hooks_moai_handle_post_compact_sh"
+    ],
+    "166": [
+      "moai_manifest_claude_hooks_moai_handle_post_tool_failure_sh_current_hash",
+      "moai_manifest_claude_hooks_moai_handle_post_tool_failure_sh_deployed_hash",
+      "moai_manifest_claude_hooks_moai_handle_post_tool_failure_sh_provenance",
+      "moai_manifest_claude_hooks_moai_handle_post_tool_failure_sh_template_hash",
+      "moai_manifest_files_claude_hooks_moai_handle_post_tool_failure_sh"
+    ],
+    "167": [
+      "moai_manifest_claude_hooks_moai_handle_post_tool_sh_current_hash",
+      "moai_manifest_claude_hooks_moai_handle_post_tool_sh_deployed_hash",
+      "moai_manifest_claude_hooks_moai_handle_post_tool_sh_provenance",
+      "moai_manifest_claude_hooks_moai_handle_post_tool_sh_template_hash",
+      "moai_manifest_files_claude_hooks_moai_handle_post_tool_sh"
+    ],
+    "168": [
+      "moai_manifest_claude_hooks_moai_handle_pre_tool_sh_current_hash",
+      "moai_manifest_claude_hooks_moai_handle_pre_tool_sh_deployed_hash",
+      "moai_manifest_claude_hooks_moai_handle_pre_tool_sh_provenance",
+      "moai_manifest_claude_hooks_moai_handle_pre_tool_sh_template_hash",
+      "moai_manifest_files_claude_hooks_moai_handle_pre_tool_sh"
+    ],
+    "169": [
+      "moai_manifest_claude_hooks_moai_handle_session_end_sh_current_hash",
+      "moai_manifest_claude_hooks_moai_handle_session_end_sh_deployed_hash",
+      "moai_manifest_claude_hooks_moai_handle_session_end_sh_provenance",
+      "moai_manifest_claude_hooks_moai_handle_session_end_sh_template_hash",
+      "moai_manifest_files_claude_hooks_moai_handle_session_end_sh"
+    ],
+    "170": [
+      "moai_manifest_claude_hooks_moai_handle_session_start_sh_current_hash",
+      "moai_manifest_claude_hooks_moai_handle_session_start_sh_deployed_hash",
+      "moai_manifest_claude_hooks_moai_handle_session_start_sh_provenance",
+      "moai_manifest_claude_hooks_moai_handle_session_start_sh_template_hash",
+      "moai_manifest_files_claude_hooks_moai_handle_session_start_sh"
+    ],
+    "171": [
+      "moai_manifest_claude_hooks_moai_handle_stop_failure_sh_current_hash",
+      "moai_manifest_claude_hooks_moai_handle_stop_failure_sh_deployed_hash",
+      "moai_manifest_claude_hooks_moai_handle_stop_failure_sh_provenance",
+      "moai_manifest_claude_hooks_moai_handle_stop_failure_sh_template_hash",
+      "moai_manifest_files_claude_hooks_moai_handle_stop_failure_sh"
+    ],
+    "172": [
+      "moai_manifest_claude_hooks_moai_handle_stop_sh_current_hash",
+      "moai_manifest_claude_hooks_moai_handle_stop_sh_deployed_hash",
+      "moai_manifest_claude_hooks_moai_handle_stop_sh_provenance",
+      "moai_manifest_claude_hooks_moai_handle_stop_sh_template_hash",
+      "moai_manifest_files_claude_hooks_moai_handle_stop_sh"
+    ],
+    "173": [
+      "moai_manifest_claude_hooks_moai_handle_subagent_start_sh_current_hash",
+      "moai_manifest_claude_hooks_moai_handle_subagent_start_sh_deployed_hash",
+      "moai_manifest_claude_hooks_moai_handle_subagent_start_sh_provenance",
+      "moai_manifest_claude_hooks_moai_handle_subagent_start_sh_template_hash",
+      "moai_manifest_files_claude_hooks_moai_handle_subagent_start_sh"
+    ],
+    "174": [
+      "moai_manifest_claude_hooks_moai_handle_subagent_stop_sh_current_hash",
+      "moai_manifest_claude_hooks_moai_handle_subagent_stop_sh_deployed_hash",
+      "moai_manifest_claude_hooks_moai_handle_subagent_stop_sh_provenance",
+      "moai_manifest_claude_hooks_moai_handle_subagent_stop_sh_template_hash",
+      "moai_manifest_files_claude_hooks_moai_handle_subagent_stop_sh"
+    ],
+    "175": [
+      "moai_manifest_claude_hooks_moai_handle_task_completed_sh_current_hash",
+      "moai_manifest_claude_hooks_moai_handle_task_completed_sh_deployed_hash",
+      "moai_manifest_claude_hooks_moai_handle_task_completed_sh_provenance",
+      "moai_manifest_claude_hooks_moai_handle_task_completed_sh_template_hash",
+      "moai_manifest_files_claude_hooks_moai_handle_task_completed_sh"
+    ],
+    "176": [
+      "moai_manifest_claude_hooks_moai_handle_task_created_sh_current_hash",
+      "moai_manifest_claude_hooks_moai_handle_task_created_sh_deployed_hash",
+      "moai_manifest_claude_hooks_moai_handle_task_created_sh_provenance",
+      "moai_manifest_claude_hooks_moai_handle_task_created_sh_template_hash",
+      "moai_manifest_files_claude_hooks_moai_handle_task_created_sh"
+    ],
+    "177": [
+      "moai_manifest_claude_hooks_moai_handle_teammate_idle_sh_current_hash",
+      "moai_manifest_claude_hooks_moai_handle_teammate_idle_sh_deployed_hash",
+      "moai_manifest_claude_hooks_moai_handle_teammate_idle_sh_provenance",
+      "moai_manifest_claude_hooks_moai_handle_teammate_idle_sh_template_hash",
+      "moai_manifest_files_claude_hooks_moai_handle_teammate_idle_sh"
+    ],
+    "178": [
+      "moai_manifest_claude_hooks_moai_handle_user_prompt_submit_sh_current_hash",
+      "moai_manifest_claude_hooks_moai_handle_user_prompt_submit_sh_deployed_hash",
+      "moai_manifest_claude_hooks_moai_handle_user_prompt_submit_sh_provenance",
+      "moai_manifest_claude_hooks_moai_handle_user_prompt_submit_sh_template_hash",
+      "moai_manifest_files_claude_hooks_moai_handle_user_prompt_submit_sh"
+    ],
+    "179": [
+      "moai_manifest_claude_hooks_moai_handle_worktree_create_sh_current_hash",
+      "moai_manifest_claude_hooks_moai_handle_worktree_create_sh_deployed_hash",
+      "moai_manifest_claude_hooks_moai_handle_worktree_create_sh_provenance",
+      "moai_manifest_claude_hooks_moai_handle_worktree_create_sh_template_hash",
+      "moai_manifest_files_claude_hooks_moai_handle_worktree_create_sh"
+    ],
+    "180": [
+      "moai_manifest_claude_hooks_moai_handle_worktree_remove_sh_current_hash",
+      "moai_manifest_claude_hooks_moai_handle_worktree_remove_sh_deployed_hash",
+      "moai_manifest_claude_hooks_moai_handle_worktree_remove_sh_provenance",
+      "moai_manifest_claude_hooks_moai_handle_worktree_remove_sh_template_hash",
+      "moai_manifest_files_claude_hooks_moai_handle_worktree_remove_sh"
+    ],
+    "181": [
+      "moai_manifest_claude_output_styles_moai_einstein_md_current_hash",
+      "moai_manifest_claude_output_styles_moai_einstein_md_deployed_hash",
+      "moai_manifest_claude_output_styles_moai_einstein_md_provenance",
+      "moai_manifest_claude_output_styles_moai_einstein_md_template_hash",
+      "moai_manifest_files_claude_output_styles_moai_einstein_md"
+    ],
+    "182": [
+      "moai_manifest_claude_output_styles_moai_moai_md_current_hash",
+      "moai_manifest_claude_output_styles_moai_moai_md_deployed_hash",
+      "moai_manifest_claude_output_styles_moai_moai_md_provenance",
+      "moai_manifest_claude_output_styles_moai_moai_md_template_hash",
+      "moai_manifest_files_claude_output_styles_moai_moai_md"
+    ],
+    "183": [
+      "moai_manifest_claude_rules_moai_core_agent_common_protocol_md_current_hash",
+      "moai_manifest_claude_rules_moai_core_agent_common_protocol_md_deployed_hash",
+      "moai_manifest_claude_rules_moai_core_agent_common_protocol_md_provenance",
+      "moai_manifest_claude_rules_moai_core_agent_common_protocol_md_template_hash",
+      "moai_manifest_files_claude_rules_moai_core_agent_common_protocol_md"
+    ],
+    "184": [
+      "moai_manifest_claude_rules_moai_core_agent_hooks_md_current_hash",
+      "moai_manifest_claude_rules_moai_core_agent_hooks_md_deployed_hash",
+      "moai_manifest_claude_rules_moai_core_agent_hooks_md_provenance",
+      "moai_manifest_claude_rules_moai_core_agent_hooks_md_template_hash",
+      "moai_manifest_files_claude_rules_moai_core_agent_hooks_md"
+    ],
+    "185": [
+      "moai_manifest_claude_rules_moai_core_hooks_system_md_current_hash",
+      "moai_manifest_claude_rules_moai_core_hooks_system_md_deployed_hash",
+      "moai_manifest_claude_rules_moai_core_hooks_system_md_provenance",
+      "moai_manifest_claude_rules_moai_core_hooks_system_md_template_hash",
+      "moai_manifest_files_claude_rules_moai_core_hooks_system_md"
+    ],
+    "186": [
+      "moai_manifest_claude_rules_moai_core_lsp_client_md_current_hash",
+      "moai_manifest_claude_rules_moai_core_lsp_client_md_deployed_hash",
+      "moai_manifest_claude_rules_moai_core_lsp_client_md_provenance",
+      "moai_manifest_claude_rules_moai_core_lsp_client_md_template_hash",
+      "moai_manifest_files_claude_rules_moai_core_lsp_client_md"
+    ],
+    "187": [
+      "moai_manifest_claude_rules_moai_core_moai_constitution_md_current_hash",
+      "moai_manifest_claude_rules_moai_core_moai_constitution_md_deployed_hash",
+      "moai_manifest_claude_rules_moai_core_moai_constitution_md_provenance",
+      "moai_manifest_claude_rules_moai_core_moai_constitution_md_template_hash",
+      "moai_manifest_files_claude_rules_moai_core_moai_constitution_md"
+    ],
+    "188": [
+      "moai_manifest_claude_rules_moai_core_settings_management_md_current_hash",
+      "moai_manifest_claude_rules_moai_core_settings_management_md_deployed_hash",
+      "moai_manifest_claude_rules_moai_core_settings_management_md_provenance",
+      "moai_manifest_claude_rules_moai_core_settings_management_md_template_hash",
+      "moai_manifest_files_claude_rules_moai_core_settings_management_md"
+    ],
+    "189": [
+      "moai_manifest_claude_rules_moai_design_constitution_md_current_hash",
+      "moai_manifest_claude_rules_moai_design_constitution_md_deployed_hash",
+      "moai_manifest_claude_rules_moai_design_constitution_md_provenance",
+      "moai_manifest_claude_rules_moai_design_constitution_md_template_hash",
+      "moai_manifest_files_claude_rules_moai_design_constitution_md"
+    ],
+    "190": [
+      "moai_manifest_claude_rules_moai_development_agent_authoring_md_current_hash",
+      "moai_manifest_claude_rules_moai_development_agent_authoring_md_deployed_hash",
+      "moai_manifest_claude_rules_moai_development_agent_authoring_md_provenance",
+      "moai_manifest_claude_rules_moai_development_agent_authoring_md_template_hash",
+      "moai_manifest_files_claude_rules_moai_development_agent_authoring_md"
+    ],
+    "191": [
+      "moai_manifest_claude_rules_moai_development_coding_standards_md_current_hash",
+      "moai_manifest_claude_rules_moai_development_coding_standards_md_deployed_hash",
+      "moai_manifest_claude_rules_moai_development_coding_standards_md_provenance",
+      "moai_manifest_claude_rules_moai_development_coding_standards_md_template_hash",
+      "moai_manifest_files_claude_rules_moai_development_coding_standards_md"
+    ],
+    "192": [
+      "moai_manifest_claude_rules_moai_development_model_policy_md_current_hash",
+      "moai_manifest_claude_rules_moai_development_model_policy_md_deployed_hash",
+      "moai_manifest_claude_rules_moai_development_model_policy_md_provenance",
+      "moai_manifest_claude_rules_moai_development_model_policy_md_template_hash",
+      "moai_manifest_files_claude_rules_moai_development_model_policy_md"
+    ],
+    "193": [
+      "moai_manifest_claude_rules_moai_development_skill_authoring_md_current_hash",
+      "moai_manifest_claude_rules_moai_development_skill_authoring_md_deployed_hash",
+      "moai_manifest_claude_rules_moai_development_skill_authoring_md_provenance",
+      "moai_manifest_claude_rules_moai_development_skill_authoring_md_template_hash",
+      "moai_manifest_files_claude_rules_moai_development_skill_authoring_md"
+    ],
+    "194": [
+      "moai_manifest_claude_rules_moai_languages_cpp_md_current_hash",
+      "moai_manifest_claude_rules_moai_languages_cpp_md_deployed_hash",
+      "moai_manifest_claude_rules_moai_languages_cpp_md_provenance",
+      "moai_manifest_claude_rules_moai_languages_cpp_md_template_hash",
+      "moai_manifest_files_claude_rules_moai_languages_cpp_md"
+    ],
+    "195": [
+      "moai_manifest_claude_rules_moai_languages_csharp_md_current_hash",
+      "moai_manifest_claude_rules_moai_languages_csharp_md_deployed_hash",
+      "moai_manifest_claude_rules_moai_languages_csharp_md_provenance",
+      "moai_manifest_claude_rules_moai_languages_csharp_md_template_hash",
+      "moai_manifest_files_claude_rules_moai_languages_csharp_md"
+    ],
+    "196": [
+      "moai_manifest_claude_rules_moai_languages_elixir_md_current_hash",
+      "moai_manifest_claude_rules_moai_languages_elixir_md_deployed_hash",
+      "moai_manifest_claude_rules_moai_languages_elixir_md_provenance",
+      "moai_manifest_claude_rules_moai_languages_elixir_md_template_hash",
+      "moai_manifest_files_claude_rules_moai_languages_elixir_md"
+    ],
+    "197": [
+      "moai_manifest_claude_rules_moai_languages_flutter_md_current_hash",
+      "moai_manifest_claude_rules_moai_languages_flutter_md_deployed_hash",
+      "moai_manifest_claude_rules_moai_languages_flutter_md_provenance",
+      "moai_manifest_claude_rules_moai_languages_flutter_md_template_hash",
+      "moai_manifest_files_claude_rules_moai_languages_flutter_md"
+    ],
+    "198": [
+      "moai_manifest_claude_rules_moai_languages_go_md_current_hash",
+      "moai_manifest_claude_rules_moai_languages_go_md_deployed_hash",
+      "moai_manifest_claude_rules_moai_languages_go_md_provenance",
+      "moai_manifest_claude_rules_moai_languages_go_md_template_hash",
+      "moai_manifest_files_claude_rules_moai_languages_go_md"
+    ],
+    "199": [
+      "moai_manifest_claude_rules_moai_languages_java_md_current_hash",
+      "moai_manifest_claude_rules_moai_languages_java_md_deployed_hash",
+      "moai_manifest_claude_rules_moai_languages_java_md_provenance",
+      "moai_manifest_claude_rules_moai_languages_java_md_template_hash",
+      "moai_manifest_files_claude_rules_moai_languages_java_md"
+    ],
+    "200": [
+      "moai_manifest_claude_rules_moai_languages_javascript_md_current_hash",
+      "moai_manifest_claude_rules_moai_languages_javascript_md_deployed_hash",
+      "moai_manifest_claude_rules_moai_languages_javascript_md_provenance",
+      "moai_manifest_claude_rules_moai_languages_javascript_md_template_hash",
+      "moai_manifest_files_claude_rules_moai_languages_javascript_md"
+    ],
+    "201": [
+      "moai_manifest_claude_rules_moai_languages_kotlin_md_current_hash",
+      "moai_manifest_claude_rules_moai_languages_kotlin_md_deployed_hash",
+      "moai_manifest_claude_rules_moai_languages_kotlin_md_provenance",
+      "moai_manifest_claude_rules_moai_languages_kotlin_md_template_hash",
+      "moai_manifest_files_claude_rules_moai_languages_kotlin_md"
+    ],
+    "202": [
+      "moai_manifest_claude_rules_moai_languages_php_md_current_hash",
+      "moai_manifest_claude_rules_moai_languages_php_md_deployed_hash",
+      "moai_manifest_claude_rules_moai_languages_php_md_provenance",
+      "moai_manifest_claude_rules_moai_languages_php_md_template_hash",
+      "moai_manifest_files_claude_rules_moai_languages_php_md"
+    ],
+    "203": [
+      "moai_manifest_claude_rules_moai_languages_python_md_current_hash",
+      "moai_manifest_claude_rules_moai_languages_python_md_deployed_hash",
+      "moai_manifest_claude_rules_moai_languages_python_md_provenance",
+      "moai_manifest_claude_rules_moai_languages_python_md_template_hash",
+      "moai_manifest_files_claude_rules_moai_languages_python_md"
+    ],
+    "204": [
+      "moai_manifest_claude_rules_moai_languages_r_md_current_hash",
+      "moai_manifest_claude_rules_moai_languages_r_md_deployed_hash",
+      "moai_manifest_claude_rules_moai_languages_r_md_provenance",
+      "moai_manifest_claude_rules_moai_languages_r_md_template_hash",
+      "moai_manifest_files_claude_rules_moai_languages_r_md"
+    ],
+    "205": [
+      "moai_manifest_claude_rules_moai_languages_ruby_md_current_hash",
+      "moai_manifest_claude_rules_moai_languages_ruby_md_deployed_hash",
+      "moai_manifest_claude_rules_moai_languages_ruby_md_provenance",
+      "moai_manifest_claude_rules_moai_languages_ruby_md_template_hash",
+      "moai_manifest_files_claude_rules_moai_languages_ruby_md"
+    ],
+    "206": [
+      "moai_manifest_claude_rules_moai_languages_rust_md_current_hash",
+      "moai_manifest_claude_rules_moai_languages_rust_md_deployed_hash",
+      "moai_manifest_claude_rules_moai_languages_rust_md_provenance",
+      "moai_manifest_claude_rules_moai_languages_rust_md_template_hash",
+      "moai_manifest_files_claude_rules_moai_languages_rust_md"
+    ],
+    "207": [
+      "moai_manifest_claude_rules_moai_languages_scala_md_current_hash",
+      "moai_manifest_claude_rules_moai_languages_scala_md_deployed_hash",
+      "moai_manifest_claude_rules_moai_languages_scala_md_provenance",
+      "moai_manifest_claude_rules_moai_languages_scala_md_template_hash",
+      "moai_manifest_files_claude_rules_moai_languages_scala_md"
+    ],
+    "208": [
+      "moai_manifest_claude_rules_moai_languages_swift_md_current_hash",
+      "moai_manifest_claude_rules_moai_languages_swift_md_deployed_hash",
+      "moai_manifest_claude_rules_moai_languages_swift_md_provenance",
+      "moai_manifest_claude_rules_moai_languages_swift_md_template_hash",
+      "moai_manifest_files_claude_rules_moai_languages_swift_md"
+    ],
+    "209": [
+      "moai_manifest_claude_rules_moai_languages_typescript_md_current_hash",
+      "moai_manifest_claude_rules_moai_languages_typescript_md_deployed_hash",
+      "moai_manifest_claude_rules_moai_languages_typescript_md_provenance",
+      "moai_manifest_claude_rules_moai_languages_typescript_md_template_hash",
+      "moai_manifest_files_claude_rules_moai_languages_typescript_md"
+    ],
+    "210": [
+      "moai_manifest_claude_rules_moai_workflow_file_reading_optimization_md_current_hash",
+      "moai_manifest_claude_rules_moai_workflow_file_reading_optimization_md_deployed_hash",
+      "moai_manifest_claude_rules_moai_workflow_file_reading_optimization_md_provenance",
+      "moai_manifest_claude_rules_moai_workflow_file_reading_optimization_md_template_hash",
+      "moai_manifest_files_claude_rules_moai_workflow_file_reading_optimization_md"
+    ],
+    "211": [
+      "moai_manifest_claude_rules_moai_workflow_moai_memory_md_current_hash",
+      "moai_manifest_claude_rules_moai_workflow_moai_memory_md_deployed_hash",
+      "moai_manifest_claude_rules_moai_workflow_moai_memory_md_provenance",
+      "moai_manifest_claude_rules_moai_workflow_moai_memory_md_template_hash",
+      "moai_manifest_files_claude_rules_moai_workflow_moai_memory_md"
+    ],
+    "212": [
+      "moai_manifest_claude_rules_moai_workflow_mx_tag_protocol_md_current_hash",
+      "moai_manifest_claude_rules_moai_workflow_mx_tag_protocol_md_deployed_hash",
+      "moai_manifest_claude_rules_moai_workflow_mx_tag_protocol_md_provenance",
+      "moai_manifest_claude_rules_moai_workflow_mx_tag_protocol_md_template_hash",
+      "moai_manifest_files_claude_rules_moai_workflow_mx_tag_protocol_md"
+    ],
+    "213": [
+      "moai_manifest_claude_rules_moai_workflow_spec_workflow_md_current_hash",
+      "moai_manifest_claude_rules_moai_workflow_spec_workflow_md_deployed_hash",
+      "moai_manifest_claude_rules_moai_workflow_spec_workflow_md_provenance",
+      "moai_manifest_claude_rules_moai_workflow_spec_workflow_md_template_hash",
+      "moai_manifest_files_claude_rules_moai_workflow_spec_workflow_md"
+    ],
+    "214": [
+      "moai_manifest_claude_rules_moai_workflow_team_protocol_md_current_hash",
+      "moai_manifest_claude_rules_moai_workflow_team_protocol_md_deployed_hash",
+      "moai_manifest_claude_rules_moai_workflow_team_protocol_md_provenance",
+      "moai_manifest_claude_rules_moai_workflow_team_protocol_md_template_hash",
+      "moai_manifest_files_claude_rules_moai_workflow_team_protocol_md"
+    ],
+    "215": [
+      "moai_manifest_claude_rules_moai_workflow_workflow_modes_md_current_hash",
+      "moai_manifest_claude_rules_moai_workflow_workflow_modes_md_deployed_hash",
+      "moai_manifest_claude_rules_moai_workflow_workflow_modes_md_provenance",
+      "moai_manifest_claude_rules_moai_workflow_workflow_modes_md_template_hash",
+      "moai_manifest_files_claude_rules_moai_workflow_workflow_modes_md"
+    ],
+    "216": [
+      "moai_workflow_tdd_red_green_refactor",
+      "moai_workflow_testing_characterization_tests",
+      "moai_workflow_testing_ddd_context7",
+      "moai_workflow_testing_ddd_methodology",
+      "test_tdd_red_green_refactor"
+    ],
+    "217": [
+      "moai_workflow_thinking_adaptive_thinking",
+      "moai_workflow_thinking_deepthink",
+      "moai_workflow_thinking_sequentialthinking_tool",
+      "moai_workflow_thinking_skill",
+      "moai_workflow_thinking_ultrathink"
+    ],
+    "218": [
+      "modules_state_management_auth_context",
+      "modules_state_management_redux_toolkit",
+      "modules_state_management_rtk_query",
+      "modules_state_management_zustand",
+      "modules_state_management_zustand_slices"
+    ],
+    "219": [
+      "reference_claude_code_plugin_caching_behavior",
+      "reference_claude_code_plugin_install_command",
+      "reference_claude_code_plugin_manifest",
+      "reference_claude_code_plugin_root_env_var",
+      "reference_claude_code_plugins_official"
+    ],
+    "220": [
+      "references_reference_context_propagation",
+      "references_reference_legacy_command_mapping",
+      "references_reference_moai_skill_reference",
+      "references_reference_parallel_execution_pattern",
+      "references_reference_resume_pattern"
+    ],
+    "221": [
+      "references_reference_frontend",
+      "references_reference_frontend_react_query",
+      "references_reference_frontend_useformstatus",
+      "references_reference_frontend_useoptimistic",
+      "references_reference_frontend_zustand"
+    ],
+    "222": [
+      "references_reference_hook_integration",
+      "references_reference_mcp_server_integration",
+      "references_reference_moai_foundation_cc",
+      "references_reference_settings_hierarchy",
+      "references_reference_skill_definition_api"
+    ],
+    "223": [
+      "schemas_config_schema_format_default",
+      "schemas_config_schema_format_description",
+      "schemas_config_schema_format_enum",
+      "schemas_config_schema_format_type",
+      "schemas_config_schema_properties_format"
+    ],
+    "224": [
+      "schemas_config_schema_optimization_level_default",
+      "schemas_config_schema_optimization_level_description",
+      "schemas_config_schema_optimization_level_enum",
+      "schemas_config_schema_optimization_level_type",
+      "schemas_config_schema_properties_optimization_level"
+    ],
+    "225": [
+      "schemas_config_schema_output_format_default",
+      "schemas_config_schema_output_format_description",
+      "schemas_config_schema_output_format_enum",
+      "schemas_config_schema_output_format_type",
+      "schemas_config_schema_properties_output_format"
+    ],
+    "226": [
+      "schemas_config_schema_properties_template_engine",
+      "schemas_config_schema_template_engine_default",
+      "schemas_config_schema_template_engine_description",
+      "schemas_config_schema_template_engine_enum",
+      "schemas_config_schema_template_engine_type"
+    ],
+    "227": [
+      "sections_mx_config",
+      "sections_mx_languages",
+      "sections_mx_priority_queue",
+      "sections_mx_tag_types",
+      "sections_mx_thresholds"
+    ],
+    "228": [
+      "team_review_perf_reviewer",
+      "team_review_quality_reviewer",
+      "team_review_security_reviewer",
+      "team_review_ux_reviewer",
+      "team_review_workflow_team_review"
+    ],
+    "229": [
+      "workflow_worktree_integration_claude_native",
+      "workflow_worktree_integration_decision_tree",
+      "workflow_worktree_integration_moai_worktree",
+      "workflow_worktree_integration_prompt_path_rules",
+      "workflow_worktree_integration_spec_worktree_001"
+    ],
+    "230": [
+      "workflows_design_brand_context",
+      "workflows_design_path_a_claude_design",
+      "workflows_design_path_b_code_based",
+      "workflows_design_pencil_path",
+      "workflows_design_workflow_design"
+    ],
+    "231": [
+      "workflows_plan_phase_15_validation",
+      "workflows_plan_phase_23_review",
+      "workflows_plan_phase_25_github_issue",
+      "workflows_plan_phase_2_creation",
+      "workflows_plan_spec_compact"
+    ],
+    "232": [
+      "workflows_project",
+      "workflows_project_phase0_detection",
+      "workflows_project_phase1_codebase_analysis",
+      "workflows_project_phase33_codemaps",
+      "workflows_project_phase3_doc_gen"
+    ],
+    "233": [
+      "app_layout",
+      "app_layout_metadata",
+      "app_layout_rootlayout",
+      "app_layout_viewport"
+    ],
+    "234": [
+      "modules_component_architecture_compound_card",
+      "modules_component_architecture_cva_button",
+      "modules_component_architecture_dialog",
+      "modules_component_architecture_slot_pattern"
+    ],
+    "235": [
+      "modules_oracle_partitioning",
+      "modules_postgresql_materialized_view",
+      "modules_postgresql_partitioning",
+      "references_examples_query_optimization_pg"
+    ],
+    "236": [
+      "next_config",
+      "next_config_build_sha",
+      "next_config_build_time",
+      "next_config_config"
+    ],
+    "237": [
+      "performance_optimization_bottleneck_detection",
+      "performance_optimization_optimization_plan",
+      "performance_optimization_profiler_core",
+      "performance_optimization_real_time_monitoring"
+    ],
+    "238": [
+      "project_tech_actorgoldld2v2",
+      "project_tech_colortokens",
+      "specactorredesign001_e6gold3zonewcag",
+      "specactorredesign001_phase5polish"
+    ],
+    "239": [
+      "refactoring_patterns_extract_class",
+      "refactoring_patterns_extract_method",
+      "refactoring_patterns_extract_variable",
+      "refactoring_patterns_inline_variable"
+    ],
+    "240": [
+      "reference_claude_code_statusline_ansi_color",
+      "reference_claude_code_statusline_concept",
+      "reference_claude_code_statusline_context_window_display",
+      "reference_claude_code_statusline_official"
+    ],
+    "241": [
+      "reference_sub_agent_example_backend_expert",
+      "reference_sub_agent_example_code_format_expert",
+      "reference_sub_agent_example_frontend_expert",
+      "reference_sub_agents_examples"
+    ],
+    "242": [
+      "references_reference_click_framework",
+      "references_reference_git_worktree",
+      "references_reference_moai_worktree_reference",
+      "references_reference_rich_library"
+    ],
+    "243": [
+      "schemas_config_schema_custom_variables_additionalproperties",
+      "schemas_config_schema_custom_variables_description",
+      "schemas_config_schema_custom_variables_type",
+      "schemas_config_schema_properties_custom_variables"
+    ],
+    "244": [
+      "schemas_config_schema_include_api_docs_default",
+      "schemas_config_schema_include_api_docs_description",
+      "schemas_config_schema_include_api_docs_type",
+      "schemas_config_schema_properties_include_api_docs"
+    ],
+    "245": [
+      "schemas_config_schema_max_cache_size_mb_default",
+      "schemas_config_schema_max_cache_size_mb_minimum",
+      "schemas_config_schema_max_cache_size_mb_type",
+      "schemas_config_schema_properties_max_cache_size_mb"
+    ],
+    "246": [
+      "schemas_config_schema_properties_ttl_minutes",
+      "schemas_config_schema_ttl_minutes_default",
+      "schemas_config_schema_ttl_minutes_minimum",
+      "schemas_config_schema_ttl_minutes_type"
+    ],
+    "247": [
+      "sections_git_strategy",
+      "workflows_sync_auto_merge",
+      "workflows_sync_context_memory",
+      "workflows_sync_phase32_push_deliver"
+    ],
+    "248": [
+      "actor_layout",
+      "actor_layout_actorlayout",
+      "actor_layout_metadata"
+    ],
+    "249": [
+      "agent_layout",
+      "agent_layout_agentlayout",
+      "agent_layout_metadata"
+    ],
+    "250": [
+      "brand_brandvoice_doc",
+      "brand_targetaudience_doc",
+      "brand_visualidentity_doc"
+    ],
+    "251": [
+      "ddd_context7_advanced_features_enhancedtestgenerator",
+      "ddd_context7_test_generation_testgenerator",
+      "ddd_context7_test_patterns_integration"
+    ],
+    "252": [
+      "designer_layout",
+      "designer_layout_designerlayout",
+      "designer_layout_metadata"
+    ],
+    "253": [
+      "moai_domain_brand_design_design_tokens",
+      "moai_domain_brand_design_wcag_aa",
+      "modules_component_architecture_design_tokens"
+    ],
+    "254": [
+      "moai_domain_brand_design_perf_budget",
+      "modules_ai_frontend_patterns_playwright_verification",
+      "modules_performance_optimization_web_vitals"
+    ],
+    "255": [
+      "moai_library_mermaid_c4_diagrams",
+      "moai_library_mermaid_playwright_integration",
+      "moai_library_mermaid_skill"
+    ],
+    "256": [
+      "modules_performance_optimization_memoization",
+      "modules_react19_patterns_use_optimistic",
+      "modules_react19_patterns_use_transition"
+    ],
+    "257": [
+      "modules_spec_ddd_implementation_user_registration",
+      "modules_spec_ears_format_five_patterns",
+      "modules_spec_first_ddd_three_phase"
+    ],
+    "258": [
+      "performance_optimization_ai_optimization",
+      "performance_optimization_patterns",
+      "performance_profiling_techniques"
+    ],
+    "259": [
+      "references_reference_context7_integration",
+      "references_reference_design_system_integration",
+      "references_reference_shadcn_api"
+    ],
+    "260": [
+      "references_reference_moai_foundation_context_ref",
+      "references_reference_session_state_api",
+      "references_reference_token_budget_monitoring_api"
+    ],
+    "261": [
+      "sections_observability_config",
+      "sections_system_config",
+      "sections_system_doc_separation"
+    ],
+    "262": [
+      "workflow_file_reading_optimization",
+      "workflow_file_reading_optimization_tiered_loading",
+      "workflow_file_reading_optimization_token_budget"
+    ],
+    "263": [
+      "workflow_moai_memory_memory_hierarchy",
+      "workflow_moai_memory_session_continuity",
+      "workflow_moai_memory_spec_context_persistence"
+    ],
+    "264": [
+      "workflow_team_protocol_context_isolation",
+      "workflow_team_protocol_shutdown_handling",
+      "workflow_team_protocol_team_protocol"
+    ],
+    "265": [
+      "workflows_context_git_based_context_memory",
+      "workflows_context_session_boundary_tags",
+      "workflows_context_workflow_context"
+    ],
+    "266": [
+      "workflows_db_language_migration_mapping",
+      "workflows_db_moai_domain_db_docs",
+      "workflows_db_workflow_db"
+    ],
+    "267": [
+      "workflows_github_branch_per_issue",
+      "workflows_github_gh_cli_direct_invocation",
+      "workflows_github_workflow_github"
+    ],
+    "268": [
+      "app_actor_components_shared_useprefersreducedmotion_ts_shared_useprefersreducedmotion",
+      "app_actor_components_shared_useprefersreducedmotion_ts_shared_useprefersreducedmotion_useprefersreducedmotion"
+    ],
+    "269": [
+      "app_dev_components_shared_useprefersreducedmotion_ts_shared_useprefersreducedmotion",
+      "app_dev_components_shared_useprefersreducedmotion_ts_shared_useprefersreducedmotion_useprefersreducedmotion"
+    ],
+    "270": [
+      "ddd_context7_analyze_preserve_improve",
+      "ddd_core_classes_dddphase"
+    ],
+    "271": [
+      "debugging_debugging_workflows_aidebugger",
+      "debugging_error_analysis"
+    ],
+    "272": [
+      "evolution_changelog",
+      "evolution_manifest"
+    ],
+    "273": [
+      "languages_cpp",
+      "languages_rust"
+    ],
+    "274": [
+      "languages_javascript",
+      "languages_typescript"
+    ],
+    "275": [
+      "lib_cn",
+      "lib_cn_cn"
+    ],
+    "276": [
+      "moai_domain_copywriting_ab_variant",
+      "moai_domain_copywriting_section_structure"
+    ],
+    "277": [
+      "moai_handle_agent_hook",
+      "users_hyunwoojee_milkfolio_claude_hooks_moai_handle_agent_hook_sh__entry"
+    ],
+    "278": [
+      "moai_handle_compact",
+      "users_hyunwoojee_milkfolio_claude_hooks_moai_handle_compact_sh__entry"
+    ],
+    "279": [
+      "moai_handle_config_change",
+      "users_hyunwoojee_milkfolio_claude_hooks_moai_handle_config_change_sh__entry"
+    ],
+    "280": [
+      "moai_handle_cwd_changed",
+      "users_hyunwoojee_milkfolio_claude_hooks_moai_handle_cwd_changed_sh__entry"
+    ],
+    "281": [
+      "moai_handle_elicitation",
+      "users_hyunwoojee_milkfolio_claude_hooks_moai_handle_elicitation_sh__entry"
+    ],
+    "282": [
+      "moai_handle_elicitation_result",
+      "users_hyunwoojee_milkfolio_claude_hooks_moai_handle_elicitation_result_sh__entry"
+    ],
+    "283": [
+      "moai_handle_file_changed",
+      "users_hyunwoojee_milkfolio_claude_hooks_moai_handle_file_changed_sh__entry"
+    ],
+    "284": [
+      "moai_handle_instructions_loaded",
+      "users_hyunwoojee_milkfolio_claude_hooks_moai_handle_instructions_loaded_sh__entry"
+    ],
+    "285": [
+      "moai_handle_notification",
+      "users_hyunwoojee_milkfolio_claude_hooks_moai_handle_notification_sh__entry"
+    ],
+    "286": [
+      "moai_handle_permission_denied",
+      "users_hyunwoojee_milkfolio_claude_hooks_moai_handle_permission_denied_sh__entry"
+    ],
+    "287": [
+      "moai_handle_permission_request",
+      "users_hyunwoojee_milkfolio_claude_hooks_moai_handle_permission_request_sh__entry"
+    ],
+    "288": [
+      "moai_handle_post_compact",
+      "users_hyunwoojee_milkfolio_claude_hooks_moai_handle_post_compact_sh__entry"
+    ],
+    "289": [
+      "moai_handle_post_tool",
+      "users_hyunwoojee_milkfolio_claude_hooks_moai_handle_post_tool_sh__entry"
+    ],
+    "290": [
+      "moai_handle_post_tool_failure",
+      "users_hyunwoojee_milkfolio_claude_hooks_moai_handle_post_tool_failure_sh__entry"
+    ],
+    "291": [
+      "moai_handle_pre_tool",
+      "users_hyunwoojee_milkfolio_claude_hooks_moai_handle_pre_tool_sh__entry"
+    ],
+    "292": [
+      "moai_handle_session_end",
+      "users_hyunwoojee_milkfolio_claude_hooks_moai_handle_session_end_sh__entry"
+    ],
+    "293": [
+      "moai_handle_session_start",
+      "users_hyunwoojee_milkfolio_claude_hooks_moai_handle_session_start_sh__entry"
+    ],
+    "294": [
+      "moai_handle_stop",
+      "users_hyunwoojee_milkfolio_claude_hooks_moai_handle_stop_sh__entry"
+    ],
+    "295": [
+      "moai_handle_stop_failure",
+      "users_hyunwoojee_milkfolio_claude_hooks_moai_handle_stop_failure_sh__entry"
+    ],
+    "296": [
+      "moai_handle_subagent_start",
+      "users_hyunwoojee_milkfolio_claude_hooks_moai_handle_subagent_start_sh__entry"
+    ],
+    "297": [
+      "moai_handle_subagent_stop",
+      "users_hyunwoojee_milkfolio_claude_hooks_moai_handle_subagent_stop_sh__entry"
+    ],
+    "298": [
+      "moai_handle_task_completed",
+      "users_hyunwoojee_milkfolio_claude_hooks_moai_handle_task_completed_sh__entry"
+    ],
+    "299": [
+      "moai_handle_task_created",
+      "users_hyunwoojee_milkfolio_claude_hooks_moai_handle_task_created_sh__entry"
+    ],
+    "300": [
+      "moai_handle_teammate_idle",
+      "users_hyunwoojee_milkfolio_claude_hooks_moai_handle_teammate_idle_sh__entry"
+    ],
+    "301": [
+      "moai_handle_user_prompt_submit",
+      "users_hyunwoojee_milkfolio_claude_hooks_moai_handle_user_prompt_submit_sh__entry"
+    ],
+    "302": [
+      "moai_handle_worktree_create",
+      "users_hyunwoojee_milkfolio_claude_hooks_moai_handle_worktree_create_sh__entry"
+    ],
+    "303": [
+      "moai_handle_worktree_remove",
+      "users_hyunwoojee_milkfolio_claude_hooks_moai_handle_worktree_remove_sh__entry"
+    ],
+    "304": [
+      "modules_nextjs16_patterns_server_actions",
+      "modules_react19_patterns_use_action_state"
+    ],
+    "305": [
+      "refactoring_ai_workflows",
+      "refactoring_patterns"
+    ],
+    "306": [
+      "refactoring_contextawarerefactorer",
+      "refactoring_intelligent_refactoring_pipeline"
+    ],
+    "307": [
+      "refactoring_execute_refactoring_plan",
+      "refactoring_pre_refactoring_checklist"
+    ],
+    "308": [
+      "refactoring_patterns_decompose_conditional",
+      "refactoring_patterns_simplify_conditional"
+    ],
+    "309": [
+      "reference_playwright_best_practices",
+      "reference_playwright_context7_integration"
+    ],
+    "310": [
+      "references_examples_cicd_docs_pipeline",
+      "references_examples_documentation_as_code"
+    ],
+    "311": [
+      "references_examples_mkdocs_mkdocstrings",
+      "references_reference_mkdocs"
+    ],
+    "312": [
+      "references_examples_openapi_fastapi",
+      "references_reference_openapi_swagger"
+    ],
+    "313": [
+      "references_examples_sphinx_python_docs",
+      "references_reference_sphinx"
+    ],
+    "314": [
+      "references_examples_typedoc_typescript",
+      "references_reference_typedoc"
+    ],
+    "315": [
+      "references_reference_developmentworkflow",
+      "references_reference_workflowconfig"
+    ],
+    "316": [
+      "sections_security_config",
+      "sections_security_solid_o"
+    ],
+    "317": [
+      "workflows_codemaps_architecture_doc_generation",
+      "workflows_codemaps_workflow_codemaps"
+    ],
+    "318": [
+      "workflows_feedback_issue_language_policy",
+      "workflows_feedback_workflow_feedback"
+    ],
+    "319": [
+      "code_review_tool_integration"
+    ],
+    "320": [
+      "ddd_context7_advanced_features"
+    ],
+    "321": [
+      "ddd_context7_test_patterns"
+    ],
+    "322": [
+      "ddd_core_classes"
+    ],
+    "323": [
+      "debugging_debugging_workflows"
+    ],
+    "324": [
+      "e2e_actor_spec"
+    ],
+    "325": [
+      "e2e_agent_spec"
+    ],
+    "326": [
+      "e2e_designer_spec"
+    ],
+    "327": [
+      "e2e_dev_spec"
+    ],
+    "328": [
+      "e2e_landing_spec"
+    ],
+    "329": [
+      "languages_csharp"
+    ],
+    "330": [
+      "languages_elixir"
+    ],
+    "331": [
+      "languages_go"
+    ],
+    "332": [
+      "languages_php"
+    ],
+    "333": [
+      "languages_python"
+    ],
+    "334": [
+      "languages_r"
+    ],
+    "335": [
+      "languages_ruby"
+    ],
+    "336": [
+      "learning_readme"
+    ],
+    "337": [
+      "moai_design_tools_skill_nova_preset"
+    ],
+    "338": [
+      "moai_domain_backend_hardcoded_config"
+    ],
+    "339": [
+      "moai_domain_backend_service_discovery_consul"
+    ],
+    "340": [
+      "moai_domain_backend_sync_in_async"
+    ],
+    "341": [
+      "moai_domain_brand_design_component_spec"
+    ],
+    "342": [
+      "moai_domain_copywriting_reading_level"
+    ],
+    "343": [
+      "modules_ai_frontend_patterns_framer_motion"
+    ],
+    "344": [
+      "modules_component_architecture_compound_tabs"
+    ],
+    "345": [
+      "modules_execution_rules_git_strategy_3mode"
+    ],
+    "346": [
+      "modules_integration_patterns_quality_benchmarking"
+    ],
+    "347": [
+      "modules_nextjs16_patterns_parallel_routes"
+    ],
+    "348": [
+      "modules_oracle_plsql_batch"
+    ],
+    "349": [
+      "modules_patterns_stub"
+    ],
+    "350": [
+      "modules_performance_optimization_next_image"
+    ],
+    "351": [
+      "modules_performance_optimization_virtualization"
+    ],
+    "352": [
+      "modules_proactive_quality_prediction_engine"
+    ],
+    "353": [
+      "modules_proactive_real_time_quality_monitor"
+    ],
+    "354": [
+      "modules_redis_hyperloglog"
+    ],
+    "355": [
+      "modules_redis_rate_limit_sliding_window"
+    ],
+    "356": [
+      "modules_web_copy_craft_cta_rules"
+    ],
+    "357": [
+      "next_env_d"
+    ],
+    "358": [
+      "performance_optimization_performancemetric"
+    ],
+    "359": [
+      "playwright_config"
+    ],
+    "360": [
+      "postcss_config"
+    ],
+    "361": [
+      "refactoring_patterns_rename"
+    ],
+    "362": [
+      "refactoring_patterns_reorganize_imports"
+    ],
+    "363": [
+      "refactoring_patterns_replace_magic_numbers"
+    ],
+    "364": [
+      "refactoring_post_refactoring_analysis"
+    ],
+    "365": [
+      "reference_playwright_page_object_model"
+    ],
+    "366": [
+      "references_examples_docusaurus_site"
+    ],
+    "367": [
+      "references_examples_migration_manager"
+    ],
+    "368": [
+      "references_examples_progressive_documentation"
+    ],
+    "369": [
+      "references_examples_single_source_of_truth"
+    ],
+    "370": [
+      "references_reference_docusaurus"
+    ],
+    "371": [
+      "references_reference_nextra"
+    ],
+    "372": [
+      "references_reference_uiux"
+    ],
+    "373": [
+      "sections_constitution"
+    ],
+    "374": [
+      "sections_context"
+    ],
+    "375": [
+      "sections_git_convention"
+    ],
+    "376": [
+      "sections_research_config"
+    ],
+    "377": [
+      "sections_state_config"
+    ],
+    "378": [
+      "sections_statusline_config"
+    ],
+    "379": [
+      "sections_user_config"
+    ],
+    "380": [
+      "trust5_framework_usability_analysis_halstead"
+    ]
+  },
+  "cohesion": {
+    "0": 0.05536723163841808,
+    "1": 0.05079825834542816,
+    "2": 0.06033182503770739,
+    "3": 0.10374149659863946,
+    "4": 0.047619047619047616,
+    "5": 0.05180388529139685,
+    "6": 0.04927536231884058,
+    "7": 0.05537098560354374,
+    "8": 0.07435897435897436,
+    "9": 0.05547652916073969,
+    "10": 0.06970128022759602,
+    "11": 0.07807807807807808,
+    "12": 0.05405405405405406,
+    "13": 0.0625,
+    "14": 0.07956989247311828,
+    "15": 0.06451612903225806,
+    "16": 0.10153846153846154,
+    "17": 0.10153846153846154,
+    "18": 0.08923076923076922,
+    "19": 0.11067193675889328,
+    "20": 0.09090909090909091,
+    "21": 0.09090909090909091,
+    "22": 0.11904761904761904,
+    "23": 0.09523809523809523,
+    "24": 0.1,
+    "25": 0.1,
+    "26": 0.11764705882352941,
+    "27": 0.11764705882352941,
+    "28": 0.14166666666666666,
+    "29": 0.13333333333333333,
+    "30": 0.13333333333333333,
+    "31": 0.16483516483516483,
+    "32": 0.17582417582417584,
+    "33": 0.14285714285714285,
+    "34": 0.14285714285714285,
+    "35": 0.21794871794871795,
+    "36": 0.16666666666666666,
+    "37": 0.22727272727272727,
+    "38": 0.24242424242424243,
+    "39": 0.22727272727272727,
+    "40": 0.18181818181818182,
+    "41": 0.16666666666666666,
+    "42": 0.18181818181818182,
+    "43": 0.18181818181818182,
+    "44": 0.2,
+    "45": 0.2,
+    "46": 0.2,
+    "47": 0.23636363636363636,
+    "48": 0.18181818181818182,
+    "49": 0.2,
+    "50": 0.18181818181818182,
+    "51": 0.18181818181818182,
+    "52": 0.21818181818181817,
+    "53": 0.21818181818181817,
+    "54": 0.2,
+    "55": 0.2,
+    "56": 0.2,
+    "57": 0.2,
+    "58": 0.2222222222222222,
+    "59": 0.2222222222222222,
+    "60": 0.2222222222222222,
+    "61": 0.2222222222222222,
+    "62": 0.2,
+    "63": 0.2,
+    "64": 0.2,
+    "65": 0.2222222222222222,
+    "66": 0.2,
+    "67": 0.25,
+    "68": 0.25,
+    "69": 0.2222222222222222,
+    "70": 0.25,
+    "71": 0.25,
+    "72": 0.32142857142857145,
+    "73": 0.25,
+    "74": 0.25,
+    "75": 0.25,
+    "76": 0.32142857142857145,
+    "77": 0.25,
+    "78": 0.25,
+    "79": 0.25,
+    "80": 0.25,
+    "81": 0.25,
+    "82": 0.25,
+    "83": 0.2857142857142857,
+    "84": 0.2857142857142857,
+    "85": 0.2857142857142857,
+    "86": 0.3333333333333333,
+    "87": 0.2857142857142857,
+    "88": 0.2857142857142857,
+    "89": 0.3333333333333333,
+    "90": 0.2857142857142857,
+    "91": 0.47619047619047616,
+    "92": 0.4666666666666667,
+    "93": 0.4,
+    "94": 0.6666666666666666,
+    "95": 0.3333333333333333,
+    "96": 0.3333333333333333,
+    "97": 0.3333333333333333,
+    "98": 0.4,
+    "99": 0.4,
+    "100": 0.3333333333333333,
+    "101": 0.3333333333333333,
+    "102": 0.4,
+    "103": 0.4,
+    "104": 0.3333333333333333,
+    "105": 0.4,
+    "106": 0.3333333333333333,
+    "107": 0.3333333333333333,
+    "108": 0.3333333333333333,
+    "109": 0.3333333333333333,
+    "110": 0.3333333333333333,
+    "111": 0.3333333333333333,
+    "112": 0.4,
+    "113": 0.4,
+    "114": 0.4,
+    "115": 0.6,
+    "116": 0.4,
+    "117": 0.4,
+    "118": 0.4,
+    "119": 0.4,
+    "120": 0.4,
+    "121": 0.4,
+    "122": 0.4,
+    "123": 0.4,
+    "124": 0.4,
+    "125": 0.4,
+    "126": 0.4,
+    "127": 0.4,
+    "128": 0.4,
+    "129": 0.4,
+    "130": 0.4,
+    "131": 0.4,
+    "132": 0.4,
+    "133": 0.4,
+    "134": 0.4,
+    "135": 0.4,
+    "136": 0.4,
+    "137": 0.4,
+    "138": 0.4,
+    "139": 0.4,
+    "140": 0.4,
+    "141": 0.4,
+    "142": 0.4,
+    "143": 0.4,
+    "144": 0.4,
+    "145": 0.4,
+    "146": 0.4,
+    "147": 0.4,
+    "148": 0.4,
+    "149": 0.4,
+    "150": 0.4,
+    "151": 0.4,
+    "152": 0.4,
+    "153": 0.4,
+    "154": 0.4,
+    "155": 0.4,
+    "156": 0.4,
+    "157": 0.4,
+    "158": 0.4,
+    "159": 0.4,
+    "160": 0.4,
+    "161": 0.4,
+    "162": 0.4,
+    "163": 0.4,
+    "164": 0.4,
+    "165": 0.4,
+    "166": 0.4,
+    "167": 0.4,
+    "168": 0.4,
+    "169": 0.4,
+    "170": 0.4,
+    "171": 0.4,
+    "172": 0.4,
+    "173": 0.4,
+    "174": 0.4,
+    "175": 0.4,
+    "176": 0.4,
+    "177": 0.4,
+    "178": 0.4,
+    "179": 0.4,
+    "180": 0.4,
+    "181": 0.4,
+    "182": 0.4,
+    "183": 0.4,
+    "184": 0.4,
+    "185": 0.4,
+    "186": 0.4,
+    "187": 0.4,
+    "188": 0.4,
+    "189": 0.4,
+    "190": 0.4,
+    "191": 0.4,
+    "192": 0.4,
+    "193": 0.4,
+    "194": 0.4,
+    "195": 0.4,
+    "196": 0.4,
+    "197": 0.4,
+    "198": 0.4,
+    "199": 0.4,
+    "200": 0.4,
+    "201": 0.4,
+    "202": 0.4,
+    "203": 0.4,
+    "204": 0.4,
+    "205": 0.4,
+    "206": 0.4,
+    "207": 0.4,
+    "208": 0.4,
+    "209": 0.4,
+    "210": 0.4,
+    "211": 0.4,
+    "212": 0.4,
+    "213": 0.4,
+    "214": 0.4,
+    "215": 0.4,
+    "216": 0.4,
+    "217": 0.4,
+    "218": 0.4,
+    "219": 0.4,
+    "220": 0.4,
+    "221": 0.4,
+    "222": 0.4,
+    "223": 0.4,
+    "224": 0.4,
+    "225": 0.4,
+    "226": 0.4,
+    "227": 0.5,
+    "228": 0.4,
+    "229": 0.4,
+    "230": 0.4,
+    "231": 0.4,
+    "232": 0.4,
+    "233": 0.5,
+    "234": 0.5,
+    "235": 0.5,
+    "236": 0.5,
+    "237": 0.6666666666666666,
+    "238": 0.5,
+    "239": 0.5,
+    "240": 0.5,
+    "241": 0.5,
+    "242": 0.5,
+    "243": 0.5,
+    "244": 0.5,
+    "245": 0.5,
+    "246": 0.5,
+    "247": 0.5,
+    "248": 0.6666666666666666,
+    "249": 0.6666666666666666,
+    "250": 0.6666666666666666,
+    "251": 0.6666666666666666,
+    "252": 0.6666666666666666,
+    "253": 0.6666666666666666,
+    "254": 0.6666666666666666,
+    "255": 0.6666666666666666,
+    "256": 0.6666666666666666,
+    "257": 0.6666666666666666,
+    "258": 0.6666666666666666,
+    "259": 0.6666666666666666,
+    "260": 0.6666666666666666,
+    "261": 0.6666666666666666,
+    "262": 1.0,
+    "263": 0.6666666666666666,
+    "264": 0.6666666666666666,
+    "265": 0.6666666666666666,
+    "266": 0.6666666666666666,
+    "267": 0.6666666666666666,
+    "268": 1.0,
+    "269": 1.0,
+    "270": 1.0,
+    "271": 1.0,
+    "272": 1.0,
+    "273": 1.0,
+    "274": 1.0,
+    "275": 1.0,
+    "276": 1.0,
+    "277": 1.0,
+    "278": 1.0,
+    "279": 1.0,
+    "280": 1.0,
+    "281": 1.0,
+    "282": 1.0,
+    "283": 1.0,
+    "284": 1.0,
+    "285": 1.0,
+    "286": 1.0,
+    "287": 1.0,
+    "288": 1.0,
+    "289": 1.0,
+    "290": 1.0,
+    "291": 1.0,
+    "292": 1.0,
+    "293": 1.0,
+    "294": 1.0,
+    "295": 1.0,
+    "296": 1.0,
+    "297": 1.0,
+    "298": 1.0,
+    "299": 1.0,
+    "300": 1.0,
+    "301": 1.0,
+    "302": 1.0,
+    "303": 1.0,
+    "304": 1.0,
+    "305": 2.0,
+    "306": 1.0,
+    "307": 1.0,
+    "308": 1.0,
+    "309": 1.0,
+    "310": 1.0,
+    "311": 1.0,
+    "312": 1.0,
+    "313": 1.0,
+    "314": 1.0,
+    "315": 1.0,
+    "316": 1.0,
+    "317": 1.0,
+    "318": 1.0,
+    "319": 1.0,
+    "320": 1.0,
+    "321": 1.0,
+    "322": 1.0,
+    "323": 1.0,
+    "324": 1.0,
+    "325": 1.0,
+    "326": 1.0,
+    "327": 1.0,
+    "328": 1.0,
+    "329": 1.0,
+    "330": 1.0,
+    "331": 1.0,
+    "332": 1.0,
+    "333": 1.0,
+    "334": 1.0,
+    "335": 1.0,
+    "336": 1.0,
+    "337": 1.0,
+    "338": 1.0,
+    "339": 1.0,
+    "340": 1.0,
+    "341": 1.0,
+    "342": 1.0,
+    "343": 1.0,
+    "344": 1.0,
+    "345": 1.0,
+    "346": 1.0,
+    "347": 1.0,
+    "348": 1.0,
+    "349": 1.0,
+    "350": 1.0,
+    "351": 1.0,
+    "352": 1.0,
+    "353": 1.0,
+    "354": 1.0,
+    "355": 1.0,
+    "356": 1.0,
+    "357": 1.0,
+    "358": 1.0,
+    "359": 1.0,
+    "360": 1.0,
+    "361": 1.0,
+    "362": 1.0,
+    "363": 1.0,
+    "364": 1.0,
+    "365": 1.0,
+    "366": 1.0,
+    "367": 1.0,
+    "368": 1.0,
+    "369": 1.0,
+    "370": 1.0,
+    "371": 1.0,
+    "372": 1.0,
+    "373": 1.0,
+    "374": 1.0,
+    "375": 1.0,
+    "376": 1.0,
+    "377": 1.0,
+    "378": 1.0,
+    "379": 1.0,
+    "380": 1.0
+  },
+  "gods": [
+    {
+      "id": "moai_manifest_files",
+      "label": "files",
+      "degree": 101
+    },
+    {
+      "id": "moai_manager_ddd",
+      "label": "manager-ddd (ANALYZE-PRESERVE-IMPROVE)",
+      "degree": 19
+    },
+    {
+      "id": "shadcn_skill",
+      "label": "moai-library-shadcn Skill",
+      "degree": 17
+    },
+    {
+      "id": "tsconfig_compileroptions",
+      "label": "compilerOptions",
+      "degree": 16
+    },
+    {
+      "id": "moai_expert_frontend",
+      "label": "expert-frontend (React 19 / Next.js 16 expert)",
+      "degree": 16
+    },
+    {
+      "id": "moai_manager_spec",
+      "label": "manager-spec (EARS SPEC builder)",
+      "degree": 16
+    },
+    {
+      "id": "moai_manager_quality",
+      "label": "manager-quality (TRUST 5 verification gate)",
+      "degree": 15
+    },
+    {
+      "id": "moai_skill_router",
+      "label": "Skill('moai') Unified Router",
+      "degree": 15
+    },
+    {
+      "id": "moai_expert_backend",
+      "label": "expert-backend (backend & database architect)",
+      "degree": 13
+    },
+    {
+      "id": "moai_foundation_philosopher_skill",
+      "label": "MoAI Foundation Philosopher Skill",
+      "degree": 13
+    }
+  ],
+  "surprises": [
+    {
+      "source": "Meta Telemetry (Observability of self)",
+      "target": "Casting Agent Dashboard (auto-generated)",
+      "source_files": [
+        ".moai/specs/SPEC-DEV-REDESIGN-001/research.md",
+        "agent/data.html"
+      ],
+      "confidence": "INFERRED",
+      "relation": "semantically_similar_to",
+      "why": "inferred connection - not explicitly stated in source; connects across different repos/directories; semantically similar concepts with no structural link"
+    },
+    {
+      "source": "SPEC-DEV-REDESIGN-001 (/dev redesign in progress)",
+      "target": "manager-spec (EARS SPEC builder)",
+      "source_files": [
+        "CLAUDE.md",
+        ".claude/agents/moai/manager-spec.md"
+      ],
+      "confidence": "INFERRED",
+      "relation": "conceptually_related_to",
+      "why": "inferred connection - not explicitly stated in source; connects across different repos/directories; peripheral node `SPEC-DEV-REDESIGN-001 (/dev redesign in progress)` unexpectedly reaches hub `manager-spec (EARS SPEC builder)`"
+    },
+    {
+      "source": "SPEC-ACTOR-REDESIGN-001 (Editorial Magazine, completed)",
+      "target": "manager-spec (EARS SPEC builder)",
+      "source_files": [
+        "CLAUDE.md",
+        ".claude/agents/moai/manager-spec.md"
+      ],
+      "confidence": "INFERRED",
+      "relation": "conceptually_related_to",
+      "why": "inferred connection - not explicitly stated in source; connects across different repos/directories; peripheral node `SPEC-ACTOR-REDESIGN-001 (Editorial Magazine, completed)` unexpectedly reaches hub `manager-spec (EARS SPEC builder)`"
+    },
+    {
+      "source": "Plan Workflow Orchestration",
+      "target": "Git Strategy Config",
+      "source_files": [
+        ".claude/skills/moai/workflows/plan.md",
+        ".moai/config/sections/git-strategy.yaml"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "connects across different repos/directories; bridges separate communities; peripheral node `Git Strategy Config` unexpectedly reaches hub `Plan Workflow Orchestration`"
+    },
+    {
+      "source": "Legacy GitHub Pages era (PROJECT_LOG archive)",
+      "target": "Vercel hosting (icn1 region, main auto-deploy)",
+      "source_files": [
+        "PROJECT_LOG.md",
+        "CLAUDE.md"
+      ],
+      "confidence": "INFERRED",
+      "relation": "rationale_for",
+      "why": "inferred connection - not explicitly stated in source; connects across different repos/directories"
+    }
+  ],
+  "questions": [
+    {
+      "type": "bridge_node",
+      "question": "Why does `properties` connect `Community 13` to `Community 81`?",
+      "why": "High betweenness centrality (0.000) - this node is a cross-community bridge."
+    },
+    {
+      "type": "isolated_nodes",
+      "question": "What connects `handle-agent-hook.sh script`, `handle-compact.sh script`, `handle-config-change.sh script` to the rest of the system?",
+      "why": "1507 weakly-connected nodes found - possible documentation gaps or missing edges."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `Community 0` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.05536723163841808 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `Community 1` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.05079825834542816 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `Community 2` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.06033182503770739 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `Community 3` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.10374149659863946 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `Community 4` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.047619047619047616 - nodes in this community are weakly interconnected."
+    }
+  ]
+}

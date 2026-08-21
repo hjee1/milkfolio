@@ -1,0 +1,3292 @@
+{
+  "/Users/hyunwoojee/milkfolio/.claude/hooks/moai/handle-agent-hook.sh": {
+    "mtime": 1778979813.9249036,
+    "ast_hash": "2fa772f73abe7d25ef3b41f80da62742",
+    "semantic_hash": "2fa772f73abe7d25ef3b41f80da62742"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/hooks/moai/handle-compact.sh": {
+    "mtime": 1778979813.9251537,
+    "ast_hash": "ce2a33174287cab9e23d324a28c99bb0",
+    "semantic_hash": "ce2a33174287cab9e23d324a28c99bb0"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/hooks/moai/handle-config-change.sh": {
+    "mtime": 1778979813.9253824,
+    "ast_hash": "72d6157d6953543f4898ca9584b5782c",
+    "semantic_hash": "72d6157d6953543f4898ca9584b5782c"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/hooks/moai/handle-cwd-changed.sh": {
+    "mtime": 1778979813.9255958,
+    "ast_hash": "7afcf270f619585fdc8c5c339a40ce01",
+    "semantic_hash": "7afcf270f619585fdc8c5c339a40ce01"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/hooks/moai/handle-elicitation-result.sh": {
+    "mtime": 1778979813.9258573,
+    "ast_hash": "e07a677d6448a0b3467fbb69f750a1a9",
+    "semantic_hash": "e07a677d6448a0b3467fbb69f750a1a9"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/hooks/moai/handle-elicitation.sh": {
+    "mtime": 1778979813.926178,
+    "ast_hash": "cb6e486897cdf3cc4325c452231e4e37",
+    "semantic_hash": "cb6e486897cdf3cc4325c452231e4e37"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/hooks/moai/handle-file-changed.sh": {
+    "mtime": 1778979813.9263918,
+    "ast_hash": "e4175e64e4735d62bec40bf7d8c168dd",
+    "semantic_hash": "e4175e64e4735d62bec40bf7d8c168dd"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/hooks/moai/handle-instructions-loaded.sh": {
+    "mtime": 1778979813.9266038,
+    "ast_hash": "c0e9a836855d17fab193a5c6ceace529",
+    "semantic_hash": "c0e9a836855d17fab193a5c6ceace529"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/hooks/moai/handle-notification.sh": {
+    "mtime": 1778979813.926818,
+    "ast_hash": "3ce5812016ab03d2fd0e7be0ed320085",
+    "semantic_hash": "3ce5812016ab03d2fd0e7be0ed320085"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/hooks/moai/handle-permission-denied.sh": {
+    "mtime": 1778979813.9270499,
+    "ast_hash": "88979db5e85c20ce2f5b3dab1dbc45fa",
+    "semantic_hash": "88979db5e85c20ce2f5b3dab1dbc45fa"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/hooks/moai/handle-permission-request.sh": {
+    "mtime": 1778979813.9272857,
+    "ast_hash": "1f582b216c2c578986efb7c0ff1e9f61",
+    "semantic_hash": "1f582b216c2c578986efb7c0ff1e9f61"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/hooks/moai/handle-post-compact.sh": {
+    "mtime": 1778979813.9275239,
+    "ast_hash": "d3546e4d94695802c1c09f420226cc54",
+    "semantic_hash": "d3546e4d94695802c1c09f420226cc54"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/hooks/moai/handle-post-tool-failure.sh": {
+    "mtime": 1778979813.9277585,
+    "ast_hash": "cbb8d55720d0b6ec8713949820369654",
+    "semantic_hash": "cbb8d55720d0b6ec8713949820369654"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/hooks/moai/handle-post-tool.sh": {
+    "mtime": 1778979813.9280086,
+    "ast_hash": "7da91b76bab6cf7ed69a41dc56cf19de",
+    "semantic_hash": "7da91b76bab6cf7ed69a41dc56cf19de"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/hooks/moai/handle-pre-tool.sh": {
+    "mtime": 1778979813.9283516,
+    "ast_hash": "4418a372083e9a39d487c882f9817e78",
+    "semantic_hash": "4418a372083e9a39d487c882f9817e78"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/hooks/moai/handle-session-end.sh": {
+    "mtime": 1778979813.9286966,
+    "ast_hash": "d6fc64a5cd37b9a71149e3be2dd1d610",
+    "semantic_hash": "d6fc64a5cd37b9a71149e3be2dd1d610"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/hooks/moai/handle-session-start.sh": {
+    "mtime": 1778979813.9290466,
+    "ast_hash": "f185d8ca975f7267a28f459ce37a4078",
+    "semantic_hash": "f185d8ca975f7267a28f459ce37a4078"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/hooks/moai/handle-stop-failure.sh": {
+    "mtime": 1778979813.9294674,
+    "ast_hash": "dffb671e59046fe315f3040342239c82",
+    "semantic_hash": "dffb671e59046fe315f3040342239c82"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/hooks/moai/handle-stop.sh": {
+    "mtime": 1778979813.9311867,
+    "ast_hash": "cd3a54b328015e364d91bc35b9a298a3",
+    "semantic_hash": "cd3a54b328015e364d91bc35b9a298a3"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/hooks/moai/handle-subagent-start.sh": {
+    "mtime": 1778979813.931677,
+    "ast_hash": "02a9cf673228ae9795fe104b83c16edc",
+    "semantic_hash": "02a9cf673228ae9795fe104b83c16edc"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/hooks/moai/handle-subagent-stop.sh": {
+    "mtime": 1778979813.9320056,
+    "ast_hash": "9ee89c9bcc6e1efdaebee8b4035fa299",
+    "semantic_hash": "9ee89c9bcc6e1efdaebee8b4035fa299"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/hooks/moai/handle-task-completed.sh": {
+    "mtime": 1778979813.9322548,
+    "ast_hash": "c1d380524c45e7717bfea84ccbad8299",
+    "semantic_hash": "c1d380524c45e7717bfea84ccbad8299"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/hooks/moai/handle-task-created.sh": {
+    "mtime": 1778979813.9324799,
+    "ast_hash": "a0692674daf07174ae15d2f5e71187b1",
+    "semantic_hash": "a0692674daf07174ae15d2f5e71187b1"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/hooks/moai/handle-teammate-idle.sh": {
+    "mtime": 1778979813.9326904,
+    "ast_hash": "37209696a3a41d10fe8025185159a257",
+    "semantic_hash": "37209696a3a41d10fe8025185159a257"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/hooks/moai/handle-user-prompt-submit.sh": {
+    "mtime": 1778979813.9329298,
+    "ast_hash": "8171a054748c9c42a208f689b533387e",
+    "semantic_hash": "8171a054748c9c42a208f689b533387e"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/hooks/moai/handle-worktree-create.sh": {
+    "mtime": 1778979813.9332778,
+    "ast_hash": "028e6d1fa6f099332133ed849666cb5d",
+    "semantic_hash": "028e6d1fa6f099332133ed849666cb5d"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/hooks/moai/handle-worktree-remove.sh": {
+    "mtime": 1778979813.933591,
+    "ast_hash": "e1e0811f8a9ee8efbc13a27ec13175a0",
+    "semantic_hash": "e1e0811f8a9ee8efbc13a27ec13175a0"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/settings.json": {
+    "mtime": 1777172539.7931576,
+    "ast_hash": "74a4f3ae03262acf8c2c3b11f415a60b",
+    "semantic_hash": "74a4f3ae03262acf8c2c3b11f415a60b"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-project/schemas/config-schema.json": {
+    "mtime": 1778979814.145402,
+    "ast_hash": "03e1f54ab48fab1a36ad78a0732bb413",
+    "semantic_hash": "03e1f54ab48fab1a36ad78a0732bb413"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-project/schemas/tab_schema.json": {
+    "mtime": 1778979814.1458924,
+    "ast_hash": "96e1974ea23469e25ec0f70849cf86c3",
+    "semantic_hash": "96e1974ea23469e25ec0f70849cf86c3"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-project/templates/config-template.json": {
+    "mtime": 1778979814.1474876,
+    "ast_hash": "e42e98dc05c4c77265f95b8f349d87c0",
+    "semantic_hash": "e42e98dc05c4c77265f95b8f349d87c0"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-project/templates/question-templates/config-manager-setup.json": {
+    "mtime": 1778979814.1499593,
+    "ast_hash": "749cf37bd8732080e263e7f3ad3fab90",
+    "semantic_hash": "749cf37bd8732080e263e7f3ad3fab90"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-project/templates/question-templates/language-initializer.json": {
+    "mtime": 1778979814.150374,
+    "ast_hash": "57cfd602db58010fdaf7f0e03c5c54e4",
+    "semantic_hash": "57cfd602db58010fdaf7f0e03c5c54e4"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-project/templates/question-templates/menu-project-config.json": {
+    "mtime": 1778979814.150702,
+    "ast_hash": "5c083c35901e892c47370c7bf1ba64b0",
+    "semantic_hash": "5c083c35901e892c47370c7bf1ba64b0"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-project/templates/question-templates/project-batch-questions.json": {
+    "mtime": 1778979814.1509962,
+    "ast_hash": "b5492076d12abf60c937df38b9e7286c",
+    "semantic_hash": "b5492076d12abf60c937df38b9e7286c"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-project/templates/question-templates/spec-workflow-setup.json": {
+    "mtime": 1778979814.1514094,
+    "ast_hash": "99804a7e98643b1f70e6a64c6f96945e",
+    "semantic_hash": "99804a7e98643b1f70e6a64c6f96945e"
+  },
+  "/Users/hyunwoojee/milkfolio/.mcp.json": {
+    "mtime": 1778979814.34756,
+    "ast_hash": "322a88746a1ea141fe48380359ead9d9",
+    "semantic_hash": "322a88746a1ea141fe48380359ead9d9"
+  },
+  "/Users/hyunwoojee/milkfolio/.moai/manifest.json": {
+    "mtime": 1778979814.4071798,
+    "ast_hash": "579c2709c6e28f35b788dc095b2989be",
+    "semantic_hash": "579c2709c6e28f35b788dc095b2989be"
+  },
+  "/Users/hyunwoojee/milkfolio/app/actor/_components/CharacterCard.tsx": {
+    "mtime": 1779404839.9129398,
+    "ast_hash": "5d76278b4bea746db5396bbfea73413b",
+    "semantic_hash": "5d76278b4bea746db5396bbfea73413b"
+  },
+  "/Users/hyunwoojee/milkfolio/app/actor/_components/ConceptCarousel.tsx": {
+    "mtime": 1779790515.2745848,
+    "ast_hash": "c2b39b8939232e45e716d4a364e679a4",
+    "semantic_hash": "c2b39b8939232e45e716d4a364e679a4"
+  },
+  "/Users/hyunwoojee/milkfolio/app/actor/_components/Contact.tsx": {
+    "mtime": 1779790515.2752972,
+    "ast_hash": "6fd7ec490a10127388ca19a589806cba",
+    "semantic_hash": "6fd7ec490a10127388ca19a589806cba"
+  },
+  "/Users/hyunwoojee/milkfolio/app/actor/_components/Filmography.tsx": {
+    "mtime": 1779344696.0205824,
+    "ast_hash": "b7f3def98c6cc2feb8f007cee26832e0",
+    "semantic_hash": "b7f3def98c6cc2feb8f007cee26832e0"
+  },
+  "/Users/hyunwoojee/milkfolio/app/actor/_components/Hero.tsx": {
+    "mtime": 1779791546.253665,
+    "ast_hash": "07d1c411db56bf19f375e4497a783f2d",
+    "semantic_hash": "07d1c411db56bf19f375e4497a783f2d"
+  },
+  "/Users/hyunwoojee/milkfolio/app/actor/_components/HeroReel.tsx": {
+    "mtime": 1779341018.2958486,
+    "ast_hash": "d60ddc6b57f12782ee229a71dc92262b",
+    "semantic_hash": "d60ddc6b57f12782ee229a71dc92262b"
+  },
+  "/Users/hyunwoojee/milkfolio/app/actor/_components/PhotoConcepts.tsx": {
+    "mtime": 1779790515.2780194,
+    "ast_hash": "6c8b2007ae0fc4a778c28b2dffba32d3",
+    "semantic_hash": "6c8b2007ae0fc4a778c28b2dffba32d3"
+  },
+  "/Users/hyunwoojee/milkfolio/app/actor/_components/Profile.tsx": {
+    "mtime": 1779790515.2795367,
+    "ast_hash": "099daf6dd7a6f936a75c57fb6d878ac3",
+    "semantic_hash": "099daf6dd7a6f936a75c57fb6d878ac3"
+  },
+  "/Users/hyunwoojee/milkfolio/app/actor/_components/Reel.tsx": {
+    "mtime": 1779790515.2844357,
+    "ast_hash": "be0a7c85288c4ddd2e5a1bec197d6858",
+    "semantic_hash": "be0a7c85288c4ddd2e5a1bec197d6858"
+  },
+  "/Users/hyunwoojee/milkfolio/app/actor/_components/ReelPlayer.tsx": {
+    "mtime": 1779790515.2854235,
+    "ast_hash": "3a7264d22ed0eabd4f882e5cf3b4f311",
+    "semantic_hash": "3a7264d22ed0eabd4f882e5cf3b4f311"
+  },
+  "/Users/hyunwoojee/milkfolio/app/actor/_components/RoleTimeline.tsx": {
+    "mtime": 1779404839.8630826,
+    "ast_hash": "07617a8ba56ad4c01fbc7c4ff15ec055",
+    "semantic_hash": "07617a8ba56ad4c01fbc7c4ff15ec055"
+  },
+  "/Users/hyunwoojee/milkfolio/app/actor/_components/Roles.tsx": {
+    "mtime": 1779404840.0762765,
+    "ast_hash": "37c958840525946776c7e2cbdd7a326d",
+    "semantic_hash": "37c958840525946776c7e2cbdd7a326d"
+  },
+  "/Users/hyunwoojee/milkfolio/app/actor/_components/shared/usePrefersReducedData.ts": {
+    "mtime": 1779340983.130357,
+    "ast_hash": "f37277fc88a0476a7c493cdd54621878",
+    "semantic_hash": "f37277fc88a0476a7c493cdd54621878"
+  },
+  "/Users/hyunwoojee/milkfolio/app/actor/_components/shared/usePrefersReducedMotion.ts": {
+    "mtime": 1779340966.017185,
+    "ast_hash": "9a85f2a5eb21f64423a8459a6a60c22e",
+    "semantic_hash": "9a85f2a5eb21f64423a8459a6a60c22e"
+  },
+  "/Users/hyunwoojee/milkfolio/app/actor/data.ts": {
+    "mtime": 1779795474.3561459,
+    "ast_hash": "2b26484e11e6270729ca8415703d8366",
+    "semantic_hash": "2b26484e11e6270729ca8415703d8366"
+  },
+  "/Users/hyunwoojee/milkfolio/app/actor/layout.tsx": {
+    "mtime": 1779341247.6929824,
+    "ast_hash": "60d3c36190a02da9e8fd63162d5a23be",
+    "semantic_hash": "60d3c36190a02da9e8fd63162d5a23be"
+  },
+  "/Users/hyunwoojee/milkfolio/app/actor/page.tsx": {
+    "mtime": 1779790515.2883065,
+    "ast_hash": "4eedac9d34a9c598615abff3be1c8fa0",
+    "semantic_hash": "4eedac9d34a9c598615abff3be1c8fa0"
+  },
+  "/Users/hyunwoojee/milkfolio/app/agent/AgentClient.tsx": {
+    "mtime": 1779084458.8815007,
+    "ast_hash": "d4d9a5214eb2f9917f969115786f8502",
+    "semantic_hash": "d4d9a5214eb2f9917f969115786f8502"
+  },
+  "/Users/hyunwoojee/milkfolio/app/agent/actions.ts": {
+    "mtime": 1779084458.7211049,
+    "ast_hash": "1c480b51ad411d06fe46c4aa2e1da57a",
+    "semantic_hash": "1c480b51ad411d06fe46c4aa2e1da57a"
+  },
+  "/Users/hyunwoojee/milkfolio/app/agent/layout.tsx": {
+    "mtime": 1779084458.8262808,
+    "ast_hash": "9747fd6942abcccf3301ced574234650",
+    "semantic_hash": "9747fd6942abcccf3301ced574234650"
+  },
+  "/Users/hyunwoojee/milkfolio/app/agent/page.tsx": {
+    "mtime": 1779084458.8514404,
+    "ast_hash": "34bd588fcbfdee979903d9b921b31aab",
+    "semantic_hash": "34bd588fcbfdee979903d9b921b31aab"
+  },
+  "/Users/hyunwoojee/milkfolio/app/designer/ProjectGallery.tsx": {
+    "mtime": 1779084458.5839808,
+    "ast_hash": "f7c1765927260d583ed8e1ed6304b8a2",
+    "semantic_hash": "f7c1765927260d583ed8e1ed6304b8a2"
+  },
+  "/Users/hyunwoojee/milkfolio/app/designer/layout.tsx": {
+    "mtime": 1779084458.4845002,
+    "ast_hash": "d108ad55c401a1a694e180fe570712e0",
+    "semantic_hash": "d108ad55c401a1a694e180fe570712e0"
+  },
+  "/Users/hyunwoojee/milkfolio/app/designer/page.tsx": {
+    "mtime": 1779084458.6497982,
+    "ast_hash": "1542acaeb1972c1e69f54c2ae3257a5b",
+    "semantic_hash": "1542acaeb1972c1e69f54c2ae3257a5b"
+  },
+  "/Users/hyunwoojee/milkfolio/app/designer/projects.ts": {
+    "mtime": 1779084458.523166,
+    "ast_hash": "06c0cd49ffb1bba92ff972f66592a3eb",
+    "semantic_hash": "06c0cd49ffb1bba92ff972f66592a3eb"
+  },
+  "/Users/hyunwoojee/milkfolio/app/dev/_components/AgentTicker.tsx": {
+    "mtime": 1779235265.9202456,
+    "ast_hash": "d823c6e4a56e298a7d2ba6999b014a11",
+    "semantic_hash": "d823c6e4a56e298a7d2ba6999b014a11"
+  },
+  "/Users/hyunwoojee/milkfolio/app/dev/_components/DevNav.tsx": {
+    "mtime": 1779235266.3931744,
+    "ast_hash": "d984b538d0f8624d7858c74b9588e3a0",
+    "semantic_hash": "d984b538d0f8624d7858c74b9588e3a0"
+  },
+  "/Users/hyunwoojee/milkfolio/app/dev/_components/Experience.tsx": {
+    "mtime": 1779252655.62215,
+    "ast_hash": "4643941e381bb124f42917cf7599c961",
+    "semantic_hash": "4643941e381bb124f42917cf7599c961"
+  },
+  "/Users/hyunwoojee/milkfolio/app/dev/_components/Footer.tsx": {
+    "mtime": 1779252655.6231713,
+    "ast_hash": "f5f9e33e981ba38dc65b61fd33476288",
+    "semantic_hash": "f5f9e33e981ba38dc65b61fd33476288"
+  },
+  "/Users/hyunwoojee/milkfolio/app/dev/_components/Hero.tsx": {
+    "mtime": 1779252655.6238182,
+    "ast_hash": "ef768479466d477dd439885e5e8f5106",
+    "semantic_hash": "ef768479466d477dd439885e5e8f5106"
+  },
+  "/Users/hyunwoojee/milkfolio/app/dev/_components/HeroCanvas.tsx": {
+    "mtime": 1779236290.7800167,
+    "ast_hash": "d49936e9fddf2a74c881d4aacda38740",
+    "semantic_hash": "d49936e9fddf2a74c881d4aacda38740"
+  },
+  "/Users/hyunwoojee/milkfolio/app/dev/_components/HeroFallback.tsx": {
+    "mtime": 1779175413.5760539,
+    "ast_hash": "cf4570d385da6d15c60b4ef53e9e9262",
+    "semantic_hash": "cf4570d385da6d15c60b4ef53e9e9262"
+  },
+  "/Users/hyunwoojee/milkfolio/app/dev/_components/HeroLiveBoard.tsx": {
+    "mtime": 1779175554.228264,
+    "ast_hash": "4ff466430596c943232b38b6ad328e6f",
+    "semantic_hash": "4ff466430596c943232b38b6ad328e6f"
+  },
+  "/Users/hyunwoojee/milkfolio/app/dev/_components/HeroVisual.tsx": {
+    "mtime": 1779175541.514579,
+    "ast_hash": "02eec21d5dc7f6bbe8cd1263c84c05ed",
+    "semantic_hash": "02eec21d5dc7f6bbe8cd1263c84c05ed"
+  },
+  "/Users/hyunwoojee/milkfolio/app/dev/_components/ReflexTest.tsx": {
+    "mtime": 1779253834.7734337,
+    "ast_hash": "27f08a7f64de836dbf6a28426e882fb6",
+    "semantic_hash": "27f08a7f64de836dbf6a28426e882fb6"
+  },
+  "/Users/hyunwoojee/milkfolio/app/dev/_components/RobotPet.tsx": {
+    "mtime": 1779253897.0294187,
+    "ast_hash": "611a08ba196da836a6429e6d9f463a0f",
+    "semantic_hash": "611a08ba196da836a6429e6d9f463a0f"
+  },
+  "/Users/hyunwoojee/milkfolio/app/dev/_components/WhatIDo.tsx": {
+    "mtime": 1779252655.62458,
+    "ast_hash": "51c4dc37f8bae1433002bbc25d498cd1",
+    "semantic_hash": "51c4dc37f8bae1433002bbc25d498cd1"
+  },
+  "/Users/hyunwoojee/milkfolio/app/dev/_components/lab/agent-replay.json": {
+    "mtime": 1779235265.884133,
+    "ast_hash": "5539764a05c8fd82bc9979226582343e",
+    "semantic_hash": "5539764a05c8fd82bc9979226582343e"
+  },
+  "/Users/hyunwoojee/milkfolio/app/dev/_components/shared/useBuildInfo.ts": {
+    "mtime": 1779172563.7173405,
+    "ast_hash": "51826647aedbc4266f9fcd14f4092c65",
+    "semantic_hash": "51826647aedbc4266f9fcd14f4092c65"
+  },
+  "/Users/hyunwoojee/milkfolio/app/dev/_components/shared/useDeviceTier.ts": {
+    "mtime": 1779172550.2543104,
+    "ast_hash": "34f9499c7b7461c21666e5e70196bd54",
+    "semantic_hash": "34f9499c7b7461c21666e5e70196bd54"
+  },
+  "/Users/hyunwoojee/milkfolio/app/dev/_components/shared/useFPS.ts": {
+    "mtime": 1779172578.7934296,
+    "ast_hash": "97b161ddd1b8171593921cf10c37bb69",
+    "semantic_hash": "97b161ddd1b8171593921cf10c37bb69"
+  },
+  "/Users/hyunwoojee/milkfolio/app/dev/_components/shared/usePrefersReducedMotion.ts": {
+    "mtime": 1779172540.4391634,
+    "ast_hash": "ecd1acdda3812c4ee0aae1aff0c0bebc",
+    "semantic_hash": "ecd1acdda3812c4ee0aae1aff0c0bebc"
+  },
+  "/Users/hyunwoojee/milkfolio/app/dev/layout.tsx": {
+    "mtime": 1779252655.6274154,
+    "ast_hash": "6579d306532095a835085a6b65e02e8f",
+    "semantic_hash": "6579d306532095a835085a6b65e02e8f"
+  },
+  "/Users/hyunwoojee/milkfolio/app/dev/page.tsx": {
+    "mtime": 1779235266.3561077,
+    "ast_hash": "749bfd43b4d92882ff0dd071adc11088",
+    "semantic_hash": "749bfd43b4d92882ff0dd071adc11088"
+  },
+  "/Users/hyunwoojee/milkfolio/app/layout.tsx": {
+    "mtime": 1779084457.4620667,
+    "ast_hash": "047a0944ede4f76a38a423e6d36a01b4",
+    "semantic_hash": "047a0944ede4f76a38a423e6d36a01b4"
+  },
+  "/Users/hyunwoojee/milkfolio/app/page.tsx": {
+    "mtime": 1779084457.368643,
+    "ast_hash": "39664b825e003b96fb604b4faebec834",
+    "semantic_hash": "39664b825e003b96fb604b4faebec834"
+  },
+  "/Users/hyunwoojee/milkfolio/components/SiteFooter.tsx": {
+    "mtime": 1779084458.0462236,
+    "ast_hash": "bf749c1467dfa4a598387791838a177d",
+    "semantic_hash": "bf749c1467dfa4a598387791838a177d"
+  },
+  "/Users/hyunwoojee/milkfolio/components/SiteNav.tsx": {
+    "mtime": 1779084457.5787673,
+    "ast_hash": "d36eddebc5ef0027371568e8c1c155be",
+    "semantic_hash": "d36eddebc5ef0027371568e8c1c155be"
+  },
+  "/Users/hyunwoojee/milkfolio/e2e/actor.spec.ts": {
+    "mtime": 1779790515.2935169,
+    "ast_hash": "f27d36b24f43e5608a8bdc2d2ea11389",
+    "semantic_hash": "f27d36b24f43e5608a8bdc2d2ea11389"
+  },
+  "/Users/hyunwoojee/milkfolio/e2e/agent.spec.ts": {
+    "mtime": 1779084459.04731,
+    "ast_hash": "e388355cae96a4df874bca6f458a767c",
+    "semantic_hash": "e388355cae96a4df874bca6f458a767c"
+  },
+  "/Users/hyunwoojee/milkfolio/e2e/designer.spec.ts": {
+    "mtime": 1779084459.0860987,
+    "ast_hash": "1b988572c510d3569d54faa1481f1850",
+    "semantic_hash": "1b988572c510d3569d54faa1481f1850"
+  },
+  "/Users/hyunwoojee/milkfolio/e2e/dev.spec.ts": {
+    "mtime": 1779084459.0935028,
+    "ast_hash": "ce35ece5e359e2bde93182779a41e2c0",
+    "semantic_hash": "ce35ece5e359e2bde93182779a41e2c0"
+  },
+  "/Users/hyunwoojee/milkfolio/e2e/landing.spec.ts": {
+    "mtime": 1779084458.9296234,
+    "ast_hash": "9409e31cb62342b9825c3792a3c59d29",
+    "semantic_hash": "9409e31cb62342b9825c3792a3c59d29"
+  },
+  "/Users/hyunwoojee/milkfolio/lib/cn.ts": {
+    "mtime": 1779084457.278701,
+    "ast_hash": "940ed1f6d7071b2945eb3dffa6ccb819",
+    "semantic_hash": "940ed1f6d7071b2945eb3dffa6ccb819"
+  },
+  "/Users/hyunwoojee/milkfolio/lib/parse-data-html.ts": {
+    "mtime": 1779084458.882985,
+    "ast_hash": "1b2b2ab873b84d02414a6ac31deda0b3",
+    "semantic_hash": "1b2b2ab873b84d02414a6ac31deda0b3"
+  },
+  "/Users/hyunwoojee/milkfolio/lib/types/agent.ts": {
+    "mtime": 1779084458.673639,
+    "ast_hash": "a7c6c62adb657ee7bff6fe516de4182a",
+    "semantic_hash": "a7c6c62adb657ee7bff6fe516de4182a"
+  },
+  "/Users/hyunwoojee/milkfolio/next-env.d.ts": {
+    "mtime": 1779795480.1548254,
+    "ast_hash": "2a74d3909800ca5467fa83b0ab4a4890",
+    "semantic_hash": "2a74d3909800ca5467fa83b0ab4a4890"
+  },
+  "/Users/hyunwoojee/milkfolio/next.config.ts": {
+    "mtime": 1779172448.164111,
+    "ast_hash": "bc8136b008fcbf7d54ed46d7f8c1b0fd",
+    "semantic_hash": "bc8136b008fcbf7d54ed46d7f8c1b0fd"
+  },
+  "/Users/hyunwoojee/milkfolio/package.json": {
+    "mtime": 1779180647.9685383,
+    "ast_hash": "9b3005b7125905c27f54eb620cd45c8e",
+    "semantic_hash": "9b3005b7125905c27f54eb620cd45c8e"
+  },
+  "/Users/hyunwoojee/milkfolio/playwright.config.ts": {
+    "mtime": 1779084458.905128,
+    "ast_hash": "812ebf4b9952d820502d7e73152f0e2f",
+    "semantic_hash": "812ebf4b9952d820502d7e73152f0e2f"
+  },
+  "/Users/hyunwoojee/milkfolio/postcss.config.mjs": {
+    "mtime": 1779084457.1816485,
+    "ast_hash": "1155ab8a81c32578b0ed5684e3069945",
+    "semantic_hash": "1155ab8a81c32578b0ed5684e3069945"
+  },
+  "/Users/hyunwoojee/milkfolio/tsconfig.json": {
+    "mtime": 1779084457.9274387,
+    "ast_hash": "f1a735efb4adeb2370d7e05b3d10f688",
+    "semantic_hash": "f1a735efb4adeb2370d7e05b3d10f688"
+  },
+  "/Users/hyunwoojee/milkfolio/vercel.json": {
+    "mtime": 1779084459.0946279,
+    "ast_hash": "f22981f2ca3467f4a26c65d7e2b08ea6",
+    "semantic_hash": "f22981f2ca3467f4a26c65d7e2b08ea6"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/agents/moai/builder-agent.md": {
+    "mtime": 1778979813.9056382,
+    "ast_hash": "375cd654d8f76ab2bc04919ee739ca06",
+    "semantic_hash": "375cd654d8f76ab2bc04919ee739ca06"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/agents/moai/builder-plugin.md": {
+    "mtime": 1778979813.906111,
+    "ast_hash": "aacfeeb84d426fa0e6b496ee722fc42a",
+    "semantic_hash": "aacfeeb84d426fa0e6b496ee722fc42a"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/agents/moai/builder-skill.md": {
+    "mtime": 1778979813.9065237,
+    "ast_hash": "bcc69445b9e03133cff9df44d71b23c9",
+    "semantic_hash": "bcc69445b9e03133cff9df44d71b23c9"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/agents/moai/evaluator-active.md": {
+    "mtime": 1778979813.9069338,
+    "ast_hash": "32de74cd2d942fb7339f94e1ef8b164f",
+    "semantic_hash": "32de74cd2d942fb7339f94e1ef8b164f"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/agents/moai/expert-backend.md": {
+    "mtime": 1778979813.9083586,
+    "ast_hash": "1e4064923cdb029ed54ed8b449bc7fd6",
+    "semantic_hash": "1e4064923cdb029ed54ed8b449bc7fd6"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/agents/moai/expert-debug.md": {
+    "mtime": 1778979813.909853,
+    "ast_hash": "dd737308232d2845fe345a72e2b83436",
+    "semantic_hash": "dd737308232d2845fe345a72e2b83436"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/agents/moai/expert-devops.md": {
+    "mtime": 1778979813.9107156,
+    "ast_hash": "ab5294b5d133fc2c7bf5c300cff21077",
+    "semantic_hash": "ab5294b5d133fc2c7bf5c300cff21077"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/agents/moai/expert-frontend.md": {
+    "mtime": 1778979813.9112487,
+    "ast_hash": "fde0c42f5b3fc429da5af6a2b8077ed6",
+    "semantic_hash": "fde0c42f5b3fc429da5af6a2b8077ed6"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/agents/moai/expert-performance.md": {
+    "mtime": 1778979813.91169,
+    "ast_hash": "d2e7836e5b3ac6f3e0a5ac4cc0a11163",
+    "semantic_hash": "d2e7836e5b3ac6f3e0a5ac4cc0a11163"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/agents/moai/expert-refactoring.md": {
+    "mtime": 1778979813.9119346,
+    "ast_hash": "5ea9d6b7004e1399a7362423379f2878",
+    "semantic_hash": "5ea9d6b7004e1399a7362423379f2878"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/agents/moai/expert-security.md": {
+    "mtime": 1778979813.9123487,
+    "ast_hash": "eb087cd38ee319851882de9a0e3d4a6e",
+    "semantic_hash": "eb087cd38ee319851882de9a0e3d4a6e"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/agents/moai/expert-testing.md": {
+    "mtime": 1778979813.9127405,
+    "ast_hash": "9b233d2de5fab158e4abdf3401ae1fae",
+    "semantic_hash": "9b233d2de5fab158e4abdf3401ae1fae"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/agents/moai/manager-ddd.md": {
+    "mtime": 1778979813.9130697,
+    "ast_hash": "7df427ec54e6d244d7b586ff44fc832b",
+    "semantic_hash": "7df427ec54e6d244d7b586ff44fc832b"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/agents/moai/manager-docs.md": {
+    "mtime": 1778979813.913365,
+    "ast_hash": "97364b994abeb018b40ca65e70e58950",
+    "semantic_hash": "97364b994abeb018b40ca65e70e58950"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/agents/moai/manager-git.md": {
+    "mtime": 1778979813.9136612,
+    "ast_hash": "73e03f6a22803e0468f369bdc823656c",
+    "semantic_hash": "73e03f6a22803e0468f369bdc823656c"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/agents/moai/manager-project.md": {
+    "mtime": 1778979813.913959,
+    "ast_hash": "9d905d5b2a6e2ae98fb90b0f890df4b2",
+    "semantic_hash": "9d905d5b2a6e2ae98fb90b0f890df4b2"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/agents/moai/manager-quality.md": {
+    "mtime": 1778979813.9142637,
+    "ast_hash": "b48ad8575dc84404aa2aae5114f9b023",
+    "semantic_hash": "b48ad8575dc84404aa2aae5114f9b023"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/agents/moai/manager-spec.md": {
+    "mtime": 1778979813.9145582,
+    "ast_hash": "6e257d0b1e4b78cb176f56d1572a49cd",
+    "semantic_hash": "6e257d0b1e4b78cb176f56d1572a49cd"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/agents/moai/manager-strategy.md": {
+    "mtime": 1778979813.914867,
+    "ast_hash": "30451a45d0d3be2ecf9f89624e2528bd",
+    "semantic_hash": "30451a45d0d3be2ecf9f89624e2528bd"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/agents/moai/manager-tdd.md": {
+    "mtime": 1778979813.9151692,
+    "ast_hash": "191aa357db842e350d7b73627a5e313e",
+    "semantic_hash": "191aa357db842e350d7b73627a5e313e"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/agents/moai/plan-auditor.md": {
+    "mtime": 1778979813.9170187,
+    "ast_hash": "56bd8cab938e3c8e68e66f9431c1ee09",
+    "semantic_hash": "56bd8cab938e3c8e68e66f9431c1ee09"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/agents/moai/researcher.md": {
+    "mtime": 1778979813.9173548,
+    "ast_hash": "0d93fac0e2ad4bc3887161e9218fa077",
+    "semantic_hash": "0d93fac0e2ad4bc3887161e9218fa077"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/commands/moai/clean.md": {
+    "mtime": 1778979813.918086,
+    "ast_hash": "0839c979512b3a47eb45bbcfaff95641",
+    "semantic_hash": "0839c979512b3a47eb45bbcfaff95641"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/commands/moai/codemaps.md": {
+    "mtime": 1778979813.9183872,
+    "ast_hash": "b3f5154e9d61a2280681a66760f03421",
+    "semantic_hash": "b3f5154e9d61a2280681a66760f03421"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/commands/moai/coverage.md": {
+    "mtime": 1778979813.918673,
+    "ast_hash": "97224c74c30a2c08f61d52267bbe5dfd",
+    "semantic_hash": "97224c74c30a2c08f61d52267bbe5dfd"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/commands/moai/db.md": {
+    "mtime": 1778979813.9189212,
+    "ast_hash": "f09b57c292df5b476241cf28bd1f705f",
+    "semantic_hash": "f09b57c292df5b476241cf28bd1f705f"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/commands/moai/design.md": {
+    "mtime": 1778979813.919301,
+    "ast_hash": "f5e68427be05d6979441461c44fb313d",
+    "semantic_hash": "f5e68427be05d6979441461c44fb313d"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/commands/moai/e2e.md": {
+    "mtime": 1778979813.919673,
+    "ast_hash": "0c93f84ac10e407119233464a9db2b1f",
+    "semantic_hash": "0c93f84ac10e407119233464a9db2b1f"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/commands/moai/feedback.md": {
+    "mtime": 1778979813.9199007,
+    "ast_hash": "1d3f730d3a551fe77493d66553d275e8",
+    "semantic_hash": "1d3f730d3a551fe77493d66553d275e8"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/commands/moai/fix.md": {
+    "mtime": 1778979813.9201086,
+    "ast_hash": "bd2b9cbcaaddc9dc25386fba21e4d043",
+    "semantic_hash": "bd2b9cbcaaddc9dc25386fba21e4d043"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/commands/moai/loop.md": {
+    "mtime": 1778979813.9203246,
+    "ast_hash": "90c9ce834af1bd645a636b0f58f862b7",
+    "semantic_hash": "90c9ce834af1bd645a636b0f58f862b7"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/commands/moai/mx.md": {
+    "mtime": 1778979813.9205327,
+    "ast_hash": "f461653c17605ba77d0330589e1c8be6",
+    "semantic_hash": "f461653c17605ba77d0330589e1c8be6"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/commands/moai/plan.md": {
+    "mtime": 1778979813.9207473,
+    "ast_hash": "f38bdc54fc2327fb471ccfcb6945f27e",
+    "semantic_hash": "f38bdc54fc2327fb471ccfcb6945f27e"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/commands/moai/project.md": {
+    "mtime": 1778979813.9209557,
+    "ast_hash": "7775a2537b3bc090727befa19de1c7fc",
+    "semantic_hash": "7775a2537b3bc090727befa19de1c7fc"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/commands/moai/review.md": {
+    "mtime": 1778979813.9212558,
+    "ast_hash": "8b0fe6101be3f341308f6bd82d8f654a",
+    "semantic_hash": "8b0fe6101be3f341308f6bd82d8f654a"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/commands/moai/run.md": {
+    "mtime": 1778979813.9238563,
+    "ast_hash": "68f995362e82c0147592f4c08d25fdec",
+    "semantic_hash": "68f995362e82c0147592f4c08d25fdec"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/commands/moai/sync.md": {
+    "mtime": 1778979813.9241638,
+    "ast_hash": "a0cc795921a95efedc64951e823667b2",
+    "semantic_hash": "a0cc795921a95efedc64951e823667b2"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/output-styles/moai/einstein.md": {
+    "mtime": 1778979813.9342742,
+    "ast_hash": "b420ef8df5709bbde6d668f1f0366a39",
+    "semantic_hash": "b420ef8df5709bbde6d668f1f0366a39"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/output-styles/moai/moai.md": {
+    "mtime": 1778979813.9346347,
+    "ast_hash": "0d5ca779c5986499dbda6021d2a938de",
+    "semantic_hash": "0d5ca779c5986499dbda6021d2a938de"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/rules/moai/core/agent-common-protocol.md": {
+    "mtime": 1778979813.9353023,
+    "ast_hash": "95e2c21ac558b2cb8c11963bf615573c",
+    "semantic_hash": "95e2c21ac558b2cb8c11963bf615573c"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/rules/moai/core/agent-hooks.md": {
+    "mtime": 1778979813.9355485,
+    "ast_hash": "8b1b2da6e460ce52d4fc372b7dcb6ba8",
+    "semantic_hash": "8b1b2da6e460ce52d4fc372b7dcb6ba8"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/rules/moai/core/hooks-system.md": {
+    "mtime": 1778979813.935857,
+    "ast_hash": "750ce6681d1cb1da497bfb8deb4c4e91",
+    "semantic_hash": "750ce6681d1cb1da497bfb8deb4c4e91"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/rules/moai/core/lsp-client.md": {
+    "mtime": 1778979813.9360983,
+    "ast_hash": "c4f71a37f4ffc73a82aa0cbb9c9aae1c",
+    "semantic_hash": "c4f71a37f4ffc73a82aa0cbb9c9aae1c"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/rules/moai/core/moai-constitution.md": {
+    "mtime": 1778979813.9378512,
+    "ast_hash": "91df452a0dd522dad18a01de14bd4718",
+    "semantic_hash": "91df452a0dd522dad18a01de14bd4718"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/rules/moai/core/settings-management.md": {
+    "mtime": 1778979813.938387,
+    "ast_hash": "ce9380518fb0cc85f057208e40bd9b28",
+    "semantic_hash": "ce9380518fb0cc85f057208e40bd9b28"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/rules/moai/design/constitution.md": {
+    "mtime": 1778979813.939079,
+    "ast_hash": "4a69e4c1922dc3311ecd8a441d4edc5a",
+    "semantic_hash": "4a69e4c1922dc3311ecd8a441d4edc5a"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/rules/moai/development/agent-authoring.md": {
+    "mtime": 1778979813.939527,
+    "ast_hash": "8457298f1539e7b8fa3d80e0923d145a",
+    "semantic_hash": "8457298f1539e7b8fa3d80e0923d145a"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/rules/moai/development/coding-standards.md": {
+    "mtime": 1778979813.9398906,
+    "ast_hash": "eeb29c1be9632ac141425558699ea949",
+    "semantic_hash": "eeb29c1be9632ac141425558699ea949"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/rules/moai/development/model-policy.md": {
+    "mtime": 1778979813.940114,
+    "ast_hash": "a1fa78033d18e8495b9b0a0896b2af34",
+    "semantic_hash": "a1fa78033d18e8495b9b0a0896b2af34"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/rules/moai/development/skill-authoring.md": {
+    "mtime": 1778979813.9404767,
+    "ast_hash": "aced4e75c98d36736c31e83ec8cc6567",
+    "semantic_hash": "aced4e75c98d36736c31e83ec8cc6567"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/rules/moai/languages/cpp.md": {
+    "mtime": 1778979813.9409323,
+    "ast_hash": "b1fe1f4be2929f18eb8085209bf62440",
+    "semantic_hash": "b1fe1f4be2929f18eb8085209bf62440"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/rules/moai/languages/csharp.md": {
+    "mtime": 1778979813.9413652,
+    "ast_hash": "e7cc91f7f22886dd235606d55f498885",
+    "semantic_hash": "e7cc91f7f22886dd235606d55f498885"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/rules/moai/languages/elixir.md": {
+    "mtime": 1778979813.9417078,
+    "ast_hash": "7ab61a2b8271818d53ec239ca88e0254",
+    "semantic_hash": "7ab61a2b8271818d53ec239ca88e0254"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/rules/moai/languages/flutter.md": {
+    "mtime": 1778979813.9420097,
+    "ast_hash": "34bafbcf1123642b45f0422a33a6eb12",
+    "semantic_hash": "34bafbcf1123642b45f0422a33a6eb12"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/rules/moai/languages/go.md": {
+    "mtime": 1778979813.942255,
+    "ast_hash": "b690cfa2c2364c5f01296e9aaf858103",
+    "semantic_hash": "b690cfa2c2364c5f01296e9aaf858103"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/rules/moai/languages/java.md": {
+    "mtime": 1778979813.942804,
+    "ast_hash": "bc20e26b4d555f9867aa7fd58cff9252",
+    "semantic_hash": "bc20e26b4d555f9867aa7fd58cff9252"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/rules/moai/languages/javascript.md": {
+    "mtime": 1778979813.945395,
+    "ast_hash": "7e4da887c368c07b69bc86eed489e0fb",
+    "semantic_hash": "7e4da887c368c07b69bc86eed489e0fb"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/rules/moai/languages/kotlin.md": {
+    "mtime": 1778979813.9459314,
+    "ast_hash": "77af0dc9a8d01cf837b2a07863077c3e",
+    "semantic_hash": "77af0dc9a8d01cf837b2a07863077c3e"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/rules/moai/languages/php.md": {
+    "mtime": 1778979813.9464488,
+    "ast_hash": "1442fc73e834011a746a7d4ea3361310",
+    "semantic_hash": "1442fc73e834011a746a7d4ea3361310"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/rules/moai/languages/python.md": {
+    "mtime": 1778979813.946709,
+    "ast_hash": "e7ee45f8bed07a48396a062c21cd242a",
+    "semantic_hash": "e7ee45f8bed07a48396a062c21cd242a"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/rules/moai/languages/r.md": {
+    "mtime": 1778979813.9470189,
+    "ast_hash": "5728802c179bc7ce6b426c72353d4582",
+    "semantic_hash": "5728802c179bc7ce6b426c72353d4582"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/rules/moai/languages/ruby.md": {
+    "mtime": 1778979813.9473991,
+    "ast_hash": "38483792ca948c2396775217f099da9b",
+    "semantic_hash": "38483792ca948c2396775217f099da9b"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/rules/moai/languages/rust.md": {
+    "mtime": 1778979813.9477327,
+    "ast_hash": "02667ff51d73865a0bac5e6d230f7493",
+    "semantic_hash": "02667ff51d73865a0bac5e6d230f7493"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/rules/moai/languages/scala.md": {
+    "mtime": 1778979813.9480565,
+    "ast_hash": "955ea4e473f070ff3fa6712b4366cf1f",
+    "semantic_hash": "955ea4e473f070ff3fa6712b4366cf1f"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/rules/moai/languages/swift.md": {
+    "mtime": 1778979813.948361,
+    "ast_hash": "0222c2458340ec1a3ee97dea178f6e11",
+    "semantic_hash": "0222c2458340ec1a3ee97dea178f6e11"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/rules/moai/languages/typescript.md": {
+    "mtime": 1778979813.948655,
+    "ast_hash": "05889435cc7548b39ae0f14f66eb8250",
+    "semantic_hash": "05889435cc7548b39ae0f14f66eb8250"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/rules/moai/workflow/file-reading-optimization.md": {
+    "mtime": 1778979813.94903,
+    "ast_hash": "c641724d686a91e1eeddadf5cbb16321",
+    "semantic_hash": "c641724d686a91e1eeddadf5cbb16321"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/rules/moai/workflow/moai-memory.md": {
+    "mtime": 1778979813.9492874,
+    "ast_hash": "4c40f789dece568bc9862c05155457ec",
+    "semantic_hash": "4c40f789dece568bc9862c05155457ec"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/rules/moai/workflow/mx-tag-protocol.md": {
+    "mtime": 1778979813.9495738,
+    "ast_hash": "0e66052599f1c5a99e6b1be3813e6161",
+    "semantic_hash": "0e66052599f1c5a99e6b1be3813e6161"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/rules/moai/workflow/spec-workflow.md": {
+    "mtime": 1778979813.949881,
+    "ast_hash": "92a7a2e0be50bc6031c7569bf1ee6c1a",
+    "semantic_hash": "92a7a2e0be50bc6031c7569bf1ee6c1a"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/rules/moai/workflow/team-protocol.md": {
+    "mtime": 1778979813.9501147,
+    "ast_hash": "a2cbbf7255d1342010da28b0f1ae816c",
+    "semantic_hash": "a2cbbf7255d1342010da28b0f1ae816c"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/rules/moai/workflow/workflow-modes.md": {
+    "mtime": 1778979813.9504268,
+    "ast_hash": "3f8895253b47906e2842b4a5b379ebff",
+    "semantic_hash": "3f8895253b47906e2842b4a5b379ebff"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/rules/moai/workflow/worktree-integration.md": {
+    "mtime": 1778979813.9508715,
+    "ast_hash": "4bf47558f16a31aa6c523814cd214cf8",
+    "semantic_hash": "4bf47558f16a31aa6c523814cd214cf8"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-design-craft/SKILL.md": {
+    "mtime": 1778979813.9570053,
+    "ast_hash": "68a7a672e133dac3145aa05c33d63027",
+    "semantic_hash": "68a7a672e133dac3145aa05c33d63027"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-design-craft/modules/critique-workflow.md": {
+    "mtime": 1778979813.95769,
+    "ast_hash": "bc439ae9e239276db07809a9f9e15c5f",
+    "semantic_hash": "bc439ae9e239276db07809a9f9e15c5f"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-design-craft/modules/design-memory.md": {
+    "mtime": 1778979813.9580324,
+    "ast_hash": "68e9c45baa45f21b67278136d700ce26",
+    "semantic_hash": "68e9c45baa45f21b67278136d700ce26"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-design-craft/modules/intent-first.md": {
+    "mtime": 1778979813.958362,
+    "ast_hash": "90bcb12926191df6db862cf83dd12c00",
+    "semantic_hash": "90bcb12926191df6db862cf83dd12c00"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-design-craft/modules/web-copy-craft.md": {
+    "mtime": 1778979813.9587028,
+    "ast_hash": "17b5d5411c366d0bb6e29a3314b0489f",
+    "semantic_hash": "17b5d5411c366d0bb6e29a3314b0489f"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-design-tools/SKILL.md": {
+    "mtime": 1778979813.9592955,
+    "ast_hash": "ec9696d3ca2e4d6a8b05265b111013b8",
+    "semantic_hash": "ec9696d3ca2e4d6a8b05265b111013b8"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-design-tools/reference/comparison.md": {
+    "mtime": 1778979813.959937,
+    "ast_hash": "e6732bb61c1c423475a8039297eacb69",
+    "semantic_hash": "e6732bb61c1c423475a8039297eacb69"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-design-tools/reference/figma.md": {
+    "mtime": 1778979813.9604235,
+    "ast_hash": "401590145302e6d7342000971781cffc",
+    "semantic_hash": "401590145302e6d7342000971781cffc"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-design-tools/reference/pencil-code.md": {
+    "mtime": 1778979813.960879,
+    "ast_hash": "e163c13e881c14e2d62b065219157e35",
+    "semantic_hash": "e163c13e881c14e2d62b065219157e35"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-design-tools/reference/pencil-renderer.md": {
+    "mtime": 1778979813.9613485,
+    "ast_hash": "41a139d74d3d4ef19c463eb449709328",
+    "semantic_hash": "41a139d74d3d4ef19c463eb449709328"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-docs-generation/SKILL.md": {
+    "mtime": 1778979813.9619477,
+    "ast_hash": "ac9a8b580f768d8cab42c796deb96c6d",
+    "semantic_hash": "ac9a8b580f768d8cab42c796deb96c6d"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-docs-generation/modules/INDEX.md": {
+    "mtime": 1778979813.962334,
+    "ast_hash": "cbf87d779b90df8f67c9c7f0e3b137e7",
+    "semantic_hash": "cbf87d779b90df8f67c9c7f0e3b137e7"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-docs-generation/modules/api-documentation.md": {
+    "mtime": 1778979813.9646447,
+    "ast_hash": "cd40929481dd72bf70dc583193cd8b77",
+    "semantic_hash": "cd40929481dd72bf70dc583193cd8b77"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-docs-generation/modules/code-documentation.md": {
+    "mtime": 1778979813.9649878,
+    "ast_hash": "b5f5f0944d407f14d872898bcac8a135",
+    "semantic_hash": "b5f5f0944d407f14d872898bcac8a135"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-docs-generation/modules/multi-format-output.md": {
+    "mtime": 1778979813.9653454,
+    "ast_hash": "84143922e5a4a0f347e65c307ac3ba1f",
+    "semantic_hash": "84143922e5a4a0f347e65c307ac3ba1f"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-docs-generation/modules/user-guides.md": {
+    "mtime": 1778979813.9656658,
+    "ast_hash": "a45fbc287c15d37d97add6dcc17b0146",
+    "semantic_hash": "a45fbc287c15d37d97add6dcc17b0146"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-docs-generation/references/examples.md": {
+    "mtime": 1778979813.9661076,
+    "ast_hash": "3bdfadfb108677e97a3b550e8284f33e",
+    "semantic_hash": "3bdfadfb108677e97a3b550e8284f33e"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-docs-generation/references/reference.md": {
+    "mtime": 1778979813.9664063,
+    "ast_hash": "2535a0eae63adf7e8b056a701f9139b2",
+    "semantic_hash": "2535a0eae63adf7e8b056a701f9139b2"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-domain-backend/SKILL.md": {
+    "mtime": 1778979813.9668028,
+    "ast_hash": "d7b613cd2cf00587683339fe354e16ee",
+    "semantic_hash": "d7b613cd2cf00587683339fe354e16ee"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-domain-backend/references/examples.md": {
+    "mtime": 1778979813.9673846,
+    "ast_hash": "58a46a6018d0271a67d085d3deda5313",
+    "semantic_hash": "58a46a6018d0271a67d085d3deda5313"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-domain-backend/references/reference.md": {
+    "mtime": 1778979813.967927,
+    "ast_hash": "a10542e512b43074c829b0e3a826c90e",
+    "semantic_hash": "a10542e512b43074c829b0e3a826c90e"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-domain-brand-design/SKILL.md": {
+    "mtime": 1778979813.9685328,
+    "ast_hash": "5cd3ea42d3863af2ddc0e05891bacd1e",
+    "semantic_hash": "5cd3ea42d3863af2ddc0e05891bacd1e"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-domain-copywriting/SKILL.md": {
+    "mtime": 1778979813.9689305,
+    "ast_hash": "06c1730d3b5bf8e92e4921ee75e69298",
+    "semantic_hash": "06c1730d3b5bf8e92e4921ee75e69298"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-domain-database/SKILL.md": {
+    "mtime": 1778979813.9694502,
+    "ast_hash": "560a4a616861d6cd613a39c7bbe36323",
+    "semantic_hash": "560a4a616861d6cd613a39c7bbe36323"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-domain-database/modules/INDEX.md": {
+    "mtime": 1778979813.9700644,
+    "ast_hash": "ba552389f2d8cb215d12d548877d6fde",
+    "semantic_hash": "ba552389f2d8cb215d12d548877d6fde"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-domain-database/modules/mongodb.md": {
+    "mtime": 1778979813.97217,
+    "ast_hash": "5fb516fe7f68e0d2bd89705846b385a0",
+    "semantic_hash": "5fb516fe7f68e0d2bd89705846b385a0"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-domain-database/modules/oracle.md": {
+    "mtime": 1778979813.972867,
+    "ast_hash": "93c928085e5d3aa7390cb7dc7256d1f1",
+    "semantic_hash": "93c928085e5d3aa7390cb7dc7256d1f1"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-domain-database/modules/postgresql.md": {
+    "mtime": 1778979813.9734113,
+    "ast_hash": "6d60373a63f95d28f73bc9b12b20ef4f",
+    "semantic_hash": "6d60373a63f95d28f73bc9b12b20ef4f"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-domain-database/modules/redis.md": {
+    "mtime": 1778979813.97376,
+    "ast_hash": "2cef7d77e4c524e273241f37d95efb10",
+    "semantic_hash": "2cef7d77e4c524e273241f37d95efb10"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-domain-database/references/examples.md": {
+    "mtime": 1778979813.9742827,
+    "ast_hash": "b24ed4c6c1569dd602c70fa31542d0ab",
+    "semantic_hash": "b24ed4c6c1569dd602c70fa31542d0ab"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-domain-database/references/reference.md": {
+    "mtime": 1778979813.97465,
+    "ast_hash": "93bd7c2e876c9e8c0104450a25c1c8a0",
+    "semantic_hash": "93bd7c2e876c9e8c0104450a25c1c8a0"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-domain-db-docs/SKILL.md": {
+    "mtime": 1778979813.9752045,
+    "ast_hash": "e90dc07085f367ef1c84bc6181140298",
+    "semantic_hash": "e90dc07085f367ef1c84bc6181140298"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-domain-frontend/SKILL.md": {
+    "mtime": 1778979813.9757926,
+    "ast_hash": "413cac3638db1a5957f07dc5b3a4486f",
+    "semantic_hash": "413cac3638db1a5957f07dc5b3a4486f"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-domain-frontend/modules/ai-frontend-patterns.md": {
+    "mtime": 1778979813.9761522,
+    "ast_hash": "c73d138e029c64f13861abcee40d2ff1",
+    "semantic_hash": "c73d138e029c64f13861abcee40d2ff1"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-domain-frontend/modules/component-architecture.md": {
+    "mtime": 1778979813.9765515,
+    "ast_hash": "c538bafb15d2045847f74f02cb0981dc",
+    "semantic_hash": "c538bafb15d2045847f74f02cb0981dc"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-domain-frontend/modules/nextjs16-patterns.md": {
+    "mtime": 1778979813.9769516,
+    "ast_hash": "261119fbf741e5e77b1f7dc27e6efb03",
+    "semantic_hash": "261119fbf741e5e77b1f7dc27e6efb03"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-domain-frontend/modules/performance-optimization.md": {
+    "mtime": 1778979813.9772596,
+    "ast_hash": "833405cdb9e924bc1b5a4303cef3cc64",
+    "semantic_hash": "833405cdb9e924bc1b5a4303cef3cc64"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-domain-frontend/modules/react19-patterns.md": {
+    "mtime": 1778979813.9775622,
+    "ast_hash": "8a89f81298aff4a12b2d92be988e550c",
+    "semantic_hash": "8a89f81298aff4a12b2d92be988e550c"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-domain-frontend/modules/state-management.md": {
+    "mtime": 1778979813.9780338,
+    "ast_hash": "6bd430e4b89ebd578e8e0731eb147c53",
+    "semantic_hash": "6bd430e4b89ebd578e8e0731eb147c53"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-domain-frontend/modules/vercel-react-best-practices.md": {
+    "mtime": 1778979813.9788783,
+    "ast_hash": "b3b8181d8deb972904b9e4b87d2fa5e3",
+    "semantic_hash": "b3b8181d8deb972904b9e4b87d2fa5e3"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-domain-frontend/modules/vue35-patterns.md": {
+    "mtime": 1778979813.9803686,
+    "ast_hash": "af756109dafe31ccf16195e6e1c77d37",
+    "semantic_hash": "af756109dafe31ccf16195e6e1c77d37"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-domain-frontend/references/examples.md": {
+    "mtime": 1778979813.9809988,
+    "ast_hash": "804ef6186b1ec384aeb4808ceb37ee52",
+    "semantic_hash": "804ef6186b1ec384aeb4808ceb37ee52"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-domain-frontend/references/reference.md": {
+    "mtime": 1778979813.9813797,
+    "ast_hash": "88582c14f95be379fe1247783c159734",
+    "semantic_hash": "88582c14f95be379fe1247783c159734"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-domain-uiux/SKILL.md": {
+    "mtime": 1778979813.9817646,
+    "ast_hash": "361697aef0d4c446586315a168cb318f",
+    "semantic_hash": "361697aef0d4c446586315a168cb318f"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-domain-uiux/modules/accessibility-wcag.md": {
+    "mtime": 1778979813.9821758,
+    "ast_hash": "71c75ef0a40f4982e56ba2cb44718106",
+    "semantic_hash": "71c75ef0a40f4982e56ba2cb44718106"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-domain-uiux/modules/component-architecture.md": {
+    "mtime": 1778979813.9824646,
+    "ast_hash": "dbde1ad27d19a7cbf8d3392a2d341b08",
+    "semantic_hash": "dbde1ad27d19a7cbf8d3392a2d341b08"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-domain-uiux/modules/icon-libraries.md": {
+    "mtime": 1778979813.9829316,
+    "ast_hash": "8496dc3f5512dc5797b25eff072c48ad",
+    "semantic_hash": "8496dc3f5512dc5797b25eff072c48ad"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-domain-uiux/modules/theming-system.md": {
+    "mtime": 1778979813.9831576,
+    "ast_hash": "4b72e5716a6b67695e6892d909ff330b",
+    "semantic_hash": "4b72e5716a6b67695e6892d909ff330b"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-domain-uiux/modules/web-interface-guidelines.md": {
+    "mtime": 1778979813.983495,
+    "ast_hash": "7079afd83871cb866967e4d256d259a8",
+    "semantic_hash": "7079afd83871cb866967e4d256d259a8"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-domain-uiux/references/examples.md": {
+    "mtime": 1778979813.9838748,
+    "ast_hash": "e766e6112648fedc1b7bc2fabb064a36",
+    "semantic_hash": "e766e6112648fedc1b7bc2fabb064a36"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-domain-uiux/references/reference.md": {
+    "mtime": 1778979813.9898927,
+    "ast_hash": "640f5aeaeb426c18e80b5187c5d86984",
+    "semantic_hash": "640f5aeaeb426c18e80b5187c5d86984"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-formats-data/SKILL.md": {
+    "mtime": 1778979813.9939647,
+    "ast_hash": "cc18d7d1572d71f34f6f5dcdeff31c0c",
+    "semantic_hash": "cc18d7d1572d71f34f6f5dcdeff31c0c"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-formats-data/modules/INDEX.md": {
+    "mtime": 1778979813.9952826,
+    "ast_hash": "5c35fa9776b5dd1d0d76fbf54e7c6111",
+    "semantic_hash": "5c35fa9776b5dd1d0d76fbf54e7c6111"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-formats-data/modules/SKILL-MODULARIZATION-TEMPLATE.md": {
+    "mtime": 1778979813.9959216,
+    "ast_hash": "c572c81acc76d578f6088321e4fbdd69",
+    "semantic_hash": "c572c81acc76d578f6088321e4fbdd69"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-formats-data/modules/caching-performance.md": {
+    "mtime": 1778979813.9974453,
+    "ast_hash": "9837e123feb25096c0931af5435ebfef",
+    "semantic_hash": "9837e123feb25096c0931af5435ebfef"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-formats-data/modules/data-validation.md": {
+    "mtime": 1778979813.9980707,
+    "ast_hash": "8fea1ad388b7cc2e977b0396fda8a8de",
+    "semantic_hash": "8fea1ad388b7cc2e977b0396fda8a8de"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-formats-data/modules/json-optimization.md": {
+    "mtime": 1778979813.9989223,
+    "ast_hash": "d017c6668fa561d26fe55cc70e0b7498",
+    "semantic_hash": "d017c6668fa561d26fe55cc70e0b7498"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-formats-data/modules/toon-encoding.md": {
+    "mtime": 1778979814.0002341,
+    "ast_hash": "2cc295514bb86d533f55d0ec52e4bf2b",
+    "semantic_hash": "2cc295514bb86d533f55d0ec52e4bf2b"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-formats-data/references/examples.md": {
+    "mtime": 1778979814.0010078,
+    "ast_hash": "fde29eea2bff4c87c68630df216d2b5b",
+    "semantic_hash": "fde29eea2bff4c87c68630df216d2b5b"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-formats-data/references/reference.md": {
+    "mtime": 1778979814.0016387,
+    "ast_hash": "f4cea0282e5382678c40ddd660259711",
+    "semantic_hash": "f4cea0282e5382678c40ddd660259711"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-foundation-cc/SKILL.md": {
+    "mtime": 1778979814.0025616,
+    "ast_hash": "1a3e68a2319108638704152250d689ac",
+    "semantic_hash": "1a3e68a2319108638704152250d689ac"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-foundation-cc/reference/advanced-agent-patterns.md": {
+    "mtime": 1778979814.0052173,
+    "ast_hash": "26147bea543fa3e2af801ab94ab3a84f",
+    "semantic_hash": "26147bea543fa3e2af801ab94ab3a84f"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-foundation-cc/reference/best-practices-checklist.md": {
+    "mtime": 1778979814.0066555,
+    "ast_hash": "12c14338d9b05948042afb8edd2ed2c1",
+    "semantic_hash": "12c14338d9b05948042afb8edd2ed2c1"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-foundation-cc/reference/claude-code-cli-reference-official.md": {
+    "mtime": 1778979814.0074363,
+    "ast_hash": "607ad2b7942d669d118c6b358d5c952f",
+    "semantic_hash": "607ad2b7942d669d118c6b358d5c952f"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-foundation-cc/reference/claude-code-custom-slash-commands-official.md": {
+    "mtime": 1778979814.008367,
+    "ast_hash": "c79cd6470b7722479079ae45d6e52abb",
+    "semantic_hash": "c79cd6470b7722479079ae45d6e52abb"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-foundation-cc/reference/claude-code-devcontainers-official.md": {
+    "mtime": 1778979814.0088582,
+    "ast_hash": "4b41ce0975cea00c74d9bfd7d1a1462a",
+    "semantic_hash": "4b41ce0975cea00c74d9bfd7d1a1462a"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-foundation-cc/reference/claude-code-discover-plugins-official.md": {
+    "mtime": 1778979814.0093515,
+    "ast_hash": "7633830be0704ea127b88050a86c03b2",
+    "semantic_hash": "7633830be0704ea127b88050a86c03b2"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-foundation-cc/reference/claude-code-headless-official.md": {
+    "mtime": 1778979814.0097616,
+    "ast_hash": "1a3a77af4fab60c3c944524ea569a100",
+    "semantic_hash": "1a3a77af4fab60c3c944524ea569a100"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-foundation-cc/reference/claude-code-hooks-official.md": {
+    "mtime": 1778979814.010168,
+    "ast_hash": "e6b61c699885059cc0d2511473cd5b02",
+    "semantic_hash": "e6b61c699885059cc0d2511473cd5b02"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-foundation-cc/reference/claude-code-iam-official.md": {
+    "mtime": 1778979814.010825,
+    "ast_hash": "be36a25bfe4031e9709492e42e0cd6f0",
+    "semantic_hash": "be36a25bfe4031e9709492e42e0cd6f0"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-foundation-cc/reference/claude-code-memory-official.md": {
+    "mtime": 1778979814.0115843,
+    "ast_hash": "b7b5235b557822240477373416f3ddde",
+    "semantic_hash": "b7b5235b557822240477373416f3ddde"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-foundation-cc/reference/claude-code-plugin-marketplaces-official.md": {
+    "mtime": 1778979814.0121174,
+    "ast_hash": "a05433ab0f19343b478aaccdeb683e9d",
+    "semantic_hash": "a05433ab0f19343b478aaccdeb683e9d"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-foundation-cc/reference/claude-code-plugins-official.md": {
+    "mtime": 1778979814.012708,
+    "ast_hash": "4c260f129ebe8fea68dc23e3d361ccf4",
+    "semantic_hash": "4c260f129ebe8fea68dc23e3d361ccf4"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-foundation-cc/reference/claude-code-sandboxing-official.md": {
+    "mtime": 1778979814.0131564,
+    "ast_hash": "da0dc92ef699fe22e3c521e33dfa6ad3",
+    "semantic_hash": "da0dc92ef699fe22e3c521e33dfa6ad3"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-foundation-cc/reference/claude-code-settings-official.md": {
+    "mtime": 1778979814.01392,
+    "ast_hash": "28029a25dca48836d4ede6e57bb26bd7",
+    "semantic_hash": "28029a25dca48836d4ede6e57bb26bd7"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-foundation-cc/reference/claude-code-skills-official.md": {
+    "mtime": 1778979814.0142918,
+    "ast_hash": "7be68024aac91392dc1325d100f5d16a",
+    "semantic_hash": "7be68024aac91392dc1325d100f5d16a"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-foundation-cc/reference/claude-code-statusline-official.md": {
+    "mtime": 1778979814.0149834,
+    "ast_hash": "093d0269072299416d92aec94c4c0cdd",
+    "semantic_hash": "093d0269072299416d92aec94c4c0cdd"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-foundation-cc/reference/claude-code-sub-agents-official.md": {
+    "mtime": 1778979814.0154521,
+    "ast_hash": "be578b3a83d78c967b481655c823a39f",
+    "semantic_hash": "be578b3a83d78c967b481655c823a39f"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-foundation-cc/reference/complete-configuration-guide.md": {
+    "mtime": 1778979814.0173001,
+    "ast_hash": "45fb6d089857c03ee41a972b7f2c4876",
+    "semantic_hash": "45fb6d089857c03ee41a972b7f2c4876"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-foundation-cc/reference/skill-examples.md": {
+    "mtime": 1778979814.0180867,
+    "ast_hash": "0d6d7fe46af23a954e264f43cff3fbad",
+    "semantic_hash": "0d6d7fe46af23a954e264f43cff3fbad"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-foundation-cc/reference/skill-formatting-guide.md": {
+    "mtime": 1778979814.01851,
+    "ast_hash": "74cecb04ae90a51cb11bdea2d62f31ca",
+    "semantic_hash": "74cecb04ae90a51cb11bdea2d62f31ca"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-foundation-cc/reference/sub-agents/sub-agent-examples.md": {
+    "mtime": 1778979814.0191925,
+    "ast_hash": "4935d9c785766db4636257656b14df9a",
+    "semantic_hash": "4935d9c785766db4636257656b14df9a"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-foundation-cc/reference/sub-agents/sub-agent-formatting-guide.md": {
+    "mtime": 1778979814.01981,
+    "ast_hash": "09285a0d9ab4db8ebb53721dd1755696",
+    "semantic_hash": "09285a0d9ab4db8ebb53721dd1755696"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-foundation-cc/reference/sub-agents/sub-agent-integration-patterns.md": {
+    "mtime": 1778979814.0209854,
+    "ast_hash": "934814f664e845b2e25ac7db5466b897",
+    "semantic_hash": "934814f664e845b2e25ac7db5466b897"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-foundation-cc/references/examples.md": {
+    "mtime": 1778979814.0322535,
+    "ast_hash": "d6bbd3a9922b2a5eba7761f2dd921d1f",
+    "semantic_hash": "d6bbd3a9922b2a5eba7761f2dd921d1f"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-foundation-cc/references/reference.md": {
+    "mtime": 1778979814.0396776,
+    "ast_hash": "0100681dcec5b00281b6ad986ccfce2b",
+    "semantic_hash": "0100681dcec5b00281b6ad986ccfce2b"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-foundation-context/SKILL.md": {
+    "mtime": 1778979814.0407412,
+    "ast_hash": "9b03e7b4a1553b68810172f71dd214de",
+    "semantic_hash": "9b03e7b4a1553b68810172f71dd214de"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-foundation-context/references/examples.md": {
+    "mtime": 1778979814.041312,
+    "ast_hash": "8d70fd7de5b89d7ab65f44eae78b6061",
+    "semantic_hash": "8d70fd7de5b89d7ab65f44eae78b6061"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-foundation-context/references/reference.md": {
+    "mtime": 1778979814.0418046,
+    "ast_hash": "ce38dd1832860f23ea8351ae155bec2d",
+    "semantic_hash": "ce38dd1832860f23ea8351ae155bec2d"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-foundation-core/SKILL.md": {
+    "mtime": 1778979814.0424023,
+    "ast_hash": "0cd134889d32fe5251464fe08e68445b",
+    "semantic_hash": "0cd134889d32fe5251464fe08e68445b"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-foundation-core/modules/INDEX.md": {
+    "mtime": 1778979814.042912,
+    "ast_hash": "da7e1dcfaaab4398b72e4f9ba019e733",
+    "semantic_hash": "da7e1dcfaaab4398b72e4f9ba019e733"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-foundation-core/modules/agents-reference.md": {
+    "mtime": 1778979814.0431702,
+    "ast_hash": "5f9243078703c759b99f1a823627785a",
+    "semantic_hash": "5f9243078703c759b99f1a823627785a"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-foundation-core/modules/commands-reference.md": {
+    "mtime": 1778979814.0434625,
+    "ast_hash": "ea2d6c139e5416ff3ff9206f64fc6b18",
+    "semantic_hash": "ea2d6c139e5416ff3ff9206f64fc6b18"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-foundation-core/modules/delegation-advanced.md": {
+    "mtime": 1778979814.044005,
+    "ast_hash": "ed62ecfacaefbef7fe90dd74ce96f3a8",
+    "semantic_hash": "ed62ecfacaefbef7fe90dd74ce96f3a8"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-foundation-core/modules/delegation-implementation.md": {
+    "mtime": 1778979814.0445433,
+    "ast_hash": "0149cf603979997c76df0b815a040d7d",
+    "semantic_hash": "0149cf603979997c76df0b815a040d7d"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-foundation-core/modules/delegation-patterns.md": {
+    "mtime": 1778979814.04497,
+    "ast_hash": "1619018e52912a849620e8e07a0a912f",
+    "semantic_hash": "1619018e52912a849620e8e07a0a912f"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-foundation-core/modules/execution-rules.md": {
+    "mtime": 1778979814.0453506,
+    "ast_hash": "6a3779fc77a2c96872d84301c12932f0",
+    "semantic_hash": "6a3779fc77a2c96872d84301c12932f0"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-foundation-core/modules/modular-system.md": {
+    "mtime": 1778979814.0458217,
+    "ast_hash": "c40445baa4e9ba3254c4cedaa9fc6863",
+    "semantic_hash": "c40445baa4e9ba3254c4cedaa9fc6863"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-foundation-core/modules/patterns.md": {
+    "mtime": 1778979814.046112,
+    "ast_hash": "9534d135ff36b88e3e94457ad07b89aa",
+    "semantic_hash": "9534d135ff36b88e3e94457ad07b89aa"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-foundation-core/modules/progressive-disclosure.md": {
+    "mtime": 1778979814.0469275,
+    "ast_hash": "1435ebf201edbbf97e712dc8aca56d86",
+    "semantic_hash": "1435ebf201edbbf97e712dc8aca56d86"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-foundation-core/modules/spec-ddd-implementation.md": {
+    "mtime": 1778979814.047363,
+    "ast_hash": "55e874b6ce6a999c869e430db202a1ed",
+    "semantic_hash": "55e874b6ce6a999c869e430db202a1ed"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-foundation-core/modules/spec-ears-format.md": {
+    "mtime": 1778979814.0478003,
+    "ast_hash": "766963f8b796521076803af1308b327c",
+    "semantic_hash": "766963f8b796521076803af1308b327c"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-foundation-core/modules/spec-first-ddd.md": {
+    "mtime": 1778979814.0481656,
+    "ast_hash": "51620f3dd50133bc93574e31e171278d",
+    "semantic_hash": "51620f3dd50133bc93574e31e171278d"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-foundation-core/modules/trust-5-framework.md": {
+    "mtime": 1778979814.048985,
+    "ast_hash": "e52e1a7523b4349a1e862b240e024eed",
+    "semantic_hash": "e52e1a7523b4349a1e862b240e024eed"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-foundation-core/modules/trust-5-implementation.md": {
+    "mtime": 1778979814.0494044,
+    "ast_hash": "e6ed451ded4b8bd6f3ae286d27d2d968",
+    "semantic_hash": "e6ed451ded4b8bd6f3ae286d27d2d968"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-foundation-core/modules/trust-5-validation.md": {
+    "mtime": 1778979814.049743,
+    "ast_hash": "296f1d10aa8e8d8ff1b43ed65c40edda",
+    "semantic_hash": "296f1d10aa8e8d8ff1b43ed65c40edda"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-foundation-core/references/examples.md": {
+    "mtime": 1778979814.0501788,
+    "ast_hash": "e432996d8173bd23322d53c28f3cc552",
+    "semantic_hash": "e432996d8173bd23322d53c28f3cc552"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-foundation-core/references/reference.md": {
+    "mtime": 1778979814.0506792,
+    "ast_hash": "fc0048e71bc50a947b0c7742b7b04be2",
+    "semantic_hash": "fc0048e71bc50a947b0c7742b7b04be2"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-foundation-philosopher/SKILL.md": {
+    "mtime": 1778979814.0512712,
+    "ast_hash": "487ae6d9f815a29ff6a8ec6fa109ad48",
+    "semantic_hash": "487ae6d9f815a29ff6a8ec6fa109ad48"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-foundation-philosopher/modules/assumption-matrix.md": {
+    "mtime": 1778979814.0519028,
+    "ast_hash": "b8b00479f946f2531af63eec507fa100",
+    "semantic_hash": "b8b00479f946f2531af63eec507fa100"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-foundation-philosopher/modules/cognitive-bias.md": {
+    "mtime": 1778979814.05246,
+    "ast_hash": "8ca77fb877b7311e0d041fb3d7b60784",
+    "semantic_hash": "8ca77fb877b7311e0d041fb3d7b60784"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-foundation-philosopher/modules/first-principles.md": {
+    "mtime": 1778979814.0527241,
+    "ast_hash": "e9b87ac449f05545bb8825f00c7188a9",
+    "semantic_hash": "e9b87ac449f05545bb8825f00c7188a9"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-foundation-philosopher/modules/trade-off-analysis.md": {
+    "mtime": 1778979814.053056,
+    "ast_hash": "f8f9d6396fdf5aba700d0a5dc1173681",
+    "semantic_hash": "f8f9d6396fdf5aba700d0a5dc1173681"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-foundation-philosopher/references/examples.md": {
+    "mtime": 1778979814.053809,
+    "ast_hash": "38aaaf089deaff534440f64cb20a193b",
+    "semantic_hash": "38aaaf089deaff534440f64cb20a193b"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-foundation-philosopher/references/reference.md": {
+    "mtime": 1778979814.0540977,
+    "ast_hash": "392e46ed9b2730b6a52c7d344ff0ac82",
+    "semantic_hash": "392e46ed9b2730b6a52c7d344ff0ac82"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-foundation-quality/SKILL.md": {
+    "mtime": 1778979814.0545232,
+    "ast_hash": "68ca11c7496f5a3c3cf7770c0566a488",
+    "semantic_hash": "68ca11c7496f5a3c3cf7770c0566a488"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-foundation-quality/modules/best-practices.md": {
+    "mtime": 1778979814.0549796,
+    "ast_hash": "398e79946407da7a1579a6a280bf5a69",
+    "semantic_hash": "398e79946407da7a1579a6a280bf5a69"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-foundation-quality/modules/integration-patterns.md": {
+    "mtime": 1778979814.0553942,
+    "ast_hash": "968f0128e87501b7b7cac15e115edce0",
+    "semantic_hash": "968f0128e87501b7b7cac15e115edce0"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-foundation-quality/modules/proactive-analysis.md": {
+    "mtime": 1778979814.055705,
+    "ast_hash": "c9cbedb77afcfd69ddf5a737b725f1b9",
+    "semantic_hash": "c9cbedb77afcfd69ddf5a737b725f1b9"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-foundation-quality/modules/trust5-validation.md": {
+    "mtime": 1778979814.0564694,
+    "ast_hash": "d69a258e26d1e003c8eb68772beb1a3d",
+    "semantic_hash": "d69a258e26d1e003c8eb68772beb1a3d"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-foundation-quality/references/examples.md": {
+    "mtime": 1778979814.0574899,
+    "ast_hash": "ad0cc6c7457e102aef2b00df92520dbe",
+    "semantic_hash": "ad0cc6c7457e102aef2b00df92520dbe"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-foundation-quality/references/reference.md": {
+    "mtime": 1778979814.0580206,
+    "ast_hash": "ab05f71ae32c3e55129a0e27c53db0ca",
+    "semantic_hash": "ab05f71ae32c3e55129a0e27c53db0ca"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-foundation-thinking/SKILL.md": {
+    "mtime": 1778979814.058719,
+    "ast_hash": "2811072519d93f2985fe57ac07717d29",
+    "semantic_hash": "2811072519d93f2985fe57ac07717d29"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-foundation-thinking/modules/critical-evaluation.md": {
+    "mtime": 1778979814.0649068,
+    "ast_hash": "395e243f3576864a1ce5165fd0ece7de",
+    "semantic_hash": "395e243f3576864a1ce5165fd0ece7de"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-foundation-thinking/modules/deep-questioning.md": {
+    "mtime": 1778979814.0654292,
+    "ast_hash": "3e50bd0e4f0085891f6bbbac895e9e45",
+    "semantic_hash": "3e50bd0e4f0085891f6bbbac895e9e45"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-foundation-thinking/modules/diverge-converge.md": {
+    "mtime": 1778979814.065903,
+    "ast_hash": "86ecab86d3a9ec16ea90bf6e135c4eef",
+    "semantic_hash": "86ecab86d3a9ec16ea90bf6e135c4eef"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-foundation-thinking/references/reference.md": {
+    "mtime": 1778979814.0674064,
+    "ast_hash": "e1dc48f2e7be84365d022b2839265e7d",
+    "semantic_hash": "e1dc48f2e7be84365d022b2839265e7d"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-framework-electron/SKILL.md": {
+    "mtime": 1778979814.0679495,
+    "ast_hash": "ea6214b18ba4df326792654adc1f9573",
+    "semantic_hash": "ea6214b18ba4df326792654adc1f9573"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-framework-electron/references/examples.md": {
+    "mtime": 1778979814.0685358,
+    "ast_hash": "05c6583b7a3ee374bc9372af169bd6f3",
+    "semantic_hash": "05c6583b7a3ee374bc9372af169bd6f3"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-framework-electron/references/reference.md": {
+    "mtime": 1778979814.0695148,
+    "ast_hash": "c7338dc907931b7945c80423a5acb5e2",
+    "semantic_hash": "c7338dc907931b7945c80423a5acb5e2"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-library-mermaid/SKILL.md": {
+    "mtime": 1778979814.0701253,
+    "ast_hash": "003f8a3be37dee827500841287b978a0",
+    "semantic_hash": "003f8a3be37dee827500841287b978a0"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-library-mermaid/modules/advanced-patterns.md": {
+    "mtime": 1778979814.0706925,
+    "ast_hash": "1631cd5660f7b6e6b1529d016c891f4d",
+    "semantic_hash": "1631cd5660f7b6e6b1529d016c891f4d"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-library-mermaid/modules/optimization.md": {
+    "mtime": 1778979814.071098,
+    "ast_hash": "1ef4e6f94e31ec3450b665c6b633f551",
+    "semantic_hash": "1ef4e6f94e31ec3450b665c6b633f551"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-library-mermaid/references/examples.md": {
+    "mtime": 1778979814.0715704,
+    "ast_hash": "57f6b8bc467eb1526b3b4d5c3976b894",
+    "semantic_hash": "57f6b8bc467eb1526b3b4d5c3976b894"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-library-mermaid/references/reference.md": {
+    "mtime": 1778979814.0721118,
+    "ast_hash": "d059e5ecf68d7ef9761917a4d6e065a8",
+    "semantic_hash": "d059e5ecf68d7ef9761917a4d6e065a8"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-library-nextra/SKILL.md": {
+    "mtime": 1778979814.0726688,
+    "ast_hash": "c914740c7609d3e45c9d0acb5abfc017",
+    "semantic_hash": "c914740c7609d3e45c9d0acb5abfc017"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-library-nextra/modules/advanced-deployment-patterns.md": {
+    "mtime": 1778979814.073158,
+    "ast_hash": "14292f11e7c7e12386b0d153ac22050c",
+    "semantic_hash": "14292f11e7c7e12386b0d153ac22050c"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-library-nextra/modules/advanced-patterns.md": {
+    "mtime": 1778979814.0735426,
+    "ast_hash": "8a70c88c0d42bc18ae6df5aaaecef2f2",
+    "semantic_hash": "8a70c88c0d42bc18ae6df5aaaecef2f2"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-library-nextra/modules/configuration.md": {
+    "mtime": 1778979814.073894,
+    "ast_hash": "c0eeb541e83afd294b60aee5a84ae8ae",
+    "semantic_hash": "c0eeb541e83afd294b60aee5a84ae8ae"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-library-nextra/modules/content-architecture-optimization.md": {
+    "mtime": 1778979814.0741403,
+    "ast_hash": "4c7cfecd4fc6aec51a67397bf10c2b99",
+    "semantic_hash": "4c7cfecd4fc6aec51a67397bf10c2b99"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-library-nextra/modules/deployment.md": {
+    "mtime": 1778979814.0743668,
+    "ast_hash": "b3d57f2ea671828adf2e81f0147df077",
+    "semantic_hash": "b3d57f2ea671828adf2e81f0147df077"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-library-nextra/modules/framework-core-configuration.md": {
+    "mtime": 1778979814.0745993,
+    "ast_hash": "b448bf2b78cc5f0d13afbb05914fe8f1",
+    "semantic_hash": "b448bf2b78cc5f0d13afbb05914fe8f1"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-library-nextra/modules/i18n-setup.md": {
+    "mtime": 1778979814.0748453,
+    "ast_hash": "3da7772c23c2913cee82284541e43db3",
+    "semantic_hash": "3da7772c23c2913cee82284541e43db3"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-library-nextra/modules/mdx-components.md": {
+    "mtime": 1778979814.0751698,
+    "ast_hash": "fa5bbdd958fb8ec0e66ff2756ae7cee6",
+    "semantic_hash": "fa5bbdd958fb8ec0e66ff2756ae7cee6"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-library-nextra/modules/optimization.md": {
+    "mtime": 1778979814.077227,
+    "ast_hash": "de1191172ebf77121a829b59a6b3ccc9",
+    "semantic_hash": "de1191172ebf77121a829b59a6b3ccc9"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-library-nextra/references/examples.md": {
+    "mtime": 1778979814.0777519,
+    "ast_hash": "df3b579cbdd4cae5212b70ddaa3ba0f5",
+    "semantic_hash": "df3b579cbdd4cae5212b70ddaa3ba0f5"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-library-nextra/references/reference.md": {
+    "mtime": 1778979814.0781002,
+    "ast_hash": "9b08ac6264d1ded5626bca904b690ac7",
+    "semantic_hash": "9b08ac6264d1ded5626bca904b690ac7"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-library-shadcn/SKILL.md": {
+    "mtime": 1778979814.0786455,
+    "ast_hash": "99e1443fcc62d56f64a3d5db59ee4260",
+    "semantic_hash": "99e1443fcc62d56f64a3d5db59ee4260"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-library-shadcn/modules/advanced-patterns.md": {
+    "mtime": 1778979814.0790582,
+    "ast_hash": "45a4c51335f308257530daee2ecc61fd",
+    "semantic_hash": "45a4c51335f308257530daee2ecc61fd"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-library-shadcn/modules/cli-registry.md": {
+    "mtime": 1778979814.0806205,
+    "ast_hash": "ee15f0877c62e2dc990daaa6867c5129",
+    "semantic_hash": "ee15f0877c62e2dc990daaa6867c5129"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-library-shadcn/modules/optimization.md": {
+    "mtime": 1778979814.081346,
+    "ast_hash": "b78533f9fc0bc04156fc0cb5215b15c0",
+    "semantic_hash": "b78533f9fc0bc04156fc0cb5215b15c0"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-library-shadcn/modules/shadcn-components.md": {
+    "mtime": 1778979814.0822353,
+    "ast_hash": "8a57bdc90549dae0885578fd71d49601",
+    "semantic_hash": "8a57bdc90549dae0885578fd71d49601"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-library-shadcn/modules/shadcn-theming.md": {
+    "mtime": 1778979814.0828102,
+    "ast_hash": "89a8693a52a62bc4037010db4637df3a",
+    "semantic_hash": "89a8693a52a62bc4037010db4637df3a"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-library-shadcn/references/examples.md": {
+    "mtime": 1778979814.0835352,
+    "ast_hash": "943de8f0aa2be63b9c056ed144e5a0df",
+    "semantic_hash": "943de8f0aa2be63b9c056ed144e5a0df"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-library-shadcn/references/reference.md": {
+    "mtime": 1778979814.0841544,
+    "ast_hash": "a70ec88363c178e07a6cb00c8dd7c9be",
+    "semantic_hash": "a70ec88363c178e07a6cb00c8dd7c9be"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-platform-auth/SKILL.md": {
+    "mtime": 1778979814.0854027,
+    "ast_hash": "7c44d37c738880a8ed8952c0c61a3142",
+    "semantic_hash": "7c44d37c738880a8ed8952c0c61a3142"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-platform-auth/reference/auth0.md": {
+    "mtime": 1778979814.087324,
+    "ast_hash": "f0e43664eacf54eedf42334b76331476",
+    "semantic_hash": "f0e43664eacf54eedf42334b76331476"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-platform-auth/reference/clerk.md": {
+    "mtime": 1778979814.0879354,
+    "ast_hash": "065ebff5c235ed5176b8bef1323259f3",
+    "semantic_hash": "065ebff5c235ed5176b8bef1323259f3"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-platform-auth/reference/comparison.md": {
+    "mtime": 1778979814.0884187,
+    "ast_hash": "14aa1e388b385e73f75fa255f1a1de38",
+    "semantic_hash": "14aa1e388b385e73f75fa255f1a1de38"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-platform-auth/reference/firebase-auth.md": {
+    "mtime": 1778979814.089269,
+    "ast_hash": "d7cd75ab537b3f34eb06c2cef8400dd1",
+    "semantic_hash": "d7cd75ab537b3f34eb06c2cef8400dd1"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-platform-chrome-extension/SKILL.md": {
+    "mtime": 1778979814.0901394,
+    "ast_hash": "3306da0760c88a3f00710f1dad0fd86d",
+    "semantic_hash": "3306da0760c88a3f00710f1dad0fd86d"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-platform-chrome-extension/modules/apis-quick-reference.md": {
+    "mtime": 1778979814.0910916,
+    "ast_hash": "8f1b35e0a02967af82fa93c64063e6ec",
+    "semantic_hash": "8f1b35e0a02967af82fa93c64063e6ec"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-platform-chrome-extension/modules/content-scripts-guide.md": {
+    "mtime": 1778979814.0916793,
+    "ast_hash": "1f4a5cd391a4741eb729747294750c77",
+    "semantic_hash": "1f4a5cd391a4741eb729747294750c77"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-platform-chrome-extension/modules/manifest-v3-reference.md": {
+    "mtime": 1778979814.0920746,
+    "ast_hash": "6c5bc3401a3076e01bef8f58d6a7c10b",
+    "semantic_hash": "6c5bc3401a3076e01bef8f58d6a7c10b"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-platform-chrome-extension/modules/messaging-patterns.md": {
+    "mtime": 1778979814.092544,
+    "ast_hash": "d48ac96bfcd12a45287c7e5ea9d61b7d",
+    "semantic_hash": "d48ac96bfcd12a45287c7e5ea9d61b7d"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-platform-chrome-extension/modules/publishing-guide.md": {
+    "mtime": 1778979814.0931537,
+    "ast_hash": "85ef280d8bc8764f676644db6ac1b51f",
+    "semantic_hash": "85ef280d8bc8764f676644db6ac1b51f"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-platform-chrome-extension/modules/security-csp.md": {
+    "mtime": 1778979814.09374,
+    "ast_hash": "33009894d6235ae4308f80c05477a2b8",
+    "semantic_hash": "33009894d6235ae4308f80c05477a2b8"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-platform-chrome-extension/modules/service-worker-patterns.md": {
+    "mtime": 1778979814.0942466,
+    "ast_hash": "d77eeae8744aaf306600f5de1b49f425",
+    "semantic_hash": "d77eeae8744aaf306600f5de1b49f425"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-platform-chrome-extension/modules/ui-components.md": {
+    "mtime": 1778979814.0950122,
+    "ast_hash": "257ecc2fdb7fae04467db139105f282e",
+    "semantic_hash": "257ecc2fdb7fae04467db139105f282e"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-platform-database-cloud/SKILL.md": {
+    "mtime": 1778979814.0956445,
+    "ast_hash": "b9232de8d680e5ff3c56269efff1b19e",
+    "semantic_hash": "b9232de8d680e5ff3c56269efff1b19e"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-platform-database-cloud/reference/comparison.md": {
+    "mtime": 1778979814.0967197,
+    "ast_hash": "f6e2788e6a4886d5aa2896137789849c",
+    "semantic_hash": "f6e2788e6a4886d5aa2896137789849c"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-platform-database-cloud/reference/firestore.md": {
+    "mtime": 1778979814.0990374,
+    "ast_hash": "3cb8a9fb32c91b8db8e552b3967a3ba2",
+    "semantic_hash": "3cb8a9fb32c91b8db8e552b3967a3ba2"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-platform-database-cloud/reference/neon.md": {
+    "mtime": 1778979814.1052082,
+    "ast_hash": "89a1374f2dc694282b1ff96c50bde27a",
+    "semantic_hash": "89a1374f2dc694282b1ff96c50bde27a"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-platform-database-cloud/reference/supabase.md": {
+    "mtime": 1778979814.1093853,
+    "ast_hash": "1382fe3cf69747ae2d47c702d456ef35",
+    "semantic_hash": "1382fe3cf69747ae2d47c702d456ef35"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-platform-deployment/SKILL.md": {
+    "mtime": 1778979814.1150272,
+    "ast_hash": "d816b73459c37c0844bdd02af563ccd0",
+    "semantic_hash": "d816b73459c37c0844bdd02af563ccd0"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-platform-deployment/reference/comparison.md": {
+    "mtime": 1778979814.1170094,
+    "ast_hash": "0bf93686aa81c15437a52ec8880b88b0",
+    "semantic_hash": "0bf93686aa81c15437a52ec8880b88b0"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-platform-deployment/reference/convex.md": {
+    "mtime": 1778979814.1173034,
+    "ast_hash": "d4db2e45f454ad2741de4e8b5182593f",
+    "semantic_hash": "d4db2e45f454ad2741de4e8b5182593f"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-platform-deployment/reference/railway.md": {
+    "mtime": 1778979814.117597,
+    "ast_hash": "078da41cda87349b6164c439222e565a",
+    "semantic_hash": "078da41cda87349b6164c439222e565a"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-platform-deployment/reference/vercel.md": {
+    "mtime": 1778979814.1178641,
+    "ast_hash": "75166954bf5ee1562a2f6457427f5224",
+    "semantic_hash": "75166954bf5ee1562a2f6457427f5224"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-ref-api-patterns/skill.md": {
+    "mtime": 1778979814.1183345,
+    "ast_hash": "0c09da283228d816348ec583ff6b50e5",
+    "semantic_hash": "0c09da283228d816348ec583ff6b50e5"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-ref-git-workflow/skill.md": {
+    "mtime": 1778979814.1206906,
+    "ast_hash": "fc4a13319d88a9bcbcf024686157ddca",
+    "semantic_hash": "fc4a13319d88a9bcbcf024686157ddca"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-ref-owasp-checklist/skill.md": {
+    "mtime": 1778979814.121413,
+    "ast_hash": "dfe8dff6174ea6381bce86a4407337c0",
+    "semantic_hash": "dfe8dff6174ea6381bce86a4407337c0"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-ref-react-patterns/skill.md": {
+    "mtime": 1778979814.122024,
+    "ast_hash": "296bfb9e738cc815905e77880b880464",
+    "semantic_hash": "296bfb9e738cc815905e77880b880464"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-ref-testing-pyramid/skill.md": {
+    "mtime": 1778979814.1235063,
+    "ast_hash": "11dbc526e2ef0f965be0ce536a7f733d",
+    "semantic_hash": "11dbc526e2ef0f965be0ce536a7f733d"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-tool-ast-grep/SKILL.md": {
+    "mtime": 1778979814.124499,
+    "ast_hash": "9f66c0966552a012d55dfb514a7a312f",
+    "semantic_hash": "9f66c0966552a012d55dfb514a7a312f"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-tool-ast-grep/modules/language-specific.md": {
+    "mtime": 1778979814.1254032,
+    "ast_hash": "7463e0f16b930387312de19b0c6da8e1",
+    "semantic_hash": "7463e0f16b930387312de19b0c6da8e1"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-tool-ast-grep/modules/pattern-syntax.md": {
+    "mtime": 1778979814.125943,
+    "ast_hash": "a96d964fb61be0adf195b328360a1892",
+    "semantic_hash": "a96d964fb61be0adf195b328360a1892"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-tool-ast-grep/modules/refactoring-patterns.md": {
+    "mtime": 1778979814.1263661,
+    "ast_hash": "52af55403017c110862638d7f3c6e128",
+    "semantic_hash": "52af55403017c110862638d7f3c6e128"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-tool-ast-grep/modules/security-rules.md": {
+    "mtime": 1778979814.1268065,
+    "ast_hash": "78b5d6a19f95a1b3fcd43f3e89c4fa93",
+    "semantic_hash": "78b5d6a19f95a1b3fcd43f3e89c4fa93"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-tool-ast-grep/references/examples.md": {
+    "mtime": 1778979814.1273255,
+    "ast_hash": "0325d17789fcb27bfd18c46cb945a99f",
+    "semantic_hash": "0325d17789fcb27bfd18c46cb945a99f"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-tool-ast-grep/references/reference.md": {
+    "mtime": 1778979814.1277995,
+    "ast_hash": "405041b6b23742fcb65d352a3ecabd49",
+    "semantic_hash": "405041b6b23742fcb65d352a3ecabd49"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-tool-svg/SKILL.md": {
+    "mtime": 1778979814.128447,
+    "ast_hash": "8dd08dc13ad2e1882e27af0c5e2d0c9c",
+    "semantic_hash": "8dd08dc13ad2e1882e27af0c5e2d0c9c"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-tool-svg/modules/INDEX.md": {
+    "mtime": 1778979814.1292913,
+    "ast_hash": "b43d8319a4bfbc53e7be55f51d3c66e9",
+    "semantic_hash": "b43d8319a4bfbc53e7be55f51d3c66e9"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-tool-svg/modules/svg-animation.md": {
+    "mtime": 1778979814.1299322,
+    "ast_hash": "59819484ea6d3173a5c6ce0df622151f",
+    "semantic_hash": "59819484ea6d3173a5c6ce0df622151f"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-tool-svg/modules/svg-basics.md": {
+    "mtime": 1778979814.1305199,
+    "ast_hash": "0e44189128ec854b8d7b7b271e07788b",
+    "semantic_hash": "0e44189128ec854b8d7b7b271e07788b"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-tool-svg/modules/svg-optimization.md": {
+    "mtime": 1778979814.131359,
+    "ast_hash": "2d8d8a093c75a1b336f47bec3af7993c",
+    "semantic_hash": "2d8d8a093c75a1b336f47bec3af7993c"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-tool-svg/modules/svg-styling.md": {
+    "mtime": 1778979814.1319172,
+    "ast_hash": "c9a11c5f111603a03a9180b4c54700a6",
+    "semantic_hash": "c9a11c5f111603a03a9180b4c54700a6"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-tool-svg/references/examples.md": {
+    "mtime": 1778979814.1324239,
+    "ast_hash": "01f78145d00d2ae80af6a1452c4b4e97",
+    "semantic_hash": "01f78145d00d2ae80af6a1452c4b4e97"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-tool-svg/references/reference.md": {
+    "mtime": 1778979814.132748,
+    "ast_hash": "6d758a2f20ca6e5ec0da26a53c44a1af",
+    "semantic_hash": "6d758a2f20ca6e5ec0da26a53c44a1af"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-ddd/SKILL.md": {
+    "mtime": 1778979814.13347,
+    "ast_hash": "12c953da05c7729f17058e9fd80f5827",
+    "semantic_hash": "12c953da05c7729f17058e9fd80f5827"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-design-context/SKILL.md": {
+    "mtime": 1778979814.1343422,
+    "ast_hash": "7f1762bf5215be9f05e62206a74b6fe2",
+    "semantic_hash": "7f1762bf5215be9f05e62206a74b6fe2"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-design-import/SKILL.md": {
+    "mtime": 1778979814.1351242,
+    "ast_hash": "990f52514f38251122b0f0ec7c3c1704",
+    "semantic_hash": "990f52514f38251122b0f0ec7c3c1704"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-gan-loop/SKILL.md": {
+    "mtime": 1778979814.1358476,
+    "ast_hash": "66be9d24bad4e589bcbf9e2246f7f8fa",
+    "semantic_hash": "66be9d24bad4e589bcbf9e2246f7f8fa"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-jit-docs/SKILL.md": {
+    "mtime": 1778979814.136923,
+    "ast_hash": "c1b2ccb224f2fd340152cfbbd3cebfaa",
+    "semantic_hash": "c1b2ccb224f2fd340152cfbbd3cebfaa"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-jit-docs/modules/advanced-patterns.md": {
+    "mtime": 1778979814.1375682,
+    "ast_hash": "ddf18cb5197dda9536a8b9a3d1bf265b",
+    "semantic_hash": "ddf18cb5197dda9536a8b9a3d1bf265b"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-jit-docs/modules/optimization.md": {
+    "mtime": 1778979814.138034,
+    "ast_hash": "b897f138dd5ead95c33ab7fe0bf67b00",
+    "semantic_hash": "b897f138dd5ead95c33ab7fe0bf67b00"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-jit-docs/references/examples.md": {
+    "mtime": 1778979814.1388478,
+    "ast_hash": "0205658b83047f24f5a659e3d36f9702",
+    "semantic_hash": "0205658b83047f24f5a659e3d36f9702"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-jit-docs/references/reference.md": {
+    "mtime": 1778979814.1392925,
+    "ast_hash": "d7378826549963887c49e754e6fd033b",
+    "semantic_hash": "d7378826549963887c49e754e6fd033b"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-loop/SKILL.md": {
+    "mtime": 1778979814.1401525,
+    "ast_hash": "c8f8f654f276b7c7e37a9607bb664aa3",
+    "semantic_hash": "c8f8f654f276b7c7e37a9607bb664aa3"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-loop/references/examples.md": {
+    "mtime": 1778979814.141091,
+    "ast_hash": "4a18907397177d9d14d1a72439ec9773",
+    "semantic_hash": "4a18907397177d9d14d1a72439ec9773"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-loop/references/reference.md": {
+    "mtime": 1778979814.1416788,
+    "ast_hash": "e8b6190622b445c649a1b751bf2f3ba2",
+    "semantic_hash": "e8b6190622b445c649a1b751bf2f3ba2"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-pencil-integration/SKILL.md": {
+    "mtime": 1778979814.1422548,
+    "ast_hash": "33ec275f0b42ba1835efa888cf6479db",
+    "semantic_hash": "33ec275f0b42ba1835efa888cf6479db"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-project/SKILL.md": {
+    "mtime": 1778979814.1428738,
+    "ast_hash": "35f02345f18cda211428a1e510448a60",
+    "semantic_hash": "35f02345f18cda211428a1e510448a60"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-project/references/examples.md": {
+    "mtime": 1778979814.1435559,
+    "ast_hash": "e68f3cdf75994c230cf055cbf03a135e",
+    "semantic_hash": "e68f3cdf75994c230cf055cbf03a135e"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-project/references/overview.md": {
+    "mtime": 1778979814.144004,
+    "ast_hash": "e84125b70b305a31ddde047c77383de1",
+    "semantic_hash": "e84125b70b305a31ddde047c77383de1"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-project/references/reference.md": {
+    "mtime": 1778979814.1443665,
+    "ast_hash": "b333b4dcfe05bdcc6abc2b78e2e59c90",
+    "semantic_hash": "b333b4dcfe05bdcc6abc2b78e2e59c90"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-project/templates/doc-templates/product-template.md": {
+    "mtime": 1778979814.1482954,
+    "ast_hash": "69ab8f24033362c329fd3838f0eb495a",
+    "semantic_hash": "69ab8f24033362c329fd3838f0eb495a"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-project/templates/doc-templates/structure-template.md": {
+    "mtime": 1778979814.148835,
+    "ast_hash": "6a5fbffdbca29f99b65fe57a41b8794d",
+    "semantic_hash": "6a5fbffdbca29f99b65fe57a41b8794d"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-project/templates/doc-templates/tech-template.md": {
+    "mtime": 1778979814.1492999,
+    "ast_hash": "3cf097f53096ef23dadbb1e5cdf259de",
+    "semantic_hash": "3cf097f53096ef23dadbb1e5cdf259de"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-research/SKILL.md": {
+    "mtime": 1778979814.1519568,
+    "ast_hash": "d31ca078e65c3efa76d9b406ef8a2ad2",
+    "semantic_hash": "d31ca078e65c3efa76d9b406ef8a2ad2"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-spec/SKILL.md": {
+    "mtime": 1778979814.1584167,
+    "ast_hash": "e3abf08b8335a60fdede85e862d948b1",
+    "semantic_hash": "e3abf08b8335a60fdede85e862d948b1"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-spec/modules/advanced-patterns.md": {
+    "mtime": 1778979814.1591213,
+    "ast_hash": "f4e2f70f72c4390ec9cd0908a517d304",
+    "semantic_hash": "f4e2f70f72c4390ec9cd0908a517d304"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-spec/reference/migration-guide.md": {
+    "mtime": 1778979814.1597111,
+    "ast_hash": "a62aabce7eac947538275e74c9189851",
+    "semantic_hash": "a62aabce7eac947538275e74c9189851"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-spec/references/examples.md": {
+    "mtime": 1778979814.1607177,
+    "ast_hash": "d7054200cae6786d818ec7ecc181394c",
+    "semantic_hash": "d7054200cae6786d818ec7ecc181394c"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-spec/references/reference.md": {
+    "mtime": 1778979814.1613612,
+    "ast_hash": "7a9ed933cba41b3ff687c6c582e7589b",
+    "semantic_hash": "7a9ed933cba41b3ff687c6c582e7589b"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-tdd/SKILL.md": {
+    "mtime": 1778979814.1662266,
+    "ast_hash": "17d44259e14094fcde4f8970da696de8",
+    "semantic_hash": "17d44259e14094fcde4f8970da696de8"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-tdd/references/examples.md": {
+    "mtime": 1778979814.1668286,
+    "ast_hash": "1c51d16a0acb4272a78a2b2c62e915b6",
+    "semantic_hash": "1c51d16a0acb4272a78a2b2c62e915b6"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-tdd/references/reference.md": {
+    "mtime": 1778979814.167171,
+    "ast_hash": "4ec1ce73c6886b0a47369140f143c86b",
+    "semantic_hash": "4ec1ce73c6886b0a47369140f143c86b"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-templates/SKILL.md": {
+    "mtime": 1778979814.1677823,
+    "ast_hash": "06444909b3cc20c6ddf2ebcbacdcfa94",
+    "semantic_hash": "06444909b3cc20c6ddf2ebcbacdcfa94"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-templates/modules/code-templates.md": {
+    "mtime": 1778979814.168256,
+    "ast_hash": "559f68f1c4c49bc85a1b65c7d11b5dae",
+    "semantic_hash": "559f68f1c4c49bc85a1b65c7d11b5dae"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-templates/modules/feedback-templates.md": {
+    "mtime": 1778979814.1686146,
+    "ast_hash": "64fc62294e5aaef5d78c7ea41115dffb",
+    "semantic_hash": "64fc62294e5aaef5d78c7ea41115dffb"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-templates/modules/template-optimizer.md": {
+    "mtime": 1778979814.1689017,
+    "ast_hash": "f3eccb32640f5009204bce6dfe652fa7",
+    "semantic_hash": "f3eccb32640f5009204bce6dfe652fa7"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-templates/references/examples.md": {
+    "mtime": 1778979814.1693983,
+    "ast_hash": "008a5045874c8510ecd853b283241799",
+    "semantic_hash": "008a5045874c8510ecd853b283241799"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-templates/references/reference.md": {
+    "mtime": 1778979814.1697717,
+    "ast_hash": "909eb8740b6bf281ba348842708e927c",
+    "semantic_hash": "909eb8740b6bf281ba348842708e927c"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-testing/SKILL.md": {
+    "mtime": 1778979814.170237,
+    "ast_hash": "1b7628a52f300ddd43eea54ea1654d06",
+    "semantic_hash": "1b7628a52f300ddd43eea54ea1654d06"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-testing/modules/INDEX.md": {
+    "mtime": 1778979814.170635,
+    "ast_hash": "a181f6106a581df9de3da8f7275ef93c",
+    "semantic_hash": "a181f6106a581df9de3da8f7275ef93c"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-testing/modules/advanced-patterns.md": {
+    "mtime": 1778979814.1709752,
+    "ast_hash": "52308fa0f5fbe6ae66bcc80ff36197d9",
+    "semantic_hash": "52308fa0f5fbe6ae66bcc80ff36197d9"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-testing/modules/ai-debugging.md": {
+    "mtime": 1778979814.1713533,
+    "ast_hash": "ca0f6ac9fa10f35ddd54c8da62ef1385",
+    "semantic_hash": "ca0f6ac9fa10f35ddd54c8da62ef1385"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-testing/modules/automated-code-review.md": {
+    "mtime": 1778979814.171607,
+    "ast_hash": "8f48859ed73b64e759658ff198e3c206",
+    "semantic_hash": "8f48859ed73b64e759658ff198e3c206"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-testing/modules/automated-code-review/context7-integration.md": {
+    "mtime": 1778979814.1719768,
+    "ast_hash": "a49267658e42e609004bc65db0ba78b4",
+    "semantic_hash": "a49267658e42e609004bc65db0ba78b4"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-testing/modules/automated-code-review/review-workflows.md": {
+    "mtime": 1778979814.1722398,
+    "ast_hash": "87b6693c776dbb3fb2fb00e915a9bf52",
+    "semantic_hash": "87b6693c776dbb3fb2fb00e915a9bf52"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-testing/modules/automated-code-review/trust5-framework.md": {
+    "mtime": 1778979814.1724901,
+    "ast_hash": "d6749c7d6033d3729c7aff714f44b500",
+    "semantic_hash": "d6749c7d6033d3729c7aff714f44b500"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-testing/modules/automated-code-review/trust5-framework/relevance-analysis.md": {
+    "mtime": 1778979814.1732075,
+    "ast_hash": "1042ede9242b6b30e097d9f23b823f83",
+    "semantic_hash": "1042ede9242b6b30e097d9f23b823f83"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-testing/modules/automated-code-review/trust5-framework/safety-analysis.md": {
+    "mtime": 1778979814.1735187,
+    "ast_hash": "e947d83beeb7b3de0ac64fdad57c1f9f",
+    "semantic_hash": "e947d83beeb7b3de0ac64fdad57c1f9f"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-testing/modules/automated-code-review/trust5-framework/scoring-algorithms.md": {
+    "mtime": 1778979814.173968,
+    "ast_hash": "ef8aad4b3a725d0a2dac6a07f010e5e8",
+    "semantic_hash": "ef8aad4b3a725d0a2dac6a07f010e5e8"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-testing/modules/automated-code-review/trust5-framework/timeliness-analysis.md": {
+    "mtime": 1778979814.1743178,
+    "ast_hash": "fa9f5f682709ab5d89338197d1b6aa15",
+    "semantic_hash": "fa9f5f682709ab5d89338197d1b6aa15"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-testing/modules/automated-code-review/trust5-framework/truthfulness-analysis.md": {
+    "mtime": 1778979814.174728,
+    "ast_hash": "241812a4aceaeafa20ff91ee5bc4114f",
+    "semantic_hash": "241812a4aceaeafa20ff91ee5bc4114f"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-testing/modules/automated-code-review/trust5-framework/usability-analysis.md": {
+    "mtime": 1778979814.176722,
+    "ast_hash": "c3774d9b49f7b9425b27bc48872b0fb2",
+    "semantic_hash": "c3774d9b49f7b9425b27bc48872b0fb2"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-testing/modules/code-review/analysis-patterns.md": {
+    "mtime": 1778979814.1773872,
+    "ast_hash": "9f72ff328da737a26103adacb37df795",
+    "semantic_hash": "9f72ff328da737a26103adacb37df795"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-testing/modules/code-review/core-classes.md": {
+    "mtime": 1778979814.1776545,
+    "ast_hash": "5e45ba817499bc73aefdb074fa5a62cc",
+    "semantic_hash": "5e45ba817499bc73aefdb074fa5a62cc"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-testing/modules/code-review/tool-integration.md": {
+    "mtime": 1778979814.2072468,
+    "ast_hash": "8ba7613884493ec14d55eada0023d967",
+    "semantic_hash": "8ba7613884493ec14d55eada0023d967"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-testing/modules/ddd-context7.md": {
+    "mtime": 1778979814.252765,
+    "ast_hash": "ff73278fbdc8f16ffb56b9548d507290",
+    "semantic_hash": "ff73278fbdc8f16ffb56b9548d507290"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-testing/modules/ddd-context7/advanced-features.md": {
+    "mtime": 1778979814.25755,
+    "ast_hash": "3d2471f4b41cca8070f58298b4571c57",
+    "semantic_hash": "3d2471f4b41cca8070f58298b4571c57"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-testing/modules/ddd-context7/analyze-preserve-improve.md": {
+    "mtime": 1778979814.2579305,
+    "ast_hash": "4398fb4ddfea386c3f493951ff9bf0f0",
+    "semantic_hash": "4398fb4ddfea386c3f493951ff9bf0f0"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-testing/modules/ddd-context7/test-generation.md": {
+    "mtime": 1778979814.258319,
+    "ast_hash": "4ab934a18e14f6e6898070a214c1d7b4",
+    "semantic_hash": "4ab934a18e14f6e6898070a214c1d7b4"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-testing/modules/ddd-context7/test-patterns.md": {
+    "mtime": 1778979814.2586842,
+    "ast_hash": "4da51eb4bc3e8377584c331eda252037",
+    "semantic_hash": "4da51eb4bc3e8377584c331eda252037"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-testing/modules/ddd/core-classes.md": {
+    "mtime": 1778979814.268698,
+    "ast_hash": "858e968748e9e10e771bda1e38810401",
+    "semantic_hash": "858e968748e9e10e771bda1e38810401"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-testing/modules/debugging/debugging-workflows.md": {
+    "mtime": 1778979814.2730002,
+    "ast_hash": "bf9f7a29b6e05157da68d66c21d59047",
+    "semantic_hash": "bf9f7a29b6e05157da68d66c21d59047"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-testing/modules/debugging/error-analysis.md": {
+    "mtime": 1778979814.2737706,
+    "ast_hash": "a082c5bf19c8895aeb0885b0f7911b7c",
+    "semantic_hash": "a082c5bf19c8895aeb0885b0f7911b7c"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-testing/modules/optimization.md": {
+    "mtime": 1778979814.2742202,
+    "ast_hash": "7bfa542f14b9ee42e33668f0f3c9e2b4",
+    "semantic_hash": "7bfa542f14b9ee42e33668f0f3c9e2b4"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-testing/modules/performance-optimization.md": {
+    "mtime": 1778979814.2746322,
+    "ast_hash": "5638ef600efe6eb99cc2d851fdbb3ecf",
+    "semantic_hash": "5638ef600efe6eb99cc2d851fdbb3ecf"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-testing/modules/performance-optimization/ai-optimization.md": {
+    "mtime": 1778979814.2754278,
+    "ast_hash": "854c1b10d366861c568a60066c23d09b",
+    "semantic_hash": "854c1b10d366861c568a60066c23d09b"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-testing/modules/performance-optimization/bottleneck-detection.md": {
+    "mtime": 1778979814.2773387,
+    "ast_hash": "6bfd66dc4ef57bbd2faafb534a173715",
+    "semantic_hash": "6bfd66dc4ef57bbd2faafb534a173715"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-testing/modules/performance-optimization/optimization-plan.md": {
+    "mtime": 1778979814.283008,
+    "ast_hash": "e3363c5c1ab59997b32d392e95c128aa",
+    "semantic_hash": "e3363c5c1ab59997b32d392e95c128aa"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-testing/modules/performance-optimization/profiler-core.md": {
+    "mtime": 1778979814.2834952,
+    "ast_hash": "30b6dae34e9f6f81d43c45e8d17dcb94",
+    "semantic_hash": "30b6dae34e9f6f81d43c45e8d17dcb94"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-testing/modules/performance-optimization/real-time-monitoring.md": {
+    "mtime": 1778979814.2839155,
+    "ast_hash": "cc946c8014fa7f3fb8817f0fa5940e49",
+    "semantic_hash": "cc946c8014fa7f3fb8817f0fa5940e49"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-testing/modules/performance/optimization-patterns.md": {
+    "mtime": 1778979814.2845232,
+    "ast_hash": "d70058b86d1513a71706306a41264ba1",
+    "semantic_hash": "d70058b86d1513a71706306a41264ba1"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-testing/modules/performance/profiling-techniques.md": {
+    "mtime": 1778979814.28506,
+    "ast_hash": "90045c121e50ce1e8fbb0c651cf72c0e",
+    "semantic_hash": "90045c121e50ce1e8fbb0c651cf72c0e"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-testing/modules/quality-metrics.md": {
+    "mtime": 1778979814.2922082,
+    "ast_hash": "6bd80112da26f6b12c0db5cc2f83cb86",
+    "semantic_hash": "6bd80112da26f6b12c0db5cc2f83cb86"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-testing/modules/refactoring/ai-workflows.md": {
+    "mtime": 1778979814.2929406,
+    "ast_hash": "b3d9ba3cb88654447c133e8e4d65c688",
+    "semantic_hash": "b3d9ba3cb88654447c133e8e4d65c688"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-testing/modules/refactoring/patterns.md": {
+    "mtime": 1778979814.2933602,
+    "ast_hash": "812457bccb7e2479cd16068b3b883b27",
+    "semantic_hash": "812457bccb7e2479cd16068b3b883b27"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-testing/modules/security-analysis.md": {
+    "mtime": 1778979814.2937734,
+    "ast_hash": "19269a17934a0ac0a4360a98f904dda1",
+    "semantic_hash": "19269a17934a0ac0a4360a98f904dda1"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-testing/modules/smart-refactoring.md": {
+    "mtime": 1778979814.2948265,
+    "ast_hash": "0543fa18291a752afc2f4c48e5874a1a",
+    "semantic_hash": "0543fa18291a752afc2f4c48e5874a1a"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-testing/modules/static-analysis.md": {
+    "mtime": 1778979814.2952616,
+    "ast_hash": "a598a5a118d6385d62ebb1d1c1c8cc6f",
+    "semantic_hash": "a598a5a118d6385d62ebb1d1c1c8cc6f"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-testing/modules/trust5-validation.md": {
+    "mtime": 1778979814.2957575,
+    "ast_hash": "edf0d6fdb03952268724a8bed42cf200",
+    "semantic_hash": "edf0d6fdb03952268724a8bed42cf200"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-testing/reference/playwright-best-practices.md": {
+    "mtime": 1778979814.2965293,
+    "ast_hash": "18865a59a8cf4a4066b91593aeb8f644",
+    "semantic_hash": "18865a59a8cf4a4066b91593aeb8f644"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-testing/references/examples.md": {
+    "mtime": 1778979814.2972791,
+    "ast_hash": "2a331d11652b5015d239f876e5acd687",
+    "semantic_hash": "2a331d11652b5015d239f876e5acd687"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-testing/references/reference.md": {
+    "mtime": 1778979814.3043666,
+    "ast_hash": "a885b4ba7b58e9faf832af4e4b3db5ac",
+    "semantic_hash": "a885b4ba7b58e9faf832af4e4b3db5ac"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-thinking/SKILL.md": {
+    "mtime": 1778979814.3054693,
+    "ast_hash": "16ca702748513625787a25e4cd776643",
+    "semantic_hash": "16ca702748513625787a25e4cd776643"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-worktree/SKILL.md": {
+    "mtime": 1778979814.3061774,
+    "ast_hash": "e45429a765016e1bdcab98f5d4431c58",
+    "semantic_hash": "e45429a765016e1bdcab98f5d4431c58"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-worktree/modules/integration-patterns.md": {
+    "mtime": 1778979814.306965,
+    "ast_hash": "bc1f480f6cf596adb48625d0b7b1f5b5",
+    "semantic_hash": "bc1f480f6cf596adb48625d0b7b1f5b5"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-worktree/modules/moai-adk-integration.md": {
+    "mtime": 1778979814.3075626,
+    "ast_hash": "724df32d123d6bfb000a0a75e34ad74a",
+    "semantic_hash": "724df32d123d6bfb000a0a75e34ad74a"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-worktree/modules/parallel-advanced.md": {
+    "mtime": 1778979814.308135,
+    "ast_hash": "b2393d8f460caaa3ae55fb93ec8a4b99",
+    "semantic_hash": "b2393d8f460caaa3ae55fb93ec8a4b99"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-worktree/modules/parallel-development.md": {
+    "mtime": 1778979814.3090844,
+    "ast_hash": "1625231bd894b2b56348c76433fa825b",
+    "semantic_hash": "1625231bd894b2b56348c76433fa825b"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-worktree/modules/parallel-workflows.md": {
+    "mtime": 1778979814.3097067,
+    "ast_hash": "499964d93400eb81c60a4ceee3afe21b",
+    "semantic_hash": "499964d93400eb81c60a4ceee3afe21b"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-worktree/modules/registry-architecture.md": {
+    "mtime": 1778979814.3102233,
+    "ast_hash": "34729e718e07cdce37355393374f3cd6",
+    "semantic_hash": "34729e718e07cdce37355393374f3cd6"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-worktree/modules/resource-optimization.md": {
+    "mtime": 1778979814.310634,
+    "ast_hash": "8ba42959d7ce99d215a1bcc27c53e57e",
+    "semantic_hash": "8ba42959d7ce99d215a1bcc27c53e57e"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-worktree/modules/tools-integration.md": {
+    "mtime": 1778979814.3110535,
+    "ast_hash": "d4f953a6b8ad10003a0b80dadf6063d6",
+    "semantic_hash": "d4f953a6b8ad10003a0b80dadf6063d6"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-worktree/modules/troubleshooting.md": {
+    "mtime": 1778979814.3129811,
+    "ast_hash": "724dbe40802e996db9465507b9fcab18",
+    "semantic_hash": "724dbe40802e996db9465507b9fcab18"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-worktree/modules/worktree-commands.md": {
+    "mtime": 1778979814.3149,
+    "ast_hash": "5546ca81a2450b9d531b10c16e74be6a",
+    "semantic_hash": "5546ca81a2450b9d531b10c16e74be6a"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-worktree/modules/worktree-management.md": {
+    "mtime": 1778979814.323927,
+    "ast_hash": "94a5dfe57b5be7cc81eb0fefd6a861ea",
+    "semantic_hash": "94a5dfe57b5be7cc81eb0fefd6a861ea"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-worktree/references/examples.md": {
+    "mtime": 1778979814.3257024,
+    "ast_hash": "2e9e20f74243ed7d373800083625a5a6",
+    "semantic_hash": "2e9e20f74243ed7d373800083625a5a6"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai-workflow-worktree/references/reference.md": {
+    "mtime": 1778979814.3289866,
+    "ast_hash": "c0b21ee5c2d21e4033a8c3e4acd0940e",
+    "semantic_hash": "c0b21ee5c2d21e4033a8c3e4acd0940e"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai/SKILL.md": {
+    "mtime": 1778979814.3300426,
+    "ast_hash": "cfea0b8780e0256c11c446cac356c504",
+    "semantic_hash": "cfea0b8780e0256c11c446cac356c504"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai/references/mx-tag.md": {
+    "mtime": 1778979814.331142,
+    "ast_hash": "8fc181564fa6698e9655969afc09cca0",
+    "semantic_hash": "8fc181564fa6698e9655969afc09cca0"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai/references/reference.md": {
+    "mtime": 1778979814.3315423,
+    "ast_hash": "6a67c093fe6e6eea6700539ed8831a38",
+    "semantic_hash": "6a67c093fe6e6eea6700539ed8831a38"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai/team/debug.md": {
+    "mtime": 1778979814.3326132,
+    "ast_hash": "c08148c1ac92b45588827dc1d25153d7",
+    "semantic_hash": "c08148c1ac92b45588827dc1d25153d7"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai/team/glm.md": {
+    "mtime": 1778979814.3336117,
+    "ast_hash": "00aea64d7ef733bef4f9afb554a7a9d4",
+    "semantic_hash": "00aea64d7ef733bef4f9afb554a7a9d4"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai/team/plan.md": {
+    "mtime": 1778979814.3340201,
+    "ast_hash": "16a010b69fb76fdd8374cee13e8dba6c",
+    "semantic_hash": "16a010b69fb76fdd8374cee13e8dba6c"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai/team/review.md": {
+    "mtime": 1778979814.3347743,
+    "ast_hash": "09f250a0aad76b624bdff8d9036b6566",
+    "semantic_hash": "09f250a0aad76b624bdff8d9036b6566"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai/team/run.md": {
+    "mtime": 1778979814.3352485,
+    "ast_hash": "8b47d77c798b1d63a138a29103bcd288",
+    "semantic_hash": "8b47d77c798b1d63a138a29103bcd288"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai/team/sync.md": {
+    "mtime": 1778979814.3355486,
+    "ast_hash": "f5cef76658131066a22be32efacb3b9b",
+    "semantic_hash": "f5cef76658131066a22be32efacb3b9b"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai/workflows/clean.md": {
+    "mtime": 1778979814.3361454,
+    "ast_hash": "7f3fbaeefa53a00b5391254b7760228b",
+    "semantic_hash": "7f3fbaeefa53a00b5391254b7760228b"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai/workflows/codemaps.md": {
+    "mtime": 1778979814.336546,
+    "ast_hash": "06509d6d587f918e0ce3426d99e77f38",
+    "semantic_hash": "06509d6d587f918e0ce3426d99e77f38"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai/workflows/context.md": {
+    "mtime": 1778979814.3370845,
+    "ast_hash": "b21e9907fb11f31d02f219e4a88e6273",
+    "semantic_hash": "b21e9907fb11f31d02f219e4a88e6273"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai/workflows/coverage.md": {
+    "mtime": 1778979814.3375857,
+    "ast_hash": "44b96393c3d2274199ef3f958b6452eb",
+    "semantic_hash": "44b96393c3d2274199ef3f958b6452eb"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai/workflows/db.md": {
+    "mtime": 1778979814.3396113,
+    "ast_hash": "7a03f04e403773def445532a120e24d2",
+    "semantic_hash": "7a03f04e403773def445532a120e24d2"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai/workflows/design.md": {
+    "mtime": 1778979814.3405125,
+    "ast_hash": "fee33af8dd702aa8c4135384dad00b9d",
+    "semantic_hash": "fee33af8dd702aa8c4135384dad00b9d"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai/workflows/e2e.md": {
+    "mtime": 1778979814.3410585,
+    "ast_hash": "7859260eb64064073b76906a10b98fab",
+    "semantic_hash": "7859260eb64064073b76906a10b98fab"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai/workflows/feedback.md": {
+    "mtime": 1778979814.3416784,
+    "ast_hash": "62dcb3092f89355e03b7d3066ed77b5b",
+    "semantic_hash": "62dcb3092f89355e03b7d3066ed77b5b"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai/workflows/fix.md": {
+    "mtime": 1778979814.3420377,
+    "ast_hash": "217d8ed20b401986689c567adac0b0ef",
+    "semantic_hash": "217d8ed20b401986689c567adac0b0ef"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai/workflows/gate.md": {
+    "mtime": 1778979814.3424923,
+    "ast_hash": "fbfad29bc313421de5ba0a00bcba1115",
+    "semantic_hash": "fbfad29bc313421de5ba0a00bcba1115"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai/workflows/github.md": {
+    "mtime": 1778979814.3428626,
+    "ast_hash": "76c701de1786fec221b002b871670fb4",
+    "semantic_hash": "76c701de1786fec221b002b871670fb4"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai/workflows/loop.md": {
+    "mtime": 1778979814.3431892,
+    "ast_hash": "4ee02eb0e7329e0dbd3df866490a829e",
+    "semantic_hash": "4ee02eb0e7329e0dbd3df866490a829e"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai/workflows/moai.md": {
+    "mtime": 1778979814.3435166,
+    "ast_hash": "6e7a14eb0c613b38c1d9e2f4f5bc79a3",
+    "semantic_hash": "6e7a14eb0c613b38c1d9e2f4f5bc79a3"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai/workflows/mx.md": {
+    "mtime": 1778979814.3439074,
+    "ast_hash": "080341c8263609d68e176bd13a899e32",
+    "semantic_hash": "080341c8263609d68e176bd13a899e32"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai/workflows/plan.md": {
+    "mtime": 1778979814.3443708,
+    "ast_hash": "3ee2b11758fc90644231f688926ed760",
+    "semantic_hash": "3ee2b11758fc90644231f688926ed760"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai/workflows/project.md": {
+    "mtime": 1778979814.3448355,
+    "ast_hash": "186c06ba1e1ac92ed1345cdf298a12da",
+    "semantic_hash": "186c06ba1e1ac92ed1345cdf298a12da"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai/workflows/review.md": {
+    "mtime": 1778979814.345196,
+    "ast_hash": "c832f1bdbaebbca20e934ccb7bb062be",
+    "semantic_hash": "c832f1bdbaebbca20e934ccb7bb062be"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai/workflows/run.md": {
+    "mtime": 1778979814.3456337,
+    "ast_hash": "f8a4f4da3499926f08db069131f6a8d7",
+    "semantic_hash": "f8a4f4da3499926f08db069131f6a8d7"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai/workflows/security.md": {
+    "mtime": 1778979814.346061,
+    "ast_hash": "47606db0fca923b3a30a6b62318b3de4",
+    "semantic_hash": "47606db0fca923b3a30a6b62318b3de4"
+  },
+  "/Users/hyunwoojee/milkfolio/.claude/skills/moai/workflows/sync.md": {
+    "mtime": 1778979814.346815,
+    "ast_hash": "6a419ea543bbf3cff02c5d881e5278a6",
+    "semantic_hash": "6a419ea543bbf3cff02c5d881e5278a6"
+  },
+  "/Users/hyunwoojee/milkfolio/.moai/config/astgrep-rules/go-hardcoding.yml": {
+    "mtime": 1778979814.3486276,
+    "ast_hash": "0406a28b4a7baa203df866e41a248746",
+    "semantic_hash": "0406a28b4a7baa203df866e41a248746"
+  },
+  "/Users/hyunwoojee/milkfolio/.moai/config/evaluator-profiles/default.md": {
+    "mtime": 1778979814.3506293,
+    "ast_hash": "8b3f35c91dcb3263bf6b8eb437922797",
+    "semantic_hash": "8b3f35c91dcb3263bf6b8eb437922797"
+  },
+  "/Users/hyunwoojee/milkfolio/.moai/config/evaluator-profiles/frontend.md": {
+    "mtime": 1778979814.3512108,
+    "ast_hash": "148e307f35491fffa4d354c109a416c2",
+    "semantic_hash": "148e307f35491fffa4d354c109a416c2"
+  },
+  "/Users/hyunwoojee/milkfolio/.moai/config/evaluator-profiles/lenient.md": {
+    "mtime": 1778979814.3517823,
+    "ast_hash": "8bb0bfd60efb2540aa7d50a059ebdf4b",
+    "semantic_hash": "8bb0bfd60efb2540aa7d50a059ebdf4b"
+  },
+  "/Users/hyunwoojee/milkfolio/.moai/config/evaluator-profiles/strict.md": {
+    "mtime": 1778979814.3618386,
+    "ast_hash": "139a0a537172d1c8084712c076c0db3d",
+    "semantic_hash": "139a0a537172d1c8084712c076c0db3d"
+  },
+  "/Users/hyunwoojee/milkfolio/.moai/config/sections/constitution.yaml": {
+    "mtime": 1778979814.3672814,
+    "ast_hash": "599fbe859171c39a3b7ddfcbffae5ba4",
+    "semantic_hash": "599fbe859171c39a3b7ddfcbffae5ba4"
+  },
+  "/Users/hyunwoojee/milkfolio/.moai/config/sections/context.yaml": {
+    "mtime": 1778979814.3768592,
+    "ast_hash": "73c4dabe8fe62caf1639ded647bb95ed",
+    "semantic_hash": "73c4dabe8fe62caf1639ded647bb95ed"
+  },
+  "/Users/hyunwoojee/milkfolio/.moai/config/sections/db.yaml": {
+    "mtime": 1778979814.3810382,
+    "ast_hash": "a1868fcb23402afc924486e78b43d741",
+    "semantic_hash": "a1868fcb23402afc924486e78b43d741"
+  },
+  "/Users/hyunwoojee/milkfolio/.moai/config/sections/design.yaml": {
+    "mtime": 1778979814.3817277,
+    "ast_hash": "8c57a1df6553da112c13d7102d00cac2",
+    "semantic_hash": "8c57a1df6553da112c13d7102d00cac2"
+  },
+  "/Users/hyunwoojee/milkfolio/.moai/config/sections/gate.yaml": {
+    "mtime": 1778979814.3820417,
+    "ast_hash": "b7ed084034a9d33726ab6a86aa497f6d",
+    "semantic_hash": "b7ed084034a9d33726ab6a86aa497f6d"
+  },
+  "/Users/hyunwoojee/milkfolio/.moai/config/sections/git-convention.yaml": {
+    "mtime": 1778979814.3825164,
+    "ast_hash": "0ed695189a8a48a1f7c70c9ede7acfd6",
+    "semantic_hash": "0ed695189a8a48a1f7c70c9ede7acfd6"
+  },
+  "/Users/hyunwoojee/milkfolio/.moai/config/sections/git-strategy.yaml": {
+    "mtime": 1778979814.3828514,
+    "ast_hash": "81137e45c679800972d458eeaff8e1ff",
+    "semantic_hash": "81137e45c679800972d458eeaff8e1ff"
+  },
+  "/Users/hyunwoojee/milkfolio/.moai/config/sections/harness.yaml": {
+    "mtime": 1778979814.3831933,
+    "ast_hash": "9f91b3d9bcd6c38a3d71d73d4250a401",
+    "semantic_hash": "9f91b3d9bcd6c38a3d71d73d4250a401"
+  },
+  "/Users/hyunwoojee/milkfolio/.moai/config/sections/interview.yaml": {
+    "mtime": 1778979814.383666,
+    "ast_hash": "766a99d11cf7a2cb6b963097646e7832",
+    "semantic_hash": "766a99d11cf7a2cb6b963097646e7832"
+  },
+  "/Users/hyunwoojee/milkfolio/.moai/config/sections/language.yaml": {
+    "mtime": 1778979814.3842518,
+    "ast_hash": "f51f345c4ee6cd84ee917598a051179d",
+    "semantic_hash": "f51f345c4ee6cd84ee917598a051179d"
+  },
+  "/Users/hyunwoojee/milkfolio/.moai/config/sections/llm.yaml": {
+    "mtime": 1778979814.3845813,
+    "ast_hash": "60ea4428523ace277ce1bc62ab4a4087",
+    "semantic_hash": "60ea4428523ace277ce1bc62ab4a4087"
+  },
+  "/Users/hyunwoojee/milkfolio/.moai/config/sections/lsp.yaml": {
+    "mtime": 1778979814.384945,
+    "ast_hash": "c9c5fbc5415f7bdd81bce10dcdd83aa5",
+    "semantic_hash": "c9c5fbc5415f7bdd81bce10dcdd83aa5"
+  },
+  "/Users/hyunwoojee/milkfolio/.moai/config/sections/memo.yaml": {
+    "mtime": 1778979814.3855574,
+    "ast_hash": "3a432c97c456821d1bc710edebf37e2e",
+    "semantic_hash": "3a432c97c456821d1bc710edebf37e2e"
+  },
+  "/Users/hyunwoojee/milkfolio/.moai/config/sections/mx.yaml": {
+    "mtime": 1778979814.3906894,
+    "ast_hash": "88c3221940793a6c274c88453b362da6",
+    "semantic_hash": "88c3221940793a6c274c88453b362da6"
+  },
+  "/Users/hyunwoojee/milkfolio/.moai/config/sections/observability.yaml": {
+    "mtime": 1778979814.3910613,
+    "ast_hash": "a6bdc604cd9e402244089a9e44cb4012",
+    "semantic_hash": "a6bdc604cd9e402244089a9e44cb4012"
+  },
+  "/Users/hyunwoojee/milkfolio/.moai/config/sections/project.yaml": {
+    "mtime": 1778979814.391375,
+    "ast_hash": "b22af85fe649d4a3cae0209b8c5bae26",
+    "semantic_hash": "b22af85fe649d4a3cae0209b8c5bae26"
+  },
+  "/Users/hyunwoojee/milkfolio/.moai/config/sections/quality.yaml": {
+    "mtime": 1778979814.391808,
+    "ast_hash": "bb3307076be8f5d378bb9137ac83f7f1",
+    "semantic_hash": "bb3307076be8f5d378bb9137ac83f7f1"
+  },
+  "/Users/hyunwoojee/milkfolio/.moai/config/sections/ralph.yaml": {
+    "mtime": 1778979814.3922596,
+    "ast_hash": "01ced67f32f651405fb82d5a6a8678ea",
+    "semantic_hash": "01ced67f32f651405fb82d5a6a8678ea"
+  },
+  "/Users/hyunwoojee/milkfolio/.moai/config/sections/research.yaml": {
+    "mtime": 1778979814.3927438,
+    "ast_hash": "ff87b0ed031a09235b0fccd16169168c",
+    "semantic_hash": "ff87b0ed031a09235b0fccd16169168c"
+  },
+  "/Users/hyunwoojee/milkfolio/.moai/config/sections/security.yaml": {
+    "mtime": 1778979814.3933794,
+    "ast_hash": "730b9a2e7673b48b6b0b07702c430ef7",
+    "semantic_hash": "730b9a2e7673b48b6b0b07702c430ef7"
+  },
+  "/Users/hyunwoojee/milkfolio/.moai/config/sections/state.yaml": {
+    "mtime": 1778979814.39367,
+    "ast_hash": "c4fe315ca1b14c929454013324324754",
+    "semantic_hash": "c4fe315ca1b14c929454013324324754"
+  },
+  "/Users/hyunwoojee/milkfolio/.moai/config/sections/statusline.yaml": {
+    "mtime": 1779788518.9633577,
+    "ast_hash": "60dc6c553cb5f12e40ea50615cacfc72",
+    "semantic_hash": "60dc6c553cb5f12e40ea50615cacfc72"
+  },
+  "/Users/hyunwoojee/milkfolio/.moai/config/sections/sunset.yaml": {
+    "mtime": 1778979814.3942852,
+    "ast_hash": "921288d632b4ae1be3c99bae042633f1",
+    "semantic_hash": "921288d632b4ae1be3c99bae042633f1"
+  },
+  "/Users/hyunwoojee/milkfolio/.moai/config/sections/system.yaml": {
+    "mtime": 1778979814.3946908,
+    "ast_hash": "82e3b6c85eed5b6fc7f8110c1e6c99d0",
+    "semantic_hash": "82e3b6c85eed5b6fc7f8110c1e6c99d0"
+  },
+  "/Users/hyunwoojee/milkfolio/.moai/config/sections/user.yaml": {
+    "mtime": 1778979814.39563,
+    "ast_hash": "b845eb8097c6c57328a17b345152cad2",
+    "semantic_hash": "b845eb8097c6c57328a17b345152cad2"
+  },
+  "/Users/hyunwoojee/milkfolio/.moai/config/sections/workflow.yaml": {
+    "mtime": 1778979814.3964756,
+    "ast_hash": "3c310e7c870498454d32c0ad46e47363",
+    "semantic_hash": "3c310e7c870498454d32c0ad46e47363"
+  },
+  "/Users/hyunwoojee/milkfolio/.moai/design/README.md": {
+    "mtime": 1778979814.3972147,
+    "ast_hash": "52ba65c6edf5ff981f6d7fe35373304f",
+    "semantic_hash": "52ba65c6edf5ff981f6d7fe35373304f"
+  },
+  "/Users/hyunwoojee/milkfolio/.moai/design/research.md": {
+    "mtime": 1778979814.3975854,
+    "ast_hash": "ee88758a0f986b86b6d6eb1bdcc4b602",
+    "semantic_hash": "ee88758a0f986b86b6d6eb1bdcc4b602"
+  },
+  "/Users/hyunwoojee/milkfolio/.moai/design/spec.md": {
+    "mtime": 1778979814.3985097,
+    "ast_hash": "1db434b6f47ae6646dd917f75b663b3d",
+    "semantic_hash": "1db434b6f47ae6646dd917f75b663b3d"
+  },
+  "/Users/hyunwoojee/milkfolio/.moai/design/system.md": {
+    "mtime": 1778979814.3988223,
+    "ast_hash": "c88d3a70b084b323de2d015c7b652834",
+    "semantic_hash": "c88d3a70b084b323de2d015c7b652834"
+  },
+  "/Users/hyunwoojee/milkfolio/.moai/docs/MCP_OAUTH_SETUP.md": {
+    "mtime": 1778979814.3998024,
+    "ast_hash": "2d4abf50f4cf2d9cd950b707649c63e0",
+    "semantic_hash": "2d4abf50f4cf2d9cd950b707649c63e0"
+  },
+  "/Users/hyunwoojee/milkfolio/.moai/evolution/changelog.md": {
+    "mtime": 1778979814.4004009,
+    "ast_hash": "76cee310700216ec4af7a72fdc250f14",
+    "semantic_hash": "76cee310700216ec4af7a72fdc250f14"
+  },
+  "/Users/hyunwoojee/milkfolio/.moai/evolution/manifest.yaml": {
+    "mtime": 1778979814.401116,
+    "ast_hash": "1961c5fe36ac26ba58b5784af164b46d",
+    "semantic_hash": "1961c5fe36ac26ba58b5784af164b46d"
+  },
+  "/Users/hyunwoojee/milkfolio/.moai/learning/README.md": {
+    "mtime": 1778979814.406237,
+    "ast_hash": "86123cfba79dc9b346a7e39d133d926a",
+    "semantic_hash": "86123cfba79dc9b346a7e39d133d926a"
+  },
+  "/Users/hyunwoojee/milkfolio/.moai/project/brand/brand-voice.md": {
+    "mtime": 1778979814.4083529,
+    "ast_hash": "6da12580c33089f4414c66737802b2d6",
+    "semantic_hash": "6da12580c33089f4414c66737802b2d6"
+  },
+  "/Users/hyunwoojee/milkfolio/.moai/project/brand/target-audience.md": {
+    "mtime": 1778979814.4090283,
+    "ast_hash": "f354c1407067a2f3f11bd5cee6808edf",
+    "semantic_hash": "f354c1407067a2f3f11bd5cee6808edf"
+  },
+  "/Users/hyunwoojee/milkfolio/.moai/project/brand/visual-identity.md": {
+    "mtime": 1778979814.411391,
+    "ast_hash": "2ffaa83cca5752aa9105ce4992b57455",
+    "semantic_hash": "2ffaa83cca5752aa9105ce4992b57455"
+  },
+  "/Users/hyunwoojee/milkfolio/.moai/project/db/README.md": {
+    "mtime": 1778979814.4119978,
+    "ast_hash": "0e18f36cf48f0d030a35e88b06d1fee4",
+    "semantic_hash": "0e18f36cf48f0d030a35e88b06d1fee4"
+  },
+  "/Users/hyunwoojee/milkfolio/.moai/project/db/migrations.md": {
+    "mtime": 1778979814.4127102,
+    "ast_hash": "0608d71ee00244f822ac9daec2fa5e1a",
+    "semantic_hash": "0608d71ee00244f822ac9daec2fa5e1a"
+  },
+  "/Users/hyunwoojee/milkfolio/.moai/project/db/queries.md": {
+    "mtime": 1778979814.4130657,
+    "ast_hash": "513305f9093ce5a3f10cdb1025487155",
+    "semantic_hash": "513305f9093ce5a3f10cdb1025487155"
+  },
+  "/Users/hyunwoojee/milkfolio/.moai/project/db/rls-policies.md": {
+    "mtime": 1778979814.4133852,
+    "ast_hash": "cb21cecc9b7d7f9d5b009376b35bdf21",
+    "semantic_hash": "cb21cecc9b7d7f9d5b009376b35bdf21"
+  },
+  "/Users/hyunwoojee/milkfolio/.moai/project/db/schema.md": {
+    "mtime": 1778979814.413831,
+    "ast_hash": "3d69a109fd2b2f947966cc5c8cf90627",
+    "semantic_hash": "3d69a109fd2b2f947966cc5c8cf90627"
+  },
+  "/Users/hyunwoojee/milkfolio/.moai/project/db/seed-data.md": {
+    "mtime": 1778979814.4142728,
+    "ast_hash": "180253efd856dbdc159061de8107cd70",
+    "semantic_hash": "180253efd856dbdc159061de8107cd70"
+  },
+  "/Users/hyunwoojee/milkfolio/.moai/project/product.md": {
+    "mtime": 1779407002.3216932,
+    "ast_hash": "e17cfbd48255916a2fba005baa4b3514",
+    "semantic_hash": "e17cfbd48255916a2fba005baa4b3514"
+  },
+  "/Users/hyunwoojee/milkfolio/.moai/project/structure.md": {
+    "mtime": 1779407014.0451765,
+    "ast_hash": "b6c76002538eedb69154a75d128bced3",
+    "semantic_hash": "b6c76002538eedb69154a75d128bced3"
+  },
+  "/Users/hyunwoojee/milkfolio/.moai/project/tech.md": {
+    "mtime": 1779407037.469764,
+    "ast_hash": "3c95019a5903c6da1dfa73788a5a0351",
+    "semantic_hash": "3c95019a5903c6da1dfa73788a5a0351"
+  },
+  "/Users/hyunwoojee/milkfolio/.moai/specs/SPEC-ACTOR-REDESIGN-001/acceptance.md": {
+    "mtime": 1779330673.395226,
+    "ast_hash": "31b9f5d668c29d6e8ee206dcb5494f41",
+    "semantic_hash": "31b9f5d668c29d6e8ee206dcb5494f41"
+  },
+  "/Users/hyunwoojee/milkfolio/.moai/specs/SPEC-ACTOR-REDESIGN-001/plan.md": {
+    "mtime": 1779330673.400958,
+    "ast_hash": "7ad4c4d58c44dc2e8c13ea2cb4a7edcc",
+    "semantic_hash": "7ad4c4d58c44dc2e8c13ea2cb4a7edcc"
+  },
+  "/Users/hyunwoojee/milkfolio/.moai/specs/SPEC-ACTOR-REDESIGN-001/progress.md": {
+    "mtime": 1779423134.4805813,
+    "ast_hash": "099228d597f0c45392d68354f709c97c",
+    "semantic_hash": "099228d597f0c45392d68354f709c97c"
+  },
+  "/Users/hyunwoojee/milkfolio/.moai/specs/SPEC-ACTOR-REDESIGN-001/research.md": {
+    "mtime": 1779330673.4026427,
+    "ast_hash": "7c731433fb789622f3e553f5b919c610",
+    "semantic_hash": "7c731433fb789622f3e553f5b919c610"
+  },
+  "/Users/hyunwoojee/milkfolio/.moai/specs/SPEC-ACTOR-REDESIGN-001/spec-compact.md": {
+    "mtime": 1779423134.482898,
+    "ast_hash": "0ed0f3476f6297fb9150ec515caa631d",
+    "semantic_hash": "0ed0f3476f6297fb9150ec515caa631d"
+  },
+  "/Users/hyunwoojee/milkfolio/.moai/specs/SPEC-ACTOR-REDESIGN-001/spec.md": {
+    "mtime": 1779423134.4873722,
+    "ast_hash": "b91f401443be6f8c1b4d04f26e102e6c",
+    "semantic_hash": "b91f401443be6f8c1b4d04f26e102e6c"
+  },
+  "/Users/hyunwoojee/milkfolio/.moai/specs/SPEC-ACTOR-REDESIGN-001/tasks.md": {
+    "mtime": 1779330673.2699592,
+    "ast_hash": "a81d234432a967975380a1a27c49b770",
+    "semantic_hash": "a81d234432a967975380a1a27c49b770"
+  },
+  "/Users/hyunwoojee/milkfolio/.moai/specs/SPEC-AGENT-FILTER-001/spec.md": {
+    "mtime": 1778987539.8045738,
+    "ast_hash": "04c4f04b2246c36fbf5c2369834c6c1a",
+    "semantic_hash": "04c4f04b2246c36fbf5c2369834c6c1a"
+  },
+  "/Users/hyunwoojee/milkfolio/.moai/specs/SPEC-AGENT-SEARCH-001/spec.md": {
+    "mtime": 1778979814.4183607,
+    "ast_hash": "3cd2e7c988ffdebef1b2339edf2e0476",
+    "semantic_hash": "3cd2e7c988ffdebef1b2339edf2e0476"
+  },
+  "/Users/hyunwoojee/milkfolio/.moai/specs/SPEC-DEV-REDESIGN-001/acceptance.md": {
+    "mtime": 1779172091.621188,
+    "ast_hash": "d1f24ea5c286a0f70c475c230f096021",
+    "semantic_hash": "d1f24ea5c286a0f70c475c230f096021"
+  },
+  "/Users/hyunwoojee/milkfolio/.moai/specs/SPEC-DEV-REDESIGN-001/plan.md": {
+    "mtime": 1779172091.6019244,
+    "ast_hash": "160a1b1dad9b00b0d87f3e80c6644587",
+    "semantic_hash": "160a1b1dad9b00b0d87f3e80c6644587"
+  },
+  "/Users/hyunwoojee/milkfolio/.moai/specs/SPEC-DEV-REDESIGN-001/progress.md": {
+    "mtime": 1779182081.4421346,
+    "ast_hash": "07423ba066279763ecb5d5f1d62c7dcf",
+    "semantic_hash": "07423ba066279763ecb5d5f1d62c7dcf"
+  },
+  "/Users/hyunwoojee/milkfolio/.moai/specs/SPEC-DEV-REDESIGN-001/research.md": {
+    "mtime": 1779172091.5466888,
+    "ast_hash": "d5e4275a6dbed15429c618bd64506362",
+    "semantic_hash": "d5e4275a6dbed15429c618bd64506362"
+  },
+  "/Users/hyunwoojee/milkfolio/.moai/specs/SPEC-DEV-REDESIGN-001/spec-compact.md": {
+    "mtime": 1779172091.6425726,
+    "ast_hash": "bc41a685b2bc198f41762d1258db3b09",
+    "semantic_hash": "bc41a685b2bc198f41762d1258db3b09"
+  },
+  "/Users/hyunwoojee/milkfolio/.moai/specs/SPEC-DEV-REDESIGN-001/spec.md": {
+    "mtime": 1779172091.5754807,
+    "ast_hash": "276ea8e41d0277e0a786ff8665f26791",
+    "semantic_hash": "276ea8e41d0277e0a786ff8665f26791"
+  },
+  "/Users/hyunwoojee/milkfolio/.moai/specs/SPEC-DEV-REDESIGN-001/tasks.md": {
+    "mtime": 1779172495.27843,
+    "ast_hash": "7aacaa2fc181f9257bed40ff9be5333d",
+    "semantic_hash": "7aacaa2fc181f9257bed40ff9be5333d"
+  },
+  "/Users/hyunwoojee/milkfolio/.moai/specs/SPEC-MIGRATE-NEXT-001/spec.md": {
+    "mtime": 1779084457.0761921,
+    "ast_hash": "68077ffcfdfbbd65b6bb3f40631925e0",
+    "semantic_hash": "68077ffcfdfbbd65b6bb3f40631925e0"
+  },
+  "/Users/hyunwoojee/milkfolio/CLAUDE.md": {
+    "mtime": 1779424966.5943763,
+    "ast_hash": "d0743bdd858bd27599dca570eb9d9a1a",
+    "semantic_hash": "d0743bdd858bd27599dca570eb9d9a1a"
+  },
+  "/Users/hyunwoojee/milkfolio/PROJECT_LOG.md": {
+    "mtime": 1779790515.2688785,
+    "ast_hash": "3c4df5980515fb90e035a3325b683825",
+    "semantic_hash": "3c4df5980515fb90e035a3325b683825"
+  },
+  "/Users/hyunwoojee/milkfolio/agent/data.html": {
+    "mtime": 1779790515.1967385,
+    "ast_hash": "e94ef15417ff3602ce81221da153d15e",
+    "semantic_hash": "e94ef15417ff3602ce81221da153d15e"
+  },
+  "/Users/hyunwoojee/milkfolio/docs/DEPLOY-VERCEL.md": {
+    "mtime": 1779790515.290044,
+    "ast_hash": "42662baaa18bca09d90e245af7cf5a42",
+    "semantic_hash": "42662baaa18bca09d90e245af7cf5a42"
+  },
+  "/Users/hyunwoojee/milkfolio/docs/PHASE-7-LEGACY-REMOVAL.md": {
+    "mtime": 1779790515.292373,
+    "ast_hash": "20c976456f748abe55b4ca23a5c84809",
+    "semantic_hash": "20c976456f748abe55b4ca23a5c84809"
+  },
+  "/Users/hyunwoojee/milkfolio/public/actor/assets/concept/office_1.jpeg": {
+    "mtime": 1779795458.4437108,
+    "ast_hash": "6e2451a7ba113cbadf807f68f673cf37",
+    "semantic_hash": "6e2451a7ba113cbadf807f68f673cf37"
+  },
+  "/Users/hyunwoojee/milkfolio/public/actor/assets/concept/office_2.jpeg": {
+    "mtime": 1779795458.7378983,
+    "ast_hash": "99ab3af7301a08e597eca8d7c2ed4c65",
+    "semantic_hash": "99ab3af7301a08e597eca8d7c2ed4c65"
+  },
+  "/Users/hyunwoojee/milkfolio/public/actor/assets/concept/office_3.jpeg": {
+    "mtime": 1779794273.4758422,
+    "ast_hash": "fe93a29d3fbbc0454951b7cc40332c39",
+    "semantic_hash": "fe93a29d3fbbc0454951b7cc40332c39"
+  },
+  "/Users/hyunwoojee/milkfolio/public/actor/assets/concept/warm_1.jpeg": {
+    "mtime": 1779790515.298044,
+    "ast_hash": "2a6965c9b8dbcd71bdf0e14f6bd99965",
+    "semantic_hash": "2a6965c9b8dbcd71bdf0e14f6bd99965"
+  },
+  "/Users/hyunwoojee/milkfolio/public/actor/assets/concept/warm_2.jpeg": {
+    "mtime": 1779790515.3062713,
+    "ast_hash": "93534e0e2e50cc992e91fa63b11424eb",
+    "semantic_hash": "93534e0e2e50cc992e91fa63b11424eb"
+  },
+  "/Users/hyunwoojee/milkfolio/public/actor/assets/concept/warm_3.jpeg": {
+    "mtime": 1779790515.3093774,
+    "ast_hash": "6e5bc9d2ca252d6c9319151c422d1c05",
+    "semantic_hash": "6e5bc9d2ca252d6c9319151c422d1c05"
+  },
+  "/Users/hyunwoojee/milkfolio/public/actor/assets/concept/warm_4.jpeg": {
+    "mtime": 1779790515.3118849,
+    "ast_hash": "622306aaaa31876b3a84d649799bcbd1",
+    "semantic_hash": "622306aaaa31876b3a84d649799bcbd1"
+  },
+  "/Users/hyunwoojee/milkfolio/public/actor/assets/concept/warm_5.jpeg": {
+    "mtime": 1779790515.3268862,
+    "ast_hash": "cc8e8967a13f660661ad7c76deabc2fe",
+    "semantic_hash": "cc8e8967a13f660661ad7c76deabc2fe"
+  },
+  "/Users/hyunwoojee/milkfolio/public/actor/assets/hero.jpg": {
+    "mtime": 1779795265.0042555,
+    "ast_hash": "5348ab5202d7988b857983c983bac53e",
+    "semantic_hash": "5348ab5202d7988b857983c983bac53e"
+  },
+  "/Users/hyunwoojee/milkfolio/public/actor/assets/photo_0.jpg": {
+    "mtime": 1779084457.597249,
+    "ast_hash": "2e2935c8399c43408bc5ec118da617d5",
+    "semantic_hash": "2e2935c8399c43408bc5ec118da617d5"
+  },
+  "/Users/hyunwoojee/milkfolio/public/actor/assets/photo_1.png": {
+    "mtime": 1779084457.6001909,
+    "ast_hash": "b03d4c2f79e2fa7654cf0caf2eccc976",
+    "semantic_hash": "b03d4c2f79e2fa7654cf0caf2eccc976"
+  },
+  "/Users/hyunwoojee/milkfolio/public/actor/assets/photo_2.png": {
+    "mtime": 1779084457.6045597,
+    "ast_hash": "f17f4d42e8211774009cb00e8580ed02",
+    "semantic_hash": "f17f4d42e8211774009cb00e8580ed02"
+  },
+  "/Users/hyunwoojee/milkfolio/public/actor/assets/photo_3.png": {
+    "mtime": 1779084457.6330094,
+    "ast_hash": "014ada05ca1b529912f1f601f45ff276",
+    "semantic_hash": "014ada05ca1b529912f1f601f45ff276"
+  },
+  "/Users/hyunwoojee/milkfolio/public/actor/assets/photo_4.png": {
+    "mtime": 1779084457.6635213,
+    "ast_hash": "96dc63b6bf586d34ad0a89fa8b0ad07d",
+    "semantic_hash": "96dc63b6bf586d34ad0a89fa8b0ad07d"
+  },
+  "/Users/hyunwoojee/milkfolio/public/actor/assets/profile.jpg": {
+    "mtime": 1779084457.6696966,
+    "ast_hash": "c62717afcbc64862d2b6c52a85a320f2",
+    "semantic_hash": "c62717afcbc64862d2b6c52a85a320f2"
+  },
+  "/Users/hyunwoojee/milkfolio/public/actor/assets/still_acting_1.jpg": {
+    "mtime": 1779084457.6797493,
+    "ast_hash": "6bb613b05dca26ca9179c059603560c7",
+    "semantic_hash": "6bb613b05dca26ca9179c059603560c7"
+  },
+  "/Users/hyunwoojee/milkfolio/public/actor/assets/still_acting_2.jpg": {
+    "mtime": 1779084457.681805,
+    "ast_hash": "f8e4ca08d075674611f60fedc22cdc34",
+    "semantic_hash": "f8e4ca08d075674611f60fedc22cdc34"
+  },
+  "/Users/hyunwoojee/milkfolio/public/actor/assets/still_bongtu_1.jpg": {
+    "mtime": 1779084457.6830688,
+    "ast_hash": "a4d8ff8ab9101742b726ef7f5a02478b",
+    "semantic_hash": "a4d8ff8ab9101742b726ef7f5a02478b"
+  },
+  "/Users/hyunwoojee/milkfolio/public/actor/assets/still_bongtu_2.jpg": {
+    "mtime": 1779084457.6847763,
+    "ast_hash": "f2d00a821c103b9d4db771c9da652650",
+    "semantic_hash": "f2d00a821c103b9d4db771c9da652650"
+  },
+  "/Users/hyunwoojee/milkfolio/public/actor/assets/still_bongtu_3.jpg": {
+    "mtime": 1779084457.6881797,
+    "ast_hash": "c8dce562f8ce235529a21dadacbc0859",
+    "semantic_hash": "c8dce562f8ce235529a21dadacbc0859"
+  },
+  "/Users/hyunwoojee/milkfolio/public/actor/assets/still_neoman_1.png": {
+    "mtime": 1779790515.4443452,
+    "ast_hash": "ed13693fd6a771836bedf615b4eb781e",
+    "semantic_hash": "ed13693fd6a771836bedf615b4eb781e"
+  },
+  "/Users/hyunwoojee/milkfolio/public/actor/assets/still_neoman_2.png": {
+    "mtime": 1779790515.4627779,
+    "ast_hash": "9a6f7222e4ebbb1545ee5885977b032d",
+    "semantic_hash": "9a6f7222e4ebbb1545ee5885977b032d"
+  },
+  "/Users/hyunwoojee/milkfolio/public/actor/assets/still_neoman_3.png": {
+    "mtime": 1779790515.4890778,
+    "ast_hash": "3892d0293fbccf96df980ffff3e340bf",
+    "semantic_hash": "3892d0293fbccf96df980ffff3e340bf"
+  },
+  "/Users/hyunwoojee/milkfolio/public/actor/assets/still_netflix_1.jpg": {
+    "mtime": 1779084457.6904058,
+    "ast_hash": "e165934387fc420d76f0d1f14af6fecd",
+    "semantic_hash": "e165934387fc420d76f0d1f14af6fecd"
+  },
+  "/Users/hyunwoojee/milkfolio/public/actor/assets/still_netflix_2.jpg": {
+    "mtime": 1779084457.6937752,
+    "ast_hash": "be12de9fef59517c70807180d3509825",
+    "semantic_hash": "be12de9fef59517c70807180d3509825"
+  },
+  "/Users/hyunwoojee/milkfolio/public/actor/assets/still_nun_1.jpg": {
+    "mtime": 1779084457.6958134,
+    "ast_hash": "9a82b02097b052429442fce27ad09bd4",
+    "semantic_hash": "9a82b02097b052429442fce27ad09bd4"
+  },
+  "/Users/hyunwoojee/milkfolio/public/actor/assets/still_nun_2.jpg": {
+    "mtime": 1779084457.6988688,
+    "ast_hash": "ff55d3dae191bdbd39018ece0a8ddcde",
+    "semantic_hash": "ff55d3dae191bdbd39018ece0a8ddcde"
+  },
+  "/Users/hyunwoojee/milkfolio/public/actor/assets/still_yojeum_1.jpg": {
+    "mtime": 1779790515.4907825,
+    "ast_hash": "844a9aff0aaf52d520cc99b7c6eae1cc",
+    "semantic_hash": "844a9aff0aaf52d520cc99b7c6eae1cc"
+  },
+  "/Users/hyunwoojee/milkfolio/public/designer/images/-ENG_Detail 1.jpg": {
+    "mtime": 1779084457.7018993,
+    "ast_hash": "52ffd3bd98ce4434d4a85122e2d0038a",
+    "semantic_hash": "52ffd3bd98ce4434d4a85122e2d0038a"
+  },
+  "/Users/hyunwoojee/milkfolio/public/designer/images/-ENG_Detail 2.jpg": {
+    "mtime": 1779084457.706887,
+    "ast_hash": "bf782ac76dc1414fb08cae9e4c06c00e",
+    "semantic_hash": "bf782ac76dc1414fb08cae9e4c06c00e"
+  },
+  "/Users/hyunwoojee/milkfolio/public/designer/images/-ENG_Detail 3.jpg": {
+    "mtime": 1779084457.7098348,
+    "ast_hash": "0d67d17feb39a33f629a929846f69ab3",
+    "semantic_hash": "0d67d17feb39a33f629a929846f69ab3"
+  },
+  "/Users/hyunwoojee/milkfolio/public/designer/images/-ENG_Detail 4.jpg": {
+    "mtime": 1779084457.713426,
+    "ast_hash": "cb8bfcd8b05ef647eab3e0615d0132a8",
+    "semantic_hash": "cb8bfcd8b05ef647eab3e0615d0132a8"
+  },
+  "/Users/hyunwoojee/milkfolio/public/designer/images/-ENG_Thumbnail.jpg": {
+    "mtime": 1779084457.7141411,
+    "ast_hash": "dd5d2d12c0daf3053009ac59a5b831d1",
+    "semantic_hash": "dd5d2d12c0daf3053009ac59a5b831d1"
+  },
+  "/Users/hyunwoojee/milkfolio/public/designer/images/Instip_Detail 1.jpg": {
+    "mtime": 1779084457.7190375,
+    "ast_hash": "113ffa59afe373cc20567a23e94f9fdc",
+    "semantic_hash": "113ffa59afe373cc20567a23e94f9fdc"
+  },
+  "/Users/hyunwoojee/milkfolio/public/designer/images/Instip_Detail 2.jpg": {
+    "mtime": 1779084457.7208312,
+    "ast_hash": "05e5311e0af42eec4199a8ce75939b1b",
+    "semantic_hash": "05e5311e0af42eec4199a8ce75939b1b"
+  },
+  "/Users/hyunwoojee/milkfolio/public/designer/images/Instip_Detail 3.jpg": {
+    "mtime": 1779084457.7220435,
+    "ast_hash": "ac70c4cf9603d30e234962fb330e4f3b",
+    "semantic_hash": "ac70c4cf9603d30e234962fb330e4f3b"
+  },
+  "/Users/hyunwoojee/milkfolio/public/designer/images/Instip_Detail 4.jpg": {
+    "mtime": 1779084457.7239873,
+    "ast_hash": "28a1e9b142509209eff9e5c995ed29f3",
+    "semantic_hash": "28a1e9b142509209eff9e5c995ed29f3"
+  },
+  "/Users/hyunwoojee/milkfolio/public/designer/images/Instip_Detail 5.jpg": {
+    "mtime": 1779084457.7279258,
+    "ast_hash": "1b47f259b422c158bfff23ba57d967e7",
+    "semantic_hash": "1b47f259b422c158bfff23ba57d967e7"
+  },
+  "/Users/hyunwoojee/milkfolio/public/designer/images/Instip_Detail 6.jpg": {
+    "mtime": 1779084457.7299817,
+    "ast_hash": "309696b2a227895c1196dd35d08d9525",
+    "semantic_hash": "309696b2a227895c1196dd35d08d9525"
+  },
+  "/Users/hyunwoojee/milkfolio/public/designer/images/Instip_Thumbnail.jpg": {
+    "mtime": 1779084457.7309492,
+    "ast_hash": "e5c420e0bfe45373e02cfa4a329d7113",
+    "semantic_hash": "e5c420e0bfe45373e02cfa4a329d7113"
+  },
+  "/Users/hyunwoojee/milkfolio/public/designer/images/KUPID_Detail 1.jpg": {
+    "mtime": 1779084457.7336404,
+    "ast_hash": "6688a8d788c320dd86fb37eb50f0f995",
+    "semantic_hash": "6688a8d788c320dd86fb37eb50f0f995"
+  },
+  "/Users/hyunwoojee/milkfolio/public/designer/images/KUPID_Detail 2.jpg": {
+    "mtime": 1779084457.734861,
+    "ast_hash": "cd754d0ace902f286a583f0df642d585",
+    "semantic_hash": "cd754d0ace902f286a583f0df642d585"
+  },
+  "/Users/hyunwoojee/milkfolio/public/designer/images/KUPID_Detail 3.jpg": {
+    "mtime": 1779084457.7360713,
+    "ast_hash": "2592655c78fd51d7ea3d87a01a891a2e",
+    "semantic_hash": "2592655c78fd51d7ea3d87a01a891a2e"
+  },
+  "/Users/hyunwoojee/milkfolio/public/designer/images/KUPID_Detail 4.jpg": {
+    "mtime": 1779084457.7410157,
+    "ast_hash": "d157484e84b0fb516ca9e1260bc33072",
+    "semantic_hash": "d157484e84b0fb516ca9e1260bc33072"
+  },
+  "/Users/hyunwoojee/milkfolio/public/designer/images/KUPID_Thumbnail.jpg": {
+    "mtime": 1779084457.7421167,
+    "ast_hash": "71e0a6a48ef679dff52105e60eb7292b",
+    "semantic_hash": "71e0a6a48ef679dff52105e60eb7292b"
+  },
+  "/Users/hyunwoojee/milkfolio/public/designer/images/Linkids_Detail 1.jpg": {
+    "mtime": 1779084457.743821,
+    "ast_hash": "38cb7beb2a68938df0054397c5d3a065",
+    "semantic_hash": "38cb7beb2a68938df0054397c5d3a065"
+  },
+  "/Users/hyunwoojee/milkfolio/public/designer/images/Linkids_Detail 2.jpg": {
+    "mtime": 1779084457.7454963,
+    "ast_hash": "9ed19e2ab48e12c8f6c9500dccf3d7cb",
+    "semantic_hash": "9ed19e2ab48e12c8f6c9500dccf3d7cb"
+  },
+  "/Users/hyunwoojee/milkfolio/public/designer/images/Linkids_Detail 3.jpg": {
+    "mtime": 1779084457.748616,
+    "ast_hash": "e87f93c1c7d3c8564dea7f4035db6f66",
+    "semantic_hash": "e87f93c1c7d3c8564dea7f4035db6f66"
+  },
+  "/Users/hyunwoojee/milkfolio/public/designer/images/Linkids_Detail 4.jpg": {
+    "mtime": 1779084457.7508624,
+    "ast_hash": "2a8a1b8c40b9ebfb1619df1b28108859",
+    "semantic_hash": "2a8a1b8c40b9ebfb1619df1b28108859"
+  },
+  "/Users/hyunwoojee/milkfolio/public/designer/images/Linkids_Detail 5.jpg": {
+    "mtime": 1779084457.7593665,
+    "ast_hash": "fc399404d36847b4d8baee0a4ed0ae17",
+    "semantic_hash": "fc399404d36847b4d8baee0a4ed0ae17"
+  },
+  "/Users/hyunwoojee/milkfolio/public/designer/images/Linkids_Detail 6.jpg": {
+    "mtime": 1779084457.7771192,
+    "ast_hash": "b82fc610d0e9372384c259a5531eeaa3",
+    "semantic_hash": "b82fc610d0e9372384c259a5531eeaa3"
+  },
+  "/Users/hyunwoojee/milkfolio/public/designer/images/Linkids_Thumbnail.jpg": {
+    "mtime": 1779084457.782745,
+    "ast_hash": "2514042c8b9fa83e2d5a2f67fef1e6b2",
+    "semantic_hash": "2514042c8b9fa83e2d5a2f67fef1e6b2"
+  },
+  "/Users/hyunwoojee/milkfolio/public/designer/images/Pathguard_Detail 1.jpg": {
+    "mtime": 1779084457.784745,
+    "ast_hash": "17479c661fd597801cca9001ac627ec0",
+    "semantic_hash": "17479c661fd597801cca9001ac627ec0"
+  },
+  "/Users/hyunwoojee/milkfolio/public/designer/images/Pathguard_Detail 2.jpg": {
+    "mtime": 1779084457.8081079,
+    "ast_hash": "e5d852f0fc76d4d4bd84978c07433bc5",
+    "semantic_hash": "e5d852f0fc76d4d4bd84978c07433bc5"
+  },
+  "/Users/hyunwoojee/milkfolio/public/designer/images/Pathguard_Detail 3.jpg": {
+    "mtime": 1779084457.80991,
+    "ast_hash": "1283129ab835fc0cc62e0719bfbd0cec",
+    "semantic_hash": "1283129ab835fc0cc62e0719bfbd0cec"
+  },
+  "/Users/hyunwoojee/milkfolio/public/designer/images/Pathguard_Detail 4.jpg": {
+    "mtime": 1779084457.8117497,
+    "ast_hash": "db9aa59858a2f8487a7eb0f8edb68914",
+    "semantic_hash": "db9aa59858a2f8487a7eb0f8edb68914"
+  },
+  "/Users/hyunwoojee/milkfolio/public/designer/images/Pathguard_Thumbnail.jpg": {
+    "mtime": 1779084457.8139248,
+    "ast_hash": "a41115cb867b36a66d53f0bad31ab2c9",
+    "semantic_hash": "a41115cb867b36a66d53f0bad31ab2c9"
+  },
+  "/Users/hyunwoojee/milkfolio/public/designer/images/Prism_Detail 1.jpg": {
+    "mtime": 1779084457.8159401,
+    "ast_hash": "a23071f5b610b67fa1467e833dae38d8",
+    "semantic_hash": "a23071f5b610b67fa1467e833dae38d8"
+  },
+  "/Users/hyunwoojee/milkfolio/public/designer/images/Prism_Detail 2.jpg": {
+    "mtime": 1779084457.818355,
+    "ast_hash": "10da1b17f55580c6261724375b81a491",
+    "semantic_hash": "10da1b17f55580c6261724375b81a491"
+  },
+  "/Users/hyunwoojee/milkfolio/public/designer/images/Prism_Detail 3.jpg": {
+    "mtime": 1779084457.8301315,
+    "ast_hash": "0ae75dd6783c265c98148754df47a7fd",
+    "semantic_hash": "0ae75dd6783c265c98148754df47a7fd"
+  },
+  "/Users/hyunwoojee/milkfolio/public/designer/images/Prism_Detail 4.jpg": {
+    "mtime": 1779084457.834847,
+    "ast_hash": "dd7963b6e8453115a0f6920085c7df54",
+    "semantic_hash": "dd7963b6e8453115a0f6920085c7df54"
+  },
+  "/Users/hyunwoojee/milkfolio/public/designer/images/Prism_Detail 5.jpg": {
+    "mtime": 1779084457.8390334,
+    "ast_hash": "e665865d4716163c6b41cf8d069f89a9",
+    "semantic_hash": "e665865d4716163c6b41cf8d069f89a9"
+  },
+  "/Users/hyunwoojee/milkfolio/public/designer/images/Prism_Detail 6.jpg": {
+    "mtime": 1779084457.8426738,
+    "ast_hash": "ab54b1f445b64f2c1dc5d8b278092c49",
+    "semantic_hash": "ab54b1f445b64f2c1dc5d8b278092c49"
+  },
+  "/Users/hyunwoojee/milkfolio/public/designer/images/Prism_Detail 7.jpg": {
+    "mtime": 1779084457.8657968,
+    "ast_hash": "11fd900c3d2db4d4e08d81319cdf2fd4",
+    "semantic_hash": "11fd900c3d2db4d4e08d81319cdf2fd4"
+  },
+  "/Users/hyunwoojee/milkfolio/public/designer/images/Prism_Detail 8.jpg": {
+    "mtime": 1779084457.8667712,
+    "ast_hash": "bce37e371aa6b5fdb0a2fbcc81905bca",
+    "semantic_hash": "bce37e371aa6b5fdb0a2fbcc81905bca"
+  },
+  "/Users/hyunwoojee/milkfolio/public/designer/images/Prism_Thumbnail.jpg": {
+    "mtime": 1779084457.867332,
+    "ast_hash": "dcdb0078c802bc08b582184d8bf6a4c0",
+    "semantic_hash": "dcdb0078c802bc08b582184d8bf6a4c0"
+  },
+  "/Users/hyunwoojee/milkfolio/public/designer/images/Unmute_Detail 1.jpg": {
+    "mtime": 1779084457.868193,
+    "ast_hash": "546658bb022b972b5862c3f7d489871d",
+    "semantic_hash": "546658bb022b972b5862c3f7d489871d"
+  },
+  "/Users/hyunwoojee/milkfolio/public/designer/images/Unmute_Detail 2.jpg": {
+    "mtime": 1779084457.869967,
+    "ast_hash": "2651fe032b503ed5129b23c271f82243",
+    "semantic_hash": "2651fe032b503ed5129b23c271f82243"
+  },
+  "/Users/hyunwoojee/milkfolio/public/designer/images/Unmute_Detail 3.jpg": {
+    "mtime": 1779084457.875662,
+    "ast_hash": "6cf4114f129a484fff4bc37adb27dc91",
+    "semantic_hash": "6cf4114f129a484fff4bc37adb27dc91"
+  },
+  "/Users/hyunwoojee/milkfolio/public/designer/images/Unmute_Detail 4.jpg": {
+    "mtime": 1779084457.879935,
+    "ast_hash": "f8780fbd1ad1f86a8d4d10ebd4852abc",
+    "semantic_hash": "f8780fbd1ad1f86a8d4d10ebd4852abc"
+  },
+  "/Users/hyunwoojee/milkfolio/public/designer/images/Unmute_Detail 5.jpg": {
+    "mtime": 1779084457.8809812,
+    "ast_hash": "8a8ca0038b5b22491a38e8a2f7924127",
+    "semantic_hash": "8a8ca0038b5b22491a38e8a2f7924127"
+  },
+  "/Users/hyunwoojee/milkfolio/public/designer/images/Unmute_Detail 6.jpg": {
+    "mtime": 1779084457.882642,
+    "ast_hash": "169757ae3f7768b8689f543957d112cc",
+    "semantic_hash": "169757ae3f7768b8689f543957d112cc"
+  },
+  "/Users/hyunwoojee/milkfolio/public/designer/images/Unmute_Detail 7.jpg": {
+    "mtime": 1779084457.884868,
+    "ast_hash": "8b0cb746a45e873e87f776025a9e4a8c",
+    "semantic_hash": "8b0cb746a45e873e87f776025a9e4a8c"
+  },
+  "/Users/hyunwoojee/milkfolio/public/designer/images/Unmute_Detail 8.jpg": {
+    "mtime": 1779084457.8884473,
+    "ast_hash": "53a8b0eb187f45164a94188a9e9d9076",
+    "semantic_hash": "53a8b0eb187f45164a94188a9e9d9076"
+  },
+  "/Users/hyunwoojee/milkfolio/public/designer/images/Unmute_Thumbnail.jpg": {
+    "mtime": 1779084457.8909354,
+    "ast_hash": "6a530a0aeb5f3c60b9527bc1cd014529",
+    "semantic_hash": "6a530a0aeb5f3c60b9527bc1cd014529"
+  },
+  "/Users/hyunwoojee/milkfolio/public/designer/images/XPense_Detail 1.jpg": {
+    "mtime": 1779084457.8920786,
+    "ast_hash": "4cc83b68842f8a235bc652675d2d7227",
+    "semantic_hash": "4cc83b68842f8a235bc652675d2d7227"
+  },
+  "/Users/hyunwoojee/milkfolio/public/designer/images/XPense_Detail 2.jpg": {
+    "mtime": 1779084457.8931942,
+    "ast_hash": "f39bcea91dbb32f05c10678af2bab450",
+    "semantic_hash": "f39bcea91dbb32f05c10678af2bab450"
+  },
+  "/Users/hyunwoojee/milkfolio/public/designer/images/XPense_Detail 3.jpg": {
+    "mtime": 1779084457.8958936,
+    "ast_hash": "06d826a3fff355e8c740e043582ba987",
+    "semantic_hash": "06d826a3fff355e8c740e043582ba987"
+  },
+  "/Users/hyunwoojee/milkfolio/public/designer/images/XPense_Detail 4.jpg": {
+    "mtime": 1779084457.8990562,
+    "ast_hash": "b46863277718dd5dacd5c9eb493f7368",
+    "semantic_hash": "b46863277718dd5dacd5c9eb493f7368"
+  },
+  "/Users/hyunwoojee/milkfolio/public/designer/images/XPense_Detail 5.jpg": {
+    "mtime": 1779084457.900882,
+    "ast_hash": "378a8ad5907dcfdd2466bac23e2db1a6",
+    "semantic_hash": "378a8ad5907dcfdd2466bac23e2db1a6"
+  },
+  "/Users/hyunwoojee/milkfolio/public/designer/images/XPense_Detail 6.jpg": {
+    "mtime": 1779084457.9067738,
+    "ast_hash": "298116b31380c4054fd4b96edb2254ce",
+    "semantic_hash": "298116b31380c4054fd4b96edb2254ce"
+  },
+  "/Users/hyunwoojee/milkfolio/public/designer/images/XPense_Thumbnail.jpg": {
+    "mtime": 1779084457.9089193,
+    "ast_hash": "0c6c76329c2a9d22a03a008de3a62896",
+    "semantic_hash": "0c6c76329c2a9d22a03a008de3a62896"
+  },
+  "/Users/hyunwoojee/milkfolio/public/designer/images/memmo_Detail 1.jpg": {
+    "mtime": 1779084457.9098973,
+    "ast_hash": "d4ad84b1cf70c34f5d7ac3fdd3d49630",
+    "semantic_hash": "d4ad84b1cf70c34f5d7ac3fdd3d49630"
+  },
+  "/Users/hyunwoojee/milkfolio/public/designer/images/memmo_Detail 2.jpg": {
+    "mtime": 1779084457.912494,
+    "ast_hash": "b53312fb17aeb88d0192e05129f75c2b",
+    "semantic_hash": "b53312fb17aeb88d0192e05129f75c2b"
+  },
+  "/Users/hyunwoojee/milkfolio/public/designer/images/memmo_Detail 3.jpg": {
+    "mtime": 1779084457.9139392,
+    "ast_hash": "ceed7ef3b53b8c2a9b436aa685c25459",
+    "semantic_hash": "ceed7ef3b53b8c2a9b436aa685c25459"
+  },
+  "/Users/hyunwoojee/milkfolio/public/designer/images/memmo_Detail 4.jpg": {
+    "mtime": 1779084457.9173439,
+    "ast_hash": "68e8088c1d7da5b5cfd803c6ca2b8ab2",
+    "semantic_hash": "68e8088c1d7da5b5cfd803c6ca2b8ab2"
+  },
+  "/Users/hyunwoojee/milkfolio/public/designer/images/memmo_Detail 5.jpg": {
+    "mtime": 1779084457.9242077,
+    "ast_hash": "c0853a10d4372d0067d3f5cb96de0119",
+    "semantic_hash": "c0853a10d4372d0067d3f5cb96de0119"
+  },
+  "/Users/hyunwoojee/milkfolio/public/designer/images/memmo_Thumbnail.jpg": {
+    "mtime": 1779084457.9263315,
+    "ast_hash": "8a377675cbbb1a35c194aa207f222635",
+    "semantic_hash": "8a377675cbbb1a35c194aa207f222635"
+  },
+  "/Users/hyunwoojee/milkfolio/public/actor/assets/hero-reel.mp4": {
+    "mtime": 1779794264.300315,
+    "ast_hash": "1ebe7a64252115abbd9fe298a16ce388",
+    "semantic_hash": "1ebe7a64252115abbd9fe298a16ce388"
+  }
+}

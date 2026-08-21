@@ -98,3 +98,22 @@ docs/               — 마이그레이션 히스토리 (DEPLOY-VERCEL, PHASE-7-
 - 스택·버전·성능 목표·CI 게이트: `.moai/project/tech.md`
 - SPEC 문서: `.moai/specs/`
 - 마이그레이션 히스토리: `docs/DEPLOY-VERCEL.md`, `docs/PHASE-7-LEGACY-REMOVAL.md`, `PROJECT_LOG.md`
+
+
+---
+
+## Second Brain — Obsidian-Knowledge
+
+**작업 시작 전 항상 `~/Documents/Obsidian-Knowledge` 를 먼저 참조**한다.
+
+- 이 프로젝트 페이지: `~/Documents/Obsidian-Knowledge/projects/personal/milkfolio.md` (auto-sync from `.moai/project/*.md`)
+- 프로젝트 설명: 개인 포트폴리오 (배우/개발자/디자이너 3-페르소나)
+- Vault 색상: 보라 (personal)
+
+의미 있는 결정·패턴·상태 변경 시 vault에 즉시 반영. 정책 전문은 `~/.claude/CLAUDE.md` 의 "Obsidian-Knowledge = Second Brain (HARD POLICY)".
+
+**Vault 동기화:**
+
+```bash
+cd ~/Documents/Obsidian-Knowledge && .venv/bin/python _meta/scripts/sync_moai.py
+```

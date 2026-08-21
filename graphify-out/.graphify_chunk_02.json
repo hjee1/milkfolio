@@ -1,0 +1,173 @@
+{
+  "nodes": [
+    {"id": "moai_researcher", "label": "Researcher Agent", "file_type": "document", "source_file": ".claude/agents/moai/researcher.md", "source_location": null, "source_url": null, "captured_at": null, "author": null, "contributor": null},
+    {"id": "moai_researcher_workflow", "label": "Researcher Experimentation Workflow", "file_type": "concept", "source_file": ".claude/agents/moai/researcher.md", "source_location": null, "source_url": null, "captured_at": null, "author": null, "contributor": null},
+    {"id": "moai_researcher_binary_eval", "label": "Binary Eval Criteria", "file_type": "rationale", "source_file": ".claude/agents/moai/researcher.md", "source_location": null, "source_url": null, "captured_at": null, "author": null, "contributor": null},
+    {"id": "moai_researcher_frozenguard", "label": "FrozenGuard Check", "file_type": "concept", "source_file": ".claude/agents/moai/researcher.md", "source_location": null, "source_url": null, "captured_at": null, "author": null, "contributor": null},
+
+    {"id": "moai_clean", "label": "/moai clean Command", "file_type": "document", "source_file": ".claude/commands/moai/clean.md", "source_location": null, "source_url": null, "captured_at": null, "author": null, "contributor": null},
+    {"id": "moai_codemaps", "label": "/moai codemaps Command", "file_type": "document", "source_file": ".claude/commands/moai/codemaps.md", "source_location": null, "source_url": null, "captured_at": null, "author": null, "contributor": null},
+    {"id": "moai_coverage", "label": "/moai coverage Command", "file_type": "document", "source_file": ".claude/commands/moai/coverage.md", "source_location": null, "source_url": null, "captured_at": null, "author": null, "contributor": null},
+    {"id": "moai_db", "label": "/moai db Command", "file_type": "document", "source_file": ".claude/commands/moai/db.md", "source_location": null, "source_url": null, "captured_at": null, "author": null, "contributor": null},
+    {"id": "moai_design", "label": "/moai design Command", "file_type": "document", "source_file": ".claude/commands/moai/design.md", "source_location": null, "source_url": null, "captured_at": null, "author": null, "contributor": null},
+    {"id": "moai_e2e", "label": "/moai e2e Command", "file_type": "document", "source_file": ".claude/commands/moai/e2e.md", "source_location": null, "source_url": null, "captured_at": null, "author": null, "contributor": null},
+    {"id": "moai_feedback", "label": "/moai feedback Command", "file_type": "document", "source_file": ".claude/commands/moai/feedback.md", "source_location": null, "source_url": null, "captured_at": null, "author": null, "contributor": null},
+    {"id": "moai_fix", "label": "/moai fix Command", "file_type": "document", "source_file": ".claude/commands/moai/fix.md", "source_location": null, "source_url": null, "captured_at": null, "author": null, "contributor": null},
+    {"id": "moai_loop", "label": "/moai loop Command", "file_type": "document", "source_file": ".claude/commands/moai/loop.md", "source_location": null, "source_url": null, "captured_at": null, "author": null, "contributor": null},
+    {"id": "moai_mx", "label": "/moai mx Command", "file_type": "document", "source_file": ".claude/commands/moai/mx.md", "source_location": null, "source_url": null, "captured_at": null, "author": null, "contributor": null},
+    {"id": "moai_plan", "label": "/moai plan Command", "file_type": "document", "source_file": ".claude/commands/moai/plan.md", "source_location": null, "source_url": null, "captured_at": null, "author": null, "contributor": null},
+    {"id": "moai_project_cmd", "label": "/moai project Command", "file_type": "document", "source_file": ".claude/commands/moai/project.md", "source_location": null, "source_url": null, "captured_at": null, "author": null, "contributor": null},
+    {"id": "moai_review", "label": "/moai review Command", "file_type": "document", "source_file": ".claude/commands/moai/review.md", "source_location": null, "source_url": null, "captured_at": null, "author": null, "contributor": null},
+    {"id": "moai_run", "label": "/moai run Command", "file_type": "document", "source_file": ".claude/commands/moai/run.md", "source_location": null, "source_url": null, "captured_at": null, "author": null, "contributor": null},
+    {"id": "moai_sync", "label": "/moai sync Command", "file_type": "document", "source_file": ".claude/commands/moai/sync.md", "source_location": null, "source_url": null, "captured_at": null, "author": null, "contributor": null},
+
+    {"id": "moai_skill_router", "label": "Skill('moai') Unified Router", "file_type": "concept", "source_file": ".claude/commands/moai/run.md", "source_location": null, "source_url": null, "captured_at": null, "author": null, "contributor": null},
+    {"id": "moai_thin_command_pattern", "label": "Thin Command Pattern", "file_type": "rationale", "source_file": ".claude/rules/moai/development/coding-standards.md", "source_location": null, "source_url": null, "captured_at": null, "author": null, "contributor": null},
+
+    {"id": "moai_einstein", "label": "Einstein Output Style", "file_type": "document", "source_file": ".claude/output-styles/moai/einstein.md", "source_location": null, "source_url": null, "captured_at": null, "author": null, "contributor": null},
+    {"id": "moai_feynman_protocol", "label": "Five-Phase Feynman Protocol", "file_type": "concept", "source_file": ".claude/output-styles/moai/einstein.md", "source_location": null, "source_url": null, "captured_at": null, "author": null, "contributor": null},
+    {"id": "moai_context7", "label": "Context7 MCP", "file_type": "concept", "source_file": ".claude/output-styles/moai/einstein.md", "source_location": null, "source_url": null, "captured_at": null, "author": null, "contributor": null},
+    {"id": "moai_notion_mcp", "label": "Notion MCP Integration", "file_type": "concept", "source_file": ".claude/output-styles/moai/einstein.md", "source_location": null, "source_url": null, "captured_at": null, "author": null, "contributor": null},
+    {"id": "moai_learning_dir", "label": ".moai/learning/ Study Notes", "file_type": "concept", "source_file": ".claude/output-styles/moai/einstein.md", "source_location": null, "source_url": null, "captured_at": null, "author": null, "contributor": null},
+
+    {"id": "moai_orchestrator", "label": "MoAI Output Style Orchestrator", "file_type": "document", "source_file": ".claude/output-styles/moai/moai.md", "source_location": null, "source_url": null, "captured_at": null, "author": null, "contributor": null},
+    {"id": "moai_four_stage", "label": "Four-Stage State Machine (Clarify-Delegate-Execute-Verify)", "file_type": "concept", "source_file": ".claude/output-styles/moai/moai.md", "source_location": null, "source_url": null, "captured_at": null, "author": null, "contributor": null},
+    {"id": "moai_delegation_decision", "label": "Forced Delegation Decision", "file_type": "rationale", "source_file": ".claude/output-styles/moai/moai.md", "source_location": null, "source_url": null, "captured_at": null, "author": null, "contributor": null},
+    {"id": "moai_checkpoint_gate", "label": "Checkpoint Verification Gate", "file_type": "concept", "source_file": ".claude/output-styles/moai/moai.md", "source_location": null, "source_url": null, "captured_at": null, "author": null, "contributor": null},
+    {"id": "moai_progress_board", "label": "Progress Board Template", "file_type": "concept", "source_file": ".claude/output-styles/moai/moai.md", "source_location": null, "source_url": null, "captured_at": null, "author": null, "contributor": null},
+    {"id": "moai_dark_flow_warning", "label": "Dark-Flow Warning", "file_type": "rationale", "source_file": ".claude/output-styles/moai/moai.md", "source_location": null, "source_url": null, "captured_at": null, "author": null, "contributor": null},
+
+    {"id": "moai_agent_common_protocol", "label": "Agent Common Protocol", "file_type": "document", "source_file": ".claude/rules/moai/core/agent-common-protocol.md", "source_location": null, "source_url": null, "captured_at": null, "author": null, "contributor": null},
+    {"id": "moai_askuserquestion", "label": "AskUserQuestion Orchestrator-Only Channel", "file_type": "rationale", "source_file": ".claude/rules/moai/core/agent-common-protocol.md", "source_location": null, "source_url": null, "captured_at": null, "author": null, "contributor": null},
+    {"id": "moai_background_write_restriction", "label": "Background Agent Write Restriction", "file_type": "rationale", "source_file": ".claude/rules/moai/core/agent-common-protocol.md", "source_location": null, "source_url": null, "captured_at": null, "author": null, "contributor": null},
+
+    {"id": "moai_agent_hooks", "label": "Agent Hooks System", "file_type": "document", "source_file": ".claude/rules/moai/core/agent-hooks.md", "source_location": null, "source_url": null, "captured_at": null, "author": null, "contributor": null},
+    {"id": "moai_handle_agent_hook_sh", "label": "handle-agent-hook.sh Wrapper", "file_type": "code", "source_file": ".claude/rules/moai/core/agent-hooks.md", "source_location": null, "source_url": null, "captured_at": null, "author": null, "contributor": null},
+    {"id": "moai_hook_actions_table", "label": "Agent Hook Actions Table", "file_type": "concept", "source_file": ".claude/rules/moai/core/agent-hooks.md", "source_location": null, "source_url": null, "captured_at": null, "author": null, "contributor": null},
+    {"id": "moai_hook_factory_go", "label": "internal/hook/agents/factory.go Handler Factory", "file_type": "code", "source_file": ".claude/rules/moai/core/agent-hooks.md", "source_location": null, "source_url": null, "captured_at": null, "author": null, "contributor": null},
+
+    {"id": "moai_hooks_system", "label": "Hooks System Reference", "file_type": "document", "source_file": ".claude/rules/moai/core/hooks-system.md", "source_location": null, "source_url": null, "captured_at": null, "author": null, "contributor": null},
+    {"id": "moai_hook_events_table", "label": "27 Hook Event Types Table", "file_type": "concept", "source_file": ".claude/rules/moai/core/hooks-system.md", "source_location": null, "source_url": null, "captured_at": null, "author": null, "contributor": null},
+    {"id": "moai_pretooluse_event", "label": "PreToolUse Hook Event", "file_type": "concept", "source_file": ".claude/rules/moai/core/hooks-system.md", "source_location": null, "source_url": null, "captured_at": null, "author": null, "contributor": null},
+    {"id": "moai_posttooluse_event", "label": "PostToolUse Hook Event", "file_type": "concept", "source_file": ".claude/rules/moai/core/hooks-system.md", "source_location": null, "source_url": null, "captured_at": null, "author": null, "contributor": null},
+    {"id": "moai_subagentstop_event", "label": "SubagentStop Hook Event", "file_type": "concept", "source_file": ".claude/rules/moai/core/hooks-system.md", "source_location": null, "source_url": null, "captured_at": null, "author": null, "contributor": null},
+    {"id": "moai_teammateidle_event", "label": "TeammateIdle Hook Event", "file_type": "concept", "source_file": ".claude/rules/moai/core/hooks-system.md", "source_location": null, "source_url": null, "captured_at": null, "author": null, "contributor": null},
+    {"id": "moai_taskcompleted_event", "label": "TaskCompleted Hook Event", "file_type": "concept", "source_file": ".claude/rules/moai/core/hooks-system.md", "source_location": null, "source_url": null, "captured_at": null, "author": null, "contributor": null},
+    {"id": "moai_mx_tag_integration", "label": "MX Tag Hook Integration", "file_type": "concept", "source_file": ".claude/rules/moai/core/hooks-system.md", "source_location": null, "source_url": null, "captured_at": null, "author": null, "contributor": null},
+
+    {"id": "moai_lsp_client_doc", "label": "LSP Client Selection Rationale", "file_type": "document", "source_file": ".claude/rules/moai/core/lsp-client.md", "source_location": null, "source_url": null, "captured_at": null, "author": null, "contributor": null},
+    {"id": "moai_powernap", "label": "charmbracelet/x/powernap v0.1.4", "file_type": "concept", "source_file": ".claude/rules/moai/core/lsp-client.md", "source_location": null, "source_url": null, "captured_at": null, "author": null, "contributor": null},
+    {"id": "moai_jsonrpc2", "label": "sourcegraph/jsonrpc2", "file_type": "concept", "source_file": ".claude/rules/moai/core/lsp-client.md", "source_location": null, "source_url": null, "captured_at": null, "author": null, "contributor": null},
+    {"id": "moai_crush", "label": "charmbracelet/crush (C2 validation)", "file_type": "concept", "source_file": ".claude/rules/moai/core/lsp-client.md", "source_location": null, "source_url": null, "captured_at": null, "author": null, "contributor": null},
+    {"id": "moai_spec_lsp_core_002", "label": "SPEC-LSP-CORE-002", "file_type": "concept", "source_file": ".claude/rules/moai/core/lsp-client.md", "source_location": null, "source_url": null, "captured_at": null, "author": null, "contributor": null},
+    {"id": "moai_spec_gopls_bridge_001", "label": "SPEC-GOPLS-BRIDGE-001", "file_type": "concept", "source_file": ".claude/rules/moai/core/lsp-client.md", "source_location": null, "source_url": null, "captured_at": null, "author": null, "contributor": null},
+
+    {"id": "moai_constitution", "label": "MoAI Constitution", "file_type": "document", "source_file": ".claude/rules/moai/core/moai-constitution.md", "source_location": null, "source_url": null, "captured_at": null, "author": null, "contributor": null},
+    {"id": "moai_trust5", "label": "TRUST 5 Quality Framework", "file_type": "rationale", "source_file": ".claude/rules/moai/core/moai-constitution.md", "source_location": null, "source_url": null, "captured_at": null, "author": null, "contributor": null},
+    {"id": "moai_mx_quality_gates", "label": "MX Tag Quality Gates", "file_type": "rationale", "source_file": ".claude/rules/moai/core/moai-constitution.md", "source_location": null, "source_url": null, "captured_at": null, "author": null, "contributor": null},
+    {"id": "moai_opus47_philosophy", "label": "Opus 4.7 Prompt Philosophy", "file_type": "rationale", "source_file": ".claude/rules/moai/core/moai-constitution.md", "source_location": null, "source_url": null, "captured_at": null, "author": null, "contributor": null},
+    {"id": "moai_six_core_behaviors", "label": "Six Agent Core Behaviors", "file_type": "concept", "source_file": ".claude/rules/moai/core/moai-constitution.md", "source_location": null, "source_url": null, "captured_at": null, "author": null, "contributor": null},
+    {"id": "moai_lessons_protocol", "label": "Lessons Protocol", "file_type": "concept", "source_file": ".claude/rules/moai/core/moai-constitution.md", "source_location": null, "source_url": null, "captured_at": null, "author": null, "contributor": null}
+  ],
+  "edges": [
+    {"source": "moai_researcher", "target": "moai_researcher_workflow", "relation": "implements", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": ".claude/agents/moai/researcher.md", "source_location": null, "weight": 1.0},
+    {"source": "moai_researcher", "target": "moai_researcher_binary_eval", "relation": "references", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": ".claude/agents/moai/researcher.md", "source_location": null, "weight": 1.0},
+    {"source": "moai_researcher_workflow", "target": "moai_researcher_frozenguard", "relation": "references", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": ".claude/agents/moai/researcher.md", "source_location": null, "weight": 1.0},
+
+    {"source": "moai_clean", "target": "moai_skill_router", "relation": "calls", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": ".claude/commands/moai/clean.md", "source_location": null, "weight": 1.0},
+    {"source": "moai_codemaps", "target": "moai_skill_router", "relation": "calls", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": ".claude/commands/moai/codemaps.md", "source_location": null, "weight": 1.0},
+    {"source": "moai_coverage", "target": "moai_skill_router", "relation": "calls", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": ".claude/commands/moai/coverage.md", "source_location": null, "weight": 1.0},
+    {"source": "moai_db", "target": "moai_skill_router", "relation": "calls", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": ".claude/commands/moai/db.md", "source_location": null, "weight": 1.0},
+    {"source": "moai_design", "target": "moai_skill_router", "relation": "calls", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": ".claude/commands/moai/design.md", "source_location": null, "weight": 1.0},
+    {"source": "moai_e2e", "target": "moai_skill_router", "relation": "calls", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": ".claude/commands/moai/e2e.md", "source_location": null, "weight": 1.0},
+    {"source": "moai_feedback", "target": "moai_skill_router", "relation": "calls", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": ".claude/commands/moai/feedback.md", "source_location": null, "weight": 1.0},
+    {"source": "moai_fix", "target": "moai_skill_router", "relation": "calls", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": ".claude/commands/moai/fix.md", "source_location": null, "weight": 1.0},
+    {"source": "moai_loop", "target": "moai_skill_router", "relation": "calls", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": ".claude/commands/moai/loop.md", "source_location": null, "weight": 1.0},
+    {"source": "moai_mx", "target": "moai_skill_router", "relation": "calls", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": ".claude/commands/moai/mx.md", "source_location": null, "weight": 1.0},
+    {"source": "moai_plan", "target": "moai_skill_router", "relation": "calls", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": ".claude/commands/moai/plan.md", "source_location": null, "weight": 1.0},
+    {"source": "moai_project_cmd", "target": "moai_skill_router", "relation": "calls", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": ".claude/commands/moai/project.md", "source_location": null, "weight": 1.0},
+    {"source": "moai_review", "target": "moai_skill_router", "relation": "calls", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": ".claude/commands/moai/review.md", "source_location": null, "weight": 1.0},
+    {"source": "moai_run", "target": "moai_skill_router", "relation": "calls", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": ".claude/commands/moai/run.md", "source_location": null, "weight": 1.0},
+    {"source": "moai_sync", "target": "moai_skill_router", "relation": "calls", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": ".claude/commands/moai/sync.md", "source_location": null, "weight": 1.0},
+
+    {"source": "moai_clean", "target": "moai_thin_command_pattern", "relation": "implements", "confidence": "INFERRED", "confidence_score": 0.95, "source_file": ".claude/commands/moai/clean.md", "source_location": null, "weight": 1.0},
+    {"source": "moai_codemaps", "target": "moai_thin_command_pattern", "relation": "implements", "confidence": "INFERRED", "confidence_score": 0.95, "source_file": ".claude/commands/moai/codemaps.md", "source_location": null, "weight": 1.0},
+    {"source": "moai_plan", "target": "moai_thin_command_pattern", "relation": "implements", "confidence": "INFERRED", "confidence_score": 0.95, "source_file": ".claude/commands/moai/plan.md", "source_location": null, "weight": 1.0},
+    {"source": "moai_run", "target": "moai_thin_command_pattern", "relation": "implements", "confidence": "INFERRED", "confidence_score": 0.95, "source_file": ".claude/commands/moai/run.md", "source_location": null, "weight": 1.0},
+    {"source": "moai_sync", "target": "moai_thin_command_pattern", "relation": "implements", "confidence": "INFERRED", "confidence_score": 0.95, "source_file": ".claude/commands/moai/sync.md", "source_location": null, "weight": 1.0},
+
+    {"source": "moai_run", "target": "moai_plan", "relation": "conceptually_related_to", "confidence": "INFERRED", "confidence_score": 0.95, "source_file": ".claude/commands/moai/run.md", "source_location": null, "weight": 1.0},
+    {"source": "moai_sync", "target": "moai_run", "relation": "conceptually_related_to", "confidence": "INFERRED", "confidence_score": 0.95, "source_file": ".claude/commands/moai/sync.md", "source_location": null, "weight": 1.0},
+    {"source": "moai_fix", "target": "moai_loop", "relation": "semantically_similar_to", "confidence": "INFERRED", "confidence_score": 0.85, "source_file": ".claude/commands/moai/loop.md", "source_location": null, "weight": 1.0},
+
+    {"source": "moai_einstein", "target": "moai_feynman_protocol", "relation": "implements", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": ".claude/output-styles/moai/einstein.md", "source_location": null, "weight": 1.0},
+    {"source": "moai_einstein", "target": "moai_context7", "relation": "references", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": ".claude/output-styles/moai/einstein.md", "source_location": null, "weight": 1.0},
+    {"source": "moai_einstein", "target": "moai_notion_mcp", "relation": "references", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": ".claude/output-styles/moai/einstein.md", "source_location": null, "weight": 1.0},
+    {"source": "moai_einstein", "target": "moai_learning_dir", "relation": "shares_data_with", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": ".claude/output-styles/moai/einstein.md", "source_location": null, "weight": 1.0},
+
+    {"source": "moai_orchestrator", "target": "moai_four_stage", "relation": "implements", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": ".claude/output-styles/moai/moai.md", "source_location": null, "weight": 1.0},
+    {"source": "moai_orchestrator", "target": "moai_delegation_decision", "relation": "references", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": ".claude/output-styles/moai/moai.md", "source_location": null, "weight": 1.0},
+    {"source": "moai_orchestrator", "target": "moai_checkpoint_gate", "relation": "references", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": ".claude/output-styles/moai/moai.md", "source_location": null, "weight": 1.0},
+    {"source": "moai_orchestrator", "target": "moai_progress_board", "relation": "references", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": ".claude/output-styles/moai/moai.md", "source_location": null, "weight": 1.0},
+    {"source": "moai_orchestrator", "target": "moai_dark_flow_warning", "relation": "references", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": ".claude/output-styles/moai/moai.md", "source_location": null, "weight": 1.0},
+    {"source": "moai_four_stage", "target": "moai_checkpoint_gate", "relation": "conceptually_related_to", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": ".claude/output-styles/moai/moai.md", "source_location": null, "weight": 1.0},
+
+    {"source": "moai_einstein", "target": "moai_orchestrator", "relation": "semantically_similar_to", "confidence": "INFERRED", "confidence_score": 0.75, "source_file": ".claude/output-styles/moai/einstein.md", "source_location": null, "weight": 1.0},
+
+    {"source": "moai_agent_common_protocol", "target": "moai_askuserquestion", "relation": "references", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": ".claude/rules/moai/core/agent-common-protocol.md", "source_location": null, "weight": 1.0},
+    {"source": "moai_agent_common_protocol", "target": "moai_background_write_restriction", "relation": "references", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": ".claude/rules/moai/core/agent-common-protocol.md", "source_location": null, "weight": 1.0},
+    {"source": "moai_orchestrator", "target": "moai_askuserquestion", "relation": "implements", "confidence": "INFERRED", "confidence_score": 0.95, "source_file": ".claude/output-styles/moai/moai.md", "source_location": null, "weight": 1.0},
+
+    {"source": "moai_agent_hooks", "target": "moai_handle_agent_hook_sh", "relation": "references", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": ".claude/rules/moai/core/agent-hooks.md", "source_location": null, "weight": 1.0},
+    {"source": "moai_agent_hooks", "target": "moai_hook_actions_table", "relation": "references", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": ".claude/rules/moai/core/agent-hooks.md", "source_location": null, "weight": 1.0},
+    {"source": "moai_agent_hooks", "target": "moai_hook_factory_go", "relation": "references", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": ".claude/rules/moai/core/agent-hooks.md", "source_location": null, "weight": 1.0},
+    {"source": "moai_agent_hooks", "target": "moai_hooks_system", "relation": "references", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": ".claude/rules/moai/core/agent-hooks.md", "source_location": null, "weight": 1.0},
+
+    {"source": "moai_hooks_system", "target": "moai_hook_events_table", "relation": "references", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": ".claude/rules/moai/core/hooks-system.md", "source_location": null, "weight": 1.0},
+    {"source": "moai_hooks_system", "target": "moai_pretooluse_event", "relation": "references", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": ".claude/rules/moai/core/hooks-system.md", "source_location": null, "weight": 1.0},
+    {"source": "moai_hooks_system", "target": "moai_posttooluse_event", "relation": "references", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": ".claude/rules/moai/core/hooks-system.md", "source_location": null, "weight": 1.0},
+    {"source": "moai_hooks_system", "target": "moai_subagentstop_event", "relation": "references", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": ".claude/rules/moai/core/hooks-system.md", "source_location": null, "weight": 1.0},
+    {"source": "moai_hooks_system", "target": "moai_teammateidle_event", "relation": "references", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": ".claude/rules/moai/core/hooks-system.md", "source_location": null, "weight": 1.0},
+    {"source": "moai_hooks_system", "target": "moai_taskcompleted_event", "relation": "references", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": ".claude/rules/moai/core/hooks-system.md", "source_location": null, "weight": 1.0},
+    {"source": "moai_hooks_system", "target": "moai_mx_tag_integration", "relation": "references", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": ".claude/rules/moai/core/hooks-system.md", "source_location": null, "weight": 1.0},
+
+    {"source": "moai_agent_hooks", "target": "moai_pretooluse_event", "relation": "references", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": ".claude/rules/moai/core/agent-hooks.md", "source_location": null, "weight": 1.0},
+    {"source": "moai_agent_hooks", "target": "moai_posttooluse_event", "relation": "references", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": ".claude/rules/moai/core/agent-hooks.md", "source_location": null, "weight": 1.0},
+    {"source": "moai_agent_hooks", "target": "moai_subagentstop_event", "relation": "references", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": ".claude/rules/moai/core/agent-hooks.md", "source_location": null, "weight": 1.0},
+
+    {"source": "moai_mx_tag_integration", "target": "moai_mx", "relation": "conceptually_related_to", "confidence": "INFERRED", "confidence_score": 0.85, "source_file": ".claude/rules/moai/core/hooks-system.md", "source_location": null, "weight": 1.0},
+    {"source": "moai_mx_tag_integration", "target": "moai_mx_quality_gates", "relation": "conceptually_related_to", "confidence": "INFERRED", "confidence_score": 0.85, "source_file": ".claude/rules/moai/core/hooks-system.md", "source_location": null, "weight": 1.0},
+
+    {"source": "moai_lsp_client_doc", "target": "moai_powernap", "relation": "references", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": ".claude/rules/moai/core/lsp-client.md", "source_location": null, "weight": 1.0},
+    {"source": "moai_powernap", "target": "moai_jsonrpc2", "relation": "references", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": ".claude/rules/moai/core/lsp-client.md", "source_location": null, "weight": 1.0},
+    {"source": "moai_lsp_client_doc", "target": "moai_crush", "relation": "cites", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": ".claude/rules/moai/core/lsp-client.md", "source_location": null, "weight": 1.0},
+    {"source": "moai_crush", "target": "moai_powernap", "relation": "references", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": ".claude/rules/moai/core/lsp-client.md", "source_location": null, "weight": 1.0},
+    {"source": "moai_lsp_client_doc", "target": "moai_spec_lsp_core_002", "relation": "implements", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": ".claude/rules/moai/core/lsp-client.md", "source_location": null, "weight": 1.0},
+    {"source": "moai_spec_lsp_core_002", "target": "moai_spec_gopls_bridge_001", "relation": "conceptually_related_to", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": ".claude/rules/moai/core/lsp-client.md", "source_location": null, "weight": 1.0},
+
+    {"source": "moai_constitution", "target": "moai_trust5", "relation": "references", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": ".claude/rules/moai/core/moai-constitution.md", "source_location": null, "weight": 1.0},
+    {"source": "moai_constitution", "target": "moai_mx_quality_gates", "relation": "references", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": ".claude/rules/moai/core/moai-constitution.md", "source_location": null, "weight": 1.0},
+    {"source": "moai_constitution", "target": "moai_opus47_philosophy", "relation": "references", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": ".claude/rules/moai/core/moai-constitution.md", "source_location": null, "weight": 1.0},
+    {"source": "moai_constitution", "target": "moai_six_core_behaviors", "relation": "references", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": ".claude/rules/moai/core/moai-constitution.md", "source_location": null, "weight": 1.0},
+    {"source": "moai_constitution", "target": "moai_lessons_protocol", "relation": "references", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": ".claude/rules/moai/core/moai-constitution.md", "source_location": null, "weight": 1.0},
+    {"source": "moai_constitution", "target": "moai_askuserquestion", "relation": "references", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": ".claude/rules/moai/core/moai-constitution.md", "source_location": null, "weight": 1.0},
+
+    {"source": "moai_orchestrator", "target": "moai_constitution", "relation": "references", "confidence": "INFERRED", "confidence_score": 0.95, "source_file": ".claude/output-styles/moai/moai.md", "source_location": null, "weight": 1.0},
+    {"source": "moai_orchestrator", "target": "moai_trust5", "relation": "references", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": ".claude/output-styles/moai/moai.md", "source_location": null, "weight": 1.0},
+    {"source": "moai_agent_common_protocol", "target": "moai_constitution", "relation": "references", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": ".claude/rules/moai/core/agent-common-protocol.md", "source_location": null, "weight": 1.0},
+
+    {"source": "moai_researcher", "target": "moai_constitution", "relation": "references", "confidence": "INFERRED", "confidence_score": 0.75, "source_file": ".claude/agents/moai/researcher.md", "source_location": null, "weight": 1.0},
+    {"source": "moai_delegation_decision", "target": "moai_researcher", "relation": "references", "confidence": "INFERRED", "confidence_score": 0.65, "source_file": ".claude/output-styles/moai/moai.md", "source_location": null, "weight": 1.0},
+
+    {"source": "moai_orchestrator", "target": "moai_plan", "relation": "calls", "confidence": "INFERRED", "confidence_score": 0.85, "source_file": ".claude/output-styles/moai/moai.md", "source_location": null, "weight": 1.0},
+    {"source": "moai_orchestrator", "target": "moai_run", "relation": "calls", "confidence": "INFERRED", "confidence_score": 0.85, "source_file": ".claude/output-styles/moai/moai.md", "source_location": null, "weight": 1.0},
+    {"source": "moai_orchestrator", "target": "moai_sync", "relation": "calls", "confidence": "INFERRED", "confidence_score": 0.85, "source_file": ".claude/output-styles/moai/moai.md", "source_location": null, "weight": 1.0}
+  ],
+  "hyperedges": [
+    {"id": "moai_plan_run_sync_pipeline", "label": "Plan-Run-Sync SPEC Workflow Pipeline", "nodes": ["moai_plan", "moai_run", "moai_sync"], "relation": "form", "confidence": "INFERRED", "confidence_score": 0.95, "source_file": ".claude/commands/moai/run.md"},
+    {"id": "moai_quality_loop_commands", "label": "Quality Loop Command Set", "nodes": ["moai_fix", "moai_loop", "moai_review", "moai_coverage", "moai_e2e"], "relation": "participate_in", "confidence": "INFERRED", "confidence_score": 0.85, "source_file": ".claude/commands/moai/fix.md"},
+    {"id": "moai_hooks_lifecycle_events", "label": "Agent Hook Lifecycle Triad", "nodes": ["moai_pretooluse_event", "moai_posttooluse_event", "moai_subagentstop_event"], "relation": "participate_in", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": ".claude/rules/moai/core/agent-hooks.md"}
+  ],
+  "input_tokens": 0,
+  "output_tokens": 0
+}
