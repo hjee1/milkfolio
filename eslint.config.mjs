@@ -1,12 +1,10 @@
-import { FlatCompat } from "@eslint/eslintrc";
+import { defineConfig } from "eslint/config";
+import nextCoreWebVitals from "eslint-config-next/core-web-vitals";
+import nextTypescript from "eslint-config-next/typescript";
 
-// Next.js 16 removed `next lint` — this flat config + the `eslint .` script
-// replace it (same next/core-web-vitals + next/typescript rule set).
-const compat = new FlatCompat({
-  baseDirectory: import.meta.dirname,
-});
-
-const eslintConfig = [
+// Next.js 16 removed `next lint` — eslint-config-next 16 ships native flat
+// configs; this file + the `eslint .` script replace the old command.
+export default defineConfig([
   {
     ignores: [
       ".next/**",
@@ -17,7 +15,6 @@ const eslintConfig = [
       "next-env.d.ts",
     ],
   },
-  ...compat.extends("next/core-web-vitals", "next/typescript"),
-];
-
-export default eslintConfig;
+  ...nextCoreWebVitals,
+  ...nextTypescript,
+]);

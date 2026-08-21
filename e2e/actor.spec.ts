@@ -682,12 +682,13 @@ test.describe("Phase 5 final assembly", () => {
     await page.goto("/actor");
   });
 
-  // A2: 6 sections 모두 DOM에 존재 (REQ-ACT-U-001).
-  test("A2: 6 sections present (REQ-ACT-U-001)", async ({ page }) => {
-    // Hero는 <section aria-label="Hero">로, 나머지 5섹션은 id로 식별된다.
+  // A2: 7 sections 모두 DOM에 존재 (REQ-ACT-U-001 + 2026-05-26 PhotoConcepts).
+  test("A2: 7 sections present (REQ-ACT-U-001)", async ({ page }) => {
+    // Hero는 <section aria-label="Hero">로, 나머지 6섹션은 id로 식별된다.
     // Hero는 별도 selector로 단독 검증.
     await expect(page.locator('section[aria-label="Hero"]')).toHaveCount(1);
     await expect(page.locator("section#profile")).toHaveCount(1);
+    await expect(page.locator("section#concepts")).toHaveCount(1);
     await expect(page.locator("section#reel")).toHaveCount(1);
     await expect(page.locator("section#roles")).toHaveCount(1);
     await expect(page.locator("section#filmography")).toHaveCount(1);
@@ -889,5 +890,39 @@ test.describe("Phase 5 final assembly", () => {
     expect(text).not.toMatch(/[\u{1F300}-\u{1FAFF}]/u);
     expect(text).not.toMatch(/[✀-➿]/);
     expect(text).not.toMatch(/[☀-⛿]/);
+  });
+});
+
+// ─────────────────────────────────────────────────────────────
+// PhotoConcepts + Reel CTA — 2026-08-21 커버리지 백필.
+// 2026-05-26에 추가된 #concepts 섹션과 더보기 플레이리스트 CTA가
+// 기존 스위트에 전혀 커버되지 않았다.
+// ─────────────────────────────────────────────────────────────
+test.describe("PhotoConcepts + Reel CTA", () => {
+  test.beforeEach(async ({ page }) => {
+    await page.goto("/actor");
+  });
+
+  test("concepts section renders both concept carousels", async ({ page }) => {
+    await expect(page.locator("section#concepts")).toHaveCount(1);
+    await expect(page.locator("[data-concept-id='office']")).toHaveCount(1);
+    await expect(page.locator("[data-concept-id='warm']")).toHaveCount(1);
+  });
+
+  test("multi-image carousel advances via next button", async ({ page }) => {
+    const carousel = page.locator("[aria-roledescription='carousel']").first();
+    await carousel.scrollIntoViewIfNeeded();
+    const counter = carousel.locator("p").filter({ hasText: "/" }).first();
+    const before = (await counter.textContent()) ?? "";
+    await carousel.getByRole("button", { name: "다음 사진" }).click();
+    await expect(counter).not.toHaveText(before);
+  });
+
+  test("reel section links to the YouTube playlist (더보기 CTA)", async ({
+    page,
+  }) => {
+    await expect(
+      page.locator("section#reel a[href*='youtube.com/playlist']"),
+    ).toHaveCount(1);
   });
 });
