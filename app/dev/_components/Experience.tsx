@@ -27,11 +27,11 @@ export function Experience() {
           {/* ── Current chapter ── */}
           <article
             className={styles.entry}
-            data-robot-message="He's an AI Engineer NOW! Welcome to the future, friend!"
+            data-robot-message="He's an AI Technical Engineer NOW! Welcome to the future, friend!"
           >
             <div className={styles.entryPeriod}>
               <span className={styles.now}>now</span>
-              <span className={styles.duration}>2026 —</span>
+              <span className={styles.duration}>2026.05 —</span>
             </div>
             <div className={styles.entryRail}>
               <span className={`${styles.entryDot} ${styles.active}`} />
@@ -39,25 +39,22 @@ export function Experience() {
             </div>
             <div className={styles.entryBody}>
               <h3 className={styles.entryRole}>
-                <span className={styles.roleAccent}>AI Engineer</span>
+                <span className={styles.roleAccent}>AI Technical Engineer</span>
               </h3>
               <p className={styles.entryCompany}>
-                Hanwha System · <span className={styles.team}>AI Tech Team</span> · Seoul
+                Hanwha Systems · <span className={styles.team}>AI Tech Team</span> · Seoul
               </p>
               <p className={styles.entryDesc}>
                 Standardizing how the org ships with AI. Building harness
                 patterns on top of <em>Claude Code</em>, <em>MoAI</em>, and
                 compound-engineering workflows. Embedding into real projects to
-                cut weeks of plumbing down to days. Talking to Mistral AI and
-                external studios about what production frontier-model work
-                actually looks like.
+                cut weeks of plumbing down to days.
               </p>
               <div className={styles.entryChips}>
                 <span className={`${styles.chip} ${styles.primary}`}>Claude Code</span>
                 <span className={`${styles.chip} ${styles.primary}`}>MoAI</span>
                 <span className={`${styles.chip} ${styles.primary}`}>Harness Engineering</span>
                 <span className={styles.chip}>Compound Engineering</span>
-                <span className={styles.chip}>Mistral</span>
                 <span className={styles.chip}>TypeScript</span>
                 <span className={styles.chip}>Python</span>
               </div>
@@ -69,7 +66,7 @@ export function Experience() {
             <span className={styles.transitionLeft}>// turn</span>
             <span className={styles.transitionArrow}>↓</span>
             <span className={styles.transitionBody}>
-              moved teams in 2026 — the leverage shifted from{" "}
+              moved teams in May 2026 — the leverage shifted from{" "}
               <strong>pipelines</strong> to <strong>agents.</strong>
             </span>
           </div>
@@ -90,7 +87,7 @@ export function Experience() {
             <div className={styles.entryBody}>
               <h3 className={styles.entryRole}>Data Engineer</h3>
               <p className={styles.entryCompany}>
-                Hanwha System · Data Platform · Seoul
+                Hanwha Systems · Data Platform · Seoul
               </p>
               <p className={styles.entryDesc}>
                 Four years building and running production-grade pipelines
@@ -132,8 +129,8 @@ export function Experience() {
                 Illinois Institute of Technology · Chicago
               </p>
               <p className={styles.entryDesc}>
-                Five years in the U.S. before that — the cross-cultural muscle
-                that makes working with international labs and English-language
+                Five years in the U.S. in all — the cross-cultural muscle that
+                makes working with international labs and English-language
                 research feel natural.
               </p>
               <div className={styles.entryChips}>

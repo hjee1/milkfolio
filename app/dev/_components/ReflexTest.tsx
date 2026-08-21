@@ -120,7 +120,7 @@ export function ReflexTest() {
         setRound(round + 1);
       } else {
         setRound(round + 1);
-        setTimeout(() => beginRound(), 450);
+        waitTimerRef.current = setTimeout(() => beginRound(), 450);
       }
       return;
     }

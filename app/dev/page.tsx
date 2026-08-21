@@ -20,9 +20,11 @@ export default function DevPage() {
   return (
     <>
       <DevNav />
-      <Hero />
-      <WhatIDo />
-      <Experience />
+      <main>
+        <Hero />
+        <WhatIDo />
+        <Experience />
+      </main>
       <Footer />
     </>
   );

@@ -89,8 +89,6 @@ export function AgentTicker() {
     const current = STEPS[stepIdx];
     const partial = current.text.slice(0, charIdx);
     setEntries((prev) => {
-      const next = [...prev];
-      const expectedLen = stepIdx + 1;
       const key = cycleRef.current * STEPS.length + stepIdx;
       const newEntry: Entry = {
         step: current,
@@ -98,10 +96,13 @@ export function AgentTicker() {
         done: charIdx >= current.text.length,
         key,
       };
-      if (next.length < expectedLen) {
-        next.push(newEntry);
+      // Match by key, not by index — the visible array is capped below, so
+      // positional indexing desyncs once older lines have been sliced off.
+      const next = [...prev];
+      if (next.length > 0 && next[next.length - 1].key === key) {
+        next[next.length - 1] = newEntry;
       } else {
-        next[stepIdx] = newEntry;
+        next.push(newEntry);
       }
       // Cap visible history so the DOM doesn't grow forever.
       return next.length > 14 ? next.slice(-14) : next;

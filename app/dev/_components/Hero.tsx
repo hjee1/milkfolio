@@ -19,10 +19,10 @@ export function Hero() {
       <div className={styles.overlay}>
         <p
           className={styles.eyebrow}
-          data-robot-message="An AI Engineer! He builds harnesses for AI teams. SO cool!! 🤖"
+          data-robot-message="An AI Technical Engineer! He builds harnesses for AI teams. SO cool!! 🤖"
         >
           <span className={styles.eyebrowDot} aria-hidden="true" />
-          AI Engineer
+          AI Technical Engineer
         </p>
         <h1
           className={styles.name}

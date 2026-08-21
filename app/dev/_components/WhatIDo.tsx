@@ -40,7 +40,7 @@ export function WhatIDo() {
               <div className={styles.activityBody}>
                 <h3 className={styles.activityTitle}>AI tech standardization</h3>
                 <p className={styles.activityDesc}>
-                  At <em>Hanwha System&apos;s AI Tech Team</em>, turning ad-hoc
+                  At <em>Hanwha Systems&apos; AI Tech Team</em>, turning ad-hoc
                   agent experiments into <code>harness</code> patterns the rest
                   of the org can ship on.
                 </p>
@@ -90,9 +90,7 @@ export function WhatIDo() {
                   and <em>Hanwha Group SI</em> — shipping data platforms on{" "}
                   <code>Databricks</code>, <code>Snowflake</code>,{" "}
                   <code>Cognite CDF</code>, and <code>Airflow</code> running on{" "}
-                  <code>Azure AKS</code>. Currently in conversations with{" "}
-                  <em>Mistral AI</em> about what production frontier-model work
-                  actually looks like.
+                  <code>Azure AKS</code>.
                 </p>
               </div>
             </div>
