@@ -29,34 +29,56 @@ import styles from "./page.module.css";
 // 본 페이지의 페르소나 분리 single source of truth이다.
 //
 // @MX:SPEC: SPEC-ACTOR-REDESIGN-001 Phase 0+1+2+3+4+5
+// JSON-LD Person — 캐스팅 검색 노출용 구조화 데이터. 페르소나 분리
+// (REQ-ACT-N-004) 준수: 배우 정체성 필드만 포함한다.
+const PERSON_JSON_LD = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "서해우",
+  alternateName: "Seo Haeu",
+  jobTitle: "Actor",
+  url: "https://milkfolio.space/actor",
+  image: "https://milkfolio.space/actor/assets/hero.jpg",
+  sameAs: [
+    "https://www.instagram.com/oceanmeetrain",
+    "https://www.youtube.com/playlist?list=PLI7Lwvfm7KZ8ZQmWbkrHSBT0WC1FTyJi9",
+  ],
+};
+
 export default function ActorPage() {
   return (
     <div className={styles.body} data-actor-body>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(PERSON_JSON_LD) }}
+      />
       <SiteNav brand={PROFILE.name} links={NAV_LINKS} />
 
-      {/* HERO ─────────────────────────────────────── */}
-      <Hero />
+      <main>
+        {/* HERO ─────────────────────────────────────── */}
+        <Hero />
 
-      {/* Hero → body bridge — REQ-ACT-U-009 LOCKED 60~100px gradient */}
-      <div className={styles.heroBridge} data-hero-bridge />
+        {/* Hero → body bridge — REQ-ACT-U-009 LOCKED 60~100px gradient */}
+        <div className={styles.heroBridge} data-hero-bridge />
 
-      {/* PROFILE (Phase 2) ────────────────────────── */}
-      <Profile />
+        {/* PROFILE (Phase 2) ────────────────────────── */}
+        <Profile />
 
-      {/* PHOTO CONCEPTS (2026-05-26) ──────────────── */}
-      <PhotoConcepts />
+        {/* PHOTO CONCEPTS (2026-05-26) ──────────────── */}
+        <PhotoConcepts />
 
-      {/* REEL (Phase 3) ───────────────────────────── */}
-      <Reel />
+        {/* REEL (Phase 3) ───────────────────────────── */}
+        <Reel />
 
-      {/* ROLES (Phase 4) ──────────────────────────── */}
-      <Roles />
+        {/* ROLES (Phase 4) ──────────────────────────── */}
+        <Roles />
 
-      {/* FILMOGRAPHY (Phase 2) ────────────────────── */}
-      <Filmography />
+        {/* FILMOGRAPHY (Phase 2) ────────────────────── */}
+        <Filmography />
 
-      {/* CONTACT (Phase 5) ────────────────────────── */}
-      <Contact />
+        {/* CONTACT (Phase 5) ────────────────────────── */}
+        <Contact />
+      </main>
 
       <SiteFooter copyright="© 2026 서해우. All rights reserved." />
     </div>

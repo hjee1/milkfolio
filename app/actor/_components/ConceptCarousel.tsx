@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import {
   useCallback,
   useEffect,
@@ -115,13 +116,14 @@ export function ConceptCarousel({
         {images.map((src, i) => {
           const active = i === index;
           return (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img
+            <Image
               key={src}
               src={src}
               alt={`${altBase} ${i + 1}`}
               className={styles.slide}
               data-active={active ? "true" : "false"}
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
               loading={i === 0 ? "eager" : "lazy"}
               draggable={false}
             />

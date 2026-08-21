@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef } from "react";
 import styles from "./HeroReel.module.css";
 import { usePrefersReducedMotion } from "./shared/usePrefersReducedMotion";
@@ -62,16 +63,17 @@ export function HeroReel({ posterImage, reelUrl }: HeroReelProps) {
 
   return (
     <div className={styles.root} aria-hidden="true">
-      {/* 정적 portrait — 항상 렌더. video 활성 시에는 poster 역할로 강등 */}
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
+      {/* 정적 portrait — 항상 렌더. video 활성 시에는 poster 역할로 강등.
+          Hero 100vh full-bleed의 LCP 후보이므로 priority. */}
+      <Image
         src={posterImage}
         alt=""
         className={`${styles.poster} ${
           allowKenBurns ? styles.posterKenBurns : ""
         }`}
-        loading="eager"
-        fetchPriority="high"
+        fill
+        sizes="100vw"
+        priority
       />
 
       {/* <video> 마크업 예약 — REQ-ACT-O-001. reelUrl 비어 있으면 hidden */}

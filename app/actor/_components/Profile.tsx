@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { PROFILE } from "../data";
 import styles from "./Profile.module.css";
 
@@ -39,15 +40,16 @@ export function Profile() {
       <div className={styles.grid}>
         {/* 좌측: portrait — 3:4, grayscale 약간만, 매거진 톤 */}
         <div className={styles.portraitCol}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+          {/* profile.jpg 실측 1200×900 (가로) — CSS aspect-ratio 3/4가 crop을
+              담당하므로 intrinsic 값은 실제 파일 치수를 따른다. Hero(100vh)
+              아래 섹션이라 lazy가 기본값으로 올바르다. */}
+          <Image
             src={PROFILE.portrait}
             alt={`${PROFILE.name} 프로필 사진`}
             className={styles.portrait}
-            loading="eager"
-            fetchPriority="high"
-            width={900}
-            height={1200}
+            width={1200}
+            height={900}
+            sizes="(max-width: 768px) 100vw, 45vw"
           />
         </div>
 
@@ -56,7 +58,7 @@ export function Profile() {
           <p className={styles.eyebrow}>Profile</p>
 
           <h2 id="profile-heading" className={styles.nameEn}>
-            <em>Seo Haeu</em>
+            <em>{PROFILE.nameEn}</em>
           </h2>
 
           <p className={styles.nameKo}>{PROFILE.name}</p>

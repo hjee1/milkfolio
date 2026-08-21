@@ -21,7 +21,9 @@
    --font-pretendard / --font-cormorant는 app/layout.tsx <head>에서 link로
    웹폰트를 받아오고, 여기서 fallback stack을 묶어 노출한다. */
 .body {
-  --font-cormorant: "Cormorant Garamond", Georgia, serif;
+  /* Cormorant는 라틴 전용 — 한글 글리프는 Noto Serif KR로 이어받아
+     시스템 serif fallback(명조 톤 붕괴)을 방지한다. */
+  --font-cormorant: "Cormorant Garamond", "Noto Serif KR", Georgia, serif;
   --font-pretendard: "Pretendard", -apple-system, BlinkMacSystemFont,
     system-ui, "Segoe UI", "Noto Sans KR", sans-serif;
   --actor-bg-body: #f8f5f0;
@@ -58,85 +60,5 @@
   border-bottom: 0;
 }
 
-/* ───────────────────────────────────────────────────────────────
-   레거시 Contact 스타일 (Phase 5 신규 Contact 컴포넌트로 교체 완료)
-   page.tsx는 더 이상 .contact / .contactInner / .contactLinks /
-   .contactLink / .contactSub / .sectionTitle / .center / .container
-   클래스를 참조하지 않는다. CSS module은 import만 안 하면 deadcode가
-   되므로 빌드/런타임에는 영향이 없다. 향후 cleanup 사이클에서
-   삭제 가능하며, 현재 단계에서는 diff noise를 최소화한다.
-   ─────────────────────────────────────────────────────────────── */
-
-.contact {
-  padding: clamp(4rem, 9vh, 7rem) 0;
-  background: var(--actor-bg-body);
-  color: var(--actor-ink);
-}
-
-.container {
-  max-width: 1320px;
-  margin: 0 auto;
-  padding: 0 clamp(1.25rem, 4vw, 3rem);
-}
-
-.sectionTitle {
-  font-family: var(--font-cormorant);
-  font-size: clamp(1.6rem, 4vw, 2.4rem);
-  font-weight: 400;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--actor-ink);
-  margin-bottom: 3rem;
-}
-.sectionTitle.center { text-align: center; }
-.sectionTitle::after {
-  content: "";
-  display: block;
-  width: 2.5rem;
-  height: 1px;
-  background: var(--actor-accent-gold); /* hairline (zone a) */
-  margin-top: 0.75rem;
-}
-.sectionTitle.center::after { margin: 0.75rem auto 0; }
-
-.contactInner { text-align: center; }
-.contactSub {
-  color: var(--actor-ink-soft);
-  font-size: 0.95rem;
-  margin-bottom: 3rem;
-  letter-spacing: 0.02em;
-}
-.contactLinks {
-  display: flex;
-  justify-content: center;
-  gap: 3rem;
-  flex-wrap: wrap;
-}
-.contactLink {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.7rem;
-  font-size: 0.98rem;
-  color: var(--actor-ink);
-  letter-spacing: 0.03em;
-  border-bottom: 1px solid transparent;
-  padding-bottom: 2px;
-  transition: color 0.25s, border-color 0.25s;
-}
-.contactLink:hover,
-.contactLink:focus-visible {
-  color: var(--actor-accent-gold);
-  border-bottom-color: var(--actor-accent-gold);
-  outline: none;
-}
-.contactLink:focus-visible {
-  outline: 2px solid var(--actor-accent-gold);
-  outline-offset: 4px;
-}
-
-/* ── Responsive ── */
-@media (max-width: 768px) {
-  .container { padding: 0 1.25rem; }
-  .contactLinks { flex-direction: column; align-items: center; gap: 1.4rem; }
-  .contact { padding: 4rem 0; }
-}
+/* 레거시 Contact 스타일 블록 (Phase 5 교체 완료분)은 2026-08-21 cleanup에서
+   삭제됨 — page.tsx가 참조하지 않는 deadcode 80줄이었다. */

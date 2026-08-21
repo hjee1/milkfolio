@@ -23,9 +23,9 @@
 |---|---|---|
 | `three` | WebGL 코어 (Hero 시네마틱 비주얼) | ~160KB |
 | `@react-three/fiber` | React용 Three.js 선언적 렌더러 | ~30KB |
-| `@react-three/drei` | R3F 헬퍼 컴포넌트 (선택적 사용) | ~50KB |
-| `motion` (구 framer-motion) | 스크롤·제스처 애니메이션 | ~50KB |
-| `lottie-react` 또는 `dotlottie-react` | 공강 모션 (선택적) | ~30KB |
+| ~~`@react-three/drei`~~ | 미채택 — 필요 시점에 재도입 | — |
+| ~~`motion`~~ | 미채택 (설치 후 미사용으로 2026-08-21 제거) — CSS 애니메이션으로 충당 | — |
+| ~~`lottie-react`~~ | 미채택 | — |
 
 **번들 임팩트 합계**: 대략 320KB gzip 증가 예상. /dev 단일 라우트로 코드 스플릿 → 다른 페르소나(/actor, /designer, /agent)에는 영향 없음.
 
@@ -115,7 +115,7 @@
 | 결정 | 채택안 | 이유 |
 |---|---|---|
 | 3D 라이브러리 | Three.js + @react-three/fiber | React 선언적 모델, 생태계 광범위 |
-| 애니메이션 | Motion (구 framer-motion) | 스크롤·variants API 풍부, React 19 호환 |
+| 애니메이션 | CSS keyframes/transition (Motion 미채택 — 미사용 dep 제거) | 현 인터랙션 범위에 충분, 번들 0KB |
 | 인터랙티브 데모 | 사전 녹화 + 추상 아트 | LLM API 호출 회피 (비용·키 관리 부담 회피) |
 | 폰트 로딩 | next/font (self-host) | LCP 최적화, FOUT 회피 |
 | 빌드 분리 | /dev 라우트 코드 스플릿 | 다른 페르소나 번들에 영향 없음 |

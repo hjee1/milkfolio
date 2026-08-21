@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
 import type { CharacterCard as CharacterCardData } from "../data";
 import { usePrefersReducedMotion } from "./shared/usePrefersReducedMotion";
@@ -161,14 +162,12 @@ export function CharacterCard({ card }: CharacterCardProps) {
       <div className={styles.face} data-face="front" aria-hidden={isFlipped}>
         {hasCover ? (
           <>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
               src={card.coverImage ?? ""}
               alt={`${card.characterName} (${card.workTitle}) 표지 이미지`}
               className={styles.cover}
-              loading="lazy"
-              width={600}
-              height={800}
+              fill
+              sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw"
             />
             <div className={styles.frontOverlay}>
               <p className={styles.frontWork}>
@@ -235,14 +234,12 @@ export function CharacterCard({ card }: CharacterCardProps) {
             <ul className={styles.stillsGrid}>
               {card.stills.map((src, idx) => (
                 <li key={src} className={styles.stillItem}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
+                  <Image
                     src={src}
                     alt={`${card.characterName} 스틸 ${idx + 1}`}
                     className={styles.stillImage}
-                    loading="lazy"
-                    width={300}
-                    height={200}
+                    fill
+                    sizes="(max-width: 767px) 45vw, 210px"
                   />
                 </li>
               ))}
@@ -257,9 +254,10 @@ export function CharacterCard({ card }: CharacterCardProps) {
 
           {card.hashtags.length > 0 ? (
             <ul className={styles.hashtags}>
+              {/* data.ts hashtags already carry the leading "#" — render as-is. */}
               {card.hashtags.map((tag) => (
                 <li key={tag} className={styles.hashtag}>
-                  #{tag}
+                  {tag}
                 </li>
               ))}
             </ul>

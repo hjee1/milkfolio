@@ -313,6 +313,7 @@
 }
 
 .stillItem {
+  position: relative; /* next/image fill anchor */
   aspect-ratio: 3 / 2;
   overflow: hidden;
   border-radius: 1px;

@@ -41,6 +41,9 @@ export function RoleTimeline() {
           <div className={styles.yearRow}>
             <span className={styles.year}>{entry.year}</span>
             <span className={styles.rule} aria-hidden="true" />
+            {entry.platform ? (
+              <span className={styles.platform}>{entry.platform}</span>
+            ) : null}
           </div>
           <div className={styles.entryBody}>
             <p className={styles.workTitle}>

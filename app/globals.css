@@ -55,6 +55,10 @@
   --font-serif:       "Cormorant Garamond", Georgia, serif;
   --font-sans:        "Space Grotesk", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
   --font-mono:        "JetBrains Mono", "SF Mono", Consolas, monospace;
+  /* /dev modules reference these two — resolve both to loaded families
+     (Inter is not imported; the sans stack is the intended body face). */
+  --font-grotesk:     "Space Grotesk", system-ui, sans-serif;
+  --font-inter:       "Space Grotesk", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
 
   /* Spacing scale — Tailwind v4 defaults are fine; we just add a couple
      content-width tokens that show up across the site. */
@@ -74,7 +78,11 @@
 @layer base {
   *, *::before, *::after { box-sizing: border-box; }
   * { margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: no-preference) {
+    html { scroll-behavior: smooth; }
+  }
+  /* Fixed navs (~64-70px) on every route — keep anchor targets visible. */
+  :where(section[id], [id][data-section]) { scroll-margin-top: 84px; }
   body {
     background: var(--color-bg);
     color: var(--color-text);
@@ -100,6 +108,6 @@
    Each page sets `data-accent="actor|dev|designer"` on <html> so child
    utilities like `text-accent` resolve to that page's brand color
    without rewriting every utility class. */
-[data-accent="actor"]    { --color-accent: var(--color-accent); }
+[data-accent="actor"]    { --color-accent: #b8a98a; }
 [data-accent="dev"]      { --color-accent: var(--color-accent-dev); }
 [data-accent="designer"] { --color-accent: var(--color-accent-designer); }

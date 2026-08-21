@@ -12,11 +12,27 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "서해우 — Actor",
   description: "배우 서해우 — 캐스팅 문의는 메인 페이지 하단으로",
+  alternates: {
+    canonical: "https://milkfolio.space/actor",
+  },
   openGraph: {
     title: "서해우 — Actor",
     description: "배우 서해우 — 캐스팅 문의는 메인 페이지 하단으로",
     url: "https://milkfolio.space/actor/",
     type: "profile",
+    images: [
+      {
+        url: "/actor/assets/hero.jpg",
+        width: 1280,
+        height: 720,
+        alt: "배우 서해우",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "서해우 — Actor",
+    description: "배우 서해우 — 캐스팅 문의",
     images: ["/actor/assets/hero.jpg"],
   },
 };
