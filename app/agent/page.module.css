@@ -319,6 +319,47 @@
 }
 
 /* ────────────────────────────────────────────────────────────
+   KPI STRIP — 수집/필터/발송 핵심 지표 밴드 (지원 내역 위)
+   ──────────────────────────────────────────────────────────── */
+.kpiStrip {
+  max-width: 1200px;
+  margin: 24px auto 0;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 10px;
+}
+.kpiCard {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.kpiNum {
+  font-family: var(--font-mono);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-text);
+  line-height: 1.1;
+}
+.kpiLabel {
+  font-size: 0.78rem;
+  color: var(--color-text-dim);
+  letter-spacing: 0.03em;
+}
+.kpiGreen  .kpiNum { color: var(--color-success); }
+.kpiRed    .kpiNum { color: var(--color-danger); }
+.kpiAmber  .kpiNum { color: var(--color-warning); }
+.kpiOrange .kpiNum { color: #e2a86e; }
+.kpiBlue   .kpiNum { color: var(--color-info); }
+@media (max-width: 560px) {
+  .kpiStrip { grid-template-columns: repeat(2, 1fr); padding: 0 16px; }
+}
+
+/* ────────────────────────────────────────────────────────────
    APPLICATIONS CARD GRID (지원 내역, MAIN)
    Cards are <button>s that open the in-page detail modal — the
    external posting link lives inside the modal (listings get

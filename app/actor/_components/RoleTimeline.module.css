@@ -41,6 +41,19 @@
   background: #d4ccbe; /* hairline zone (a) */
 }
 
+/* 플랫폼 배지 (Netflix 등) — 연도 행 우측 끝, gold small-caps chip. */
+.platform {
+  flex-shrink: 0;
+  font-family: var(--font-pretendard);
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--actor-accent-gold);
+  border: 1px solid currentColor;
+  padding: 0.1rem 0.45rem;
+  border-radius: 2px;
+}
+
 .entryBody {
   display: flex;
   flex-direction: column;

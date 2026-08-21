@@ -335,11 +335,11 @@ export const CHARACTER_CARDS: CharacterCard[] = [
     workTitle: "너만 있으면",
     year: 2026,
     roleType: "광고 · 주연",
-    coverImage: "/actor/assets/still_neoman_1.png",
+    coverImage: "/actor/assets/still_neoman_1.jpg",
     stills: [
-      "/actor/assets/still_neoman_1.png",
-      "/actor/assets/still_neoman_2.png",
-      "/actor/assets/still_neoman_3.png",
+      "/actor/assets/still_neoman_1.jpg",
+      "/actor/assets/still_neoman_2.jpg",
+      "/actor/assets/still_neoman_3.jpg",
     ],
     // Phase 6 interview round 5 (2026-05-22 작성, 2026-05-26 본인 수정).
     note: "실패한 썸을 뒤로하고 배달음식으로 마음을 달래는 인간남자. 땡길걸...",

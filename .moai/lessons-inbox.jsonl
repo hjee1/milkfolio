@@ -1,1 +1,2 @@
 {"timestamp":"2026-08-21T07:15:30Z","event_key":"tool_failure:Bash:UnknownFailure","summary":"Exit code 1\n=== drei/motion usage across repo ===\n(eval):1: no matches found: --include=*.tsx","source":"tool:Bash"}
+{"timestamp":"2026-08-21T07:37:25Z","event_key":"tool_failure:Bash:UnknownFailure","summary":"Exit code 2\nwc: e2e/actor.spec.ts: open: No such file or directory\n(eval):1: no matches found: .eslintrc*\nugrep: warning: package.json: No such file or directory","source":"tool:Bash"}

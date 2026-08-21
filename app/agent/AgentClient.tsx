@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { fetchAgentData } from "./actions";
-import type { AgentData, Application, Channel } from "@/lib/types/agent";
+import type { AgentData, Application, Channel, Kpi } from "@/lib/types/agent";
 import styles from "./page.module.css";
 
 // ─────────────────────────────────────────────────────────────
@@ -267,6 +267,7 @@ function Dashboard({
         </div>
       ) : (
         <>
+          <KpiStrip kpis={data.kpis} />
           <ApplicationsSection data={data} />
           <PeriodSection data={data} />
           <ChannelsSection data={data} />
@@ -275,6 +276,36 @@ function Dashboard({
         </>
       )}
     </div>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────
+// KPI STRIP — parsed KPIs were previously dropped on the floor
+// (only two numbers surfaced in the topnav). Render them all as a
+// compact band above the main section.
+// ─────────────────────────────────────────────────────────────
+function kpiToneClass(tone: string): string {
+  switch (tone) {
+    case "green":  return styles.kpiGreen;
+    case "red":    return styles.kpiRed;
+    case "yellow": return styles.kpiAmber;
+    case "orange": return styles.kpiOrange;
+    case "blue":   return styles.kpiBlue;
+    default:       return "";
+  }
+}
+
+function KpiStrip({ kpis }: { kpis: Kpi[] }) {
+  if (kpis.length === 0) return null;
+  return (
+    <section className={styles.kpiStrip} aria-label="핵심 지표">
+      {kpis.map((k) => (
+        <div key={k.label} className={`${styles.kpiCard} ${kpiToneClass(k.tone)}`}>
+          <span className={styles.kpiNum}>{k.num}</span>
+          <span className={styles.kpiLabel}>{k.label}</span>
+        </div>
+      ))}
+    </section>
   );
 }
 
@@ -451,7 +482,7 @@ function ApplicationsSection({ data }: SectionProps) {
           <input
             type="text"
             className={styles.searchInput}
-            placeholder="검색 (제목 · 감독 · 제작사 · 역할 · 수신 이메일)"
+            placeholder="검색 (제목 · 감독 · 제작사 · 역할 · 이메일 · 본문)"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             autoComplete="off"
@@ -892,7 +923,8 @@ function filterAndSort(rows: Application[], args: FilterArgs): Application[] {
 
   const matched = rows.filter((a) => {
     if (q) {
-      const hay = `${a.title} ${a.director} ${a.company} ${a.role} ${a.email} ${a.source}`.toLowerCase();
+      const hay =
+        `${a.title} ${a.director} ${a.company} ${a.role} ${a.email} ${a.source} ${a.description} ${a.reasoning}`.toLowerCase();
       if (!hay.includes(q)) return false;
     }
     if (args.statusFilter !== "all" && !matchStatus(a.status, args.statusFilter)) return false;

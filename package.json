@@ -25,12 +25,15 @@
     "three": "^0.184.0"
   },
   "devDependencies": {
+    "@eslint/eslintrc": "^3.3.6",
     "@playwright/test": "^1.60.0",
     "@tailwindcss/postcss": "4.3.0",
     "@types/node": "22.10.2",
     "@types/react": "19.0.2",
     "@types/react-dom": "19.0.2",
     "@types/three": "^0.184.1",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "^16.3.1",
     "postcss": "8.4.49",
     "tailwindcss": "4.3.0",
     "typescript": "5.7.2"
