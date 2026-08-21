@@ -29,10 +29,12 @@ test.describe("/dev page", () => {
 
   test("experience timeline shows both career chapters", async ({ page }) => {
     await expect(
-      page.getByRole("heading", { name: "AI Technical Engineer" }),
+      page.getByRole("heading", { name: "AI Technical Engineer", exact: true }),
     ).toBeVisible();
+    // exact — the WhatIDo h2 ("Not a data engineer anymore.") would otherwise
+    // also match and trip Playwright strict mode.
     await expect(
-      page.getByRole("heading", { name: "Data Engineer" }),
+      page.getByRole("heading", { name: "Data Engineer", exact: true }),
     ).toBeVisible();
     await expect(page.getByText("Hanwha Systems").first()).toBeVisible();
   });

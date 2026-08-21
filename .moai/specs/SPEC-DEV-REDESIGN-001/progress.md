@@ -1,5 +1,14 @@
 ## SPEC-DEV-REDESIGN-001 Progress
 
+> **현행화 노트 (2026-08-21)**: 아래 Turn 기록은 초기 6섹션 설계
+> (Hero/Manifesto/Lab/Stack/Craft/Contact) 기준의 히스토리다. 최종 출하본은
+> **4섹션** (Hero / WhatIDo(now) / Experience / Footer) + AgentTicker +
+> ReflexTest + RobotPet 구성이며, Manifesto/Lab/Stack/Craft 컴포넌트와
+> drei·motion 의존성은 채택되지 않았다 (motion은 2026-08-21 제거).
+> 2026-08-21 정비: AgentTicker key/slice 버그·ReflexTest 유령 타이머 수정,
+> 직함 "AI Technical Engineer" 정정, Mistral 언급 제거(콘텐츠 정책),
+> reduced-motion 시 three.js 청크 스킵, e2e 스위트 현행 페이지 기준 재작성.
+
 - Started: 2026-05-19
 - Harness level: standard
 - Development methodology: TDD (per quality.yaml) — UI-craft pragmatic deviation

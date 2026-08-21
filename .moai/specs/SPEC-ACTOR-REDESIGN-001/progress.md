@@ -1,5 +1,14 @@
 ## SPEC-ACTOR-REDESIGN-001 Progress
 
+> **현행화 노트 (2026-08-21)**: 출하본은 2026-05-26 PhotoConcepts 인서트로
+> **7섹션**이며, Reel은 YouTube nocookie iframe 3개를 사용한다 (초기
+> REQ-ACT-N-001 no-iframe 방침에서 사용자 합의로 전환). 2026-08-21 정비:
+> 해시태그 ## 이중 렌더 버그 수정, 전 이미지 next/image 전환 + neoman PNG
+> 11.9MB→0.6MB JPEG 변환 + 미사용 자산 3.7MB 삭제, JSON-LD Person·twitter
+> card·canonical·sitemap/robots 추가, 480px 이하 내비 복원, 한글 serif
+> fallback(Noto Serif KR) 정리, e2e에 concepts/캐러셀/플레이리스트 CTA 백필.
+
+
 - Started: 2026-05-21
 - Status: **Run 완료 — Phase 0+1+2+3+4+5 완료 (2026-05-22). Phase 6/7 rolling.**
 - Harness level: standard
