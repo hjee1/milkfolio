@@ -320,8 +320,9 @@
 
 /* ────────────────────────────────────────────────────────────
    APPLICATIONS CARD GRID (지원 내역, MAIN)
-   Larger, more legible, fully clickable cards (open original posting
-   in new tab when URL is present). Replaces the dense table layout.
+   Cards are <button>s that open the in-page detail modal — the
+   external posting link lives inside the modal (listings get
+   deleted by their authors; the DB snapshot is the record).
    ──────────────────────────────────────────────────────────── */
 .cardGrid {
   display: grid;
@@ -333,6 +334,12 @@
   overflow: hidden;
 }
 .castCard {
+  /* button reset — cards render as <button> elements */
+  appearance: none;
+  border: none;
+  width: 100%;
+  font: inherit;
+  text-align: left;
   background: var(--color-surface);
   padding: 22px 22px 18px;
   display: flex;
@@ -540,23 +547,167 @@
   font-size: 0.95rem;
 }
 
-.urlNotice {
-  margin: 0 0 18px;
-  padding: 12px 16px;
-  border-left: 3px solid var(--color-warning);
-  background: color-mix(in srgb, var(--color-warning) 8%, transparent);
-  font-size: 0.86rem;
-  color: var(--color-text-soft);
-  line-height: 1.55;
-  border-radius: 0 4px 4px 0;
+/* ────────────────────────────────────────────────────────────
+   APPLICATION DETAIL MODAL
+   DB snapshot of one listing; external link is a separate button
+   at the bottom with a "may be deleted" caveat.
+   ──────────────────────────────────────────────────────────── */
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(0, 0, 0, 0.62);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  animation: modalFade 0.18s ease;
 }
-.urlNotice code {
-  font-family: var(--font-mono);
-  font-size: 0.82rem;
+@keyframes modalFade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+.modalPanel {
+  width: min(640px, 100%);
+  max-height: min(82vh, 780px);
+  overflow-y: auto;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  padding: 26px 28px 24px;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.55);
+  animation: modalRise 0.22s ease;
+}
+@keyframes modalRise {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: none; }
+}
+.modalHead {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+.modalClose {
+  margin-left: auto;
+  background: transparent;
+  border: 1px solid var(--color-border);
+  color: var(--color-text-soft);
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+}
+.modalClose:hover { border-color: var(--color-accent); color: var(--color-accent); }
+.modalClose svg { width: 14px; height: 14px; }
+.modalTitle {
+  font-family: var(--font-serif-ko);
+  font-size: 1.35rem;
+  font-weight: 600;
+  line-height: 1.45;
+  color: var(--color-text);
+  margin-bottom: 18px;
+}
+.modalFacts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px 18px;
+  margin: 0 0 18px;
+  padding: 16px;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
   background: var(--color-surface-hi);
-  padding: 1px 6px;
-  border-radius: 3px;
-  color: var(--color-warning);
+}
+.modalFact dt {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text-dim);
+  margin-bottom: 3px;
+}
+.modalFact dd {
+  font-size: 0.92rem;
+  color: var(--color-text);
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+.modalDesc { margin-bottom: 18px; }
+.modalDesc h4,
+.modalReason h4 {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-text-dim);
+  margin-bottom: 8px;
+}
+.modalDesc p {
+  white-space: pre-wrap;
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: var(--color-text-soft);
+}
+.modalDescEmpty {
+  margin-bottom: 18px;
+  padding: 12px 14px;
+  border: 1px dashed var(--color-border);
+  border-radius: 6px;
+  color: var(--color-text-dim);
+  font-size: 0.86rem;
+  line-height: 1.55;
+}
+.modalReason {
+  margin-bottom: 18px;
+  padding: 12px 14px;
+  border-left: 3px solid var(--color-accent);
+  background: color-mix(in srgb, var(--color-accent) 7%, transparent);
+  border-radius: 0 6px 6px 0;
+}
+.modalReason p {
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: var(--color-text-soft);
+}
+.modalLinkBox {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 16px;
+  border-top: 1px solid var(--color-border);
+}
+.modalLinkBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  align-self: flex-start;
+  padding: 10px 18px;
+  border: 1px solid var(--color-accent);
+  border-radius: 6px;
+  color: var(--color-accent);
+  background: color-mix(in srgb, var(--color-accent) 10%, transparent);
+  font-size: 0.92rem;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.modalLinkBtn:hover { background: color-mix(in srgb, var(--color-accent) 20%, transparent); }
+.modalLinkBtn svg { width: 14px; height: 14px; }
+.modalLinkNote {
+  font-size: 0.8rem;
+  color: var(--color-text-dim);
+  line-height: 1.5;
+}
+@media (max-width: 560px) {
+  .modalOverlay { padding: 12px; align-items: flex-end; }
+  .modalPanel { max-height: 88vh; padding: 20px 18px; }
+  .modalFacts { grid-template-columns: 1fr; }
 }
 
 /* ────────────────────────────────────────────────────────────

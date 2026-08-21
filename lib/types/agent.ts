@@ -21,6 +21,20 @@ export type Application = {
   statusLabel: string;
   /** Original posting URL if the Producer included a clickable title (empty otherwise). */
   url: string;
+  // ── Detail fields — read from data-* attributes on each <tr>.  ──
+  // Empty strings until the Producer emits them (rows generated before the
+  // detail-attrs rollout simply lack the attributes; parser tolerates both).
+  /** Listing body text, truncated by Producer (~1500 chars). */
+  description: string;
+  gender: string;
+  ageRange: string;
+  pay: string;
+  deadline: string;
+  contactName: string;
+  /** AI filter's match reasoning (why this listing was a YES). */
+  reasoning: string;
+  /** Subject line of the application email that was sent. */
+  emailSubject: string;
 };
 
 /** Headline KPI ("총 수집 공고", "발송 성공", …). */

@@ -81,6 +81,30 @@ test.describe("/agent dashboard (authenticated)", () => {
     expect(color).toBe("rgb(10, 10, 10)");
   });
 
+  test("card click opens detail modal; external link is separate", async ({ page }) => {
+    await page.waitForSelector("h2:has-text('지원 내역')");
+    const cards = page.locator("[class*='castCard']");
+    const count = await cards.count();
+    test.skip(count === 0, "no data.html rows in this environment");
+
+    // Cards are now <button>s (detail-first), never direct external links.
+    await expect(cards.first()).toHaveJSProperty("tagName", "BUTTON");
+
+    await cards.first().click();
+    const dialog = page.getByRole("dialog");
+    await expect(dialog).toBeVisible();
+
+    // The external link (or its absence note) lives inside the modal only.
+    const linkOrNote = dialog
+      .getByRole("link", { name: /원본 공고 열기/ })
+      .or(dialog.getByText("원본 공고 URL이 수집되지 않은 항목입니다."));
+    await expect(linkOrNote.first()).toBeVisible();
+
+    // ESC closes and returns to the grid.
+    await page.keyboard.press("Escape");
+    await expect(dialog).not.toBeVisible();
+  });
+
   test("logout returns to gate", async ({ page }) => {
     await page.waitForSelector("h2:has-text('지원 내역')");
     await page.getByRole("button", { name: "로그아웃" }).click();

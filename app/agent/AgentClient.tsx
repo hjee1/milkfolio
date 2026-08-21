@@ -406,6 +406,7 @@ function ApplicationsSection({ data }: SectionProps) {
   const [sourceFilter, setSourceFilter] = useState<string>("all");
   const [sort, setSort] = useState<SortKey>("recent");
   const [page, setPage] = useState(0);
+  const [selected, setSelected] = useState<Application | null>(null);
 
   // Reset page whenever filters change
   useEffect(() => { setPage(0); }, [query, periodFilter, statusFilter, sourceFilter, sort]);
@@ -518,15 +519,13 @@ function ApplicationsSection({ data }: SectionProps) {
         <div className={styles.empty}>조건과 일치하는 지원 내역이 없습니다.</div>
       ) : (
         <>
-          {filtered.every((a) => !a.url) && (
-            <div className={styles.urlNotice}>
-              현재 데이터에 공고 URL이 없어 카드 클릭이 비활성화되어 있습니다.
-              casting-agent 파이프라인에서 <code>listings.url</code> 백필 후 자동으로 클릭 가능해집니다.
-            </div>
-          )}
           <div className={styles.cardGrid}>
             {visible.map((a, i) => (
-              <ApplicationCard key={`${a.date}-${a.email}-${i}`} app={a} />
+              <ApplicationCard
+                key={`${a.date}-${a.email}-${i}`}
+                app={a}
+                onSelect={() => setSelected(a)}
+              />
             ))}
           </div>
           {totalPages > 1 && (
@@ -548,34 +547,41 @@ function ApplicationsSection({ data }: SectionProps) {
           )}
         </>
       )}
+
+      {selected && (
+        <ApplicationDetailModal app={selected} onClose={() => setSelected(null)} />
+      )}
     </section>
   );
 }
 
-function ApplicationCard({ app }: { app: Application }) {
-  const srcCls: "actorCasting" | "volunteerActor" | "performerCasting" | "default" =
-    app.source === "actorCasting" || app.source === "volunteerActor" || app.source === "performerCasting"
-      ? app.source
-      : "default";
+function mapSourceClass(
+  source: string,
+): "actorCasting" | "volunteerActor" | "performerCasting" | "default" {
+  return source === "actorCasting" || source === "volunteerActor" || source === "performerCasting"
+    ? source
+    : "default";
+}
+
+function ApplicationCard({ app, onSelect }: { app: Application; onSelect: () => void }) {
+  const srcCls = mapSourceClass(app.source);
   const badgeCls = mapBadgeClass(app.status);
   const credits = [app.director && `DIR. ${app.director}`, app.company].filter(Boolean).join(" · ");
-  const clickable = !!app.url;
 
-  // The entire card is a link when URL is present; otherwise an inert <article>.
-  // No nested <a> inside — the status icon and source chip render as plain spans.
-  const inner = (
-    <>
+  // Card click opens the in-page detail modal (NOT the external posting —
+  // listings are often deleted by their authors, so the DB snapshot is shown
+  // first; the original-URL link lives at the bottom of the modal instead).
+  return (
+    <button
+      type="button"
+      className={`${styles.castCard} ${styles.clickable}`}
+      onClick={onSelect}
+      aria-label={`상세 보기: ${app.title}`}
+    >
       <div className={styles.cardHead}>
         <span className={styles.cardDate}>{app.date}</span>
         <span className={`${styles.cardStatus} ${styles[badgeCls]}`}>
           {app.statusLabel || badgeCls}
-          {clickable && (
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-              <polyline points="15 3 21 3 21 9" />
-              <line x1="10" y1="14" x2="21" y2="3" />
-            </svg>
-          )}
         </span>
       </div>
       {credits && <div className={styles.cardCredits}>{credits}</div>}
@@ -585,23 +591,137 @@ function ApplicationCard({ app }: { app: Application }) {
         <span className={`${styles.srcChip} ${styles[srcCls]}`}>{app.source}</span>
         <span className={styles.cardEmail} title={app.email}>{app.email}</span>
       </div>
-    </>
+    </button>
   );
+}
 
-  if (clickable) {
-    return (
-      <a
-        className={`${styles.castCard} ${styles.clickable}`}
-        href={app.url}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label={`원본 공고 열기: ${app.title}`}
+// ─────────────────────────────────────────────────────────────
+// APPLICATION DETAIL MODAL
+// Full DB snapshot of one listing. The external posting link is a
+// separate button at the bottom with a "may be deleted" caveat.
+// ─────────────────────────────────────────────────────────────
+function ApplicationDetailModal({ app, onClose }: { app: Application; onClose: () => void }) {
+  const closeRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    closeRef.current?.focus();
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+    document.addEventListener("keydown", onKey);
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = prevOverflow;
+    };
+  }, [onClose]);
+
+  const srcCls = mapSourceClass(app.source);
+  const badgeCls = mapBadgeClass(app.status);
+
+  const facts: Array<[string, string]> = (
+    [
+      ["감독", app.director],
+      ["제작사", app.company],
+      ["역할", app.role],
+      ["성별", app.gender],
+      ["연령대", app.ageRange],
+      ["페이", app.pay],
+      ["마감일", app.deadline],
+      ["담당자", app.contactName],
+      ["수신 이메일", app.email],
+      ["발송 메일 제목", app.emailSubject],
+    ] as Array<[string, string]>
+  ).filter(([, v]) => v !== "");
+
+  return (
+    <div className={styles.modalOverlay} onClick={onClose} role="presentation">
+      <div
+        className={styles.modalPanel}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="app-detail-title"
+        onClick={(e) => e.stopPropagation()}
       >
-        {inner}
-      </a>
-    );
-  }
-  return <article className={styles.castCard}>{inner}</article>;
+        <div className={styles.modalHead}>
+          <span className={styles.cardDate}>{app.date}</span>
+          <span className={`${styles.srcChip} ${styles[srcCls]}`}>{app.source}</span>
+          <span className={`${styles.cardStatus} ${styles[badgeCls]}`}>
+            {app.statusLabel || badgeCls}
+          </span>
+          <button
+            ref={closeRef}
+            type="button"
+            className={styles.modalClose}
+            onClick={onClose}
+            aria-label="닫기"
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden>
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+          </button>
+        </div>
+
+        <h3 id="app-detail-title" className={styles.modalTitle}>{app.title}</h3>
+
+        {facts.length > 0 && (
+          <dl className={styles.modalFacts}>
+            {facts.map(([k, v]) => (
+              <div key={k} className={styles.modalFact}>
+                <dt>{k}</dt>
+                <dd>{v}</dd>
+              </div>
+            ))}
+          </dl>
+        )}
+
+        {app.description ? (
+          <div className={styles.modalDesc}>
+            <h4>공고 본문</h4>
+            <p>{app.description}</p>
+          </div>
+        ) : (
+          <div className={styles.modalDescEmpty}>
+            공고 본문이 아직 수집 데이터에 없습니다 — casting-agent 다음 리포트부터 포함됩니다.
+          </div>
+        )}
+
+        {app.reasoning && (
+          <div className={styles.modalReason}>
+            <h4>AI 매칭 근거</h4>
+            <p>{app.reasoning}</p>
+          </div>
+        )}
+
+        <div className={styles.modalLinkBox}>
+          {app.url ? (
+            <>
+              <a
+                className={styles.modalLinkBtn}
+                href={app.url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                원본 공고 열기
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                  <polyline points="15 3 21 3 21 9" />
+                  <line x1="10" y1="14" x2="21" y2="3" />
+                </svg>
+              </a>
+              <span className={styles.modalLinkNote}>
+                작성자가 공고를 삭제했을 수 있습니다 — 위 내용은 수집 시점의 DB 스냅샷입니다.
+              </span>
+            </>
+          ) : (
+            <span className={styles.modalLinkNote}>원본 공고 URL이 수집되지 않은 항목입니다.</span>
+          )}
+        </div>
+      </div>
+    </div>
+  );
 }
 
 function mapBadgeClass(status: string): string {

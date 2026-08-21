@@ -86,6 +86,10 @@ function parseApplications($: cheerio.CheerioAPI): Application[] {
       const status = badgeCls[0] ?? "";
       const statusLabel = badge.text().trim();
 
+      // Detail attrs (data-desc/pay/…) — emitted by Producer rows generated
+      // after the detail rollout; older rows lack them and fall back to "".
+      const attr = (name: string) => ($tr.attr(name) || "").trim();
+
       return {
         date: tds.eq(0).text().trim(),
         source: tds.eq(1).text().trim(),
@@ -97,6 +101,14 @@ function parseApplications($: cheerio.CheerioAPI): Application[] {
         status,
         statusLabel,
         url,
+        description: attr("data-desc"),
+        gender: attr("data-gender"),
+        ageRange: attr("data-age"),
+        pay: attr("data-pay"),
+        deadline: attr("data-deadline"),
+        contactName: attr("data-contact"),
+        reasoning: attr("data-reason"),
+        emailSubject: attr("data-subject"),
       } satisfies Application;
     })
     .get();
