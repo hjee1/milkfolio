@@ -1,37 +1,50 @@
 import { test, expect } from "@playwright/test";
 
-test.describe("/dev page", () => {
-  test("hero, sections, stack cards render", async ({ page }) => {
-    await page.goto("/dev");
+// /dev — SPEC-DEV-REDESIGN-001 4-section page (Hero / Now / Experience / Footer).
+// Rewritten 2026-08-21: the previous 3-test suite targeted the pre-redesign
+// page (#stack, "About", "Tech Stack") and even asserted a visible /actor
+// link — the exact opposite of REQ-DEV-N-004 (persona separation, zero
+// cross-links between /dev and /actor).
 
-    // Hero h1 spans two lines
+test.describe("/dev page", () => {
+  test.beforeEach(async ({ page }) => {
+    await page.goto("/dev");
+  });
+
+  test("hero renders identity and current title", async ({ page }) => {
     await expect(page.locator("h1")).toContainText("Hyunwoo");
     await expect(page.locator("h1")).toContainText("Jee.");
+    // Title appears in the hero eyebrow and again in the Experience timeline.
+    await expect(
+      page.getByText("AI Technical Engineer", { exact: true }).first(),
+    ).toBeVisible();
+  });
 
-    // Eyebrow tags + nav link "Data Engineer" both exist → use first()
-    await expect(page.getByText("Data Engineer", { exact: true }).first()).toBeVisible();
-    await expect(page.getByText("Hanwha System", { exact: true }).first()).toBeVisible();
-
-    // Section labels — there's both a nav <a> and a section .labelText
-    // for each. first() in DOM order is the nav link.
-    for (const label of ["About", "Tech Stack", "Experience", "Contact"]) {
-      await expect(page.getByText(label, { exact: true }).first()).toBeVisible();
+  test("nav anchors point at the three sections", async ({ page }) => {
+    for (const id of ["now", "experience", "contact"]) {
+      await expect(page.locator(`nav a[href="#${id}"]`)).toBeVisible();
+      await expect(page.locator(`#${id}`)).toHaveCount(1);
     }
   });
 
-  test("stack cards include core engineering stack", async ({ page }) => {
-    await page.goto("/dev");
-    // Each skill name can appear in the hero chips, the stack card, and the
-    // experience tags — scope to the stack section to disambiguate.
-    const stack = page.locator("#stack");
-    for (const skill of ["Apache Airflow", "Databricks", "Snowflake", "Python"]) {
-      await expect(stack.getByText(skill, { exact: true })).toBeVisible();
-    }
+  test("experience timeline shows both career chapters", async ({ page }) => {
+    await expect(
+      page.getByRole("heading", { name: "AI Technical Engineer" }),
+    ).toBeVisible();
+    await expect(
+      page.getByRole("heading", { name: "Data Engineer" }),
+    ).toBeVisible();
+    await expect(page.getByText("Hanwha Systems").first()).toBeVisible();
   });
 
-  test("inline link to /actor profile", async ({ page }) => {
-    await page.goto("/dev");
-    const actorLink = page.locator('a[href="/actor"]').first();
-    await expect(actorLink).toBeVisible();
+  test("persona separation — zero /actor links (REQ-DEV-N-004)", async ({
+    page,
+  }) => {
+    await expect(page.locator('a[href^="/actor"]')).toHaveCount(0);
+  });
+
+  test("agent ticker and reflex test are mounted", async ({ page }) => {
+    await expect(page.getByText("agent · live")).toBeVisible();
+    await expect(page.getByText("reflex test")).toBeVisible();
   });
 });
