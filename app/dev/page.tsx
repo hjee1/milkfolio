@@ -1,3 +1,4 @@
+import { ScrollReveal } from "@/components/ScrollReveal";
 import { DevNav } from "./_components/DevNav";
 import { Hero } from "./_components/Hero";
 import { WhatIDo } from "./_components/WhatIDo";
@@ -20,6 +21,7 @@ export default function DevPage() {
   return (
     <>
       <DevNav />
+      <ScrollReveal />
       <main>
         <Hero />
         <WhatIDo />

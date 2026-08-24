@@ -15,7 +15,7 @@ import styles from "./WhatIDo.module.css";
 export function WhatIDo() {
   return (
     <section id="now" className={styles.root}>
-      <div className={styles.container}>
+      <div className={styles.container} data-reveal>
         <div className={styles.head}>
           <div className={styles.label}>
             <span className={styles.labelNum}>01 / 03</span>

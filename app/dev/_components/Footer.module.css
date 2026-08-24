@@ -8,7 +8,7 @@
   position: relative;
   padding: 3.5rem 2.5rem 2.5rem;
   background: #03060c;
-  border-top: 1px solid rgba(56, 217, 255, 0.15);
+  border-top: 1px solid color-mix(in srgb, var(--color-accent) 15%, transparent);
   font-family: var(--font-mono, ui-monospace, monospace);
 }
 
@@ -23,7 +23,7 @@
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(56, 217, 255, 0.6),
+    color-mix(in srgb, var(--color-accent) 60%, transparent),
     transparent
   );
 }
@@ -55,7 +55,7 @@
 
 .lead em {
   font-style: normal;
-  color: #38d9ff;
+  color: var(--color-accent);
   font-weight: 500;
 }
 
@@ -79,12 +79,12 @@
 .channel:hover,
 .channel:focus-visible {
   outline: none;
-  color: #38d9ff;
-  border-bottom-color: #38d9ff;
+  color: var(--color-accent);
+  border-bottom-color: var(--color-accent);
 }
 
 .channel .channelLabel {
-  color: rgba(56, 217, 255, 0.6);
+  color: color-mix(in srgb, var(--color-accent) 60%, transparent);
   margin-right: 0.5rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -105,8 +105,8 @@
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: #38d9ff;
-  box-shadow: 0 0 10px rgba(56, 217, 255, 0.9);
+  background: var(--color-accent);
+  box-shadow: 0 0 10px color-mix(in srgb, var(--color-accent) 90%, transparent);
   animation: footerPulse 2s ease-in-out infinite;
 }
 
@@ -123,8 +123,8 @@
   align-items: center;
   gap: 1.4rem;
   padding: 1rem 1.2rem;
-  background: rgba(56, 217, 255, 0.04);
-  border: 1px solid rgba(56, 217, 255, 0.15);
+  background: color-mix(in srgb, var(--color-accent) 4%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-accent) 15%, transparent);
   border-radius: 4px;
   font-size: 0.7rem;
   margin-bottom: 1.5rem;
@@ -140,14 +140,14 @@
     0deg,
     transparent,
     transparent 3px,
-    rgba(56, 217, 255, 0.025) 3px,
-    rgba(56, 217, 255, 0.025) 4px
+    color-mix(in srgb, var(--color-accent) 2.5%, transparent) 3px,
+    color-mix(in srgb, var(--color-accent) 2.5%, transparent) 4px
   );
   pointer-events: none;
 }
 
 .telemetryLabel {
-  color: #38d9ff;
+  color: var(--color-accent);
   letter-spacing: 0.18em;
   text-transform: uppercase;
   font-weight: 500;
@@ -166,7 +166,7 @@
 }
 
 .telemetryItem .telKey {
-  color: rgba(56, 217, 255, 0.55);
+  color: color-mix(in srgb, var(--color-accent) 55%, transparent);
   text-transform: lowercase;
 }
 
@@ -175,7 +175,7 @@
 }
 
 .telemetryItem .telValue.accent {
-  color: #38d9ff;
+  color: var(--color-accent);
 }
 
 .telemetryItem.live::after {
@@ -221,10 +221,10 @@
 
 .bottom a:hover {
   color: #8899aa;
-  border-bottom-color: rgba(56, 217, 255, 0.5);
+  border-bottom-color: color-mix(in srgb, var(--color-accent) 50%, transparent);
 }
 
-@media (max-width: 720px) {
+@media (max-width: 768px) {
   .root {
     padding: 2.5rem 1.3rem 2rem;
   }

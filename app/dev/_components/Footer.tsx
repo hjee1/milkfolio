@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import { useBuildInfo } from "./shared/useBuildInfo";
-import { useFPS } from "./shared/useFPS";
 import styles from "./Footer.module.css";
 
 /**
@@ -17,8 +16,10 @@ import styles from "./Footer.module.css";
  * @MX:SPEC: SPEC-DEV-REDESIGN-001 REQ-DEV-E-005, REQ-DEV-O-001, REQ-DEV-N-004
  */
 export function Footer() {
+  // FPS deliberately not measured here — useFPS runs a rAF loop and its
+  // @MX:WARN caps usage at one consumer (HeroLiveBoard). One live readout
+  // per page is enough; two independent loops showed diverging numbers.
   const { sha, age } = useBuildInfo();
-  const fps = useFPS();
   const [pageWeight, setPageWeight] = useState<string>("—");
 
   useEffect(() => {
@@ -32,8 +33,14 @@ export function Footer() {
       }
     };
     compute();
-    const id = setTimeout(compute, 1500); // Re-read once more after lazy chunks land.
-    return () => clearTimeout(id);
+    // Re-read after lazy chunks land — the three.js chunk (~885KB) often
+    // arrives past 1.5s, so sample again later to stop under-reporting.
+    const t1 = setTimeout(compute, 1500);
+    const t2 = setTimeout(compute, 5000);
+    return () => {
+      clearTimeout(t1);
+      clearTimeout(t2);
+    };
   }, []);
 
   return (
@@ -75,14 +82,8 @@ export function Footer() {
         >
           <span className={styles.telemetryLabel}>// live</span>
           <span className={`${styles.telemetryItem} ${styles.live}`}>
-            <span className={styles.telKey}>fps</span>
-            <span className={`${styles.telValue} ${styles.accent}`}>
-              {fps > 0 ? fps : "—"}
-            </span>
-          </span>
-          <span className={styles.telemetryItem}>
             <span className={styles.telKey}>commit</span>
-            <span className={styles.telValue}>{sha}</span>
+            <span className={`${styles.telValue} ${styles.accent}`}>{sha}</span>
           </span>
           <span className={styles.telemetryItem}>
             <span className={styles.telKey}>deployed</span>

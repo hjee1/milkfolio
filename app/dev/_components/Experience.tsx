@@ -12,7 +12,7 @@ import styles from "./Experience.module.css";
 export function Experience() {
   return (
     <section id="experience" className={styles.root}>
-      <div className={styles.container}>
+      <div className={styles.container} data-reveal>
         <div className={styles.head}>
           <div className={styles.label}>
             <span className={styles.labelNum}>02 / 03</span>

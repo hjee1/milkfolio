@@ -7,12 +7,12 @@
 .root {
   position: relative;
   background: linear-gradient(180deg, #060912 0%, #03060c 100%);
-  border: 1px solid rgba(56, 217, 255, 0.22);
+  border: 1px solid color-mix(in srgb, var(--color-accent) 22%, transparent);
   border-radius: 6px;
   overflow: hidden;
   box-shadow:
     0 0 0 1px rgba(0, 0, 0, 0.5),
-    0 30px 80px -30px rgba(56, 217, 255, 0.18);
+    0 30px 80px -30px color-mix(in srgb, var(--color-accent) 18%, transparent);
   display: flex;
   flex-direction: column;
   min-height: 440px;
@@ -24,13 +24,13 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.65rem 1rem;
-  background: rgba(56, 217, 255, 0.04);
-  border-bottom: 1px solid rgba(56, 217, 255, 0.18);
+  background: color-mix(in srgb, var(--color-accent) 4%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--color-accent) 18%, transparent);
   font-family: var(--font-mono, ui-monospace, monospace);
   font-size: 0.6rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: #38d9ff;
+  color: var(--color-accent);
   flex-shrink: 0;
   flex-wrap: wrap;
 }
@@ -39,8 +39,8 @@
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: #38d9ff;
-  box-shadow: 0 0 8px #38d9ff;
+  background: var(--color-accent);
+  box-shadow: 0 0 8px var(--color-accent);
   animation: rxPulse 2s ease-in-out infinite;
 }
 
@@ -53,14 +53,14 @@
 .barSpacer { flex: 1; }
 
 .barMeta {
-  color: rgba(56, 217, 255, 0.55);
+  color: color-mix(in srgb, var(--color-accent) 55%, transparent);
   letter-spacing: 0.06em;
   text-transform: none;
   font-size: 0.65rem;
 }
 
 .barMeta strong {
-  color: #38d9ff;
+  color: var(--color-accent);
   font-weight: 600;
 }
 
@@ -83,25 +83,25 @@
 }
 
 .surface:focus-visible {
-  box-shadow: inset 0 0 0 2px rgba(56, 217, 255, 0.5);
+  box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--color-accent) 50%, transparent);
 }
 
 /* State styles */
 .surface.idle {
-  background: rgba(56, 217, 255, 0.02);
+  background: color-mix(in srgb, var(--color-accent) 2%, transparent);
   color: #c1cad6;
 }
 
 .surface.waiting {
   background:
-    radial-gradient(ellipse at 50% 50%, rgba(56, 217, 255, 0.08), transparent 70%),
+    radial-gradient(ellipse at 50% 50%, color-mix(in srgb, var(--color-accent) 8%, transparent), transparent 70%),
     rgba(15, 23, 35, 0.5);
   color: rgba(127, 228, 255, 0.65);
   cursor: progress;
 }
 
 .surface.go {
-  background: #38d9ff;
+  background: var(--color-accent);
   color: #04070d;
   cursor: pointer;
 }
@@ -112,7 +112,7 @@
 }
 
 .surface.done {
-  background: rgba(56, 217, 255, 0.05);
+  background: color-mix(in srgb, var(--color-accent) 5%, transparent);
   color: #e7eef7;
   cursor: default;
 }
@@ -157,7 +157,7 @@
   font-size: 0.62rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: rgba(56, 217, 255, 0.7);
+  color: color-mix(in srgb, var(--color-accent) 70%, transparent);
   margin-bottom: 0.2rem;
 }
 
@@ -169,7 +169,7 @@
 }
 
 .guideStepNum {
-  color: #38d9ff;
+  color: var(--color-accent);
   font-size: 0.7rem;
   letter-spacing: 0.05em;
 }
@@ -180,7 +180,7 @@
 
 .guideStepText em {
   font-style: normal;
-  color: #38d9ff;
+  color: var(--color-accent);
   font-weight: 500;
 }
 
@@ -218,15 +218,15 @@
   align-items: center;
   gap: 0.6rem;
   padding: 0.8rem 1rem;
-  border-top: 1px solid rgba(56, 217, 255, 0.15);
-  background: rgba(56, 217, 255, 0.03);
+  border-top: 1px solid color-mix(in srgb, var(--color-accent) 15%, transparent);
+  background: color-mix(in srgb, var(--color-accent) 3%, transparent);
   font-family: var(--font-mono, ui-monospace, monospace);
   font-size: 0.7rem;
   color: #8899aa;
 }
 
 .roundsLabel {
-  color: #38d9ff;
+  color: var(--color-accent);
   letter-spacing: 0.15em;
   text-transform: uppercase;
   font-size: 0.6rem;
@@ -239,14 +239,14 @@
   gap: 0.25rem;
   padding: 0.25rem 0.5rem;
   border-radius: 3px;
-  border: 1px solid rgba(56, 217, 255, 0.18);
-  background: rgba(56, 217, 255, 0.04);
+  border: 1px solid color-mix(in srgb, var(--color-accent) 18%, transparent);
+  background: color-mix(in srgb, var(--color-accent) 4%, transparent);
   font-size: 0.72rem;
   color: #c1cad6;
 }
 
 .roundDot .roundNum {
-  color: rgba(56, 217, 255, 0.55);
+  color: color-mix(in srgb, var(--color-accent) 55%, transparent);
   font-size: 0.6rem;
 }
 
@@ -266,7 +266,7 @@
 }
 
 .best .bestLabel {
-  color: rgba(56, 217, 255, 0.7);
+  color: color-mix(in srgb, var(--color-accent) 70%, transparent);
   letter-spacing: 0.1em;
   font-size: 0.62rem;
   text-transform: uppercase;
@@ -294,8 +294,8 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.7rem 0.85rem;
-  border-top: 1px solid rgba(56, 217, 255, 0.15);
-  background: rgba(56, 217, 255, 0.03);
+  border-top: 1px solid color-mix(in srgb, var(--color-accent) 15%, transparent);
+  background: color-mix(in srgb, var(--color-accent) 3%, transparent);
   flex-wrap: wrap;
   flex-shrink: 0;
 }
@@ -305,9 +305,9 @@
   font-size: 0.7rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #38d9ff;
-  background: rgba(56, 217, 255, 0.08);
-  border: 1px solid rgba(56, 217, 255, 0.3);
+  color: var(--color-accent);
+  background: color-mix(in srgb, var(--color-accent) 8%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-accent) 30%, transparent);
   padding: 0.4rem 0.85rem;
   border-radius: 3px;
   cursor: pointer;
@@ -316,25 +316,25 @@
 
 .btn:hover,
 .btn:focus-visible {
-  background: rgba(56, 217, 255, 0.2);
-  border-color: rgba(56, 217, 255, 0.6);
+  background: color-mix(in srgb, var(--color-accent) 20%, transparent);
+  border-color: color-mix(in srgb, var(--color-accent) 60%, transparent);
   outline: none;
 }
 
 .btn:focus-visible {
-  box-shadow: 0 0 0 2px rgba(56, 217, 255, 0.35);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-accent) 35%, transparent);
 }
 
 .btn.primary {
-  background: rgba(56, 217, 255, 0.22);
-  border-color: #38d9ff;
+  background: color-mix(in srgb, var(--color-accent) 22%, transparent);
+  border-color: var(--color-accent);
   color: #04070d;
   font-weight: 600;
 }
 
 .btn.primary:hover,
 .btn.primary:focus-visible {
-  background: #38d9ff;
+  background: var(--color-accent);
 }
 
 .btn.ghost {

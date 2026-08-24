@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { usePrefersReducedMotion } from "./shared/usePrefersReducedMotion";
 import styles from "./RobotPet.module.css";
 
 /**
@@ -48,15 +49,16 @@ export function RobotPet() {
   const excitedTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const loveTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const lastActivityRef = useRef<number>(Date.now());
-  const reducedMotionRef = useRef(false);
+  /** Current message's typing start + length — hide timing derives from this
+   *  so long messages get to finish before the bubble goes away. */
+  const messageRef = useRef<{ startedAt: number; len: number } | null>(null);
 
-  // Detect reduced-motion once on mount.
+  // Reactive reduced-motion (mirrors into a ref for the DOM-effect closures).
+  const reducedMotion = usePrefersReducedMotion();
+  const reducedMotionRef = useRef(false);
   useEffect(() => {
-    if (typeof window === "undefined" || !window.matchMedia) return;
-    reducedMotionRef.current = window.matchMedia(
-      "(prefers-reduced-motion: reduce)",
-    ).matches;
-  }, []);
+    reducedMotionRef.current = reducedMotion;
+  }, [reducedMotion]);
 
   // ── DOM-level hover detection ─────────────────────────
   useEffect(() => {
@@ -75,6 +77,7 @@ export function RobotPet() {
       setActiveMessage(message);
       setBubbleVisible(true);
       wakeUp();
+      messageRef.current = { startedAt: Date.now(), len: message.length };
 
       // Excited little jump on every new hotspot.
       setExcited(true);
@@ -100,9 +103,15 @@ export function RobotPet() {
 
     const scheduleHide = () => {
       if (hideTimerRef.current) clearTimeout(hideTimerRef.current);
+      // Let the typewriter finish first: remaining typing time + dwell tail.
+      const msg = messageRef.current;
+      const typingRemaining =
+        msg && !reducedMotionRef.current
+          ? Math.max(0, msg.len * TYPING_SPEED - (Date.now() - msg.startedAt))
+          : 0;
       hideTimerRef.current = setTimeout(() => {
         setBubbleVisible(false);
-      }, HOVER_LEAVE_HOLD + POST_TYPE_HOLD);
+      }, typingRemaining + HOVER_LEAVE_HOLD + POST_TYPE_HOLD);
     };
 
     const onOver = (e: MouseEvent) => {
@@ -131,10 +140,25 @@ export function RobotPet() {
       }
     };
 
+    // Tap/click support — hover never fires on touch devices, so a tap on any
+    // hotspot speaks the message too (and auto-hides after it finishes).
+    const onClick = (e: MouseEvent) => {
+      const target = e.target as HTMLElement | null;
+      if (!target) return;
+      const hotspot = target.closest<HTMLElement>("[data-robot-message]");
+      if (!hotspot) return;
+      const message = hotspot.getAttribute("data-robot-message");
+      if (!message) return;
+      currentHotspotRef.current = hotspot;
+      startMessage(message);
+      scheduleHide();
+    };
+
     const onActivity = () => wakeUp();
 
     document.addEventListener("mouseover", onOver);
     document.addEventListener("mouseout", onOut);
+    document.addEventListener("click", onClick);
     document.addEventListener("mousemove", onActivity, { passive: true });
     document.addEventListener("scroll", onActivity, { passive: true });
     document.addEventListener("keydown", onActivity);
@@ -142,6 +166,7 @@ export function RobotPet() {
     return () => {
       document.removeEventListener("mouseover", onOver);
       document.removeEventListener("mouseout", onOut);
+      document.removeEventListener("click", onClick);
       document.removeEventListener("mousemove", onActivity);
       document.removeEventListener("scroll", onActivity);
       document.removeEventListener("keydown", onActivity);
@@ -154,7 +179,7 @@ export function RobotPet() {
 
   // ── Mood ticker — sleeping / love bursts ───────────────
   useEffect(() => {
-    if (reducedMotionRef.current) return;
+    if (reducedMotion) return;
     const id = setInterval(() => {
       // Don't override love or active bubble typing.
       const stillTyping =
@@ -184,10 +209,10 @@ export function RobotPet() {
       });
     }, MOOD_TICK_MS);
     return () => clearInterval(id);
-  }, [activeMessage, typed.length]);
+  }, [activeMessage, typed.length, reducedMotion]);
 
   const stillTyping =
-    activeMessage != null && typed.length < activeMessage.length && !reducedMotionRef.current;
+    activeMessage != null && typed.length < activeMessage.length && !reducedMotion;
 
   // Mouth animates while talking.
   const mouthClass = stillTyping ? styles.talking : "";
