@@ -401,6 +401,11 @@
   z-index: 1;
   box-shadow: 0 10px 28px rgba(0, 0, 0, 0.4);
 }
+.castCard:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: -2px;
+  z-index: 1;
+}
 .cardHead {
   display: flex;
   justify-content: space-between;
