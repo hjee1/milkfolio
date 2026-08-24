@@ -38,7 +38,7 @@ export function Contact() {
       className={styles.root}
       aria-labelledby="contact-heading"
     >
-      <div className={styles.container}>
+      <div className={styles.container} data-reveal>
         <header className={styles.head}>
           <p className={styles.eyebrow}>Contact</p>
           <h2 id="contact-heading" className={styles.title}>

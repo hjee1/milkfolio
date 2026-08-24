@@ -94,7 +94,7 @@ test.describe("hero v2 (Phase 1)", () => {
     expect(height).toBeLessThanOrEqual(100);
   });
 
-  test("hero background is carbon, body background is off-white", async ({
+  test("hero background is carbon, body background is warm carbon (dark pivot)", async ({
     page,
   }) => {
     await page.goto("/actor");
@@ -104,12 +104,13 @@ test.describe("hero v2 (Phase 1)", () => {
     );
     expect(heroBg).toMatch(/rgb\(10,\s*10,\s*10\)/);
 
+    // 2026-08 다크 시네마틱 피벗 — off-white(#f8f5f0) → warm carbon(#0e0c0a).
     const body = page.locator("[data-actor-body]");
     await expect(body).toHaveCount(1);
     const bodyBg = await body.evaluate(
       (el) => getComputedStyle(el).backgroundColor,
     );
-    expect(bodyBg).toMatch(/rgb\(248,\s*245,\s*240\)/);
+    expect(bodyBg).toMatch(/rgb\(14,\s*12,\s*10\)/);
   });
 
   test("hero displays Netflix lineup hint (REQ-ACT-E-001)", async ({

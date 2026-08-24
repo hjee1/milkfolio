@@ -36,7 +36,7 @@ export function Reel() {
       className={styles.root}
       aria-labelledby="reel-heading"
     >
-      <div className={styles.container}>
+      <div className={styles.container} data-reveal>
         <header className={styles.head}>
           <p className={styles.eyebrow}>Reel</p>
           <h2 id="reel-heading" className={styles.title}>

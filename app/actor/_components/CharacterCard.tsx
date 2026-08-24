@@ -205,7 +205,7 @@ export function CharacterCard({ card }: CharacterCardProps) {
               aria-hidden="true"
               focusable="false"
             >
-              <path d="M5 3l7 5-7 5V3z" fill="#7c6240" />
+              <path d="M5 3l7 5-7 5V3z" fill="#b8a98a" />
             </svg>
           </span>
         ) : null}
@@ -271,6 +271,7 @@ export function CharacterCard({ card }: CharacterCardProps) {
   if (!isFlippable) {
     return (
       <article
+        id={`card-${card.id}`}
         className={styles.root}
         data-character-card="true"
         data-card-kind={card.cardKind}
@@ -288,6 +289,7 @@ export function CharacterCard({ card }: CharacterCardProps) {
   return (
     <button
       type="button"
+      id={`card-${card.id}`}
       className={styles.root}
       data-character-card="true"
       data-card-kind={card.cardKind}

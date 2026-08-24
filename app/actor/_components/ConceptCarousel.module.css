@@ -10,7 +10,7 @@
 }
 
 .root:focus-visible {
-  outline: 2px solid #7c6240;
+  outline: 2px solid var(--actor-accent-gold);
   outline-offset: 2px;
 }
 
@@ -51,9 +51,9 @@
   width: 36px;
   height: 36px;
   border-radius: 999px;
-  border: 1px solid rgba(212, 204, 190, 0.9); /* hairline */
-  background: rgba(248, 245, 240, 0.82); /* off-white tinted */
-  color: #1a1a1a;
+  border: 1px solid color-mix(in srgb, var(--actor-ink) 22%, transparent);
+  background: rgba(10, 10, 10, 0.55); /* dark scrim chip */
+  color: var(--actor-ink);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -67,14 +67,14 @@
 
 .nav:hover,
 .nav:focus-visible {
-  background: #f8f5f0;
-  color: #7c6240;
-  border-color: #7c6240;
+  background: rgba(10, 10, 10, 0.82);
+  color: var(--actor-accent-gold-hi);
+  border-color: var(--actor-accent-gold);
   opacity: 1;
 }
 
 .nav:focus-visible {
-  outline: 2px solid #7c6240;
+  outline: 2px solid var(--actor-accent-gold);
   outline-offset: 2px;
 }
 
@@ -98,9 +98,9 @@
   margin: 0;
   padding: 0.35rem 0.6rem;
   list-style: none;
-  background: rgba(248, 245, 240, 0.78);
+  background: rgba(10, 10, 10, 0.6);
   border-radius: 999px;
-  border: 1px solid rgba(212, 204, 190, 0.8);
+  border: 1px solid color-mix(in srgb, var(--actor-ink) 18%, transparent);
   backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(2px);
 }
@@ -116,23 +116,23 @@
   border-radius: 999px;
   border: 0;
   padding: 0;
-  background: rgba(74, 74, 74, 0.45);
+  background: color-mix(in srgb, var(--actor-ink) 40%, transparent);
   cursor: pointer;
   transition: background 160ms ease, transform 160ms ease;
 }
 
 .dot[data-active="true"] {
-  background: #7c6240;
+  background: var(--actor-accent-gold);
   transform: scale(1.25);
 }
 
 .dot:hover,
 .dot:focus-visible {
-  background: #7c6240;
+  background: var(--actor-accent-gold);
 }
 
 .dot:focus-visible {
-  outline: 2px solid #7c6240;
+  outline: 2px solid var(--actor-accent-gold);
   outline-offset: 2px;
 }
 
@@ -147,9 +147,9 @@
   font-family: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
   font-size: 0.82rem;
   letter-spacing: 0.08em;
-  color: #1a1a1a;
-  background: rgba(248, 245, 240, 0.82);
-  border: 1px solid rgba(212, 204, 190, 0.8);
+  color: var(--actor-ink);
+  background: rgba(10, 10, 10, 0.6);
+  border: 1px solid color-mix(in srgb, var(--actor-ink) 18%, transparent);
   border-radius: 2px;
   backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(2px);
@@ -161,11 +161,11 @@
 
 .counterSep {
   margin: 0 0.25em;
-  color: #7c6240;
+  color: var(--actor-accent-gold);
 }
 
 .counterTotal {
-  color: #4a4a4a;
+  color: color-mix(in srgb, var(--actor-ink) 62%, transparent);
 }
 
 /* ── Touch / 모바일: 네비 조금 작게, 더 가까이 ── */

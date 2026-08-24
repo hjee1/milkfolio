@@ -37,7 +37,7 @@ export function Profile() {
       className={styles.root}
       aria-labelledby="profile-heading"
     >
-      <div className={styles.grid}>
+      <div className={styles.grid} data-reveal>
         {/* 좌측: portrait — 3:4, grayscale 약간만, 매거진 톤 */}
         <div className={styles.portraitCol}>
           {/* profile.jpg 실측 1200×900 (가로) — CSS aspect-ratio 3/4가 crop을

@@ -36,7 +36,7 @@ export function Filmography() {
       className={styles.root}
       aria-labelledby="filmography-heading"
     >
-      <div className={styles.container}>
+      <div className={styles.container} data-reveal>
         <header className={styles.head}>
           <p className={styles.eyebrow}>Filmography</p>
           <h2 id="filmography-heading" className={styles.title}>

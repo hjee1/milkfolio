@@ -1,5 +1,6 @@
 import { SiteNav } from "@/components/SiteNav";
 import { SiteFooter } from "@/components/SiteFooter";
+import { ScrollReveal } from "@/components/ScrollReveal";
 import { Hero } from "./_components/Hero";
 import { Profile } from "./_components/Profile";
 import { PhotoConcepts } from "./_components/PhotoConcepts";
@@ -53,6 +54,7 @@ export default function ActorPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(PERSON_JSON_LD) }}
       />
       <SiteNav brand={PROFILE.name} links={NAV_LINKS} />
+      <ScrollReveal />
 
       <main>
         {/* HERO ─────────────────────────────────────── */}

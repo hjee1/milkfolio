@@ -1,4 +1,4 @@
-import { TIMELINE } from "../data";
+import { CHARACTER_CARDS, TIMELINE } from "../data";
 import styles from "./RoleTimeline.module.css";
 
 /**
@@ -31,21 +31,15 @@ import styles from "./RoleTimeline.module.css";
 export function RoleTimeline() {
   return (
     <ol className={styles.timeline} aria-label="역할 타임라인">
-      {TIMELINE.map((entry) => (
-        <li
-          key={`${entry.year}-${entry.workTitle}`}
-          className={styles.entry}
-          data-role-timeline-entry
-          data-year={entry.year}
-        >
-          <div className={styles.yearRow}>
-            <span className={styles.year}>{entry.year}</span>
-            <span className={styles.rule} aria-hidden="true" />
-            {entry.platform ? (
-              <span className={styles.platform}>{entry.platform}</span>
-            ) : null}
-          </div>
-          <div className={styles.entryBody}>
+      {TIMELINE.map((entry) => {
+        // 같은 작품의 캐릭터 카드가 있으면 타임라인 → 카드 앵커로 연결
+        // (동일 작품 3중 나열 사이에 내비게이션이 없던 문제의 해소).
+        const card = CHARACTER_CARDS.find(
+          (c) => c.workTitle === entry.workTitle,
+        );
+
+        const body = (
+          <>
             <p className={styles.workTitle}>
               <em>{entry.workTitle}</em>
             </p>
@@ -56,9 +50,37 @@ export function RoleTimeline() {
               </span>
               <span className={styles.roleName}>{entry.roleName}</span>
             </p>
-          </div>
-        </li>
-      ))}
+          </>
+        );
+
+        return (
+          <li
+            key={`${entry.year}-${entry.workTitle}`}
+            className={styles.entry}
+            data-role-timeline-entry
+            data-year={entry.year}
+          >
+            <div className={styles.yearRow}>
+              <span className={styles.year}>{entry.year}</span>
+              <span className={styles.rule} aria-hidden="true" />
+              {entry.platform ? (
+                <span className={styles.platform}>{entry.platform}</span>
+              ) : null}
+            </div>
+            {card ? (
+              <a
+                className={`${styles.entryBody} ${styles.entryLink}`}
+                href={`#card-${card.id}`}
+                aria-label={`${entry.workTitle} — ${entry.roleName} 역할 카드로 이동`}
+              >
+                {body}
+              </a>
+            ) : (
+              <div className={styles.entryBody}>{body}</div>
+            )}
+          </li>
+        );
+      })}
     </ol>
   );
 }

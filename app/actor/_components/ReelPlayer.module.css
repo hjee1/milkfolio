@@ -14,7 +14,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: clamp(1rem, 3vw, 2.5rem);
-  border-bottom: 1px solid #d4ccbe; /* hairline (zone a) */
+  border-bottom: 1px solid var(--actor-rule); /* hairline (zone a) */
   padding-bottom: 0;
 }
 
@@ -27,7 +27,7 @@
   background: transparent;
   border: 0;
   cursor: pointer;
-  color: #4a4a4a;
+  color: var(--actor-ink-soft);
   font-family: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -43,7 +43,7 @@
 }
 
 .tabActive {
-  color: #1a1a1a;
+  color: var(--actor-ink);
 }
 
 .tabActive::after {
@@ -53,15 +53,15 @@
   right: 0;
   bottom: -1px;
   height: 2px;
-  background: #7c6240; /* accentGold underline */
+  background: var(--actor-accent-gold); /* underline */
 }
 
 .tab:hover:not([disabled]) {
-  color: #1a1a1a;
+  color: var(--actor-ink);
 }
 
 .tab:focus-visible {
-  outline: 2px solid #1a1a1a;
+  outline: 2px solid var(--actor-accent-gold);
   outline-offset: 2px;
 }
 
@@ -75,11 +75,11 @@
   font-size: 0.78rem;
   letter-spacing: 0.06em;
   text-transform: none;
-  color: #4a4a4a;
+  color: var(--actor-ink-soft);
 }
 
 .tabActive .tabLabelKo {
-  color: #1a1a1a;
+  color: var(--actor-ink);
 }
 
 /* ── Panel — mobile-first 1-col, desktop 7/5 split ─────────────── */
@@ -106,9 +106,9 @@
   position: relative;
   width: 100%;
   aspect-ratio: 16 / 9;
-  background: #1a1a1a;
+  background: #000;
   overflow: hidden;
-  border: 1px solid #d4ccbe;
+  border: 1px solid var(--actor-rule);
 }
 
 .video {
@@ -116,7 +116,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  background: #0a0a0a;
+  background: var(--actor-bg-hero);
 }
 
 /* skeleton overlay — videoUrl이 빈 episode일 때 (REQ-ACT-O-002) */
@@ -128,9 +128,9 @@
   justify-content: center;
   background: linear-gradient(
     135deg,
-    #1a1a1a 0%,
-    #2a2620 50%,
-    #1a1a1a 100%
+    var(--actor-surface) 0%,
+    var(--actor-surface-hi) 50%,
+    var(--actor-surface) 100%
   );
   pointer-events: none;
 }
@@ -164,7 +164,7 @@
   font-size: clamp(0.85rem, 1.4vw, 1.05rem);
   letter-spacing: 0.32em;
   text-transform: uppercase;
-  color: #f8f5f0;
+  color: var(--actor-ink);
   margin: 0;
 }
 
@@ -176,12 +176,12 @@
   display: flex;
   flex-direction: column;
   gap: 0;
-  border-top: 1px solid #d4ccbe;
+  border-top: 1px solid var(--actor-rule);
 }
 
 .episodeItem {
   display: block;
-  border-bottom: 1px solid #d4ccbe;
+  border-bottom: 1px solid var(--actor-rule);
 }
 
 .episodeButton {
@@ -195,7 +195,7 @@
   border: 0;
   text-align: left;
   cursor: pointer;
-  color: #1a1a1a;
+  color: var(--actor-ink);
   font-family: var(--font-pretendard), "Pretendard", -apple-system,
     BlinkMacSystemFont, system-ui, sans-serif;
   font-size: 0.96rem;
@@ -204,16 +204,16 @@
 }
 
 .episodeButton:hover {
-  color: #7c6240;
+  color: var(--actor-accent-gold);
 }
 
 .episodeButton:focus-visible {
-  outline: 2px solid #1a1a1a;
+  outline: 2px solid var(--actor-accent-gold);
   outline-offset: 2px;
 }
 
 .episodeButtonActive {
-  color: #1a1a1a;
+  color: var(--actor-ink);
   font-weight: 600;
 }
 
@@ -222,7 +222,7 @@
   display: inline-block;
   width: 0.65rem;
   height: 1px;
-  background: #7c6240;
+  background: var(--actor-accent-gold);
   vertical-align: middle;
   margin-right: 0.65rem;
   transform: translateY(-2px);
@@ -237,7 +237,7 @@
   font-size: 0.7rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: #7c6240;
+  color: var(--actor-accent-gold);
   font-weight: 500;
   white-space: nowrap;
 }

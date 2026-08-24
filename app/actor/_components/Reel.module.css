@@ -4,8 +4,8 @@
    SPEC-ACTOR-REDESIGN-001 REQ-ACT-U-003/U-004/U-011/U-012 */
 
 .root {
-  background-color: #f8f5f0;
-  color: #1a1a1a;
+  background-color: var(--actor-bg-hero); /* 상영관 — body보다 깊은 카본 */
+  color: var(--actor-ink);
   padding-block: clamp(5rem, 12vh, 8rem);
   padding-inline: clamp(1.25rem, 4vw, 3rem);
 }
@@ -30,7 +30,7 @@
   letter-spacing: 0.32em;
   text-transform: uppercase;
   font-weight: 500;
-  color: #7c6240; /* accentGold — gold zone (b) on light, WCAG AA */
+  color: var(--actor-accent-gold); /* gold zone (b) */
   margin: 0;
 }
 
@@ -40,7 +40,7 @@
   font-weight: 400;
   letter-spacing: 0.04em;
   line-height: 1;
-  color: #1a1a1a;
+  color: var(--actor-ink);
   margin: 0;
 }
 
@@ -49,7 +49,7 @@
     BlinkMacSystemFont, system-ui, sans-serif;
   font-size: clamp(0.95rem, 1.4vw, 1.05rem);
   line-height: 1.7;
-  color: #4a4a4a; /* ink.soft */
+  color: var(--actor-ink-soft);
   margin: 0.35rem 0 0;
   max-width: 42rem;
 }
@@ -71,9 +71,9 @@
   align-items: center;
   gap: 0.55em;
   padding: 0.7em 1.4em;
-  color: #7c6240; /* accentGold — 항상 골드 톤 */
-  background-color: rgba(124, 98, 64, 0.06); /* 매우 옅은 골드 톤 fill */
-  border: 1.5px solid #7c6240;
+  color: var(--actor-accent-gold);
+  background-color: color-mix(in srgb, var(--actor-accent-gold) 8%, transparent);
+  border: 1.5px solid var(--actor-accent-gold);
   border-radius: 999px;
   text-decoration: none;
   font-weight: 500;
@@ -84,14 +84,14 @@
 
 .moreLink:hover,
 .moreLink:focus-visible {
-  background-color: #7c6240;
-  color: #f8f5f0; /* off-white — 반전 hover */
+  background-color: var(--actor-accent-gold);
+  color: var(--actor-bg-hero); /* 카본 — 골드 위 반전 */
   transform: translateY(-1px);
-  box-shadow: 0 4px 14px -6px rgba(124, 98, 64, 0.5);
+  box-shadow: 0 4px 18px -6px color-mix(in srgb, var(--actor-accent-gold) 45%, transparent);
 }
 
 .moreLink:focus-visible {
-  outline: 2px solid #7c6240;
+  outline: 2px solid var(--actor-accent-gold);
   outline-offset: 3px;
 }
 

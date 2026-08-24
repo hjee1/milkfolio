@@ -4,8 +4,8 @@
    SPEC-ACTOR-REDESIGN-001 REQ-ACT-U-011/U-012 */
 
 .root {
-  background-color: #f8f5f0;
-  color: #1a1a1a;
+  background-color: var(--actor-bg-body);
+  color: var(--actor-ink);
   padding-block: clamp(5rem, 12vh, 8rem);
   padding-inline: clamp(1.25rem, 4vw, 3rem);
 }
@@ -30,7 +30,7 @@
   letter-spacing: 0.32em;
   text-transform: uppercase;
   font-weight: 500;
-  color: #7c6240; /* gold zone (b) on light — darken */
+  color: var(--actor-accent-gold); /* gold zone (b) */
   margin: 0;
 }
 
@@ -40,7 +40,7 @@
   font-weight: 400;
   letter-spacing: 0.04em;
   line-height: 1;
-  color: #1a1a1a;
+  color: var(--actor-ink);
   margin: 0;
 }
 
@@ -69,7 +69,7 @@
   letter-spacing: 0.28em;
   text-transform: uppercase;
   font-weight: 500;
-  color: #7c6240; /* gold zone (b) on light — darken */
+  color: var(--actor-accent-gold); /* gold zone (b) */
   margin: 0;
   flex-shrink: 0;
 }
@@ -78,7 +78,7 @@
   display: block;
   flex: 1;
   height: 1px;
-  background: #d4ccbe; /* hairline (zone a) */
+  background: var(--actor-rule); /* hairline (zone a) */
 }
 
 /* 엔트리 리스트 */
@@ -94,12 +94,12 @@
   column-gap: 1.5rem;
   align-items: baseline;
   padding-block: 1.15rem;
-  border-bottom: 1px solid #d4ccbe;
+  border-bottom: 1px solid var(--actor-rule);
   transition: background-color 0.25s ease;
 }
 
 .entry:hover {
-  background-color: rgba(124, 98, 64, 0.04);
+  background-color: color-mix(in srgb, var(--actor-accent-gold) 6%, transparent);
 }
 
 .entry:last-child {
@@ -111,7 +111,7 @@
   font-family: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
   font-size: 0.9rem;
   letter-spacing: 0.08em;
-  color: #4a4a4a;
+  color: var(--actor-ink-soft);
   text-align: left;
 }
 
@@ -133,7 +133,7 @@
   font-family: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
   font-size: clamp(1.15rem, 2.2vw, 1.55rem);
   font-weight: 400;
-  color: #1a1a1a;
+  color: var(--actor-ink);
   line-height: 1.25;
 }
 
@@ -150,8 +150,8 @@
   letter-spacing: 0.18em;
   text-transform: uppercase;
   font-weight: 500;
-  color: #7c6240;
-  border: 1px solid #7c6240;
+  color: var(--actor-accent-gold);
+  border: 1px solid var(--actor-accent-gold);
   padding: 0.18rem 0.6rem;
   border-radius: 2px;
   line-height: 1.2;
@@ -173,12 +173,12 @@
     BlinkMacSystemFont, system-ui, sans-serif;
   font-size: 0.82rem;
   font-style: italic;
-  color: #7c6240;
+  color: var(--actor-accent-gold);
   letter-spacing: 0.02em;
 }
 
 .roleSeparator {
-  color: #d4ccbe;
+  color: var(--actor-ink-dim);
   font-size: 0.85rem;
   user-select: none;
 }
@@ -187,7 +187,7 @@
   font-family: var(--font-pretendard), "Pretendard", -apple-system,
     BlinkMacSystemFont, system-ui, sans-serif;
   font-size: 0.92rem;
-  color: #4a4a4a;
+  color: var(--actor-ink-soft);
   font-weight: 400;
   letter-spacing: 0.01em;
 }

@@ -9,6 +9,8 @@
    를 잡을 수 있다. */
 .root {
   position: relative;
+  /* 타임라인 앵커(#card-…)로 진입 시 고정 내비에 가려지지 않게 */
+  scroll-margin-top: 96px;
   width: 100%;
   aspect-ratio: 4 / 5;
   padding: 0;
@@ -31,7 +33,7 @@
 
 /* keyboard focus-visible — off-white 위 ink 어두운 outline */
 .root:focus-visible {
-  outline: 2px solid #1a1a1a;
+  outline: 2px solid var(--actor-accent-gold);
   outline-offset: 4px;
 }
 
@@ -105,8 +107,8 @@
   -webkit-backface-visibility: hidden;
   border-radius: 2px;
   overflow: hidden;
-  background-color: #efe9dd; /* off-white slightly darker for card surface */
-  border: 1px solid #d4ccbe;
+  background-color: var(--actor-surface); /* dark card surface */
+  border: 1px solid var(--actor-rule);
 }
 
 .face[data-face="back"] {
@@ -134,7 +136,7 @@
     rgba(10, 10, 10, 0.55) 60%,
     rgba(10, 10, 10, 0) 100%
   );
-  color: #f8f5f0;
+  color: var(--actor-ink);
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
@@ -168,7 +170,7 @@
   letter-spacing: 0.22em;
   text-transform: uppercase;
   font-weight: 500;
-  color: #b8a98a; /* accentGoldOnDark — dark overlay 위 OK */
+  color: var(--actor-accent-gold);
   margin: 0.25rem 0 0;
 }
 
@@ -186,8 +188,8 @@
   gap: 0.6rem;
   background: linear-gradient(
     180deg,
-    #efe9dd 0%,
-    #e6dfd0 100%
+    var(--actor-surface) 0%,
+    var(--actor-surface-hi) 100%
   );
 }
 
@@ -195,7 +197,7 @@
   font-family: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
   font-size: 0.84rem;
   letter-spacing: 0.32em;
-  color: #4a4a4a;
+  color: var(--actor-ink-soft);
   margin: 0;
 }
 
@@ -205,7 +207,7 @@
   font-weight: 400;
   letter-spacing: 0.02em;
   line-height: 1.2;
-  color: #1a1a1a;
+  color: var(--actor-ink);
   margin: 0;
 }
 
@@ -220,7 +222,7 @@
   letter-spacing: 0.32em;
   text-transform: uppercase;
   font-weight: 500;
-  color: #1a1a1a;
+  color: var(--actor-ink);
   margin: 0;
 }
 
@@ -229,7 +231,7 @@
     BlinkMacSystemFont, system-ui, sans-serif;
   font-size: 0.74rem;
   font-style: italic;
-  color: #7c6240; /* gold zone (c) on light */
+  color: var(--actor-accent-gold);
   margin: 0;
 }
 
@@ -240,10 +242,10 @@
   letter-spacing: 0.18em;
   text-transform: uppercase;
   font-weight: 500;
-  color: #6a6a6a;
+  color: var(--actor-ink-dim);
   margin-top: 0.6rem;
   padding: 0.3rem 0.7rem;
-  border: 1px solid #d4ccbe;
+  border: 1px solid var(--actor-rule);
   border-radius: 1px;
 }
 
@@ -257,8 +259,8 @@
   display: flex;
   flex-direction: column;
   gap: 0.7rem;
-  background: linear-gradient(180deg, #f3ede0 0%, #efe9dd 100%);
-  color: #1a1a1a;
+  background: linear-gradient(180deg, var(--actor-surface-hi) 0%, var(--actor-surface) 100%);
+  color: var(--actor-ink);
   overflow: hidden;
 }
 
@@ -266,7 +268,7 @@
   font-family: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
   font-size: 0.92rem;
   letter-spacing: 0.06em;
-  color: #4a4a4a;
+  color: var(--actor-ink-soft);
   margin: 0;
 }
 
@@ -286,7 +288,7 @@
   font-size: clamp(1.3rem, 2.2vw, 1.7rem);
   font-weight: 400;
   letter-spacing: 0.03em;
-  color: #1a1a1a;
+  color: var(--actor-ink);
   line-height: 1.1;
 }
 
@@ -295,7 +297,7 @@
     BlinkMacSystemFont, system-ui, sans-serif;
   font-size: 0.72rem;
   font-style: italic;
-  color: #7c6240;
+  color: var(--actor-accent-gold);
   letter-spacing: 0.02em;
 }
 
@@ -317,7 +319,7 @@
   aspect-ratio: 3 / 2;
   overflow: hidden;
   border-radius: 1px;
-  background: #d4ccbe;
+  background: var(--actor-surface-hi);
 }
 
 .stillImage {
@@ -333,7 +335,7 @@
     BlinkMacSystemFont, system-ui, sans-serif;
   font-size: 0.84rem;
   line-height: 1.55;
-  color: #1a1a1a;
+  color: var(--actor-ink);
   margin: 0;
 }
 
@@ -342,7 +344,7 @@
     BlinkMacSystemFont, system-ui, sans-serif;
   font-size: 0.78rem;
   line-height: 1.55;
-  color: #8a8a8a;
+  color: var(--actor-ink-dim);
   margin: 0;
   font-style: italic;
 }
@@ -360,8 +362,8 @@
   font-family: var(--font-pretendard), "Pretendard", -apple-system,
     BlinkMacSystemFont, system-ui, sans-serif;
   font-size: 0.74rem;
-  color: #7c6240;
-  border: 1px solid #d4ccbe;
+  color: var(--actor-accent-gold);
+  border: 1px solid color-mix(in srgb, var(--actor-accent-gold) 35%, transparent);
   padding: 0.18rem 0.55rem;
   border-radius: 999px;
   letter-spacing: 0.02em;
@@ -379,8 +381,8 @@
   width: 22px;
   height: 22px;
   border-radius: 50%;
-  background: rgba(248, 245, 240, 0.92);
-  border: 1px solid rgba(124, 98, 64, 0.3);
+  background: rgba(14, 12, 10, 0.85);
+  border: 1px solid color-mix(in srgb, var(--actor-accent-gold) 45%, transparent);
   filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.18));
   pointer-events: none;
   opacity: 1;

@@ -4,8 +4,8 @@
    SPEC-ACTOR-REDESIGN-001 REQ-ACT-U-003 / U-004 / U-011 */
 
 .root {
-  background-color: #f8f5f0;
-  color: #1a1a1a;
+  background-color: var(--actor-bg-body);
+  color: var(--actor-ink);
   padding-block: clamp(5rem, 12vh, 8rem);
   padding-inline: clamp(1.25rem, 4vw, 3rem);
 }
@@ -30,7 +30,7 @@
   letter-spacing: 0.32em;
   text-transform: uppercase;
   font-weight: 500;
-  color: #7c6240;
+  color: var(--actor-accent-gold);
   margin: 0;
 }
 
@@ -40,7 +40,7 @@
   font-weight: 400;
   letter-spacing: 0.04em;
   line-height: 1;
-  color: #1a1a1a;
+  color: var(--actor-ink);
   margin: 0;
 }
 
@@ -49,7 +49,7 @@
     BlinkMacSystemFont, system-ui, sans-serif;
   font-size: clamp(0.95rem, 1.4vw, 1.05rem);
   line-height: 1.7;
-  color: #4a4a4a;
+  color: var(--actor-ink-soft);
   margin: 0.35rem 0 0;
   max-width: 42rem;
 }
@@ -74,7 +74,7 @@
   position: relative;
   width: 100%;
   aspect-ratio: 4 / 5;
-  background-color: #ece5d6; /* 로딩/스킬리튼 톤 */
+  background-color: var(--actor-surface); /* 로딩/스켈레톤 톤 */
   overflow: hidden;
 }
 
@@ -91,7 +91,7 @@
   letter-spacing: 0.32em;
   text-transform: uppercase;
   font-weight: 500;
-  color: #7c6240;
+  color: var(--actor-accent-gold);
   margin: 0;
   white-space: nowrap;
 }
@@ -102,7 +102,7 @@
   font-size: clamp(1rem, 1.4vw, 1.15rem);
   font-weight: 500;
   letter-spacing: 0.04em;
-  color: #1a1a1a;
+  color: var(--actor-ink);
   margin: 0;
 }
 
@@ -110,7 +110,7 @@
   font-family: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
   font-size: clamp(0.78rem, 1vw, 0.88rem);
   letter-spacing: 0.08em;
-  color: #4a4a4a;
+  color: var(--actor-ink-soft);
   margin: 0 0 0 auto;
 }
 

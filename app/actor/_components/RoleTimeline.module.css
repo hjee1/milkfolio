@@ -29,7 +29,7 @@
   font-family: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
   font-size: 0.92rem;
   letter-spacing: 0.12em;
-  color: #4a4a4a;
+  color: var(--actor-ink-soft);
   font-weight: 500;
   flex-shrink: 0;
 }
@@ -38,7 +38,7 @@
   display: block;
   flex: 1;
   height: 1px;
-  background: #d4ccbe; /* hairline zone (a) */
+  background: var(--actor-rule); /* hairline zone (a) */
 }
 
 /* 플랫폼 배지 (Netflix 등) — 연도 행 우측 끝, gold small-caps chip. */
@@ -61,11 +61,31 @@
   min-width: 0;
 }
 
+/* 카드 앵커 링크 버전 — hover/focus 시 작품명이 골드로 물든다. */
+.entryLink {
+  text-decoration: none;
+  color: inherit;
+}
+
+.entryLink .workTitle {
+  transition: color 0.25s ease;
+}
+
+.entryLink:hover .workTitle,
+.entryLink:focus-visible .workTitle {
+  color: var(--actor-accent-gold);
+}
+
+.entryLink:focus-visible {
+  outline: 2px solid var(--actor-accent-gold);
+  outline-offset: 4px;
+}
+
 .workTitle {
   font-family: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
   font-size: clamp(1.05rem, 1.8vw, 1.35rem);
   font-weight: 400;
-  color: #1a1a1a;
+  color: var(--actor-ink);
   line-height: 1.25;
   margin: 0;
 }
@@ -90,12 +110,12 @@
     BlinkMacSystemFont, system-ui, sans-serif;
   font-size: 0.78rem;
   font-style: italic;
-  color: #7c6240;
+  color: var(--actor-accent-gold);
   letter-spacing: 0.02em;
 }
 
 .roleSeparator {
-  color: #d4ccbe;
+  color: var(--actor-ink-dim);
   font-size: 0.85rem;
   user-select: none;
 }
@@ -104,7 +124,7 @@
   font-family: var(--font-pretendard), "Pretendard", -apple-system,
     BlinkMacSystemFont, system-ui, sans-serif;
   font-size: 0.88rem;
-  color: #4a4a4a;
+  color: var(--actor-ink-soft);
   font-weight: 400;
   letter-spacing: 0.01em;
 }
@@ -124,7 +144,7 @@
   }
   .entry {
     padding-block: 0.6rem;
-    border-bottom: 1px solid #d4ccbe;
+    border-bottom: 1px solid var(--actor-rule);
   }
   .entry:last-child {
     border-bottom: 0;

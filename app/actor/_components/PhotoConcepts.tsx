@@ -34,7 +34,7 @@ export function PhotoConcepts() {
       className={styles.root}
       aria-labelledby="concepts-heading"
     >
-      <div className={styles.container}>
+      <div className={styles.container} data-reveal>
         <header className={styles.head}>
           <p className={styles.eyebrow}>Concept</p>
           <h2 id="concepts-heading" className={styles.title}>

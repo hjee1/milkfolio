@@ -26,14 +26,21 @@
   --font-cormorant: "Cormorant Garamond", "Noto Serif KR", Georgia, serif;
   --font-pretendard: "Pretendard", -apple-system, BlinkMacSystemFont,
     system-ui, "Segoe UI", "Noto Sans KR", sans-serif;
-  --actor-bg-body: #f8f5f0;
-  --actor-bg-hero: #0a0a0a;
-  --actor-ink: #1a1a1a;
-  --actor-ink-soft: #4a4a4a;
-  --actor-rule: #d4ccbe;
-  /* gold — 본문(off-white) 위 darken (REQ-ACT-U-012, WCAG AA 통과). */
-  --actor-accent-gold: #7c6240;
-  /* Hero(carbon) 위 전용 — accentGoldOnDark. Hero.module.css에서 사용. */
+
+  /* ── 다크 시네마틱 팔레트 (2026-08 아트 디렉션 피벗) ──
+     영화 포스터 / 무드 화보 톤. warm carbon 위 warm off-white 잉크,
+     gold 액센트는 단일 값 #b8a98a로 통일 (카본 위 ~8:1, WCAG AA). */
+  --actor-bg-body: #0e0c0a;      /* deep warm carbon — 본문 */
+  --actor-bg-hero: #0a0a0a;      /* true carbon — Hero·상영관 */
+  --actor-surface: #161310;      /* 카드·패널 표면 */
+  --actor-surface-hi: #1e1a15;   /* 표면 강조 / 그라데이션 상단 */
+  --actor-ink: #ece7db;          /* warm off-white 잉크 */
+  --actor-ink-soft: #b0a898;     /* 보조 잉크 */
+  --actor-ink-dim: #7d7466;      /* 희미한 잉크 (장식·구분자) */
+  --actor-rule: #2b2721;         /* hairline */
+  --actor-accent-gold: #b8a98a;  /* gold — 카본 위 AA */
+  --actor-accent-gold-hi: #d4c5a3; /* hover 골드 */
+  /* 구 명칭 호환 — 다크 피벗 후 두 골드는 같은 값으로 수렴 */
   --actor-accent-gold-on-dark: #b8a98a;
 
   font-family: var(--font-pretendard);
@@ -45,16 +52,60 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* 전면 필름 그레인 — 페이지 전체에 아주 미세한 노이즈 질감 (시네마 톤).
+   fixed 레이어 + overlay 블렌드, 5% 불투명도. 포인터 이벤트 차단 없음. */
+.body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  pointer-events: none;
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.5 0 0 0 0 0.5 0 0 0 0 0.5 0 0 0 1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 160px 160px;
+}
+
+/* 골드 셀렉션 */
+.body ::selection {
+  background: color-mix(in srgb, var(--actor-accent-gold) 30%, transparent);
+  color: var(--actor-accent-gold-hi);
+}
+
+/* ── 스크롤 리빌 — components/ScrollReveal.tsx가 data-revealed를 부착 ──
+   초기 상태는 살짝 아래 + 투명, 뷰포트 진입 시 부드럽게 올라온다.
+   reduced-motion에서는 즉시 표시. (opacity는 Playwright visibility에
+   영향 없음 — e2e 안전) */
+.body :global([data-reveal]) {
+  opacity: 0;
+  transform: translateY(26px);
+  transition:
+    opacity 0.9s cubic-bezier(0.2, 0.6, 0.2, 1),
+    transform 0.9s cubic-bezier(0.2, 0.6, 0.2, 1);
+}
+
+.body :global([data-reveal][data-revealed="true"]) {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .body :global([data-reveal]) {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
 /* Hero → body 수직 gradient bridge — REQ-ACT-U-009 LOCKED 60~100px.
-   sharp camera cut 금지. carbon → off-white. */
+   다크 피벗 후: true carbon → warm carbon의 미세한 톤 시프트. */
 .heroBridge {
   height: clamp(64px, 8vh, 96px);
   width: 100%;
   background: linear-gradient(
     to bottom,
     var(--actor-bg-hero) 0%,
-    #1a1814 35%,
-    #5a5448 65%,
+    #0c0b09 55%,
     var(--actor-bg-body) 100%
   );
   border-bottom: 0;

@@ -3,8 +3,8 @@
    SPEC-ACTOR-REDESIGN-001 REQ-ACT-U-003 / U-004 / U-011 */
 
 .root {
-  background-color: #f8f5f0;
-  color: #1a1a1a;
+  background-color: var(--actor-bg-body);
+  color: var(--actor-ink);
   padding-block: clamp(5rem, 12vh, 8rem);
   padding-inline: clamp(1.25rem, 4vw, 3rem);
 }
@@ -32,8 +32,9 @@
   aspect-ratio: 3 / 4;
   object-fit: cover;
   object-position: center top;
-  /* grayscale 약 12% — 매거진 톤. WCAG 영향 없음 (img는 텍스트가 아님). */
-  filter: grayscale(12%);
+  /* 시네마 톤 — 미세 grayscale + 대비. 다크 배경 위 hairline 프레임. */
+  filter: grayscale(10%) contrast(1.02);
+  border: 1px solid var(--actor-rule);
 }
 
 /* 우측 content — eyebrow / h2 / 부제 / hairline / table */
@@ -51,7 +52,7 @@
   letter-spacing: 0.32em;
   text-transform: uppercase;
   font-weight: 500;
-  color: #7c6240;
+  color: var(--actor-accent-gold);
   margin: 0 0 1.5rem;
 }
 
@@ -64,7 +65,7 @@
   font-style: normal;
   letter-spacing: 0.01em;
   line-height: 1.05;
-  color: #1a1a1a;
+  color: var(--actor-ink);
   margin: 0;
 }
 
@@ -80,7 +81,7 @@
   font-size: clamp(1.05rem, 1.6vw, 1.25rem);
   font-weight: 500;
   letter-spacing: 0.08em;
-  color: #4a4a4a;
+  color: var(--actor-ink-soft);
   margin: 0.85rem 0 0;
 }
 
@@ -88,7 +89,7 @@
    톤 일관성을 위해 같은 darken 토큰을 사용한다. */
 .rule {
   border: 0;
-  border-top: 1px solid #d4ccbe;
+  border-top: 1px solid var(--actor-rule);
   margin: 2.5rem 0 0;
   width: 100%;
 }
@@ -114,7 +115,7 @@
 }
 
 .infoTable tr {
-  border-bottom: 1px solid #d4ccbe;
+  border-bottom: 1px solid var(--actor-rule);
 }
 
 .infoTable tr:last-child {
@@ -127,7 +128,7 @@
   letter-spacing: 0.22em;
   text-transform: uppercase;
   font-weight: 500;
-  color: #1a1a1a;
+  color: var(--actor-ink);
   text-align: left;
   vertical-align: top;
   width: 7rem;
@@ -140,13 +141,13 @@
     BlinkMacSystemFont, system-ui, sans-serif;
   font-size: 0.96rem;
   line-height: 1.6;
-  color: #4a4a4a;
+  color: var(--actor-ink-soft);
   padding: 1.15rem 0;
   vertical-align: top;
 }
 
 .infoLink {
-  color: #1a1a1a;
+  color: var(--actor-ink);
   text-decoration: none;
   border-bottom: 1px solid transparent;
   padding-bottom: 2px;
@@ -155,13 +156,13 @@
 
 .infoLink:hover,
 .infoLink:focus-visible {
-  color: #7c6240;
-  border-bottom-color: #7c6240;
+  color: var(--actor-accent-gold);
+  border-bottom-color: var(--actor-accent-gold);
   outline: none;
 }
 
 .infoLink:focus-visible {
-  outline: 2px solid #7c6240;
+  outline: 2px solid var(--actor-accent-gold);
   outline-offset: 4px;
 }
 

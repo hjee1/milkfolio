@@ -40,7 +40,7 @@ export function Roles() {
       className={styles.root}
       aria-labelledby="roles-heading"
     >
-      <div className={styles.container}>
+      <div className={styles.container} data-reveal>
         <header className={styles.head}>
           <p className={styles.eyebrow}>Roles</p>
           <h2 id="roles-heading" className={styles.title}>
